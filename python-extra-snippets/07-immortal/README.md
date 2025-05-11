@@ -1,1 +1,1 @@
-# Immortal Python Snippets
+# Immortal Class Python Snippets
