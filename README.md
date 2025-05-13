@@ -2,7 +2,7 @@
 
 > ## Current Repository Progress: **`550/1000`**
 
-Welcome to the **Python 1000 Snippets** repository! This project contains 1000 Python code snippets categorized into three levels of difficulty: **Basic** (1-333), **Intermediate** (334-666), and **Advanced** (667-1000). Each snippet is housed in its own folder (`python-1000-snippets/0001-{title_name}`) with a dedicated `README.md` explaining the code and its usage.
+Welcome to the **Python 1000 Snippets** repository! This project contains 1000 Python code snippets categorized into three levels of difficulty: **Basic** (1-333), **Intermediate** (334-666), and **Advanced** (667-1000). Each snippet is housed in its own folder (`python-1000-snippets/0001-{title_name}`) with a dedicated `README.md` explaining the code and its usage. 
 
 Below is the complete list of snippet titles, hyperlinked to their respective folders in this repository.
 
