@@ -1,7 +1,7 @@
 # Python 1000 Snippets
 
 > ## *Current Repository Progress:* 
-> - *Snippets: **`710/1000`***
+> - *Snippets: **`730/1000`***
 > - *Cheatsheets: **`0/1000`***
 > - *Samples: **`0/1000`***
 
@@ -745,7 +745,7 @@ Below is the complete list of snippet titles, hyperlinked to their respective fo
 | 721 | [Meta-Learning](https://github.com/VoxDroid/python-1000-snippets/tree/main/python-1000-snippets/0721-Meta-Learning) | ✅ | ❌ | ❌ |
 | 722 | [Few-Shot Learning](https://github.com/VoxDroid/python-1000-snippets/tree/main/python-1000-snippets/0722-Few-Shot-Learning) | ✅ | ❌ | ❌ |
 | 723 | [Zero-Shot Learning](https://github.com/VoxDroid/python-1000-snippets/tree/main/python-1000-snippets/0723-Zero-Shot-Learning) | ✅ | ❌ | ❌ |
-| 724 | [Continual Learning](continual_learning_snippet) | ✅ | ❌ | ❌ |
+| 724 | [Continual Learning](https://github.com/VoxDroid/python-1000-snippets/tree/main/python-1000-snippets/0724-Continual-Learning) | ✅ | ❌ | ❌ |
 | 725 | [Online Learning](https://github.com/VoxDroid/python-1000-snippets/tree/main/python-1000-snippets/0725-Online-Learning) | ✅ | ❌ | ❌ |
 | 726 | [Active Learning](https://github.com/VoxDroid/python-1000-snippets/tree/main/python-1000-snippets/0726-Active-Learning) | ✅ | ❌ | ❌ |
 | 727 | [Curriculum Learning](https://github.com/VoxDroid/python-1000-snippets/tree/main/python-1000-snippets/0727-Curriculum-Learning) | ✅ | ❌ | ❌ |
