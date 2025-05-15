@@ -1,0 +1,67 @@
+name: Bug Report
+description: Report a bug in a snippet or the repository
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug! Please provide as much detail as possible to help us resolve it.
+  - type: input
+    id: snippet-number
+    attributes:
+      label: Snippet Number
+      description: Which snippet is affected? (e.g., 0001-Hello-World)
+      placeholder: e.g., 0001-Hello-World
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear description of the bug.
+      placeholder: Describe the issue, including what you expected and what happened.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the bug.
+      placeholder: |
+        1. Run the snippet `python-1000-snippets/0001-Hello-World/`
+        2. Execute the code with Python 3.8
+        3. Observe the error...
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Your environment details.
+      placeholder: |
+        - OS: [e.g., Ubuntu 20.04]
+        - Python Version: [e.g., 3.8.10]
+        - Dependencies: [e.g., numpy==1.21.0, scipy==1.7.0]
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or Error Messages
+      description: Paste any relevant error messages or logs.
+      placeholder: |
+        ```
+        Traceback (most recent call last):
+          File "...", line X, in <module>
+            ...
+        ```
+    validations:
+      required: false
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional Information
+      description: Any other context or screenshots about the bug.
+    validations:
+      required: false
