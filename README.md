@@ -1,7 +1,7 @@
 # Python 1000 Snippets
 
 > ## *Current Repository Progress:* 
-> - *Snippets: **`950/1000`***
+> - *Snippets: **`970/1000`***
 > - *Cheatsheets: **`0/1000`***
 > - *Samples: **`0/1000`***
 
