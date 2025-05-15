@@ -1,0 +1,42 @@
+name: Documentation Improvement
+description: Suggest improvements to documentation
+title: "[Docs] "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve our documentation! Please describe the suggested changes.
+  - type: input
+    id: file
+    attributes:
+      label: Affected File
+      description: Which file needs improvement? (e.g., README.md, snippets_list.md, or a snippet’s README)
+      placeholder: e.g., python-1000-snippets/0001-Hello-World/README.md
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the issue or improvement needed in the documentation.
+      placeholder: The README for snippet 1000 is unclear about [specific section]. It should include [suggestion].
+    validations:
+      required: true
+  - type: textarea
+    id: proposed-changes
+    attributes:
+      label: Proposed Changes
+      description: Suggest specific changes or provide revised text.
+      placeholder: |
+        Current text: "..."
+        Suggested text: "..."
+    validations:
+      required: false
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional Information
+      description: Any other context or references.
+    validations:
+      required: false
