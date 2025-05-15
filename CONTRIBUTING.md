@@ -16,7 +16,7 @@ Thank you for your interest in contributing to the **Python 1000 Snippets** repo
   - Ensure the `README.md` includes description, code, output, and explanation sections.
 - Update `snippets_list.md` if adding a new snippet.
 - Test your code to ensure it runs without errors.
-- Submit a pull request using the [PULL_REQUEST_TEMPLATE.md](.github/PULL_REQUEST_TEMPLATE.md).
+- Submit a pull request using the [PULL_REQUEST_TEMPLATE.md](https://github.com/VoxDroid/python-1000-snippets/blob/main/.github/PULL_REQUEST_TEMPLATE.markdown).
 - Ensure your code adheres to PEP 8 style guidelines.
 
 ### 3. Adding Cheatsheets or Samples
