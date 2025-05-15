@@ -1,0 +1,51 @@
+name: Feature Request
+description: Suggest a new snippet, feature, or enhancement
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a new feature or snippet! Please provide details to help us understand your idea.
+  - type: input
+    id: snippet-number
+    attributes:
+      label: Snippet Number (if applicable)
+      description: If this enhances an existing snippet, specify its number or title.
+      placeholder: e.g., 0001-Hello-World
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the feature or new snippet you’re proposing.
+      placeholder: I suggest adding a new snippet for [feature/snippet description] to demonstrate [purpose].
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case
+      description: Explain the problem this solves or its real-world application.
+      placeholder: This snippet would help users understand [concept] by showing [example].
+    validations:
+      required: true
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Proposed Implementation
+      description: Provide a rough idea of how this could be implemented (code, libraries, etc.).
+      placeholder: |
+        ```python
+        # Example code for the proposed snippet
+        ```
+    validations:
+      required: false
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional Information
+      description: Any other context, references, or examples.
+    validations:
+      required: false
