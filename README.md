@@ -24,6 +24,7 @@ python-1000-snippets/
 │   ├── ...
 │   └── 1000-Hybrid-Quantum-Classical-Computing/
 │       └── README.md
+```
 
 ## Contributing
 We welcome contributions! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to submit snippets, improve documentation, or report issues.
@@ -39,6 +40,10 @@ Found a security issue? Please report it following the guidelines in [SECURITY.m
 
 ## License
 This repository is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+---
+
+# Snippet List
 
 Below is the complete list of snippet titles, hyperlinked to their respective folders in this repository.
 
