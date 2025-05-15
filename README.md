@@ -5,7 +5,40 @@
 > - *Cheatsheets: **`0/1000`***
 > - *Samples: **`0/1000`***
 
-Welcome to the **Python 1000 Snippets** repository! This project contains 1000 Python code snippets categorized into three levels of difficulty: **Basic** (1-333), **Intermediate** (334-666), and **Advanced** (667-1000). Each snippet is housed in its own folder (`python-1000-snippets/0001-{title_name}`) with a dedicated `README.md` explaining the code and its usage. 
+Welcome to the **Python 1000 Snippets** repository! This project is a comprehensive collection of 1000 Python code snippets for demonstration and simulation. The snippets are categorized into three difficulty levels:
+
+- **Basic (1-333)**: Foundational Python concepts.
+- **Intermediate (334-666)**: More complex techniques.
+- **Advanced (667-1000)**: Advanced applications, advanced algorithms, and more.
+
+Each snippet resides in its own folder (`python-1000-snippets/XXXX-Title-Name`) with a dedicated `README.md` explaining the code, its purpose, and usage.
+
+## Folder Structure
+```
+python-1000-snippets/
+├── python-1000-snippets/
+│   ├── 0001-Hello-World/
+│   │   └── README.md
+│   ├── 0002-Variable-Declaration/
+│   │   └── README.md
+│   ├── ...
+│   └── 1000-Hybrid-Quantum-Classical-Computing/
+│       └── README.md
+
+## Contributing
+We welcome contributions! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to submit snippets, improve documentation, or report issues.
+
+## Community Guidelines
+To ensure a welcoming environment, please adhere to our [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+
+## Support
+For help or questions, refer to [SUPPORT.md](SUPPORT.md).
+
+## Security
+Found a security issue? Please report it following the guidelines in [SECURITY.md](SECURITY.md).
+
+## License
+This repository is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 Below is the complete list of snippet titles, hyperlinked to their respective folders in this repository.
 
