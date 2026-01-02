@@ -8,7 +8,7 @@ If you discover a security vulnerability in any of the snippets or the repositor
 
 1. **Do Not Open a Public Issue**: To protect users, avoid disclosing vulnerabilities publicly until they are resolved.
 2. **Contact the Maintainers**:
-   - Email: [Insert contact email, e.g., izeno.contact@gmail.com]
+   - Email: izeno.contact@gmail.com
    - Include a detailed description of the vulnerability, steps to reproduce, and potential impact.
 3. **Response Time**:
    - We will acknowledge your report within 48 hours.
