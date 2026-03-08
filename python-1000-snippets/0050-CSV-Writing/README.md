@@ -36,3 +36,12 @@ Bob,30,New York
 - **With Statement**: Ensures the file is properly closed after writing.
 - **Use Case**: CSV writing is used for exporting data, generating reports, or saving datasets.
 - **Best Practice**: Use `csv.DictWriter` for dictionary-based data; handle file permissions errors.
+
+## Additional Files
+- `CHEATSHEET.md` with writer/DictWriter tips and newline notes.
+- `SAMPLES/` contains:
+  1. `sample1.py` – write a list-of-lists to CSV.
+  2. `sample2.py` – use `csv.DictWriter` to output dictionaries.
+  3. `sample3.py` – read rows from stdin and write to file.
+
+Run samples inside a `.venv`; they will create output files.

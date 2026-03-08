@@ -1,5 +1,12 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Countdown timer for a number of seconds
+
+import time
 
 if __name__ == '__main__':
-    print('sample 3')
+    n = int(input('Count down seconds: '))
+    while n > 0:
+        print(n)
+        time.sleep(1)
+        n -= 1
+    print('Time up!')

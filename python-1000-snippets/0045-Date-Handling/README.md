@@ -23,3 +23,12 @@ Current date: 2025-05-08
 - **Use Case**: Date handling is used in logging, scheduling, or data timestamping.
 - **Format Codes**: `%Y` (year), `%m` (month), `%d` (day), etc., allow custom formatting.
 - **Best Practice**: Use `datetime` for robust date handling; validate formats for user inputs.
+
+## Additional Files
+- `CHEATSHEET.md` covers formatting codes, parsing, and timezone notes.
+- `SAMPLES/` contains:
+  1. `sample1.py` – display current date/time and format variations.
+  2. `sample2.py` – parse user-entered date string and show weekday.
+  3. `sample3.py` – calculate difference between two dates.
+
+Run each sample inside a `.venv` to see output.

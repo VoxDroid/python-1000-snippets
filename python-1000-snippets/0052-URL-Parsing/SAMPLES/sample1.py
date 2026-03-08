@@ -1,5 +1,14 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Prompt user for a URL and print parsed components
+
+from urllib.parse import urlparse
 
 if __name__ == '__main__':
-    print('sample 1')
+    url = input('URL: ')
+    p = urlparse(url)
+    print('scheme:', p.scheme)
+    print('netloc:', p.netloc)
+    print('path:', p.path)
+    print('params:', p.params)
+    print('query:', p.query)
+    print('fragment:', p.fragment)

@@ -35,3 +35,12 @@ Bob,30,New York
 - **Header**: `next(reader)` skips the header row.
 - **Use Case**: CSV reading is used for data analysis, importing datasets, or processing tabular data.
 - **Best Practice**: Use `csv.DictReader` for dictionary-based access; handle missing or malformed files.
+
+## Additional Files
+- `CHEATSHEET.md` with reader/DictReader tips and quoting rules.
+- `SAMPLES/` includes:
+  1. `sample1.py` – create a small CSV and read rows with `csv.reader`.
+  2. `sample2.py` – read same data with `csv.DictReader`.
+  3. `sample3.py` – ask for filename and column name, then output values.
+
+Run each script in a `.venv`; samples create their own temporary files.

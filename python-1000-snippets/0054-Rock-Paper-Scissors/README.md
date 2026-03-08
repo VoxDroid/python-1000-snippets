@@ -35,3 +35,12 @@ You win!
 - **Use Case**: Demonstrates conditionals, user input, and randomization in a simple game.
 - **Error Handling**: Should validate user input (e.g., only allow valid choices).
 - **Best Practice**: Add a loop for multiple rounds and track scores for a full game.
+
+## Additional Files
+- `CHEATSHEET.md` shows rules table and random choice usage.
+- `SAMPLES/` contains:
+  1. `sample1.py` – single round with seeded computer choice.
+  2. `sample2.py` – best-of-three match with score tally.
+  3. `sample3.py` – use a helper function and dictionary to determine winner.
+
+Run examples in a `.venv`; supply inputs via pipe for automated testing.

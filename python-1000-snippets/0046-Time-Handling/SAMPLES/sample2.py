@@ -1,5 +1,13 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Parse time string and indicate AM/PM
+
+from datetime import datetime
 
 if __name__ == '__main__':
-    print('sample 2')
+    s = input('Enter time (HH:MM:SS): ')
+    try:
+        t = datetime.strptime(s, '%H:%M:%S').time()
+        print('Parsed time:', t)
+        print('AM/PM:', 'AM' if t.hour < 12 else 'PM')
+    except ValueError:
+        print('Invalid time format')

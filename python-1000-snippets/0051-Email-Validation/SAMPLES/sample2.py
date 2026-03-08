@@ -1,5 +1,12 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Validate a list of predefined email addresses
+
+import re
+
+def is_valid(email):
+    return bool(re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', email))
 
 if __name__ == '__main__':
-    print('sample 2')
+    emails = ['user@example.com', 'invalid.email', 'bob@site', 'alice@domain.co']
+    valids = [e for e in emails if is_valid(e)]
+    print('valid addresses:', valids)

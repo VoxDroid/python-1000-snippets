@@ -38,3 +38,12 @@ Correct! It took 3 attempts.
 - **Use Case**: Demonstrates user interaction, conditionals, and loops in a fun application.
 - **Error Handling**: Should catch non-integer inputs in production.
 - **Best Practice**: Add a maximum attempt limit or input validation for robustness.
+
+## Additional Files
+- `CHEATSHEET.md` covers `random.randint` and loop patterns.
+- `SAMPLES/` includes:
+  1. `sample1.py` – basic game with fixed secret (seeded for tests).
+  2. `sample2.py` – play until user decides to quit, demonstrate replay loop.
+  3. `sample3.py` – game with limited attempts and input validation.
+
+Run samples in a `.venv`; use `printf` to simulate guesses automatically.

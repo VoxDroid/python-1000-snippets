@@ -28,3 +28,12 @@ Path: /path/to/page
 - **Use Case**: URL parsing is used in web scraping, API clients, or link analysis.
 - **Error Handling**: Invalid URLs may raise exceptions or produce unexpected results; add validation in production.
 - **Best Practice**: Use `urllib.parse` for robust URL handling; validate URLs before parsing.
+
+## Additional Files
+- `CHEATSHEET.md` explains `urlparse`, `parse_qs`, and how to rebuild URLs.
+- `SAMPLES/` contains:
+  1. `sample1.py` – prompt for a URL and display components.
+  2. `sample2.py` – iterate over a list of URLs and print their netlocs.
+  3. `sample3.py` – construct a URL with query parameters and parse a query string.
+
+Run samples under `.venv`; sample3 shows `urlunparse` and `parse_qs` usage.

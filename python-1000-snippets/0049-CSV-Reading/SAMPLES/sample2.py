@@ -1,5 +1,11 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# read the same CSV file using DictReader
+
+import csv
 
 if __name__ == '__main__':
-    print('sample 2')
+    fname = 'temp.csv'
+    with open(fname, newline='') as f:
+        dr = csv.DictReader(f)
+        for d in dr:
+            print('dict row:', d)

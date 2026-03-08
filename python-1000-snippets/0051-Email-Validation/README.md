@@ -36,3 +36,12 @@ Enter an email address: invalid.email
 - **Use Case**: Email validation is used in forms, user registration, or data cleaning.
 - **Limitations**: This checks format, not if the email exists. Advanced validation may require DNS checks.
 - **Best Practice**: Use robust regex patterns and consider libraries like `email-validator` for production.
+
+## Additional Files
+- `CHEATSHEET.md` contains regex breakdown and common pitfalls.
+- `SAMPLES/` includes:
+  1. `sample1.py` – prompt user for one address and validate.
+  2. `sample2.py` – iterate over a hardcoded list and filter valid emails.
+  3. `sample3.py` – read emails from stdin (one per line) and print results.
+
+Examples can be executed in a `.venv`; sample3 accepts input via pipe for testing.

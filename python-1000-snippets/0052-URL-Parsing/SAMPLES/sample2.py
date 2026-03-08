@@ -1,5 +1,14 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Parse a list of URLs and print the network location
+
+from urllib.parse import urlparse
 
 if __name__ == '__main__':
-    print('sample 2')
+    urls = [
+        'https://example.com/page',
+        'ftp://ftp.example.com/resource',
+        'http://localhost:8000/test'
+    ]
+    for u in urls:
+        parsed = urlparse(u)
+        print(u, '->', parsed.netloc)

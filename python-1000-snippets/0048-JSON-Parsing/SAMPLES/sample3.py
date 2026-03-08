@@ -1,5 +1,14 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Write an object to a file as JSON and read it back
+
+import json
 
 if __name__ == '__main__':
-    print('sample 3')
+    obj = {'x': 1, 'y': 2}
+    fname = 'data.json'
+    with open(fname, 'w') as f:
+        json.dump(obj, f)
+    print('wrote', fname)
+    with open(fname) as f:
+        loaded = json.load(f)
+    print('loaded object:', loaded)

@@ -24,3 +24,12 @@ Current time: 14:30:45
 - **Use Case**: Time handling is used in scheduling, logging, or user interfaces.
 - **Format Codes**: `%H` (hour), `%M` (minute), `%S` (second), etc., allow custom formatting.
 - **Best Practice**: Use `datetime` for reliable time handling; consider time zones for global applications.
+
+## Additional Files
+- `CHEATSHEET.md` highlights time formatting codes, parsing, and timezone notes.
+- `SAMPLES/` includes:
+  1. `sample1.py` – display current time in several formats.
+  2. `sample2.py` – parse user-supplied time string and label AM/PM.
+  3. `sample3.py` – simple timer counting down seconds.
+
+Run each sample inside a `.venv` to see output differences.

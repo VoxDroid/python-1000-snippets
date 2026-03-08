@@ -31,3 +31,12 @@ Generated password: kX#9mP$2nJ@5
 - **List Comprehension**: Builds the password by joining random characters.
 - **Use Case**: Password generation is used in security applications or user account setup.
 - **Best Practice**: Use `secrets` module for cryptographic security; validate length input.
+
+## Additional Files
+- `CHEATSHEET.md` lists character sets and security tips.
+- `SAMPLES/` contains:
+  1. `sample1.py` – generate one password of user-specified length.
+  2. `sample2.py` – use `secrets.choice` for stronger randomness.
+  3. `sample3.py` – generate multiple passwords and check for duplicates.
+
+Run the samples in a `.venv` environment.
