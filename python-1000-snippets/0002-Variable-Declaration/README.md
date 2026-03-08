@@ -23,6 +23,15 @@ is_student = True
   - `age` is an integer (`int`), storing whole numbers.
   - `height` is a float (`float`), storing decimal numbers.
   - `is_student` is a boolean (`bool`), storing `True` or `False`.
-- **Naming Rules**: Variable names must start with a letter or underscore, can include numbers, and are case-sensitive (e.g., `Name` and `name` are different).
-- **Use Case**: Variables are fundamental for storing and manipulating data, such as user information or calculation results.
-- **Dynamic Typing**: Python automatically determines the variable's type based on the assigned value, making it flexible but requiring caution to avoid type-related errors.
+- **Naming Rules**: Variable names must start with a letter or underscore, can include numbers, and are case-sensitive (e.g., `Name` and `name` are different). Avoid Python keywords.
+- **Dynamic Typing**: Python automatically determines the variable's type based on the assigned value, which allows reassigning different types to the same name.
+- **Use Case**: Variables are fundamental for storing and manipulating data, such as user information or calculation results. They form the basis of functions, data structures, and control flow.
+
+## Additional Files
+- `CHEATSHEET.md` contains quick tips and examples for declaring and using variables.
+- `SAMPLES/` directory includes three runnable programs demonstrating variable usage:
+  1. `sample1.py` – declare, modify, and print variables.
+  2. `sample2.py` – read input into variables and calculate a result.
+  3. `sample3.py` – illustrate dynamic typing by reassigning different types.
+
+Run these samples in a `.venv` to verify they execute correctly.

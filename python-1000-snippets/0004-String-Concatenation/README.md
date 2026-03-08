@@ -25,3 +25,12 @@ Hello, John Doe!
 - **Variables**: `first_name` and `last_name` store string values that are combined to form a greeting.
 - **Use Case**: String concatenation is used in user interfaces, logging, or generating dynamic content like emails or reports.
 - **Best Practice**: f-strings are preferred over `+` for concatenation due to better readability and performance when combining multiple strings.
+
+## Additional Files
+- `CHEATSHEET.md` includes operator summaries, `join()` tips, and examples.
+- `SAMPLES/` contains three scripts:
+  1. `sample1.py` – greeting construction.
+  2. `sample2.py` – build a comma-separated list from input.
+  3. `sample3.py` – demonstrate safe path concatenation.
+
+Run samples under a `.venv` to verify behavior.

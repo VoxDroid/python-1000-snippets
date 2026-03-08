@@ -5,3 +5,6 @@ __pycache__
 test*.py
 dockerfile
 notes.txt
+GUIDELINES.md
+CHECKLIST.md
+CHECKLIST_TEMP.md

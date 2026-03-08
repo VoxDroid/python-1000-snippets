@@ -47,3 +47,12 @@ Exponentiation: 1000
 - **f-strings**: The `f"..."` syntax (f-strings) allows embedding variable values in strings for clean output formatting.
 - **Use Case**: Arithmetic operations are essential for calculations in applications like finance, scientific computing, and game development.
 - **Precision**: Division (`/`) returns a float, even if the result is a whole number, which is important for accurate computations.
+
+## Additional Files
+- `CHEATSHEET.md` provides operator summaries and examples.
+- `SAMPLES/` contains:
+  1. `sample1.py` – fixed-value arithmetic breakdown.
+  2. `sample2.py` – compound interest calculation.
+  3. `sample3.py` – interactive two-number calculator.
+
+Run these samples under a `.venv` to see operations in action.
