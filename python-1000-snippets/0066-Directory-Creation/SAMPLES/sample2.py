@@ -1,5 +1,9 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Create nested directories using makedirs
+
+import os
 
 if __name__ == '__main__':
-    print('sample 2')
+    path = 'parent/child/grandchild'
+    os.makedirs(path, exist_ok=True)
+    print('ensured path', path)

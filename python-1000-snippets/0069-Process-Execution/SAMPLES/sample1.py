@@ -1,5 +1,8 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Run echo command and capture output
+
+import subprocess
 
 if __name__ == '__main__':
-    print('sample 1')
+    res = subprocess.run(['echo', 'hello world'], capture_output=True, text=True)
+    print('output:', res.stdout.strip())

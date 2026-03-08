@@ -1,5 +1,13 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Delete all .tmp files in current directory
+
+import os
+import glob
 
 if __name__ == '__main__':
-    print('sample 2')
+    for fname in glob.glob('*.tmp'):
+        try:
+            os.remove(fname)
+            print('removed', fname)
+        except Exception as e:
+            print('failed to remove', fname, e)

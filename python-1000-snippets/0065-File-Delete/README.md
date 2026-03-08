@@ -33,3 +33,12 @@ File 'file_to_delete.txt' not found.
 - **Use Case**: File deletion is used in cleanup scripts or temporary file management.
 - **Caution**: Deletion is permanent; ensure the correct file is targeted.
 - **Best Practice**: Confirm file existence and user intent before deletion.
+
+## Additional Files
+- `CHEATSHEET.md` shows remove, unlink, rmdir differences and safe removal.
+- `SAMPLES/` includes:
+  1. `sample1.py` – create and delete a file.
+  2. `sample2.py` – delete multiple files matching a pattern.
+  3. `sample3.py` – prompt for filename then delete with confirmation.
+
+Run samples in `.venv`; sample3 reads names from `printf` inputs.

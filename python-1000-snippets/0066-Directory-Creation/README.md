@@ -33,3 +33,12 @@ Directory 'new_folder' already exists.
 - **Use Case**: Directory creation is used in file organization, project setup, or data storage.
 - **Alternative**: Use `os.makedirs()` for creating nested directories.
 - **Best Practice**: Validate directory names and permissions before creation.
+
+## Additional Files
+- `CHEATSHEET.md` describes `os.mkdir`, `os.makedirs`, `pathlib.Path.mkdir`, and existence checks.
+- `SAMPLES/` contains:
+  1. `sample1.py` – create a single directory.
+  2. `sample2.py` – make nested directories with `makedirs`.
+  3. `sample3.py` – prompt for a directory name and create it if absent.
+
+Run samples in a `.venv`; sample3 reads input by pipe for testing.

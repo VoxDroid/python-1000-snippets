@@ -1,5 +1,12 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Execute a non-existent command to show error handling
+
+import subprocess
 
 if __name__ == '__main__':
-    print('sample 2')
+    try:
+        subprocess.run(['nonexistentcmd'], check=True)
+    except FileNotFoundError:
+        print('command not found')
+    except subprocess.CalledProcessError:
+        print('command failed with non-zero exit')

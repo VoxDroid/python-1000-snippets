@@ -29,3 +29,12 @@ Directory contents: ['file1.txt', 'folder1']
 - **Use Case**: Directory listing is used in file explorers, backups, or file processing scripts.
 - **Flexibility**: Combine with `os.path` to filter files or directories.
 - **Best Practice**: Specify absolute paths for clarity and handle large directories efficiently.
+
+## Additional Files
+- `CHEATSHEET.md` showing listdir, scandir, walk, and filtering techniques.
+- `SAMPLES/` includes:
+  1. `sample1.py` – simple listing of current directory.
+  2. `sample2.py` – recursive listing using `os.walk`.
+  3. `sample3.py` – filter for files with a given extension.
+
+Run samples in a `.venv`; sample3 reads extension via pipe for automation.

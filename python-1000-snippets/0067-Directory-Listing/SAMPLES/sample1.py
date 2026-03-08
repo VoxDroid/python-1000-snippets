@@ -1,5 +1,7 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# List entries in current directory
+
+import os
 
 if __name__ == '__main__':
-    print('sample 1')
+    print('contents:', os.listdir('.'))

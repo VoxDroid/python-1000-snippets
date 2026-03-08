@@ -43,3 +43,12 @@ All threads completed
 - **Use Case**: Threads are used for I/O-bound tasks (e.g., file operations, network requests) to improve performance.
 - **Limitations**: Python’s GIL (Global Interpreter Lock) limits true parallelism for CPU-bound tasks; use `multiprocessing` for those.
 - **Best Practice**: Ensure thread safety with locks for shared resources; avoid complex thread interactions.
+
+## Additional Files
+- `CHEATSHEET.md` notes threading basics, locks, and daemon threads.
+- `SAMPLES/` includes:
+  1. `sample1.py` – basic threads as shown.
+  2. `sample2.py` – use a `Lock` to synchronize access to a shared counter.
+  3. `sample3.py` – demonstrate daemon threads that exit when main thread ends.
+
+Execute samples in a `.venv` to observe concurrent output.

@@ -1,5 +1,12 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Prompt user for directory name and create it if absent
+
+import os
 
 if __name__ == '__main__':
-    print('sample 3')
+    name = input('Directory name: ')
+    if not os.path.exists(name):
+        os.mkdir(name)
+        print('created', name)
+    else:
+        print(name, 'already exists')

@@ -1,5 +1,18 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Demonstrate daemon threads that exit with main thread
+
+import threading
+import time
+
+def background():
+    while True:
+        print('background running')
+        time.sleep(0.5)
 
 if __name__ == '__main__':
-    print('sample 3')
+    t = threading.Thread(target=background)
+    t.daemon = True
+    t.start()
+    print('main thread sleeping for 2 seconds')
+    time.sleep(2)
+    print('main thread exiting, daemon thread will stop')

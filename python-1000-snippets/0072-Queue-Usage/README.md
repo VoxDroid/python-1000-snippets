@@ -52,3 +52,12 @@ Consumed 4
 - **Methods**: `put()` adds items; `get()` retrieves; `task_done()` signals completion.
 - **Use Case**: Queues are used in multi-threaded applications for task scheduling or data processing pipelines.
 - **Best Practice**: Use `task_done()` and handle empty queues; consider `queue.Empty` exceptions for robustness.
+
+## Additional Files
+- `CHEATSHEET.md` explains `Queue`, `LifoQueue`, `PriorityQueue`, and blocking/non-blocking operations.
+- `SAMPLES/` includes:
+  1. `sample1.py` – basic producer/consumer as shown.
+  2. `sample2.py` – use `queue.Empty` to timeout on `get()`.
+  3. `sample3.py` – implement a simple thread pool using queue of tasks.
+
+Run samples in a `.venv`; sample2 will demonstrate timeout behavior.

@@ -1,5 +1,9 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Filter for files with a given extension
+
+import os
 
 if __name__ == '__main__':
-    print('sample 3')
+    ext = input('extension (e.g. .py): ')
+    matches = [f for f in os.listdir('.') if f.endswith(ext)]
+    print('matched:', matches)

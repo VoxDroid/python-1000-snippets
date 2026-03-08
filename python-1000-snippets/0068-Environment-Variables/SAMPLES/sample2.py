@@ -1,5 +1,8 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Set an environment variable temporarily then read it
+
+import os
 
 if __name__ == '__main__':
-    print('sample 2')
+    os.environ['MYVAR'] = '123'
+    print('MYVAR set to:', os.getenv('MYVAR'))

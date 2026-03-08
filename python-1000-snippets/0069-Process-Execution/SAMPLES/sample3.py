@@ -1,5 +1,11 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Build a safe command from user input and execute
+
+import subprocess
+import shlex
 
 if __name__ == '__main__':
-    print('sample 3')
+    cmd = input('Command: ')
+    args = shlex.split(cmd)
+    result = subprocess.run(args, capture_output=True, text=True)
+    print(result.stdout)

@@ -1,3 +1,27 @@
-# 0068-Environment-Variables Cheatsheet
+# Environment Variables Cheatsheet
 
-*(Provide quick usage tips, shortcuts and examples.)*
+## Accessing
+```
+import os
+val = os.getenv('HOME', '/tmp')
+```
+- or `os.environ.get('HOME')`
+
+## Setting
+```
+os.environ['MYVAR']='value'
+```
+
+## Tips
+- Changes affect current process and children only.
+- Use `del os.environ['VAR']` to remove.
+
+## Example
+```
+for k,v in os.environ.items():
+    if k.startswith('PY'):
+        print(k,v)
+```
+
+## Running samples
+Activate venv and run `SAMPLES/sample*.py`.

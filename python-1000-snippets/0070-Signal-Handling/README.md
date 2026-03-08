@@ -31,3 +31,12 @@ Received signal, exiting gracefully.
 - **Use Case**: Signal handling is used for cleanup, logging, or graceful shutdown in long-running programs.
 - **Limitations**: Not all signals can be caught; behavior varies by platform.
 - **Best Practice**: Handle only necessary signals and ensure cleanup code is robust.
+
+## Additional Files
+- `CHEATSHEET.md` lists common signals and example handlers.
+- `SAMPLES/` includes:
+  1. `sample1.py` – basic SIGINT handler as shown.
+  2. `sample2.py` – handle SIGTERM for graceful shutdown.
+  3. `sample3.py` – demonstrate ignoring a signal temporarily.
+
+Run samples in `.venv`; sample1 and sample2 require manual interruption but can be tested with `timeout`. Example uses simulated signals.

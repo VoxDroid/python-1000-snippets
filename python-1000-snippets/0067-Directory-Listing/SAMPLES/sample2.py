@@ -1,5 +1,12 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Recursively list files and directories
+
+import os
 
 if __name__ == '__main__':
-    print('sample 2')
+    for root, dirs, files in os.walk('.'):
+        print('Root:', root)
+        for d in dirs:
+            print('  dir:', d)
+        for f in files:
+            print('  file:', f)

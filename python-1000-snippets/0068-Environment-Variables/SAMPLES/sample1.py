@@ -1,5 +1,8 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Print value of HOME or default
+
+import os
 
 if __name__ == '__main__':
-    print('sample 1')
+    val = os.getenv('HOME', '/home/unknown')
+    print('HOME =', val)

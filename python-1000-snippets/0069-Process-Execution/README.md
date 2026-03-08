@@ -31,3 +31,12 @@ drwxr-xr-x 2 user user 4096 May  8 14:30 folder1
 - **Use Case**: Process execution is used for running shell commands, scripts, or external tools.
 - **Error Handling**: Catches missing commands or execution failures.
 - **Best Practice**: Avoid shell=True for security; validate commands to prevent injection.
+
+## Additional Files
+- `CHEATSHEET.md` covers `run`, `Popen`, `check_output`, and handling return codes.
+- `SAMPLES/` includes:
+  1. `sample1.py` – run `echo` and capture output.
+  2. `sample2.py` – execute a failing command and handle exception.
+  3. `sample3.py` – run a command built from user input safely.
+
+Run samples inside a `.venv`; use `printf` to simulate user input where needed.
