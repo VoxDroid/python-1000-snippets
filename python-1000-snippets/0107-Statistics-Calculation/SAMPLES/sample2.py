@@ -1,5 +1,12 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Use Python's statistics module
+
+import statistics
 
 if __name__ == '__main__':
-    print('sample 2')
+    data = [2,4,4,4,5,5,7,9]
+    print('mean', statistics.mean(data))
+    print('median', statistics.median(data))
+    print('variance sample', statistics.pvariance(data))
+    print('variance population', statistics.pvariance(data))
+    print('stdev', statistics.stdev(data))

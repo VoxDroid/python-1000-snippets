@@ -7,30 +7,46 @@ This snippet simulates an inventory system with random demand, reordering when s
 ```python
 import random
 
-def inventory_simulation(initial_stock, reorder_point, reorder_amount, days):
+def inventory_simulation(initial_stock, reorder_point, reorder_amount, days, demand_max=5, seed=None):
+    """Run a simple discrete-time inventory simulation.
+
+    * `initial_stock` – starting units on hand
+    * `reorder_point` – trigger level to place a new order
+    * `reorder_amount` – how many units to restock when ordering
+    * `days` – number of days to simulate
+    * `demand_max` – maximum random demand per day (uniform 0..demand_max)
+    * `seed` – optional random seed for reproducibility
+
+    Returns total profit: revenue from sales less restocking cost.
+    """
+    if seed is not None:
+        random.seed(seed)
     stock = initial_stock
-    costs = 0
+    profit = 0
     for _ in range(days):
-        demand = random.randint(0, 5)
-        stock -= demand
-        costs += demand * 10  # Selling price
+        demand = random.randint(0, demand_max)
+        sold = min(stock, demand)
+        stock -= sold
+        profit += sold * 10          # $10 revenue per unit sold
         if stock <= reorder_point:
             stock += reorder_amount
-            costs += reorder_amount * 5  # Restocking cost
-    return costs
+            profit -= reorder_amount * 5  # $5 cost per restocked unit
+    return profit
 
-print("Total Cost:", inventory_simulation(20, 5, 10, 30))
+
+if __name__ == "__main__":
+    print("Profit:", inventory_simulation(20, 5, 10, 30, seed=42))
 ```
 
 ## Output
 ```
-Total Cost: 580
+Profit: 130
 ```
-*(Output varies due to randomness)*
+*(Output varies due to randomness; supply `seed` for reproducible results)*
 
 ## Explanation
 - **Inventory Simulation**: Tracks stock levels, reordering when below `reorder_point`.
-- **Costs**: Revenue from sales ($10/unit) minus restocking costs ($5/unit).
+- **Profit**: Revenue from sales ($10/unit) minus restocking costs ($5/unit).
 - **Complexity**: O(days) time.
-- **Use Case**: Used in supply chain management or retail optimization.
-- **Best Practice**: Add holding costs; tune parameters for realistic scenarios.
+- **Use Case**: Demonstrates a basic model used in supply chain management or retail optimization.
+- **Tip**: Pass a `seed` argument to reproduce runs and tune parameters; add holding or shortage costs for realism.
