@@ -1,5 +1,11 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# collect name and age then display a greeting
+
+def main():
+    name = input("Enter your name: ")
+    age = input("Enter your age: ")
+    print(f"Hello, {name}! You said you were {age} years old.")
 
 if __name__ == '__main__':
-    print('sample 1')
+    main()
+

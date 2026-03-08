@@ -23,3 +23,12 @@ Hello, Alice! You are 25 years old.
 - **Type Conversion**: `int(input(...))` converts the string input to an integer. Be cautious, as invalid input (e.g., letters) will raise a `ValueError`.
 - **Use Case**: User input is critical for interactive applications like forms, games, or command-line tools.
 - **Error Handling**: In production code, you should add error handling (e.g., `try-except`) to manage invalid inputs gracefully.
+
+## Additional Files
+- `CHEATSHEET.md` provides usage patterns and validation tricks.
+- `SAMPLES/` includes three examples:
+  1. `sample1.py` – basic name/age prompt.
+  2. `sample2.py` – numeric validation and calculation.
+  3. `sample3.py` – hidden password input with check.
+
+Run these under a `.venv` to explore input handling.
