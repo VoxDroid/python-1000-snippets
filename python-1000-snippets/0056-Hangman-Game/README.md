@@ -53,3 +53,12 @@ You win!
 - **Use Case**: Demonstrates loops, conditionals, and string manipulation in an interactive game.
 - **Error Handling**: Should validate single-letter inputs in production.
 - **Best Practice**: Add a larger word list and input validation for a robust game.
+
+## Additional Files
+- `CHEATSHEET.md` explains display logic and guess tracking.
+- `SAMPLES/` includes:
+  1. `sample1.py` – game with fixed word and pre‑determined guesses (seeded random).
+  2. `sample2.py` – play using a list of hardcoded guesses demonstrating win/loss.
+  3. `sample3.py` – read guesses from stdin to simulate a playing session.
+
+Run samples in a `.venv`; provide guesses via `printf` to automate input.

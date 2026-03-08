@@ -23,3 +23,12 @@ Arguments: ['arg1', 'arg2']
 - **Use Case**: Command-line arguments are used for scripts that accept user inputs, like file names or options.
 - **Error Handling**: Check `len(sys.argv)` to ensure required arguments are provided.
 - **Best Practice**: Use `argparse` for complex argument parsing in production scripts.
+
+## Additional Files
+- `CHEATSHEET.md` contrasts `sys.argv` vs `argparse` and shows examples.
+- `SAMPLES/` includes:
+  1. `sample1.py` – echo the script name and arguments.
+  2. `sample2.py` – sum integer arguments provided on command line.
+  3. `sample3.py` – use `argparse` to parse options like `--count`.
+
+Run samples under `.venv`; provide arguments directly when executing.

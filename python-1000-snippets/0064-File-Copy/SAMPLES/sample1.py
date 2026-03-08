@@ -1,5 +1,15 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Create a temporary source file and copy it to destination
+
+import shutil
 
 if __name__ == '__main__':
-    print('sample 1')
+    src = 'source1.txt'
+    dst = 'dest1.txt'
+    with open(src, 'w') as f:
+        f.write('hello world')
+    try:
+        shutil.copy(src, dst)
+        print('copied', src, 'to', dst)
+    except Exception as e:
+        print('error', e)

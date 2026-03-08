@@ -28,3 +28,12 @@ logging.error("Error message")
 - **Use Case**: Logging is used for debugging, monitoring, or auditing applications.
 - **Flexibility**: Can log to files or other outputs by configuring handlers.
 - **Best Practice**: Use logging instead of `print()` for production code; configure appropriate levels.
+
+## Additional Files
+- `CHEATSHEET.md` explains levels, handlers, and formatting.
+- `SAMPLES/` contains:
+  1. `sample1.py` – simple console logging as shown.
+  2. `sample2.py` – add a file handler to write logs to a file.
+  3. `sample3.py` – create and use a named logger instance.
+
+Run samples in a `.venv`; sample2 will create a log file in the directory.

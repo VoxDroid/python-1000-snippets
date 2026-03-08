@@ -1,5 +1,9 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Extract all numbers from a string using findall
+
+import re
 
 if __name__ == '__main__':
-    print('sample 1')
+    text = "Order 66 cost $99 and 100 units"
+    nums = re.findall(r'\d+', text)
+    print('found numbers:', nums)

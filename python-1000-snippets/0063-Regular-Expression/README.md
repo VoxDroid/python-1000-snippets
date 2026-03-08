@@ -23,3 +23,12 @@ Numbers found: ['2025', '99']
 - **Use Case**: Regex is used for text parsing, validation, or data extraction.
 - **Error Handling**: Ensure patterns are well-tested to avoid unexpected matches.
 - **Best Practice**: Use raw strings (`r''`) for patterns and test regex with tools like regex101.com.
+
+## Additional Files
+- `CHEATSHEET.md` with common functions (`findall`, `search`, `match`, `sub`) and pattern examples.
+- `SAMPLES/` includes:
+  1. `sample1.py` – extract numbers from text.
+  2. `sample2.py` – validate an email address with regex.
+  3. `sample3.py` – substitute sensitive words using `re.sub`.
+
+Run samples in a `.venv`; sample2 may read input for demonstration.

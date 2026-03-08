@@ -34,3 +34,12 @@ Decrypted text: Hello, World!
 - **Use Case**: Complements the encryption snippet; used in educational exercises.
 - **Limitations**: Assumes correct shift value; not secure for real-world use.
 - **Best Practice**: Pair with encryption snippet and validate inputs for robustness.
+
+## Additional Files
+- `CHEATSHEET.md` details decryption logic and brute‑force technique.
+- `SAMPLES/` includes:
+  1. `sample1.py` – decrypt a hardcoded string with a known shift.
+  2. `sample2.py` – brute-force all 26 shifts to attempt decryption.
+  3. `sample3.py` – accept encrypted text from stdin and output decrypted text using provided shift.
+
+Use a `.venv` to execute samples; sample3 reads via pipe for automated testing.

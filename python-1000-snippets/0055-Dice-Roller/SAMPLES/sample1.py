@@ -1,5 +1,11 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Roll a six-sided die three times with seeded randomness
+
+import random
+
+def roll_dice(sides, rolls):
+    return [random.randint(1, sides) for _ in range(rolls)]
 
 if __name__ == '__main__':
-    print('sample 1')
+    random.seed(42)
+    print('rolled:', roll_dice(6, 3))

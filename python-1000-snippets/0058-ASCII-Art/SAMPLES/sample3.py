@@ -1,5 +1,7 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Build a pyramid shape using loops
 
 if __name__ == '__main__':
-    print('sample 3')
+    height = 5
+    for i in range(height):
+        print(' '*(height-i-1) + '*'*(2*i+1))

@@ -32,3 +32,12 @@ Source file not found.
 - **Use Case**: File copying is used in backups, file management, or data processing.
 - **Alternative**: Use `shutil.copyfile()` for content-only copying without metadata.
 - **Best Practice**: Validate file paths and permissions before copying.
+
+## Additional Files
+- `CHEATSHEET.md` compares `shutil.copy`, `copyfile`, `copy2`, and `move`.
+- `SAMPLES/` includes:
+  1. `sample1.py` – create a source file and copy it.
+  2. `sample2.py` – copy multiple files listed in a directory.
+  3. `sample3.py` – copy and then rename the destination.
+
+Run samples in a `.venv`; they write files in the snippet directory and clean up as needed.

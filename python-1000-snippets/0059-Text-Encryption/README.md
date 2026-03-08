@@ -34,3 +34,12 @@ Encrypted text: Khoor, Zruog!
 - **Use Case**: Demonstrates basic cryptography; used in educational exercises or puzzles.
 - **Limitations**: Not secure for real encryption; easily broken via frequency analysis.
 - **Best Practice**: Validate inputs and use secure libraries (e.g., `cryptography`) for real encryption.
+
+## Additional Files
+- `CHEATSHEET.md` explains letter shifting and wrapping logic.
+- `SAMPLES/` includes:
+  1. `sample1.py` – encrypt a hardcoded sentence.
+  2. `sample2.py` – decrypt text by negative shift and demonstrate reversibility.
+  3. `sample3.py` – read lines from stdin and output encrypted versions.
+
+Run samples in a `.venv`; sample3 accepts input via pipe.

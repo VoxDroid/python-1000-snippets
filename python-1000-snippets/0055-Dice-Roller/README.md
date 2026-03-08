@@ -30,3 +30,12 @@ Results: [4, 1, 6]
 - **List Comprehension**: Efficiently generates multiple rolls.
 - **Use Case**: Dice rollers are used in games, simulations, or random sampling.
 - **Best Practice**: Validate inputs (e.g., positive integers) and handle edge cases.
+
+## Additional Files
+- `CHEATSHEET.md` shows how to roll different dice and aggregate results.
+- `SAMPLES/` contains:
+  1. `sample1.py` – roll a standard six‑sided die multiple times.
+  2. `sample2.py` – roll a custom-sided die and tally frequency.
+  3. `sample3.py` – simulate a dice game comparing two players.
+
+Run the samples in a `.venv`; use `printf` to supply input automatically.

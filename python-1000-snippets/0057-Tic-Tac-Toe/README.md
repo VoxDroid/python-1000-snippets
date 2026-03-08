@@ -78,3 +78,12 @@ Player X wins!
 - **Use Case**: Demonstrates nested lists, conditionals, and game logic.
 - **Error Handling**: Should validate input (e.g., range, integers) in production.
 - **Best Practice**: Add a loop for replay and robust input validation.
+
+## Additional Files
+- `CHEATSHEET.md` outlines board representation and win checks.
+- `SAMPLES/` includes:
+  1. `sample1.py` – sequence of moves that leads to X winning.
+  2. `sample2.py` – sequence resulting in a draw.
+  3. `sample3.py` – read moves from stdin and play out a game.
+
+Execute samples in a `.venv`; supply move coordinates via `printf` for automation.

@@ -1,3 +1,19 @@
-# 0058-ASCII-Art Cheatsheet
+# ASCII Art Cheatsheet
 
-*(Provide quick usage tips, shortcuts and examples.)*
+## Multi-line strings
+```python
+art = '''line1
+line2''' 
+print(art)
+```
+
+## Dynamic generation
+- Use loops and string concatenation to build shapes.
+- Example tree builder in README.
+
+## Tips
+- Escape backslashes `\\` when needed.
+- Maintain spacing for alignment.
+
+## Running samples
+Activate venv and run `SAMPLES/sample*.py`.

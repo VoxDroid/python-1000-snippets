@@ -1,5 +1,10 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Replace sensitive words in text using re.sub
+
+import re
 
 if __name__ == '__main__':
-    print('sample 3')
+    text = 'This is bad and really horrible.'
+    censored = re.sub(r'bad|horrible', '***', text)
+    print('original:', text)
+    print('censored:', censored)

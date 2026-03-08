@@ -1,5 +1,8 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Echo script name and command-line arguments
+
+import sys
 
 if __name__ == '__main__':
-    print('sample 1')
+    print('Script name:', sys.argv[0])
+    print('Arguments:', sys.argv[1:])
