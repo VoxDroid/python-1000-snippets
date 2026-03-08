@@ -1,5 +1,15 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# simple label display
 
-if __name__ == '__main__':
-    print('sample 1')
+try:
+    import tkinter as tk
+except ModuleNotFoundError:
+    tk = None
+
+if tk:
+    r = tk.Tk(); r.title('Label1')
+    tk.Label(r, text='Hello').pack()
+    r.after(50, r.destroy)
+    r.mainloop()
+else:
+    print('tkinter not available')

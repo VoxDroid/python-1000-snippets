@@ -1,5 +1,16 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# multiple labels stacked
 
-if __name__ == '__main__':
-    print('sample 3')
+try:
+    import tkinter as tk
+except ModuleNotFoundError:
+    tk = None
+
+if tk:
+    r = tk.Tk(); r.title('Labels')
+    for text in ('One','Two','Three'):
+        tk.Label(r, text=text).pack()
+    r.after(50, r.destroy)
+    r.mainloop()
+else:
+    print('tkinter not available')

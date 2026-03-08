@@ -1,5 +1,16 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# open a window then close automatically
 
-if __name__ == '__main__':
-    print('sample 1')
+try:
+    import tkinter as tk
+except ModuleNotFoundError:
+    tk = None
+
+if tk:
+    root = tk.Tk()
+    root.title('Test 1')
+    root.geometry('200x100')
+    root.after(50, root.destroy)
+    root.mainloop()
+else:
+    print('tkinter not available')

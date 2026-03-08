@@ -1,5 +1,12 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# simple connect-and-query example (mocked)
 
-if __name__ == '__main__':
-    print('sample 1')
+try:
+    import mysql.connector
+    conn = mysql.connector.connect(host='localhost', user='user', password='password', database='test_db')
+    cur = conn.cursor()
+    cur.execute('SELECT 1')
+    print('Result:', cur.fetchone())
+    conn.close()
+except ImportError:
+    print("Mock Output: MySQL connection established")

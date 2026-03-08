@@ -1,14 +1,16 @@
 # MySQL Connection
 
 ## Description
-This snippet demonstrates connecting to a MySQL database and executing a simple query. Since this is a demo, it uses a mock setup to avoid real database dependencies.
+This snippet demonstrates connecting to a MySQL database using `mysql-connector-python` and executing a simple query. It requires a running MySQL server and valid credentials.
 
 ## Code
 ```python
 # Note: Requires `mysql-connector-python`. Install with `pip install mysql-connector-python`
-# This is a mock example; replace with actual credentials for real use
+# Provide real host/user/password/database values.
+import mysql.connector
+from mysql.connector import Error
+
 try:
-    import mysql.connector
     conn = mysql.connector.connect(
         host="localhost",
         user="user",
@@ -22,10 +24,9 @@ try:
     cursor.execute("SELECT * FROM test")
     print("Test Data:", cursor.fetchall())
     conn.close()
-except ImportError:
-    print("Mock Output: MySQL connection established, table created, data inserted: [(1, 'Test')]")
+except Error as e:
+    print("MySQL Error:", e)
 ```
-
 ## Output
 ```
 Mock Output: MySQL connection established, table created, data inserted: [(1, 'Test')]

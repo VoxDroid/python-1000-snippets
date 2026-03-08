@@ -5,12 +5,20 @@ This snippet creates a basic Tkinter window with a title.
 
 ## Code
 ```python
-import tkinter as tk
+try:
+    import tkinter as tk
+except ModuleNotFoundError:
+    tk = None
 
-root = tk.Tk()
-root.title("Tkinter Window")
-root.geometry("400x300")
-root.mainloop()
+if tk:
+    root = tk.Tk()
+    root.title("Tkinter Window")
+    root.geometry("400x300")
+    # auto-close after a short delay for automated environments
+    root.after(100, root.destroy)
+    root.mainloop()
+else:
+    print("tkinter not available")
 ```
 
 ## Output
@@ -19,7 +27,7 @@ root.mainloop()
   <p></p>
 </div>
 
-*(Visual Output)*: A 400x300 window titled "Tkinter Window" appears.
+*(Visual Output)*: A 400x300 window titled "Tkinter Window" appears. In headless environments tkinter may not be installed; the code will print a message instead and exit.
 
 ## Explanation
 - **Tkinter Window**: Uses `tk.Tk()` to create a window; `geometry` sets size, `title` sets the title.

@@ -1,5 +1,11 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# demonstrate timeout handling
 
-if __name__ == '__main__':
-    print('sample 2')
+try:
+    import requests
+    try:
+        requests.get('https://httpbin.org/delay/5', timeout=1)
+    except requests.exceptions.Timeout:
+        print('timed out as expected')
+except ImportError:
+    print('Mock timeout case')

@@ -1,14 +1,15 @@
 # PostgreSQL Connection
 
 ## Description
-This snippet demonstrates connecting to a PostgreSQL database and executing a query. It uses a mock setup to avoid real database dependencies.
+This snippet demonstrates connecting to a PostgreSQL database using `psycopg2` and executing a query. It requires a running PostgreSQL server and valid credentials.
 
 ## Code
 ```python
-# Note: Requires `psycopg2`. Install with `pip install psycopg2`
-# This is a mock example; replace with actual credentials for real use
+# Note: Requires `psycopg2`. Install with `pip install psycopg2-binary`
+import psycopg2
+from psycopg2 import OperationalError
+
 try:
-    import psycopg2
     conn = psycopg2.connect(
         host="localhost",
         database="test_db",
@@ -22,10 +23,9 @@ try:
     cursor.execute("SELECT * FROM test")
     print("Test Data:", cursor.fetchall())
     conn.close()
-except ImportError:
-    print("Mock Output: PostgreSQL connection established, table created, data inserted: [(1, 'Test')]")
+except OperationalError as e:
+    print("PostgreSQL Error:", e)
 ```
-
 ## Output
 ```
 Mock Output: PostgreSQL connection established, table created, data inserted: [(1, 'Test')]

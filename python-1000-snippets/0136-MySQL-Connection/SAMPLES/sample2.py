@@ -1,5 +1,13 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# create table if possible, else mock output
 
-if __name__ == '__main__':
-    print('sample 2')
+try:
+    import mysql.connector
+    conn = mysql.connector.connect(host='localhost', user='user', password='password', database='test_db')
+    cur = conn.cursor()
+    cur.execute('CREATE TABLE IF NOT EXISTS sample (id INT PRIMARY KEY)')
+    conn.commit()
+    print('Table created (real)')
+    conn.close()
+except ImportError:
+    print('Mock Output: table created')

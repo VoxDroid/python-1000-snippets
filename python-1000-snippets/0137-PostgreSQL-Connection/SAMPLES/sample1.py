@@ -1,5 +1,12 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# simple connect and select example (mocked)
 
-if __name__ == '__main__':
-    print('sample 1')
+try:
+    import psycopg2
+    conn = psycopg2.connect(host='localhost', database='test_db', user='user', password='password')
+    cur = conn.cursor()
+    cur.execute('SELECT 1')
+    print('Result:', cur.fetchone())
+    conn.close()
+except ImportError:
+    print("Mock Output: PostgreSQL connection established")

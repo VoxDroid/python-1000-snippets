@@ -1,5 +1,13 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# fetch and print page title
 
-if __name__ == '__main__':
-    print('sample 1')
+try:
+    import requests
+    from bs4 import BeautifulSoup
+    r = requests.get('https://example.com', timeout=5)
+    soup = BeautifulSoup(r.text, 'html.parser')
+    print('Title:', soup.title.string)
+except ImportError:
+    print('Mock Title: Example Domain')
+except Exception as e:
+    print('Request failed:', e)

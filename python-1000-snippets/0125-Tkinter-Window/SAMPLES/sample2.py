@@ -1,5 +1,18 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# change the window title dynamically
 
-if __name__ == '__main__':
-    print('sample 2')
+try:
+    import tkinter as tk
+except ModuleNotFoundError:
+    tk = None
+
+if tk:
+    root = tk.Tk()
+    root.title('Before')
+    def rename():
+        root.title('After')
+        root.after(50, root.destroy)
+    root.after(50, rename)
+    root.mainloop()
+else:
+    print('tkinter not available')

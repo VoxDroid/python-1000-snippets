@@ -5,19 +5,29 @@ This snippet adds a text entry field to a Tkinter window, printing the input whe
 
 ## Code
 ```python
-import tkinter as tk
+try:
+    import tkinter as tk
+except ModuleNotFoundError:
+    tk = None
 
 def on_submit():
     print("Entered:", entry.get())
 
-root = tk.Tk()
-root.title("Tkinter Entry")
-root.geometry("400x300")
-entry = tk.Entry(root)
-entry.pack()
-button = tk.Button(root, text="Submit", command=on_submit)
-button.pack()
-root.mainloop()
+if tk:
+    root = tk.Tk()
+    root.title("Tkinter Entry")
+    root.geometry("400x300")
+    entry = tk.Entry(root)
+    entry.pack()
+    button = tk.Button(root, text="Submit", command=on_submit)
+    button.pack()
+    # simulate typing and submit
+    entry.insert(0, 'Hello')
+    root.after(50, button.invoke)
+    root.after(100, root.destroy)
+    root.mainloop()
+else:
+    print("tkinter not available")
 ```
 
 ## Output
@@ -30,6 +40,7 @@ root.mainloop()
 ```
 Entered: Hello
 ```
+In headless or tkinter‑missing environments the script will simply say so and exit.
 
 ## Explanation
 - **Tkinter Entry**: `tk.Entry` creates a text input field; `get()` retrieves the text.
