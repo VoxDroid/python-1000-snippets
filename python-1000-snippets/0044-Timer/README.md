@@ -27,3 +27,12 @@ Elapsed time: 0.0312 seconds
 - **Use Case**: Timing is used for performance testing, benchmarking, or profiling code.
 - **Precision**: `time.time()` is suitable for most purposes; use `time.perf_counter()` for higher precision.
 - **Best Practice**: Use timers to identify bottlenecks but avoid micro-optimizations prematurely.
+
+## Additional Files
+- `CHEATSHEET.md` with timer functions and tips.
+- `SAMPLES/` includes:
+  1. `sample1.py` – basic timing of a loop.
+  2. `sample2.py` – compare `time.time()` vs `time.perf_counter()`.
+  3. `sample3.py` – simple countdown timer using `sleep()`.
+
+Execute samples under `.venv` to observe timings.

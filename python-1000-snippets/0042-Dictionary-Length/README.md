@@ -20,3 +20,12 @@ Dictionary length: 3
 - **Use Case**: Dictionary length is used for validation, iteration, or checking data completeness.
 - **Applicability**: `len()` works on any collection type, including dictionaries.
 - **Best Practice**: Use `len()` to check dictionary size before operations like iteration.
+
+## Additional Files
+- `CHEATSHEET.md` describing len() on dicts with examples.
+- `SAMPLES/` contains:
+  1. `sample1.py` – measure length of a fixed dict.
+  2. `sample2.py` – build a dict from input and show length.
+  3. `sample3.py` – compare lengths of two dictionaries.
+
+Run the samples under a `.venv` environment.

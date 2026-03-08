@@ -1,5 +1,13 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Measure time taken by a simple loop
+
+import time
 
 if __name__ == '__main__':
-    print('sample 1')
+    start = time.time()
+    total = 0
+    for i in range(1000000):
+        total += i
+    end = time.time()
+    print('result:', total)
+    print('elapsed (time.time):', end - start)

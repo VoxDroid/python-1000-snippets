@@ -24,3 +24,12 @@ Sum of 3 and 4: 7
   - `add`: Takes two arguments and returns their sum.
 - **Use Case**: Lambda functions are used in functional programming, sorting, or as arguments to higher-order functions.
 - **Best Practice**: Use lambda for simple operations; define named functions for complex logic.
+
+## Additional Files
+- `CHEATSHEET.md` with lambda usage patterns.
+- `SAMPLES/` includes:
+  1. `sample1.py` – basic lambdas for arithmetic.
+  2. `sample2.py` – lambdas used inside `map`/`filter`/`sorted`.
+  3. `sample3.py` – returning lambdas from functions.
+
+Run each sample under a `.venv` to see them in action.

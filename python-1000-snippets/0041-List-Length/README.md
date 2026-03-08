@@ -20,3 +20,12 @@ List length: 3
 - **Use Case**: List length is used for iteration, validation, or sizing data structures.
 - **Applicability**: `len()` works on lists, tuples, strings, sets, and dictionaries.
 - **Best Practice**: Use `len()` directly rather than manual counting for efficiency.
+
+## Additional Files
+- `CHEATSHEET.md` covering len() usage on different types.
+- `SAMPLES/` includes:
+  1. `sample1.py` – length of lists and strings.
+  2. `sample2.py` – dynamic list with user input.
+  3. `sample3.py` – compare lengths of two lists.
+
+Run in a `.venv` to verify outputs.

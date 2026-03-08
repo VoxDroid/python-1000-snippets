@@ -1,5 +1,6 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Reverse a string entered by the user
 
 if __name__ == '__main__':
-    print('sample 1')
+    text = input("Enter text to reverse: ")
+    print("Reversed:", text[::-1])

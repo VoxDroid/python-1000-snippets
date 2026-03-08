@@ -1,5 +1,11 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Read items until blank line, then print count
 
 if __name__ == '__main__':
-    print('sample 2')
+    items = []
+    while True:
+        line = input('Enter item (blank to finish): ')
+        if not line:
+            break
+        items.append(line)
+    print('You entered', len(items), 'items')

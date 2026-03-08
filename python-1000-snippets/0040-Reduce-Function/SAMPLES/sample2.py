@@ -1,5 +1,10 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Sum numbers with initializer using reduce
+
+from functools import reduce
 
 if __name__ == '__main__':
-    print('sample 2')
+    nums = [10, 20, 30]
+    total = reduce(lambda a, b: a + b, nums, 100)
+    print('nums:', nums)
+    print('total with initial 100:', total)

@@ -1,5 +1,10 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Show lengths of various sequences
 
 if __name__ == '__main__':
-    print('sample 1')
+    lst = [1,2,3]
+    s = "hello"
+    tup = (1,2)
+    print('len(list)=', len(lst))
+    print('len(string)=', len(s))
+    print('len(tuple)=', len(tup))

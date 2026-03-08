@@ -27,3 +27,12 @@ Sorted with sorted(): [1, 2, 5, 8, 9]
 - **Use Case**: Sorting is used in data processing, user interfaces, or ranking algorithms.
 - **Flexibility**: Both methods support custom sorting with `key` functions (e.g., `key=len` for strings).
 - **Best Practice**: Use `sorted()` when preserving the original list is needed.
+
+## Additional Files
+- `CHEATSHEET.md` explains using `key` and `reverse`, and sorting complex objects.
+- `SAMPLES/` includes:
+  1. `sample1.py` – sort numbers ascending/descending.
+  2. `sample2.py` – sort strings by length with a key.
+  3. `sample3.py` – sort a list of tuples by second element.
+
+Run samples in a `.venv` to observe various sorting behaviors.

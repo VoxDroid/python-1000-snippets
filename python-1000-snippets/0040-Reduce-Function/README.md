@@ -23,3 +23,12 @@ Product: 24
 - **Import**: `reduce` requires importing from `functools`.
 - **Use Case**: `reduce()` is used for operations like summing, multiplying, or concatenating lists.
 - **Best Practice**: Use `reduce()` for functional programming; built-in functions like `sum()` may be clearer for common tasks.
+
+## Additional Files
+- `CHEATSHEET.md` containing quick reduce examples and alternatives.
+- `SAMPLES/` with:
+  1. `sample1.py` – compute product as shown.
+  2. `sample2.py` – sum numbers with initializer.
+  3. `sample3.py` – concatenate strings from a list.
+
+Run samples in a `.venv` to observe behavior.

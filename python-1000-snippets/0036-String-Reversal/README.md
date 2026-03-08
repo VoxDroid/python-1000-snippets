@@ -22,3 +22,12 @@ Reversed string: nohtyP
 - **Use Case**: String reversal is used in text processing, palindrome checks, or coding challenges.
 - **Alternative**: Could use a loop or `reversed()` with `join()`, but slicing is most concise.
 - **Best Practice**: Use slicing for simplicity; ensure input validation for empty strings.
+
+## Additional Files
+- `CHEATSHEET.md` covers slicing tricks and alternatives.
+- `SAMPLES/` contains:
+  1. `sample1.py` – basic reversal with user input.
+  2. `sample2.py` – console demo with a fixed string and loop.
+  3. `sample3.py` – reversing words in a sentence.
+
+Use a `.venv` to run samples and observe outputs.

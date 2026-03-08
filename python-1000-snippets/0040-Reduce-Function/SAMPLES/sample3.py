@@ -1,5 +1,10 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Concatenate a list of strings using reduce
+
+from functools import reduce
 
 if __name__ == '__main__':
-    print('sample 3')
+    words = ["Hello", "world", "from", "reduce"]
+    sentence = reduce(lambda a, b: a + " " + b, words)
+    print('words:', words)
+    print('sentence:', sentence)

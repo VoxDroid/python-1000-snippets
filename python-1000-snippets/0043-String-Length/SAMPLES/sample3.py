@@ -1,5 +1,12 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Compare lengths of two strings entered by user
 
 if __name__ == '__main__':
-    print('sample 3')
+    a = input('first: ')
+    b = input('second: ')
+    if len(a) > len(b):
+        print('first longer')
+    elif len(a) < len(b):
+        print('second longer')
+    else:
+        print('equal length')

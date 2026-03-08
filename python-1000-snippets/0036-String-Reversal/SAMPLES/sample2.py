@@ -1,5 +1,7 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Loop through a list of fixed words and reverse each
 
 if __name__ == '__main__':
-    print('sample 2')
+    words = ["abc", "12345", "madam"]
+    for w in words:
+        print(w, "->", w[::-1])

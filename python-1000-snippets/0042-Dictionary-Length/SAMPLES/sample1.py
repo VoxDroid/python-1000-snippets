@@ -1,5 +1,7 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Print length of a predefined dictionary
 
 if __name__ == '__main__':
-    print('sample 1')
+    person = {"name": "Alice", "age": 30, "city": "NY"}
+    print('person dict:', person)
+    print('length =', len(person))

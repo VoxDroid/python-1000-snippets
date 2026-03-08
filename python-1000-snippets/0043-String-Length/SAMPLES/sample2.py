@@ -1,5 +1,6 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Read user input and print its length
 
 if __name__ == '__main__':
-    print('sample 2')
+    text = input('Enter text: ')
+    print('length =', len(text))

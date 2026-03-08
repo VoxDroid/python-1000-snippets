@@ -1,5 +1,8 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Chain map and filter to process numbers
 
 if __name__ == '__main__':
-    print('sample 3')
+    nums = range(10)
+    evens = filter(lambda x: x%2==0, nums)
+    doubled = map(lambda x: x*2, evens)
+    print('doubled evens:', list(doubled))

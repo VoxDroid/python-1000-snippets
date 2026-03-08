@@ -21,3 +21,12 @@ Even numbers: [2, 4, 6]
 - **Conversion**: `filter()` returns a filter object, converted to a list for printing.
 - **Use Case**: `filter()` is used for selecting subsets, like filtering valid data or specific categories.
 - **Best Practice**: Use `filter()` for functional programming; list comprehension may be more readable.
+
+## Additional Files
+- `CHEATSHEET.md` detailing filter usage and comparisons.
+- `SAMPLES/` includes:
+  1. `sample1.py` – filter evens from a list.
+  2. `sample2.py` – filter non-empty strings.
+  3. `sample3.py` – combine filter with map.
+
+Run under a `.venv` to verify results.

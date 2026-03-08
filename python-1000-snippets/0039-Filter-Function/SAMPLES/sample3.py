@@ -1,5 +1,7 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Combine filter and map to process numbers
 
 if __name__ == '__main__':
-    print('sample 3')
+    nums = range(10)
+    processed = list(map(lambda x: x*2, filter(lambda x: x%2, nums)))
+    print('doubled odds:', processed)

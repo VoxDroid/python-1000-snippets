@@ -1,5 +1,8 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Filter out empty strings from a list
 
 if __name__ == '__main__':
-    print('sample 2')
+    strings = ["hello", "", "world", " ", "python"]
+    nonempty = list(filter(None, strings))
+    print('strings:', strings)
+    print('non-empty:', nonempty)
