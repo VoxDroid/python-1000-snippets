@@ -6,6 +6,7 @@ This snippet implements Conway’s Game of Life, a cellular automaton where cell
 ## Code
 ```python
 def game_of_life(board, steps):
+    """Advance a Game of Life board by `steps` generations."""
     def count_neighbors(board, i, j):
         count = 0
         for di in [-1, 0, 1]:
@@ -28,6 +29,17 @@ def game_of_life(board, steps):
                     new_board[i][j] = 1
         board = new_board
     return board
+
+# example using a "glider"
+if __name__ == '__main__':
+    board = [
+        [0, 1, 0],
+        [0, 0, 1],
+        [1, 1, 1],
+    ]
+    result = game_of_life(board, 1)
+    for row in result:
+        print(row)
 
 board = [[0, 1, 0], [0, 0, 1], [1, 1, 1]]
 result = game_of_life(board, 1)

@@ -1,5 +1,14 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# draw a red rectangle and a blue circle once
 
-if __name__ == '__main__':
-    print('sample 1')
+import os
+os.environ.setdefault('SDL_VIDEODRIVER', 'dummy')
+import pygame
+
+pygame.init()
+screen = pygame.display.set_mode((200, 150))
+pygame.draw.rect(screen, (255, 0, 0), (20, 20, 100, 50))
+pygame.draw.circle(screen, (0, 0, 255), (150, 75), 30)
+pygame.display.flip()
+pygame.quit()
+print('drew shapes')

@@ -6,6 +6,14 @@ This snippet implements a 1D cellular automaton with a simple rule (e.g., Rule 3
 ## Code
 ```python
 def cellular_automata(initial_state, rule, steps):
+    """Simulate a 1D cellular automaton.
+
+    * `initial_state`: list of 0/1 values
+    * `rule`: integer 0-255 encoding output bits for neighbor patterns
+    * `steps`: number of generations to compute
+
+    Returns a list of states (each a list of bits).
+    """
     def apply_rule(left, center, right):
         binary = (left << 2) | (center << 1) | right
         return (rule >> binary) & 1

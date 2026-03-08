@@ -16,6 +16,9 @@ WINDOW_HEIGHT = 300
 async def main():
     def setup():
         global screen
+        # allow headless operation
+        import os
+        os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
         pygame.init()
         screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
         pygame.display.set_caption("Pygame Window")
@@ -25,12 +28,15 @@ async def main():
         pygame.display.flip()
     
     setup()
-    while True:
+    frame = 0
+    # run for a limited number of frames when not in browser
+    while frame < FPS * 2:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 return
         update_loop()
+        frame += 1
         await asyncio.sleep(1.0 / FPS)
 
 if platform.system() == "Emscripten":

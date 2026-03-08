@@ -5,10 +5,22 @@ This snippet implements a basic SIR (Susceptible, Infected, Recovered) epidemic 
 
 ## Code
 ```python
-def sir_model(S, I, R, beta, gamma, steps):
+def sir_model(S, I, R, beta, gamma, steps, seed=None):
+    """Return SIR history over discrete steps.
+
+    * `S`, `I`, `R`: initial compartments (floats)
+    * `beta`: infection rate
+    * `gamma`: recovery rate
+    * `steps`: number of iterations
+    * `seed`: optional RNG seed (currently only affects stochastic extension if added)
+
+    The basic version is deterministic, using the standard SIR equations.
+    """
+    # currently deterministic; seed accepted for future stochastic variants
     history = [(S, I, R)]
     for _ in range(steps):
-        new_infections = beta * S * I / (S + I + R)
+        N = S + I + R
+        new_infections = beta * S * I / N
         new_recoveries = gamma * I
         S -= new_infections
         I += new_infections - new_recoveries
@@ -20,7 +32,6 @@ S, I, R = 1000, 10, 0
 beta, gamma = 0.3, 0.1
 print("SIR:", sir_model(S, I, R, beta, gamma, 5))
 ```
-
 ## Output
 ```
 SIR: [(1000, 10, 0), (997.0, 12.0, 1.0), (993.844, 13.986, 2.17), (990.502, 16.156, 3.342), (987.003, 18.5, 4.497), (983.34, 20.994, 5.666)]

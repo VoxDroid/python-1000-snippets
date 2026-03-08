@@ -7,6 +7,10 @@ This snippet handles mouse clicks in a Pygame window to change the background co
 ```python
 import pygame
 import random
+import os
+
+# headless support
+os.environ.setdefault('SDL_VIDEODRIVER', 'dummy')
 
 # Initialize Pygame
 pygame.init()
@@ -23,8 +27,12 @@ running = True
 clock = pygame.time.Clock()
 FPS = 60
 
+# post a simulated click so color changes even without user
+pygame.event.post(pygame.event.Event(pygame.MOUSEBUTTONDOWN))
+
 # Main loop
-while running:
+frames = 0
+while running and frames < FPS * 2:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -38,6 +46,7 @@ while running:
     
     # Control frame rate
     clock.tick(FPS)
+    frames += 1
 
 # Clean up
 pygame.quit()

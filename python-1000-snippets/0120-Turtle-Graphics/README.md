@@ -7,14 +7,22 @@ This snippet uses the `turtle` module to draw a simple spiral pattern.
 ```python
 import turtle
 
-def draw_spiral():
-    t = turtle.Turtle()
-    for i in range(100):
-        t.forward(i / 10)
-        t.right(30)
-    turtle.done()
+def draw_spiral(auto_close=True):
+    try:
+        t = turtle.Turtle()
+        for i in range(100):
+            t.forward(i / 10)
+            t.right(30)
+        if auto_close:
+            turtle.bye()  # close window when done
+        else:
+            turtle.done()
+    except turtle.TurtleGraphicsError:
+        # no display available (headless environment)
+        print("Turtle graphics not available")
 
-draw_spiral()
+if __name__ == '__main__':
+    draw_spiral()
 ```
 
 ## Output
@@ -23,7 +31,7 @@ draw_spiral()
   <p></p>
 </div>
 
-*(Visual Output)*: A window displays a spiral pattern growing outward with 100 segments, each rotated 30 degrees.
+*(Visual Output)*: A window (when a display is available) shows a spiral pattern. Headless runs will simply print an error message.
 
 ## Explanation
 - **Turtle Graphics**: Moves a virtual turtle to draw; `forward` moves, `right` rotates.
