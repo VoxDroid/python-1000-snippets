@@ -32,3 +32,12 @@ Result: 77.0 F
 - **Input Handling**: Converts unit to uppercase for case-insensitive input.
 - **Use Case**: Useful for weather apps or scientific calculations.
 - **Best Practice**: Validate numeric input and handle edge cases (e.g., extreme temperatures).
+
+## Additional Files
+- `CHEATSHEET.md` provides conversion formulas and example usage.
+- `SAMPLES/` includes:
+  1. `sample1.py` – simple conversion as shown.
+  2. `sample2.py` – batch convert list of values.
+  3. `sample3.py` – interactive loop converting until exit.
+
+Run these samples in a `.venv` with simulated inputs for interactive ones.

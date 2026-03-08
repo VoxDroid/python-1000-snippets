@@ -1,15 +1,20 @@
 # sample2.py
-# validate numeric input and compute square
+# Simple calculator that asks the user for two numbers.
 
 def main():
-    while True:
-        val = input("Enter a number: ")
-        try:
-            num = float(val)
-            break
-        except ValueError:
-            print("Not a number, try again.")
-    print(f"Square: {num * num}")
+    try:
+        a = float(input("First number: ").strip())
+        b = float(input("Second number: ").strip())
+    except ValueError:
+        print("Both inputs must be numeric.")
+        return
+    print(f"{a} + {b} = {a+b}")
+    print(f"{a} - {b} = {a-b}")
+    print(f"{a} * {b} = {a*b}")
+    if b != 0:
+        print(f"{a} / {b} = {a/b}")
+    else:
+        print("Cannot divide by zero")
 
 if __name__ == '__main__':
     main()

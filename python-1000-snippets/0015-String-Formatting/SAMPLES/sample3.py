@@ -1,5 +1,11 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Use named placeholders with .format()
+
+def main():
+    template = "Name: {name}, Score: {score}%"
+    print(template.format(name="Alice", score=92))
+    print(template.format(name="Bob", score=85))
 
 if __name__ == '__main__':
-    print('sample 3')
+    main()
+

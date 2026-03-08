@@ -30,3 +30,12 @@ File not found.
 - **Error Handling**: Catches `FileNotFoundError` if the file doesn't exist.
 - **Use Case**: File reading is used for processing logs, configuration files, or user data.
 - **Best Practice**: Always use `with` for file operations and handle potential errors.
+
+## Additional Files
+- `CHEATSHEET.md` lists common modes (`r`, `rb`, etc.) and read methods (`read`, `readline`, `readlines`).
+- `SAMPLES/` includes:
+  1. `sample1.py` – read entire file and print lines with numbers.
+  2. `sample2.py` – read file line by line using a loop.
+  3. `sample3.py` – count words in a file with error handling.
+
+Prepare an `example.txt` or simulate it when running samples inside a `.venv`.

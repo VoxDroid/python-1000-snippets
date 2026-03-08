@@ -32,3 +32,12 @@ Fibonacci sequence: [0, 1, 1, 2, 3, 5]
 - **Loop**: Appends new terms by summing the last two elements of the list.
 - **Use Case**: Fibonacci sequences appear in algorithms, mathematics, and nature-inspired computations.
 - **Best Practice**: For large `n`, consider recursive or generator-based solutions to optimize memory.
+
+## Additional Files
+- `CHEATSHEET.md` explains iterative vs recursive implementations and generators.
+- `SAMPLES/` includes:
+  1. `sample1.py` – iterative sequence (as above).
+  2. `sample2.py` – recursive generator yielding Fibonacci numbers.
+  3. `sample3.py` – use `itertools.accumulate` as an alternative.
+
+Run samples under a `.venv` with simple inputs for interactive ones.

@@ -1,5 +1,8 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Use setdefault to ensure a key exists before modifying.
 
-if __name__ == '__main__':
-    print('sample 3')
+d = {}
+d.setdefault("count", 0)
+d["count"] += 1
+print(d)
+

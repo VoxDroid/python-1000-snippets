@@ -1,5 +1,11 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Reverse a list using slicing.
+
+def main():
+    nums = list(range(5))
+    print("Original:", nums)
+    print("Reversed:", nums[::-1])
 
 if __name__ == '__main__':
-    print('sample 1')
+    main()
+

@@ -1,5 +1,11 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Filter words longer than 3 characters using comprehension.
+
+def main():
+    words = ["apple", "to", "banana", "go"]
+    long = [w for w in words if len(w) > 3]
+    print(long)
 
 if __name__ == '__main__':
-    print('sample 2')
+    main()
+

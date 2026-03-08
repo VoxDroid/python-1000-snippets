@@ -23,3 +23,12 @@ Country: Unknown
 - **Get Method**: `dict.get(key, default)` returns the value or a default (e.g., `"Unknown"`) if the key is missing.
 - **Use Case**: Dictionary access is used for retrieving structured data, like user profiles or settings.
 - **Best Practice**: Use `get()` to avoid `KeyError` for optional keys; check keys with `in` if needed.
+
+## Additional Files
+- `CHEATSHEET.md` lists accessing methods, `get()`, `setdefault()` and key checking.
+- `SAMPLES/` includes:
+  1. `sample1.py` – basic key access with default.
+  2. `sample2.py` – iterate over keys and values.
+  3. `sample3.py` – safely update values using `setdefault()`.
+
+Run samples inside a `.venv` to explore dictionary access patterns.

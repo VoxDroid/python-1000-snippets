@@ -27,3 +27,12 @@ Count: 5
 - **Use Case**: `while` loops are useful when the number of iterations isn't known in advance, such as waiting for user input or processing until a condition changes.
 - **Caution**: Always ensure the loop condition will eventually become `False` to avoid infinite loops.
 - **Best Practice**: Use `while` loops for condition-driven tasks and `for` loops for sequence-driven tasks.
+
+## Additional Files
+- `CHEATSHEET.md` explains loop control and common patterns.
+- `SAMPLES/` includes:
+  1. `sample1.py` – countdown using while.
+  2. `sample2.py` – password prompt looping until correct.
+  3. `sample3.py` – sum numbers until user enters 0.
+
+Run the samples in a `.venv` for demonstration.

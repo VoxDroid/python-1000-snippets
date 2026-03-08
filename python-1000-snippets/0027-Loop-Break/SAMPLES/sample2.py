@@ -1,5 +1,10 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Read lines until user types 'stop'.
 
 if __name__ == '__main__':
-    print('sample 2')
+    while True:
+        s = input()
+        if s.strip().lower() == 'stop':
+            break
+        print('You entered', s)
+

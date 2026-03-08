@@ -20,3 +20,12 @@ Dictionary: {'name': 'Alice', 'age': 20, 'major': 'Computer Science'}
 - **Use Case**: Dictionaries are ideal for storing structured data, like user profiles, configurations, or lookup tables.
 - **Mutability**: Dictionaries can be modified (add, update, or remove key-value pairs) after creation.
 - **Best Practice**: Use descriptive keys for clarity and avoid using mutable types (like lists) as keys.
+
+## Additional Files
+- `CHEATSHEET.md` highlights operations like adding, updating, and iterating.
+- `SAMPLES/` includes:
+  1. `sample1.py` – store and update student profile.
+  2. `sample2.py` – iterate through keys and values.
+  3. `sample3.py` – nested dictionary usage.
+
+Test samples inside a `.venv` to observe dictionary behavior.

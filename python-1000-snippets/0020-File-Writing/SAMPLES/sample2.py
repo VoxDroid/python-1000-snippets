@@ -1,5 +1,11 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Append a new line to the same file.
+
+def main():
+    with open("output.txt", "a") as f:
+        f.write("Appended line\n")
+    print("Appended to output.txt")
 
 if __name__ == '__main__':
-    print('sample 2')
+    main()
+

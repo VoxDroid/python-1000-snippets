@@ -23,3 +23,12 @@ After append: ['red', 'blue', 'green']
 - **Use Case**: Appending is used to build lists dynamically, such as collecting user inputs or accumulating results.
 - **Performance**: `append()` is efficient (O(1) time complexity) for adding elements to the end.
 - **Best Practice**: Use `append()` for single elements; for multiple elements, consider `extend()` or list concatenation.
+
+## Additional Files
+- `CHEATSHEET.md` covers `append()` vs `extend()`, and when to use list comprehensions.
+- `SAMPLES/` includes:
+  1. `sample1.py` – accumulate user-entered numbers.
+  2. `sample2.py` – build a list conditionally in a loop.
+  3. `sample3.py` – show difference between append and extend.
+
+Test samples under a `.venv` to verify behavior.

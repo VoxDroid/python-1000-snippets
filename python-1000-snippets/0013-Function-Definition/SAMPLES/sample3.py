@@ -1,5 +1,11 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Demonstrate default and keyword arguments.
+
+def repeat(message, times=2):
+    for _ in range(times):
+        print(message)
 
 if __name__ == '__main__':
-    print('sample 3')
+    repeat("Hello")
+    repeat("Hi", times=3)
+

@@ -29,3 +29,12 @@ You are an adult.
 - **Conditions**: Uses comparison operators like `>=` to evaluate expressions. The result must be a boolean (`True` or `False`).
 - **Use Case**: Conditionals are used for decision-making in applications like user authentication, game logic, or data filtering.
 - **Best Practice**: Keep conditions clear and avoid deeply nested `if` statements for better readability.
+
+## Additional Files
+- `CHEATSHEET.md` contains syntax reminders and common patterns.
+- `SAMPLES/` includes:
+  1. `sample1.py` – age classification (as above, refined).
+  2. `sample2.py` – login simulation with multiple `elif` checks.
+  3. `sample3.py` – grade classification using chained conditions.
+
+Run these samples inside a `.venv` to see conditionals in action.

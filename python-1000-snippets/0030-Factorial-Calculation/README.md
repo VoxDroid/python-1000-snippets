@@ -32,3 +32,12 @@ Factorial is not defined for negative numbers.
 - **Input Validation**: Checks for negative numbers, as factorial is undefined for them.
 - **Use Case**: Factorials are used in combinatorics, probability, and algorithm design.
 - **Best Practice**: Add error handling for non-integer inputs and consider recursive solutions for advanced use.
+
+## Additional Files
+- `CHEATSHEET.md` outlines iterative vs recursive factorial and performance notes.
+- `SAMPLES/` includes:
+  1. `sample1.py` – loop-based factorial with input validation.
+  2. `sample2.py` – recursive factorial function.
+  3. `sample3.py` – factorial using `math.factorial` from standard library.
+
+Run the samples under a `.venv` using simulated input where appropriate.

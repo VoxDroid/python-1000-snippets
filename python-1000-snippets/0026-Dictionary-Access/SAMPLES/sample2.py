@@ -1,5 +1,7 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Iterate over keys and values.
 
-if __name__ == '__main__':
-    print('sample 2')
+d = {"a": 1, "b": 2, "c": 3}
+for k, v in d.items():
+    print(k, v)
+

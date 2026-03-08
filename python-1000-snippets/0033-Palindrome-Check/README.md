@@ -30,3 +30,12 @@ Enter a string: hello
 - **Cleaning**: Uses `isalnum()` to keep only letters and numbers, and `lower()` for case-insensitive comparison.
 - **Use Case**: Palindrome checks are used in text processing, games, or coding challenges.
 - **Best Practice**: Handle empty strings or special cases explicitly if required.
+
+## Additional Files
+- `CHEATSHEET.md` covers string cleaning and slicing for palindrome checks.
+- `SAMPLES/` includes:
+  1. `sample1.py` – basic palindrome checker with user input.
+  2. `sample2.py` – test several predefined strings.
+  3. `sample3.py` – check numeric palindromes by converting to string.
+
+Run samples inside a `.venv` using simulated input for interactive ones.

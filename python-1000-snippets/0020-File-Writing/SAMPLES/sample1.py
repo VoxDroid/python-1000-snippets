@@ -1,5 +1,12 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Write multiple lines to a file.
+
+def main():
+    with open("output.txt", "w") as f:
+        f.write("Line 1\n")
+        f.write("Line 2\n")
+    print("Wrote lines to output.txt")
 
 if __name__ == '__main__':
-    print('sample 1')
+    main()
+

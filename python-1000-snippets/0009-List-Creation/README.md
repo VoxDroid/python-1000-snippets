@@ -29,3 +29,12 @@ After modification: ['apple', 'mango', 'orange', 'grape']
 - **Use Case**: Lists are used for storing collections like to-do items, user data, or results of computations.
 - **Flexibility**: Lists can hold items of different types (e.g., `[1, "hello", True]`), though this is less common.
 - **Best Practice**: Use meaningful list names and keep items of the same type for clarity.
+
+## Additional Files
+- `CHEATSHEET.md` outlines list operations, comprehensions, and slicing.
+- `SAMPLES/` includes:
+  1. `sample1.py` – manage a shopping list.
+  2. `sample2.py` – filter even numbers from a list.
+  3. `sample3.py` – demonstrate list comprehension.
+
+Execute the samples under a `.venv` to see list manipulations.

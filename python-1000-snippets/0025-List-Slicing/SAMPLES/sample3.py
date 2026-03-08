@@ -1,5 +1,11 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Apply slicing to strings as well as lists.
+
+def main():
+    s = "abcdefgh"
+    print("slice s[2:6]:", s[2:6])
+    print("reverse string:", s[::-1])
 
 if __name__ == '__main__':
-    print('sample 3')
+    main()
+

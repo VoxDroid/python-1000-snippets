@@ -27,3 +27,12 @@ Y coordinate: 20
 - **Use Case**: Tuples are used for fixed collections, like coordinates, database records, or function return values.
 - **Performance**: Tuples are slightly faster than lists and use less memory, making them ideal for immutable data.
 - **Best Practice**: Use tuples for data that shouldn't change and lists for data that may need modification.
+
+## Additional Files
+- `CHEATSHEET.md` contains tuple basics, packing/unpacking, and immutability notes.
+- `SAMPLES/` includes:
+  1. `sample1.py` – unpack coordinates.
+  2. `sample2.py` – return multiple values from a function.
+  3. `sample3.py` – demonstrate tuple packing and immutability.
+
+Run samples inside a `.venv` to observe tuple behavior.

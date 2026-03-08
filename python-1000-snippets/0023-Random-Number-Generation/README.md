@@ -26,3 +26,12 @@ Random float: 0.426391823456
 - **Use Case**: Random numbers are used in games (e.g., dice rolls), simulations, or shuffling data.
 - **Seeding**: For reproducible results, use `random.seed(value)` before generating numbers.
 - **Best Practice**: Use `secrets` module for cryptographic random numbers (e.g., passwords).
+
+## Additional Files
+- `CHEATSHEET.md` lists common functions like `randint`, `choice`, `shuffle`.
+- `SAMPLES/` includes:
+  1. `sample1.py` – generate a list of random integers.
+  2. `sample2.py` – simulate rolling a die multiple times.
+  3. `sample3.py` – shuffle a deck of cards.
+
+Run these samples in a `.venv` to see randomness; use `random.seed()` for reproducibility.

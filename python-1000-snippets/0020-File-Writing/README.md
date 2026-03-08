@@ -27,3 +27,11 @@ This is a test.
 - **With Statement**: Ensures the file is closed after writing.
 - **Use Case**: File writing is used for saving logs, user data, or generating reports.
 - **Best Practice**: Use `"a"` mode instead of `"w"` to append instead of overwrite; handle errors for disk issues.
+## Additional Files
+- `CHEATSHEET.md` describes modes (`w`, `a`, `x`, `wb`) and common `write` patterns.
+- `SAMPLES/` includes:
+  1. `sample1.py` – write multiple lines to a file.
+  2. `sample2.py` – append to an existing file.
+  3. `sample3.py` – write CSV-like data using `join`.
+
+Run the samples under a `.venv` and inspect `output.txt` after execution.

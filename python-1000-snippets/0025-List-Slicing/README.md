@@ -26,3 +26,12 @@ Every second: [0, 2, 4]
 - **Negative Indices**: `-3` refers to the third element from the end.
 - **Use Case**: Slicing is used for extracting sublists, reversing lists, or sampling data.
 - **Best Practice**: Use slicing for readable subset extraction; avoid modifying lists while slicing.
+
+## Additional Files
+- `CHEATSHEET.md` explains slice notation, negative steps, and reversing lists.
+- `SAMPLES/` includes:
+  1. `sample1.py` – reverse a list using slicing.
+  2. `sample2.py` – skip elements using step.
+  3. `sample3.py` – slice strings as well as lists.
+
+Run samples under a `.venv` to explore different slicing behaviors.

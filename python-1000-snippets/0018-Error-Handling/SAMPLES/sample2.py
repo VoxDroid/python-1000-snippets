@@ -1,5 +1,9 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Attempt to open a file that may not exist.
 
-if __name__ == '__main__':
-    print('sample 2')
+try:
+    with open("nonexistent.txt") as f:
+        print(f.read())
+except FileNotFoundError as e:
+    print("Caught error:", e)
+

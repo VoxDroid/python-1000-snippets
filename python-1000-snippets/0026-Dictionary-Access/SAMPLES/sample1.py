@@ -1,5 +1,7 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Access dictionary with get default.
 
-if __name__ == '__main__':
-    print('sample 1')
+person = {"name": "Alice", "age": 30}
+print(person.get("name"))
+print(person.get("city", "Unknown"))
+

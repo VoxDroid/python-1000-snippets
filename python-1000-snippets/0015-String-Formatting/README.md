@@ -28,3 +28,12 @@ My name is Alice and I'm 25.
 - ** `%` Operator**: Older method using `%s` for strings and `%d` for integers, with values provided in a tuple.
 - **Use Case**: String formatting is used for user messages, logging, or generating dynamic content.
 - **Best Practice**: Prefer f-strings for readability and performance; avoid `%` operator in modern Python.
+
+## Additional Files
+- `CHEATSHEET.md` contains examples for each formatting style, numeric formatting, and alignment.
+- `SAMPLES/` includes:
+  1. `sample1.py` – display formatted numbers with precision.
+  2. `sample2.py` – format a table using width specifiers.
+  3. `sample3.py` – use `.format()` with named placeholders.
+
+Run samples under a `.venv` to see different formatting outputs.

@@ -23,3 +23,12 @@ Sum: 8
 - **Storing Result**: The returned value is stored in `result` for further use or printing.
 - **Use Case**: `return` is essential for functions that produce results needed elsewhere, like calculations or data processing.
 - **Best Practice**: Ensure functions return meaningful values and avoid side effects (e.g., printing) unless necessary.
+
+## Additional Files
+- `CHEATSHEET.md` highlights return usage and multiple values.
+- `SAMPLES/` includes:
+  1. `sample1.py` – simple add function using return.
+  2. `sample2.py` – function that returns multiple values.
+  3. `sample3.py` – early return to exit a function.
+
+Run samples under a `.venv` to practice using return statements.

@@ -1,5 +1,8 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Use math.factorial from the standard library.
+
+import math
 
 if __name__ == '__main__':
-    print('sample 3')
+    print("5! =", math.factorial(5))
+

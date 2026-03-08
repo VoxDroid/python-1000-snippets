@@ -20,3 +20,12 @@ Set: {1, 2, 3, 4}
 - **Unordered**: Sets do not maintain insertion order, and elements cannot be accessed by index.
 - **Use Case**: Sets are used for tasks like finding unique items, membership testing, or set operations (union, intersection).
 - **Best Practice**: Use sets for operations requiring uniqueness or fast membership testing, but avoid if order matters.
+
+## Additional Files
+- `CHEATSHEET.md` covers common set methods and operations.
+- `SAMPLES/` includes:
+  1. `sample1.py` – remove duplicates from a list.
+  2. `sample2.py` – demonstrate set union/intersection.
+  3. `sample3.py` – check membership and add/remove elements.
+
+Run samples in a `.venv` to see set behavior.

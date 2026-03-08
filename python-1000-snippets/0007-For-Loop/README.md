@@ -25,3 +25,12 @@ Number: 5
 - **Use Case**: `for` loops are ideal for tasks like processing lists, generating sequences, or repeating actions a fixed number of times.
 - **Flexibility**: `for` loops can iterate over any iterable, such as lists (`[1, 2, 3]`), strings (`"hello"`), or tuples.
 - **Best Practice**: Use descriptive loop variable names (e.g., `number` instead of `i`) when the context isn't obvious.
+
+## Additional Files
+- `CHEATSHEET.md` covers range parameters, iterable examples, and `enumerate()`.
+- `SAMPLES/` includes:
+  1. `sample1.py` – iterate over a list of names.
+  2. `sample2.py` – sum numbers in a range.
+  3. `sample3.py` – process characters in a string.
+
+Run these samples within a `.venv` to see looping patterns.

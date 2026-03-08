@@ -1,5 +1,9 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Simple greet function demonstrating parameter passing.
+
+def greet(name):
+    print(f"Hello, {name}!")
 
 if __name__ == '__main__':
-    print('sample 1')
+    greet("Alice")
+

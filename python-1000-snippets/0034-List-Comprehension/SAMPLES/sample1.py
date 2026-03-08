@@ -1,5 +1,11 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Compute squares using comprehension.
+
+def main():
+    nums = [1, 2, 3, 4]
+    squares = [x*x for x in nums]
+    print(squares)
 
 if __name__ == '__main__':
-    print('sample 1')
+    main()
+

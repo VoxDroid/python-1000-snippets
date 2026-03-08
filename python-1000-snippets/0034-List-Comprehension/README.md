@@ -25,3 +25,12 @@ Even squares: [4, 16]
   - `even_squares`: Computes squares only for even numbers (using `if x % 2 == 0`).
 - **Use Case**: List comprehensions are used for concise data transformations, like filtering or mapping.
 - **Best Practice**: Use list comprehensions for readability, but avoid overly complex expressions.
+
+## Additional Files
+- `CHEATSHEET.md` demonstrates comprehension with conditionals and nested loops.
+- `SAMPLES/` includes:
+  1. `sample1.py` – basic comprehension to square numbers.
+  2. `sample2.py` – comprehension with filtering.
+  3. `sample3.py` – nested comprehension to create multiplication table.
+
+Run the samples inside a `.venv` to see comprehension power.

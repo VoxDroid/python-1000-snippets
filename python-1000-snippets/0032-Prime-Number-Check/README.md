@@ -34,3 +34,12 @@ Enter a number: 4
 - **Optimization**: Only checks divisors up to `sqrt(n)`, as larger divisors would have a smaller counterpart already checked.
 - **Use Case**: Prime checks are used in cryptography, number theory, and algorithm design.
 - **Best Practice**: Handle invalid inputs (e.g., non-integers) with error handling in production.
+
+## Additional Files
+- `CHEATSHEET.md` outlines prime-check logic and optimization tips.
+- `SAMPLES/` includes:
+  1. `sample1.py` – simple prime check with input.
+  2. `sample2.py` – list primes up to N.
+  3. `sample3.py` – use a more efficient trial division skipping evens.
+
+Test samples in a `.venv`, providing input for interactive ones.

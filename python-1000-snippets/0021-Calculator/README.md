@@ -45,3 +45,12 @@ Result: Error: Division by zero
 - **Error Handling**: Checks for division by zero and invalid operations.
 - **Use Case**: Demonstrates combining functions, conditionals, and user input for interactive programs.
 - **Best Practice**: Add more robust error handling (e.g., for non-numeric inputs) in production code.
+
+## Additional Files
+- `CHEATSHEET.md` summarizes supported operations and input validation tips.
+- `SAMPLES/` includes:
+  1. `sample1.py` – basic calculator as described.
+  2. `sample2.py` – extended calculator with power and modulus.
+  3. `sample3.py` – looped calculator supporting multiple operations until exit.
+
+Execute samples under a `.venv`, providing simulated input where required.

@@ -1,33 +1,29 @@
 # User Input Cheatsheet
 
-Quick tips for reading input from users in Python.
-
-## Basic Usage
+## Basic usage
 ```python
-name = input("Enter your name: ")
-age = input("Enter your age: ")  # returns string
+name = input("Enter your name: ")   # returns string
+age_str = input("Age: ")
+age = int(age_str)                    # convert to int
 ```
 
-## Conversion
-```python
-age = int(input("Age: "))
-x = float(input("Number: "))
-```
+## Converting types
+- `int()`, `float()`, `bool()` can cast input strings.
+- Always catch `ValueError` if the user types invalid data.
 
-## Validation
+## Prompting
+- The string passed to `input()` is shown as the prompt.
+- Use `strip()` to clean whitespace: `input(...).strip()`.
+
+## Example patterns
 ```python
+# loop until valid integer entered
 while True:
     try:
         n = int(input("Enter a number: "))
         break
     except ValueError:
-        print("Invalid, try again.")
-```
-
-## Hidden Input
-```python
-import getpass
-password = getpass.getpass("Password: ")
+        print("Please enter a valid integer")
 ```
 
 ## Running samples

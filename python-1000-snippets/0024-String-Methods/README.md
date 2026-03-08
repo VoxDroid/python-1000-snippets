@@ -31,3 +31,11 @@ Replaced:   Hello, World!
 - **Immutability**: Strings are immutable, so methods return new strings without modifying the original.
 - **Use Case**: String methods are used for text processing, user input cleaning, or formatting.
 - **Best Practice**: Chain methods (e.g., `text.strip().lower()`) for concise operations.
+## Additional Files
+- `CHEATSHEET.md` lists common string methods (split, join, find, etc.).
+- `SAMPLES/` includes:
+  1. `sample1.py` – demonstrates various methods on one string.
+  2. `sample2.py` – trim and replace whitespace in user input.
+  3. `sample3.py` – use `split()` and `join()` to reverse word order.
+
+Run samples inside a `.venv` to try different string operations.

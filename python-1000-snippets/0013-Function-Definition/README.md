@@ -23,3 +23,12 @@ Hello, Bob!
 - **Calling**: Invoke the function with `greet("Bob")`, passing `"Bob"` as the argument.
 - **Use Case**: Functions are used to encapsulate logic, reduce repetition, and organize code (e.g., for calculations, user interactions).
 - **Best Practice**: Use descriptive function names and include docstrings for complex functions to explain their purpose.
+
+## Additional Files
+- `CHEATSHEET.md` covers parameter types, default values, and docstrings.
+- `SAMPLES/` includes:
+  1. `sample1.py` – greeting function with parameter.
+  2. `sample2.py` – compute factorial via recursive function.
+  3. `sample3.py` – use default and keyword arguments.
+
+Run samples inside a `.venv` to view function usage.

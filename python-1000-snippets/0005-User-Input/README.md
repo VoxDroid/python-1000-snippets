@@ -25,10 +25,10 @@ Hello, Alice! You are 25 years old.
 - **Error Handling**: In production code, you should add error handling (e.g., `try-except`) to manage invalid inputs gracefully.
 
 ## Additional Files
-- `CHEATSHEET.md` provides usage patterns and validation tricks.
-- `SAMPLES/` includes three examples:
-  1. `sample1.py` – basic name/age prompt.
-  2. `sample2.py` – numeric validation and calculation.
-  3. `sample3.py` – hidden password input with check.
+- `CHEATSHEET.md` includes tips for converting input, prompting, and validation.
+- `SAMPLES/` contains:
+  1. `sample1.py` – simple name/age prompt with type conversion.
+  2. `sample2.py` – calculator asking for two numbers and performing arithmetic.
+  3. `sample3.py` – robust input with error checking using try/except.
 
-Run these under a `.venv` to explore input handling.
+Run these samples under a `.venv` to verify interaction and conversions.

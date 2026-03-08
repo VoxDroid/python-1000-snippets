@@ -43,3 +43,12 @@ Execution complete.
 - **Finally**: Always executes, regardless of exceptions, for cleanup or final steps.
 - **Use Case**: Error handling ensures robust programs, like validating user input or handling file operations.
 - **Best Practice**: Catch specific exceptions rather than a generic `except` to avoid masking unexpected errors.
+
+## Additional Files
+- `CHEATSHEET.md` lists try/except/else/finally patterns and common exception types.
+- `SAMPLES/` includes:
+  1. `sample1.py` – divide by zero and value errors.
+  2. `sample2.py` – open a non-existent file with exception handling.
+  3. `sample3.py` – use `finally` for cleanup demonstration.
+
+Test samples inside a `.venv` to observe exception handling flows.

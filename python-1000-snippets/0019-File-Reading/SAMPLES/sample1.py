@@ -1,5 +1,14 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Read an entire file and print each line with a line number.
+
+def main():
+    try:
+        with open("example.txt", "r") as f:
+            for idx, line in enumerate(f, start=1):
+                print(f"{idx}: {line.rstrip()}")
+    except FileNotFoundError:
+        print("example.txt not found")
 
 if __name__ == '__main__':
-    print('sample 1')
+    main()
+

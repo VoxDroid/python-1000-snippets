@@ -1,5 +1,11 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Test multiple strings for palindrome status.
 
-if __name__ == '__main__':
-    print('sample 2')
+def is_palindrome(s):
+    s = ''.join(c.lower() for c in s if c.isalnum())
+    return s == s[::-1]
+
+strings = ["Racecar", "hello", "A man, a plan, a canal: Panama"]
+for s in strings:
+    print(s, "->", is_palindrome(s))
+
