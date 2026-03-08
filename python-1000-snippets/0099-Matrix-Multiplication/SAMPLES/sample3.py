@@ -1,5 +1,10 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Use NumPy for efficient multiplication (requires numpy installed)
+
+import numpy as np
 
 if __name__ == '__main__':
-    print('sample 3')
+    A = np.array([[1,2],[3,4]])
+    B = np.array([[5,6],[7,8]])
+    print('numpy product')
+    print(np.dot(A, B))
