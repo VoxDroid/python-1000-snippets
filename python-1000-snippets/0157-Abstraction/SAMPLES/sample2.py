@@ -1,5 +1,21 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# attempting to instantiate abstract class raises TypeError
+
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def speak(self):
+        pass
 
 if __name__ == '__main__':
-    print('sample 2')
+    try:
+        a = Animal()
+    except TypeError as e:
+        print('error', e)
+    
+    class Dog(Animal):
+        def speak(self):
+            return 'woof'
+    d = Dog()
+    print('dog says', d.speak())

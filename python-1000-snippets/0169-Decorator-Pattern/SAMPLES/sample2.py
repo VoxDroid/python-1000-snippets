@@ -1,5 +1,18 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# add notification behavior to a user object
+
+class User:
+    def notify(self, msg):
+        print('user received', msg)
+
+class NotifierDecorator:
+    def __init__(self, user):
+        self._user = user
+    def notify(self, msg):
+        print('sending email')
+        self._user.notify(msg)
 
 if __name__ == '__main__':
-    print('sample 2')
+    u = User()
+    u2 = NotifierDecorator(u)
+    u2.notify('hello')

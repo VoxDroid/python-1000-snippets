@@ -1,5 +1,12 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# compute squares in parallel
+
+from multiprocessing import Pool
+
+def square(n):
+    return n * n
 
 if __name__ == '__main__':
-    print('sample 1')
+    with Pool(2) as pool:
+        nums = [1,2,3,4,5]
+        print('Squares:', pool.map(square, nums))

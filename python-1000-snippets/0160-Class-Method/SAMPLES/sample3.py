@@ -1,5 +1,15 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# class method modifying class-wide state
+
+class Counter:
+    count = 0
+    @classmethod
+    def increment(cls):
+        cls.count += 1
+        return cls.count
 
 if __name__ == '__main__':
-    print('sample 3')
+    print('count', Counter.increment())
+    print('count', Counter.increment())
+    c = Counter()
+    print('count via instance', c.increment())

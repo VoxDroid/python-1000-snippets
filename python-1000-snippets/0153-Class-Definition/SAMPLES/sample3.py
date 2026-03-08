@@ -1,5 +1,14 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# using @dataclass for simple classes
+
+from dataclasses import dataclass
+
+@dataclass
+class Point:
+    x: float
+    y: float
 
 if __name__ == '__main__':
-    print('sample 3')
+    p = Point(1.0, 2.0)
+    print(p)
+    print('x coordinate', p.x)

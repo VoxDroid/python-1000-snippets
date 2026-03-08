@@ -1,5 +1,14 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# simple duck-typed polymorphism (matches README)
+
+class Dog:
+    def speak(self):
+        return "Woof!"
+
+class Cat:
+    def speak(self):
+        return "Meow!"
 
 if __name__ == '__main__':
-    print('sample 1')
+    for animal in (Dog(), Cat()):
+        print(animal.speak())

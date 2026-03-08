@@ -1,5 +1,14 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# show return_exceptions option
+
+import asyncio
+
+async def fail():
+    raise RuntimeError('err')
+
+async def main():
+    res = await asyncio.gather(fail(), return_exceptions=True)
+    print(res)
 
 if __name__ == '__main__':
-    print('sample 2')
+    asyncio.run(main())

@@ -1,5 +1,18 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# polymorphism: list of animals
+
+class Animal:
+    def speak(self):
+        raise NotImplementedError
+
+class Dog(Animal):
+    def speak(self):
+        return 'woof'
+
+class Cat(Animal):
+    def speak(self):
+        return 'meow'
 
 if __name__ == '__main__':
-    print('sample 3')
+    for a in (Dog(), Cat()):
+        print(a.speak())

@@ -1,5 +1,16 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# staticmethod vs classmethod demonstration
+
+class Demo:
+    @staticmethod
+    def static():
+        return 'static called'
+    @classmethod
+    def klass(cls):
+        return f'class called on {cls.__name__}'
 
 if __name__ == '__main__':
-    print('sample 3')
+    print(Demo.static())
+    print(Demo.klass())
+    d = Demo()
+    print(d.static(), d.klass())

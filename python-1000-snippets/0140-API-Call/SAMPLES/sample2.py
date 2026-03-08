@@ -1,5 +1,13 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# make a POST request with JSON payload
+
+import requests
 
 if __name__ == '__main__':
-    print('sample 2')
+    try:
+        payload = {'title': 'foo', 'body': 'bar', 'userId': 1}
+        r = requests.post('https://jsonplaceholder.typicode.com/posts', json=payload, timeout=3)
+        r.raise_for_status()
+        print('created', r.json())
+    except requests.RequestException as e:
+        print('post failed', e)

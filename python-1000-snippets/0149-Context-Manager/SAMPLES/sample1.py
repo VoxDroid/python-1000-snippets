@@ -1,5 +1,13 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# simple resource manager example
+
+class ResourceManager:
+    def __enter__(self):
+        print('Resource acquired')
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print('Resource released')
 
 if __name__ == '__main__':
-    print('sample 1')
+    with ResourceManager():
+        print('Using resource')

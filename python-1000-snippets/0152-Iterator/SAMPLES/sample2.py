@@ -1,5 +1,11 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# show manual iteration using iter() and next()
 
 if __name__ == '__main__':
-    print('sample 2')
+    letters = ['a', 'b', 'c']
+    it = iter(letters)
+    try:
+        while True:
+            print(next(it))
+    except StopIteration:
+        print('done')

@@ -1,5 +1,16 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# add method automatically via metaclass
+
+class AddMethodMeta(type):
+    def __new__(cls, name, bases, attrs):
+        def greet(self):
+            return f"hello from {name}"
+        attrs['greet'] = greet
+        return super().__new__(cls, name, bases, attrs)
+
+class Person(metaclass=AddMethodMeta):
+    pass
 
 if __name__ == '__main__':
-    print('sample 3')
+    p = Person()
+    print(p.greet())

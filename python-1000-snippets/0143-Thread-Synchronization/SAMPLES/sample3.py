@@ -1,5 +1,19 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# demonstrate use of RLock for recursive locking
+
+import threading
+
+rlock = threading.RLock()
+
+count = 0
+
+def recursive(depth):
+    global count
+    with rlock:
+        count += 1
+        if depth > 0:
+            recursive(depth-1)
 
 if __name__ == '__main__':
-    print('sample 3')
+    recursive(5)
+    print('count', count)

@@ -1,5 +1,27 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# stopwatch with Running and Stopped states
+
+class State:
+    def press(self, watch):
+        pass
+
+class Running(State):
+    def press(self, watch):
+        print('stopping')
+        watch.state = Stopped()
+
+class Stopped(State):
+    def press(self, watch):
+        print('starting')
+        watch.state = Running()
+
+class Stopwatch:
+    def __init__(self):
+        self.state = Stopped()
+    def press(self):
+        self.state.press(self)
 
 if __name__ == '__main__':
-    print('sample 3')
+    sw = Stopwatch()
+    sw.press()
+    sw.press()

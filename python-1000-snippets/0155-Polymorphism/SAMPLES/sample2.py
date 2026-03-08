@@ -1,5 +1,17 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# function accepts any object with a `speak` method
+
+def announce(animal):
+    print('Announcing:', animal.speak())
+
+class Bird:
+    def speak(self):
+        return 'Tweet'
+
+class Robot:
+    def speak(self):
+        return 'Beep'
 
 if __name__ == '__main__':
-    print('sample 2')
+    announce(Bird())
+    announce(Robot())
