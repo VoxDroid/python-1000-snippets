@@ -1,5 +1,9 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+try:
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup("<div><a href='x'>link</a></div>", "html.parser")
+    link = soup.select_one("a")
+    print("link href:", link['href'])
+except ImportError:
+    print("no bs4")
 
-if __name__ == '__main__':
-    print('sample 3')

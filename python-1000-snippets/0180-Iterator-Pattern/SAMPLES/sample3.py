@@ -1,5 +1,14 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# manual iteration with next() and try/except
+
+items = ['a', 'b', 'c']
+iterator = iter(items)
 
 if __name__ == '__main__':
-    print('sample 3')
+    while True:
+        try:
+            item = next(iterator)
+            print('got', item)
+        except StopIteration:
+            print('finished')
+            break

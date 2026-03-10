@@ -1,5 +1,8 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+try:
+    import yaml
+    data = yaml.safe_load('key: value')
+    print(data)
+except ImportError:
+    print('PyYAML not available')
 
-if __name__ == '__main__':
-    print('sample 1')

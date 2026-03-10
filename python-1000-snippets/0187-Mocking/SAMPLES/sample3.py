@@ -1,5 +1,10 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# using MagicMock to simulate complex object
+
+from unittest.mock import MagicMock
 
 if __name__ == '__main__':
-    print('sample 3')
+    db = MagicMock()
+    db.query.return_value = ['row1', 'row2']
+    print('results', db.query('SELECT'))
+    db.query.assert_called_with('SELECT')

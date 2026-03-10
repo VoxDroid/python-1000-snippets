@@ -1,5 +1,6 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+import shelve
+with shelve.open("mystore") as db:
+    for k in db:
+        print("key", k, "=>", db[k])
 
-if __name__ == '__main__':
-    print('sample 2')

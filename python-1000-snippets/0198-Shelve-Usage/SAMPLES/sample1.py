@@ -1,5 +1,7 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+import shelve
+with shelve.open("mystore") as db:
+    db["user1"] = {"name":"Alice","age":25}
+with shelve.open("mystore") as db:
+    print("User1:", db["user1"])
 
-if __name__ == '__main__':
-    print('sample 1')

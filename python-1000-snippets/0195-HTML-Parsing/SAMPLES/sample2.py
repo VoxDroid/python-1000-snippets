@@ -1,5 +1,10 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+try:
+    from bs4 import BeautifulSoup
+    html = "<ul><li>A</li><li>B</li></ul>"
+    soup = BeautifulSoup(html, "html.parser")
+    for li in soup.find_all("li"):
+        print("item", li.text)
+except ImportError:
+    print("mock items")
 
-if __name__ == '__main__':
-    print('sample 2')

@@ -1,5 +1,16 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# a simple pytest test (run coverage via CLI separately)
+
+def multiply(a, b):
+    return a * b
+
+
+def test_multiply():
+    assert multiply(3, 4) == 12
+
 
 if __name__ == '__main__':
-    print('sample 2')
+    import pytest
+    pytest.main([__file__])
+
+

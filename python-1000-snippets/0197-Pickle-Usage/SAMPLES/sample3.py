@@ -1,5 +1,4 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+import pickle
+print("Warning: never unpickle data from untrusted sources")
 
-if __name__ == '__main__':
-    print('sample 3')

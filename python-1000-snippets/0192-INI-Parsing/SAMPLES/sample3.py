@@ -1,5 +1,7 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+import configparser
 
-if __name__ == '__main__':
-    print('sample 3')
+cfg = configparser.ConfigParser()
+cfg.read_dict({'defaults': {'x':'10'}})
+print('x default:', cfg.get('defaults','x'))
+

@@ -1,5 +1,7 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+import shelve
+with shelve.open("mystore") as db:
+    db["user1"]["age"] = 26
+    db.sync()
+print("updated age in db")
 
-if __name__ == '__main__':
-    print('sample 3')

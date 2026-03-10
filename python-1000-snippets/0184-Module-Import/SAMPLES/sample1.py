@@ -1,5 +1,11 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# import utils module in same folder
+
+import sys, os
+# add parent directory so utils.py can be imported
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+import utils
 
 if __name__ == '__main__':
-    print('sample 1')
+    print(utils.greet("Alice"))
+

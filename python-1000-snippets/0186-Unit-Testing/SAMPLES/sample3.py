@@ -1,5 +1,10 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# demonstrating test discovery with a named test_* file
+
+# simply reuse sample1's tests by importing
+from sample1 import TestAdd
 
 if __name__ == '__main__':
-    print('sample 3')
+    import unittest
+    suite = unittest.TestLoader().loadTestsFromTestCase(TestAdd)
+    unittest.TextTestRunner().run(suite)

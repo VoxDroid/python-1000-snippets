@@ -1,5 +1,14 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+import configparser
 
-if __name__ == '__main__':
-    print('sample 1')
+ini = """
+[one]
+a=1
+[two]
+b=2
+"""
+cfg = configparser.ConfigParser()
+cfg.read_string(ini)
+print(cfg.sections())
+print('a in one:', cfg['one']['a'])
+

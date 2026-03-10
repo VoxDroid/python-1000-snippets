@@ -9,3 +9,4 @@ GUIDELINES.md
 CHECKLIST.md
 CHECKLIST_TEMP.md
 *.venv
+*.coverage

@@ -1,5 +1,6 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+import subprocess
+print("Run alembic commands manually, e.g:")
+print("  alembic upgrade head")
+print("  alembic revision --autogenerate -m 'add email'")
 
-if __name__ == '__main__':
-    print('sample 3')

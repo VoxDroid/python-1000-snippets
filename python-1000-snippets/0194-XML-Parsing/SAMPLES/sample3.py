@@ -1,5 +1,7 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+import xml.etree.ElementTree as ET
+xml = '<ns:root xmlns:ns="urn"><ns:child>v</ns:child></ns:root>'
+r = ET.fromstring(xml)
+ns = {'ns':'urn'}
+print('namespaced:', r.find('ns:child', ns).text)
 
-if __name__ == '__main__':
-    print('sample 3')

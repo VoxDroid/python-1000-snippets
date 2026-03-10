@@ -1,32 +1,33 @@
 # Prototype Pattern
 
 ## Description
-This snippet implements the Prototype pattern to clone objects efficiently.
+This snippet implements the Prototype pattern by cloning existing objects to create new ones.
 
 ## Code
 ```python
 import copy
 
 class Prototype:
-    def __init__(self, value):
-        self.value = value
+    def __init__(self, field):
+        self.field = field
     def clone(self):
         return copy.deepcopy(self)
 
-original = Prototype("Original")
-cloned = original.clone()
-cloned.value = "Cloned"
-print(f"Original: {original.value}, Cloned: {cloned.value}")
+p1 = Prototype([1, 2, 3])
+p2 = p1.clone()
+p2.field.append(4)
+print(p1.field)  # original unaffected
+print(p2.field)
 ```
 
 ## Output
 ```
-Original: Original, Cloned: Cloned
+[1, 2, 3]
+[1, 2, 3, 4]
 ```
 
 ## Explanation
-- **Prototype Pattern**: `Prototype.clone` creates a deep copy of the object.
-- **Logic**: Uses `copy.deepcopy` to ensure independent copies.
-- **Complexity**: O(n) for copying n attributes.
-- **Use Case**: Used when object creation is costly, like in game object spawning.
-- **Best Practice**: Use deep copy for complex objects; implement custom cloning if needed.
+- **Prototype Pattern**: uses a prototype instance to create copies rather than instantiating new objects directly.
+- **Logic**: `clone` returns a deep copy to ensure independent state.
+- **Use Case**: useful when object creation is expensive or complex.
+- **Best Practice**: implement a `clone`/`copy` method; consider shallow vs deep copy.

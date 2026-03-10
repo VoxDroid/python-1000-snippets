@@ -1,5 +1,7 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+import pickle
+data = [1,2,3]
+b = pickle.dumps(data)
+print("bytes length", len(b))
+print("round-trip", pickle.loads(b))
 
-if __name__ == '__main__':
-    print('sample 2')

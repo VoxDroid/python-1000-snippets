@@ -1,5 +1,9 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# use fallback values when options are missing
 
-if __name__ == '__main__':
-    print('sample 3')
+import configparser
+
+cfg = configparser.ConfigParser()
+cfg.read('settings.ini')
+timeout = cfg.get('Database', 'timeout', fallback='30')
+print('Timeout:', timeout)

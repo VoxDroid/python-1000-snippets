@@ -1,5 +1,10 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+try:
+    import yaml
+    obj = {'list': [1,2,3]}
+    with open('out.yaml','w') as f:
+        yaml.safe_dump(obj, f)
+    print('dumped to out.yaml')
+except ImportError:
+    print('cannot write, missing pyyaml')
 
-if __name__ == '__main__':
-    print('sample 2')

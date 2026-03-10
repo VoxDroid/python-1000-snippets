@@ -1,5 +1,12 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+import configparser
 
-if __name__ == '__main__':
-    print('sample 2')
+cfg = configparser.ConfigParser()
+cfg['two'] = {'b': '2'}
+with open('temp.ini', 'w') as f:
+    cfg.write(f)
+
+cfg2 = configparser.ConfigParser()
+cfg2.read('temp.ini')
+print('sections:', cfg2.sections())
+

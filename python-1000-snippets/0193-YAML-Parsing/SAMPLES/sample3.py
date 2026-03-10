@@ -1,5 +1,7 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+try:
+    import yaml
+    print('loaded:', yaml.safe_load('a: 1'))
+except ImportError:
+    print('Mock Output: a=1')
 
-if __name__ == '__main__':
-    print('sample 3')

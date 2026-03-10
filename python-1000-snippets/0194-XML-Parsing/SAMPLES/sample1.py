@@ -1,5 +1,6 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+import xml.etree.ElementTree as ET
+xml = '<root><child id="1">hello</child></root>'
+r = ET.fromstring(xml)
+print('child text:', r.find('child').text)
 
-if __name__ == '__main__':
-    print('sample 1')

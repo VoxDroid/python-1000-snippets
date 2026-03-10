@@ -1,5 +1,11 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# demonstrate import alias and module reload
+
+import sys, os, importlib
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+import utils as u
 
 if __name__ == '__main__':
-    print('sample 3')
+    print(u.greet('Carol'))
+    # reload for demonstration
+    importlib.reload(u)

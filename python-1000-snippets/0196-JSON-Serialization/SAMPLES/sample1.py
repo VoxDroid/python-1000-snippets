@@ -1,5 +1,7 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+import json
+data = {"name": "Alice", "age": 30}
+js = json.dumps(data)
+print("JSON:", js)
+print("Parsed:", json.loads(js))
 
-if __name__ == '__main__':
-    print('sample 1')
