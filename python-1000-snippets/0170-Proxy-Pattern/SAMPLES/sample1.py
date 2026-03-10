@@ -1,5 +1,17 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# simple protection proxy example (from README)
+
+class Resource:
+    def access(self):
+        return "Accessing resource"
+
+class Proxy:
+    def __init__(self):
+        self._resource = Resource()
+    def access(self):
+        print("Proxy checking access...")
+        return self._resource.access()
 
 if __name__ == '__main__':
-    print('sample 1')
+    proxy = Proxy()
+    print(proxy.access())
