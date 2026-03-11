@@ -1,5 +1,19 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# publish persistent message to a durable queue
+import pika
 
-if __name__ == '__main__':
-    print('sample 2')
+try:
+    connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+    channel = connection.channel()
+    channel.queue_declare(queue='durable_queue', durable=True)
+    channel.basic_publish(
+        exchange='',
+        routing_key='durable_queue',
+        body='persistent hello',
+        properties=pika.BasicProperties(delivery_mode=2)  # make message persistent
+    )
+    print('Persistent message sent')
+    connection.close()
+except Exception as e:
+    print('Error:', e)
+
