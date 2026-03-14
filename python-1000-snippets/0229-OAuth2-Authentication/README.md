@@ -1,31 +1,31 @@
 # OAuth2 Authentication
 
 ## Description
-This snippet demonstrates OAuth2 authentication using `requests-oauthlib`.
+This snippet demonstrates an OAuth2 client credentials flow against a local OAuth2 token endpoint.
+
+## Setup
+The sample script starts a minimal Flask-based OAuth2 token endpoint at `http://localhost:5001/token` and a protected resource at `/resource`.
+It uses a fixed client ID/secret and returns a static access token.
 
 ## Code
-```python
-# Note: Requires `requests-oauthlib`. Install with `pip install requests-oauthlib`
-try:
-    from oauthlib.oauth2 import WebApplicationClient
-    from requests_oauthlib import OAuth2Session
-    client = WebApplicationClient(client_id="your_client_id")
-    oauth = OAuth2Session(client=client, redirect_uri="http://localhost/callback")
-    auth_url, _ = oauth.authorization_url("https://example.com/oauth/authorize")
-    print("Auth URL:", auth_url)
-except ImportError:
-    print("Mock Output: Auth URL: https://example.com/oauth/authorize?...")
+Run any of the sample scripts:
+
+```bash
+python python-1000-snippets/0229-OAuth2-Authentication/SAMPLES/sample1.py
+python python-1000-snippets/0229-OAuth2-Authentication/SAMPLES/sample2.py
+python python-1000-snippets/0229-OAuth2-Authentication/SAMPLES/sample3.py
 ```
+
+### What each sample demonstrates
+- `sample1.py`: client credentials flow using `requests`
+- `sample2.py`: client credentials flow using `requests-oauthlib`
+- `sample3.py`: token refresh exercise (short-lived token + refresh token)
 
 ## Output
-```
-Mock Output: Auth URL: https://example.com/oauth/authorize?...
-```
-*(Real output with `requests-oauthlib`: `Auth URL: https://example.com/oauth/authorize?...`)*
+The sample prints the token response and the protected resource response.
 
 ## Explanation
-- **OAuth2 Authentication**: Generates an authorization URL for OAuth2 flow.
-- **Logic**: Uses `OAuth2Session` to create a URL for user authentication.
-- **Complexity**: O(1) for URL generation.
-- **Use Case**: Used for accessing protected APIs like Google or GitHub.
-- **Best Practice**: Secure client secrets; handle token refresh; validate redirects.
+- **OAuth2**: Demonstrates the client credentials grant where the client exchanges its credentials for an access token.
+- **Logic**: Request a token from `/token`, then use it to access a protected endpoint.
+- **Use Case**: Service-to-service authentication where user interaction is not required.
+- **Best Practice**: Use secure storage for client secrets and use HTTPS for token endpoints.

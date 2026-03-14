@@ -1,32 +1,21 @@
 # SSH Client
 
 ## Description
-This snippet demonstrates an SSH client using `paramiko` to execute a remote command.
+This snippet demonstrates using `paramiko` to execute commands and transfer files over SSH.
+
+## Setup
+A local OpenSSH server is available in `.ssh_test/` (see the SFTP snippet). It listens on `localhost:2222` and is configured for key-based authentication.
 
 ## Code
 ```python
-# Note: Requires `paramiko`. Install with `pip install paramiko`
-try:
-    import paramiko
-    client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect("localhost", username="user", password="password")
-    stdin, stdout, stderr = client.exec_command("echo Hello")
-    print("Output:", stdout.read().decode().strip())
-    client.close()
-except ImportError:
-    print("Mock Output: Output: Hello")
+# Run the sample scripts in python-1000-snippets/0226-SSH-Client/SAMPLES/
 ```
 
 ## Output
-```
-Mock Output: Output: Hello
-```
-*(Real output with SSH: `Output: Hello`)*
+The samples print the output of remote commands or the results of SFTP directory listings.
 
 ## Explanation
-- **SSH Client**: Executes a command on a remote server using `paramiko`.
-- **Logic**: Connects, runs `echo Hello`, and reads the output.
-- **Complexity**: O(1) for command execution (network latency varies).
-- **Use Case**: Used for remote server management or automation.
-- **Best Practice**: Use SSH keys; handle errors; ensure server is accessible.
+- **Paramiko**: A Python SSH library for executing commands, transferring files, and more.
+- **Logic**: Establish an SSH connection with a private key, then run commands or open SFTP sessions.
+- **Use Case**: Automating remote administration, file transfers, or command execution.
+- **Best Practice**: Use key-based auth, validate host keys, and avoid hardcoding credentials.

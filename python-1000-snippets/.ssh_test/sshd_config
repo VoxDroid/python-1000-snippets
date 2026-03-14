@@ -1,0 +1,10 @@
+Port 2222
+ListenAddress 127.0.0.1
+HostKey /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/host_rsa
+AuthorizedKeysFile /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys
+PasswordAuthentication no
+PermitRootLogin no
+UsePAM no
+Subsystem sftp /usr/lib/openssh/sftp-server
+LogLevel DEBUG
+PidFile /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/sshd.pid

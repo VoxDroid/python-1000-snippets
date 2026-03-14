@@ -1,31 +1,29 @@
 # LDAP Query
 
 ## Description
-This snippet demonstrates querying an LDAP server using `python-ldap`.
+This snippet demonstrates querying an LDAP directory using the `ldap3` library.
+
+## Setup
+These examples use `ldap3`'s `MOCK_SYNC` strategy to run an in-memory LDAP directory without requiring a real LDAP server.
 
 ## Code
-```python
-# Note: Requires `python-ldap`. Install with `pip install python-ldap`
-try:
-    import ldap
-    conn = ldap.initialize("ldap://localhost:389")
-    conn.simple_bind_s("cn=admin,dc=example,dc=com", "password")
-    result = conn.search_s("dc=example,dc=com", ldap.SCOPE_SUBTREE, "(uid=alice)")
-    print("Found:", result[0][1]["uid"][0].decode())
-    conn.unbind_s()
-except ImportError:
-    print("Mock Output: Found: alice")
+In the `SAMPLES/` folder you'll find three runnable examples:
+
+- `sample1.py` — query/mock LDAP directory search
+- `sample2.py` — modify an LDAP entry
+- `sample3.py` — delete an LDAP entry
+
+Run any of them with:
+
+```bash
+python python-1000-snippets/0228-LDAP-Query/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Found: alice
-```
-*(Real output with LDAP: `Found: alice`)*
+The samples print LDAP entry DNs and attribute values found in the directory.
 
 ## Explanation
-- **LDAP Query**: Searches for a user in an LDAP directory using `python-ldap`.
-- **Logic**: Binds to the server and searches for a user by `uid`.
-- **Complexity**: O(n) for n entries in the search scope.
-- **Use Case**: Used for authentication or directory services.
-- **Best Practice**: Use LDAPS for security; handle bind errors; ensure server is running.
+- **LDAP Query**: Searches an LDAP directory using standard filters (e.g., `(cn=John*)`).
+- **Logic**: Bind to the directory, perform a search, and iterate over results.
+- **Use Case**: Useful for querying user directories, authentication systems, or configuration stores.
+- **Best Practice**: In production, use a real LDAP server and secure connections (LDAPS/STARTTLS).

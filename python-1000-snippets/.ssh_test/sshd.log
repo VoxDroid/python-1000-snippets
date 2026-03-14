@@ -1,0 +1,464 @@
+nohup: ignoring input
+debug1: Set /proc/self/oom_score_adj from 100 to -1000
+debug1: Bind to port 2222 on 127.0.0.1.
+Server listening on 127.0.0.1 port 2222.
+debug1: Forked child 46833.
+debug1: Set /proc/self/oom_score_adj to 100
+debug1: rexec start in 4 out 4 newsock 4 pipe 6 sock 7
+debug1: inetd sockets after dupping: 3, 3
+Connection from 127.0.0.1 port 59422 on 127.0.0.1 port 2222 rdomain ""
+debug1: Local version string SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.15
+debug1: Remote protocol version 2.0, remote software version paramiko_4.0.0
+debug1: compat_banner: no match: paramiko_4.0.0
+debug1: permanently_set_uid: 126/65534 [preauth]
+debug1: list_hostkey_types: rsa-sha2-512,rsa-sha2-256 [preauth]
+debug1: SSH2_MSG_KEXINIT sent [preauth]
+debug1: SSH2_MSG_KEXINIT received [preauth]
+debug1: kex: algorithm: curve25519-sha256@libssh.org [preauth]
+debug1: kex: host key algorithm: rsa-sha2-512 [preauth]
+debug1: kex: client->server cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]
+debug1: kex: server->client cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]
+debug1: expecting SSH2_MSG_KEX_ECDH_INIT [preauth]
+debug1: SSH2_MSG_KEX_ECDH_INIT received [preauth]
+debug1: ssh_packet_send2_wrapped: resetting send seqnr 3 [preauth]
+debug1: rekey out after 4294967296 blocks [preauth]
+debug1: SSH2_MSG_NEWKEYS sent [preauth]
+debug1: Sending SSH2_MSG_EXT_INFO [preauth]
+debug1: expecting SSH2_MSG_NEWKEYS [preauth]
+debug1: ssh_packet_read_poll2: resetting read seqnr 3 [preauth]
+debug1: SSH2_MSG_NEWKEYS received [preauth]
+debug1: rekey in after 4294967296 blocks [preauth]
+debug1: KEX done [preauth]
+debug1: userauth-request for user vox service ssh-connection method publickey [preauth]
+debug1: attempt 0 failures 0 [preauth]
+debug1: temporarily_use_uid: 1000/1000 (e=0/0)
+debug1: trying public key file /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys
+debug1: fd 4 clearing O_NONBLOCK
+debug1: /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1: matching key found: RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc
+debug1: /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+Accepted key RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc found at /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1
+debug1: restore_uid: 0/0
+debug1: auth_activate_options: setting new authentication options
+Accepted publickey for vox from 127.0.0.1 port 59422 ssh2: RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc
+debug1: monitor_child_preauth: user vox authenticated by privileged process
+debug1: auth_activate_options: setting new authentication options [preauth]
+debug1: monitor_read_log: child log fd closed
+User child is on pid 46837
+debug1: SELinux support disabled
+debug1: permanently_set_uid: 1000/1000
+debug1: rekey in after 4294967296 blocks
+debug1: rekey out after 4294967296 blocks
+debug1: ssh_packet_set_postauth: called
+debug1: active: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+debug1: Entering interactive session for SSH2.
+debug1: server_init_dispatch
+debug1: server_input_channel_open: ctype session rchan 0 win 2097152 max 32768
+debug1: input_session_request
+debug1: channel 0: new session [server-session] (inactive timeout: 0)
+debug1: session_new: session 0
+debug1: session_open: channel 0
+debug1: session_open: session 0: link with channel 0
+debug1: server_input_channel_open: confirm session
+debug1: server_input_channel_req: channel 0 request subsystem reply 1
+debug1: session_by_channel: session 0 channel 0
+debug1: session_input_channel_req: session 0 req subsystem
+debug1: subsystem: exec() /usr/lib/openssh/sftp-server 
+Starting session: subsystem 'sftp' for vox from 127.0.0.1 port 59422 id 0
+debug1: Received SIGCHLD.
+debug1: session_by_pid: pid 46838
+debug1: session_exit_message: session 0 channel 0 pid 46838 exit 0
+debug1: session_exit_message: release channel 0
+debug1: session_by_channel: session 0 channel 0
+debug1: session_close_by_channel: channel 0 child 0
+Close session: user vox from 127.0.0.1 port 59422 id 0
+debug1: channel 0: free: server-session, nchannels 1
+Read error from remote host 127.0.0.1 port 59422: Connection reset by peer
+debug1: do_cleanup
+debug1: temporarily_use_uid: 1000/1000 (e=1000/1000)
+debug1: restore_uid: (unprivileged)
+debug1: do_cleanup
+debug1: temporarily_use_uid: 1000/1000 (e=0/0)
+debug1: restore_uid: 0/0
+debug1: audit_event: unhandled event 12
+debug1: Forked child 46896.
+debug1: Set /proc/self/oom_score_adj to 100
+debug1: rexec start in 4 out 4 newsock 4 pipe 6 sock 7
+debug1: inetd sockets after dupping: 3, 3
+Connection from 127.0.0.1 port 59426 on 127.0.0.1 port 2222 rdomain ""
+debug1: Local version string SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.15
+debug1: Remote protocol version 2.0, remote software version paramiko_4.0.0
+debug1: compat_banner: no match: paramiko_4.0.0
+debug1: permanently_set_uid: 126/65534 [preauth]
+debug1: list_hostkey_types: rsa-sha2-512,rsa-sha2-256 [preauth]
+debug1: SSH2_MSG_KEXINIT sent [preauth]
+debug1: SSH2_MSG_KEXINIT received [preauth]
+debug1: kex: algorithm: curve25519-sha256@libssh.org [preauth]
+debug1: kex: host key algorithm: rsa-sha2-512 [preauth]
+debug1: kex: client->server cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]
+debug1: kex: server->client cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]
+debug1: expecting SSH2_MSG_KEX_ECDH_INIT [preauth]
+debug1: SSH2_MSG_KEX_ECDH_INIT received [preauth]
+debug1: ssh_packet_send2_wrapped: resetting send seqnr 3 [preauth]
+debug1: rekey out after 4294967296 blocks [preauth]
+debug1: SSH2_MSG_NEWKEYS sent [preauth]
+debug1: Sending SSH2_MSG_EXT_INFO [preauth]
+debug1: expecting SSH2_MSG_NEWKEYS [preauth]
+debug1: ssh_packet_read_poll2: resetting read seqnr 3 [preauth]
+debug1: SSH2_MSG_NEWKEYS received [preauth]
+debug1: rekey in after 4294967296 blocks [preauth]
+debug1: KEX done [preauth]
+debug1: userauth-request for user vox service ssh-connection method publickey [preauth]
+debug1: attempt 0 failures 0 [preauth]
+debug1: temporarily_use_uid: 1000/1000 (e=0/0)
+debug1: trying public key file /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys
+debug1: fd 4 clearing O_NONBLOCK
+debug1: /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1: matching key found: RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc
+debug1: /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+Accepted key RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc found at /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1
+debug1: restore_uid: 0/0
+debug1: auth_activate_options: setting new authentication options
+Accepted publickey for vox from 127.0.0.1 port 59426 ssh2: RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc
+debug1: monitor_child_preauth: user vox authenticated by privileged process
+debug1: auth_activate_options: setting new authentication options [preauth]
+debug1: monitor_read_log: child log fd closed
+User child is on pid 46899
+debug1: SELinux support disabled
+debug1: permanently_set_uid: 1000/1000
+debug1: rekey in after 4294967296 blocks
+debug1: rekey out after 4294967296 blocks
+debug1: ssh_packet_set_postauth: called
+debug1: active: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+debug1: Entering interactive session for SSH2.
+debug1: server_init_dispatch
+debug1: server_input_channel_open: ctype session rchan 0 win 2097152 max 32768
+debug1: input_session_request
+debug1: channel 0: new session [server-session] (inactive timeout: 0)
+debug1: session_new: session 0
+debug1: session_open: channel 0
+debug1: session_open: session 0: link with channel 0
+debug1: server_input_channel_open: confirm session
+debug1: server_input_channel_req: channel 0 request subsystem reply 1
+debug1: session_by_channel: session 0 channel 0
+debug1: session_input_channel_req: session 0 req subsystem
+debug1: subsystem: exec() /usr/lib/openssh/sftp-server 
+Starting session: subsystem 'sftp' for vox from 127.0.0.1 port 59426 id 0
+debug1: Received SIGCHLD.
+debug1: session_by_pid: pid 46900
+debug1: session_exit_message: session 0 channel 0 pid 46900 exit 0
+debug1: session_exit_message: release channel 0
+debug1: session_by_channel: session 0 channel 0
+debug1: session_close_by_channel: channel 0 child 0
+Close session: user vox from 127.0.0.1 port 59426 id 0
+debug1: channel 0: free: server-session, nchannels 1
+Read error from remote host 127.0.0.1 port 59426: Connection reset by peer
+debug1: do_cleanup
+debug1: temporarily_use_uid: 1000/1000 (e=1000/1000)
+debug1: restore_uid: (unprivileged)
+debug1: do_cleanup
+debug1: temporarily_use_uid: 1000/1000 (e=0/0)
+debug1: restore_uid: 0/0
+debug1: audit_event: unhandled event 12
+debug1: Forked child 46903.
+debug1: Set /proc/self/oom_score_adj to 100
+debug1: rexec start in 4 out 4 newsock 4 pipe 6 sock 7
+debug1: inetd sockets after dupping: 3, 3
+Connection from 127.0.0.1 port 59428 on 127.0.0.1 port 2222 rdomain ""
+debug1: Local version string SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.15
+debug1: Remote protocol version 2.0, remote software version paramiko_4.0.0
+debug1: compat_banner: no match: paramiko_4.0.0
+debug1: permanently_set_uid: 126/65534 [preauth]
+debug1: list_hostkey_types: rsa-sha2-512,rsa-sha2-256 [preauth]
+debug1: SSH2_MSG_KEXINIT sent [preauth]
+debug1: SSH2_MSG_KEXINIT received [preauth]
+debug1: kex: algorithm: curve25519-sha256@libssh.org [preauth]
+debug1: kex: host key algorithm: rsa-sha2-512 [preauth]
+debug1: kex: client->server cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]
+debug1: kex: server->client cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]
+debug1: expecting SSH2_MSG_KEX_ECDH_INIT [preauth]
+debug1: SSH2_MSG_KEX_ECDH_INIT received [preauth]
+debug1: ssh_packet_send2_wrapped: resetting send seqnr 3 [preauth]
+debug1: rekey out after 4294967296 blocks [preauth]
+debug1: SSH2_MSG_NEWKEYS sent [preauth]
+debug1: Sending SSH2_MSG_EXT_INFO [preauth]
+debug1: expecting SSH2_MSG_NEWKEYS [preauth]
+debug1: ssh_packet_read_poll2: resetting read seqnr 3 [preauth]
+debug1: SSH2_MSG_NEWKEYS received [preauth]
+debug1: rekey in after 4294967296 blocks [preauth]
+debug1: KEX done [preauth]
+debug1: userauth-request for user vox service ssh-connection method publickey [preauth]
+debug1: attempt 0 failures 0 [preauth]
+debug1: temporarily_use_uid: 1000/1000 (e=0/0)
+debug1: trying public key file /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys
+debug1: fd 4 clearing O_NONBLOCK
+debug1: /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1: matching key found: RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc
+debug1: /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+Accepted key RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc found at /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1
+debug1: restore_uid: 0/0
+debug1: auth_activate_options: setting new authentication options
+Accepted publickey for vox from 127.0.0.1 port 59428 ssh2: RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc
+debug1: monitor_child_preauth: user vox authenticated by privileged process
+debug1: auth_activate_options: setting new authentication options [preauth]
+debug1: monitor_read_log: child log fd closed
+User child is on pid 46906
+debug1: SELinux support disabled
+debug1: permanently_set_uid: 1000/1000
+debug1: rekey in after 4294967296 blocks
+debug1: rekey out after 4294967296 blocks
+debug1: ssh_packet_set_postauth: called
+debug1: active: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+debug1: Entering interactive session for SSH2.
+debug1: server_init_dispatch
+debug1: server_input_channel_open: ctype session rchan 0 win 2097152 max 32768
+debug1: input_session_request
+debug1: channel 0: new session [server-session] (inactive timeout: 0)
+debug1: session_new: session 0
+debug1: session_open: channel 0
+debug1: session_open: session 0: link with channel 0
+debug1: server_input_channel_open: confirm session
+debug1: server_input_channel_req: channel 0 request subsystem reply 1
+debug1: session_by_channel: session 0 channel 0
+debug1: session_input_channel_req: session 0 req subsystem
+debug1: subsystem: exec() /usr/lib/openssh/sftp-server 
+Starting session: subsystem 'sftp' for vox from 127.0.0.1 port 59428 id 0
+debug1: Received SIGCHLD.
+debug1: session_by_pid: pid 46907
+debug1: session_exit_message: session 0 channel 0 pid 46907 exit 0
+debug1: session_exit_message: release channel 0
+debug1: session_by_channel: session 0 channel 0
+debug1: session_close_by_channel: channel 0 child 0
+Close session: user vox from 127.0.0.1 port 59428 id 0
+debug1: channel 0: free: server-session, nchannels 1
+Read error from remote host 127.0.0.1 port 59428: Connection reset by peer
+debug1: do_cleanup
+debug1: temporarily_use_uid: 1000/1000 (e=1000/1000)
+debug1: restore_uid: (unprivileged)
+debug1: do_cleanup
+debug1: temporarily_use_uid: 1000/1000 (e=0/0)
+debug1: restore_uid: 0/0
+debug1: audit_event: unhandled event 12
+debug1: Forked child 57908.
+debug1: Set /proc/self/oom_score_adj to 100
+debug1: rexec start in 4 out 4 newsock 4 pipe 6 sock 7
+debug1: inetd sockets after dupping: 3, 3
+Connection from 127.0.0.1 port 50814 on 127.0.0.1 port 2222 rdomain ""
+debug1: Local version string SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.15
+debug1: Remote protocol version 2.0, remote software version paramiko_4.0.0
+debug1: compat_banner: no match: paramiko_4.0.0
+debug1: permanently_set_uid: 126/65534 [preauth]
+debug1: list_hostkey_types: rsa-sha2-512,rsa-sha2-256 [preauth]
+debug1: SSH2_MSG_KEXINIT sent [preauth]
+debug1: SSH2_MSG_KEXINIT received [preauth]
+debug1: kex: algorithm: curve25519-sha256@libssh.org [preauth]
+debug1: kex: host key algorithm: rsa-sha2-512 [preauth]
+debug1: kex: client->server cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]
+debug1: kex: server->client cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]
+debug1: expecting SSH2_MSG_KEX_ECDH_INIT [preauth]
+debug1: SSH2_MSG_KEX_ECDH_INIT received [preauth]
+debug1: ssh_packet_send2_wrapped: resetting send seqnr 3 [preauth]
+debug1: rekey out after 4294967296 blocks [preauth]
+debug1: SSH2_MSG_NEWKEYS sent [preauth]
+debug1: Sending SSH2_MSG_EXT_INFO [preauth]
+debug1: expecting SSH2_MSG_NEWKEYS [preauth]
+debug1: ssh_packet_read_poll2: resetting read seqnr 3 [preauth]
+debug1: SSH2_MSG_NEWKEYS received [preauth]
+debug1: rekey in after 4294967296 blocks [preauth]
+debug1: KEX done [preauth]
+debug1: userauth-request for user vox service ssh-connection method publickey [preauth]
+debug1: attempt 0 failures 0 [preauth]
+debug1: temporarily_use_uid: 1000/1000 (e=0/0)
+debug1: trying public key file /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys
+debug1: fd 4 clearing O_NONBLOCK
+debug1: /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1: matching key found: RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc
+debug1: /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+Accepted key RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc found at /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1
+debug1: restore_uid: 0/0
+debug1: auth_activate_options: setting new authentication options
+Accepted publickey for vox from 127.0.0.1 port 50814 ssh2: RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc
+debug1: monitor_child_preauth: user vox authenticated by privileged process
+debug1: auth_activate_options: setting new authentication options [preauth]
+debug1: monitor_read_log: child log fd closed
+User child is on pid 57911
+debug1: SELinux support disabled
+debug1: permanently_set_uid: 1000/1000
+debug1: rekey in after 4294967296 blocks
+debug1: rekey out after 4294967296 blocks
+debug1: ssh_packet_set_postauth: called
+debug1: active: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+debug1: Entering interactive session for SSH2.
+debug1: server_init_dispatch
+debug1: server_input_channel_open: ctype session rchan 0 win 2097152 max 32768
+debug1: input_session_request
+debug1: channel 0: new session [server-session] (inactive timeout: 0)
+debug1: session_new: session 0
+debug1: session_open: channel 0
+debug1: session_open: session 0: link with channel 0
+debug1: server_input_channel_open: confirm session
+debug1: server_input_channel_req: channel 0 request exec reply 1
+debug1: session_by_channel: session 0 channel 0
+debug1: session_input_channel_req: session 0 req exec
+Starting session: command for vox from 127.0.0.1 port 50814 id 0
+debug1: Received SIGCHLD.
+debug1: session_by_pid: pid 57912
+debug1: session_exit_message: session 0 channel 0 pid 57912 exit 0
+debug1: session_exit_message: release channel 0
+Connection closed by 127.0.0.1 port 50814
+debug1: channel 0: free: server-session, nchannels 1
+Close session: user vox from 127.0.0.1 port 50814 id 0
+debug1: do_cleanup
+debug1: temporarily_use_uid: 1000/1000 (e=1000/1000)
+debug1: restore_uid: (unprivileged)
+Transferred: sent 3256, received 2360 bytes
+Closing connection to 127.0.0.1 port 50814
+debug1: Forked child 57916.
+debug1: Set /proc/self/oom_score_adj to 100
+debug1: rexec start in 4 out 4 newsock 4 pipe 6 sock 7
+debug1: inetd sockets after dupping: 3, 3
+Connection from 127.0.0.1 port 50822 on 127.0.0.1 port 2222 rdomain ""
+debug1: Local version string SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.15
+debug1: Remote protocol version 2.0, remote software version paramiko_4.0.0
+debug1: compat_banner: no match: paramiko_4.0.0
+debug1: permanently_set_uid: 126/65534 [preauth]
+debug1: list_hostkey_types: rsa-sha2-512,rsa-sha2-256 [preauth]
+debug1: SSH2_MSG_KEXINIT sent [preauth]
+debug1: SSH2_MSG_KEXINIT received [preauth]
+debug1: kex: algorithm: curve25519-sha256@libssh.org [preauth]
+debug1: kex: host key algorithm: rsa-sha2-512 [preauth]
+debug1: kex: client->server cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]
+debug1: kex: server->client cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]
+debug1: expecting SSH2_MSG_KEX_ECDH_INIT [preauth]
+debug1: SSH2_MSG_KEX_ECDH_INIT received [preauth]
+debug1: ssh_packet_send2_wrapped: resetting send seqnr 3 [preauth]
+debug1: rekey out after 4294967296 blocks [preauth]
+debug1: SSH2_MSG_NEWKEYS sent [preauth]
+debug1: Sending SSH2_MSG_EXT_INFO [preauth]
+debug1: expecting SSH2_MSG_NEWKEYS [preauth]
+debug1: ssh_packet_read_poll2: resetting read seqnr 3 [preauth]
+debug1: SSH2_MSG_NEWKEYS received [preauth]
+debug1: rekey in after 4294967296 blocks [preauth]
+debug1: KEX done [preauth]
+debug1: userauth-request for user vox service ssh-connection method publickey [preauth]
+debug1: attempt 0 failures 0 [preauth]
+debug1: temporarily_use_uid: 1000/1000 (e=0/0)
+debug1: trying public key file /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys
+debug1: fd 4 clearing O_NONBLOCK
+debug1: /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1: matching key found: RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc
+debug1: /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+Accepted key RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc found at /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1
+debug1: restore_uid: 0/0
+debug1: auth_activate_options: setting new authentication options
+Accepted publickey for vox from 127.0.0.1 port 50822 ssh2: RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc
+debug1: monitor_child_preauth: user vox authenticated by privileged process
+debug1: auth_activate_options: setting new authentication options [preauth]
+debug1: monitor_read_log: child log fd closed
+User child is on pid 57919
+debug1: SELinux support disabled
+debug1: permanently_set_uid: 1000/1000
+debug1: rekey in after 4294967296 blocks
+debug1: rekey out after 4294967296 blocks
+debug1: ssh_packet_set_postauth: called
+debug1: active: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+debug1: Entering interactive session for SSH2.
+debug1: server_init_dispatch
+debug1: server_input_channel_open: ctype session rchan 0 win 2097152 max 32768
+debug1: input_session_request
+debug1: channel 0: new session [server-session] (inactive timeout: 0)
+debug1: session_new: session 0
+debug1: session_open: channel 0
+debug1: session_open: session 0: link with channel 0
+debug1: server_input_channel_open: confirm session
+debug1: server_input_channel_req: channel 0 request subsystem reply 1
+debug1: session_by_channel: session 0 channel 0
+debug1: session_input_channel_req: session 0 req subsystem
+debug1: subsystem: exec() /usr/lib/openssh/sftp-server 
+Starting session: subsystem 'sftp' for vox from 127.0.0.1 port 50822 id 0
+debug1: Received SIGCHLD.
+debug1: session_by_pid: pid 57920
+debug1: session_exit_message: session 0 channel 0 pid 57920 exit 0
+debug1: session_exit_message: release channel 0
+debug1: session_by_channel: session 0 channel 0
+debug1: session_close_by_channel: channel 0 child 0
+Close session: user vox from 127.0.0.1 port 50822 id 0
+debug1: channel 0: free: server-session, nchannels 1
+Read error from remote host 127.0.0.1 port 50822: Connection reset by peer
+debug1: do_cleanup
+debug1: temporarily_use_uid: 1000/1000 (e=1000/1000)
+debug1: restore_uid: (unprivileged)
+debug1: do_cleanup
+debug1: temporarily_use_uid: 1000/1000 (e=0/0)
+debug1: restore_uid: 0/0
+debug1: audit_event: unhandled event 12
+debug1: Set /proc/self/oom_score_adj to 100
+debug1: Forked child 57936.
+debug1: rexec start in 4 out 4 newsock 4 pipe 6 sock 7
+debug1: inetd sockets after dupping: 3, 3
+Connection from 127.0.0.1 port 50828 on 127.0.0.1 port 2222 rdomain ""
+debug1: Local version string SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.15
+debug1: Remote protocol version 2.0, remote software version paramiko_4.0.0
+debug1: compat_banner: no match: paramiko_4.0.0
+debug1: permanently_set_uid: 126/65534 [preauth]
+debug1: list_hostkey_types: rsa-sha2-512,rsa-sha2-256 [preauth]
+debug1: SSH2_MSG_KEXINIT sent [preauth]
+debug1: SSH2_MSG_KEXINIT received [preauth]
+debug1: kex: algorithm: curve25519-sha256@libssh.org [preauth]
+debug1: kex: host key algorithm: rsa-sha2-512 [preauth]
+debug1: kex: client->server cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]
+debug1: kex: server->client cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]
+debug1: expecting SSH2_MSG_KEX_ECDH_INIT [preauth]
+debug1: SSH2_MSG_KEX_ECDH_INIT received [preauth]
+debug1: ssh_packet_send2_wrapped: resetting send seqnr 3 [preauth]
+debug1: rekey out after 4294967296 blocks [preauth]
+debug1: SSH2_MSG_NEWKEYS sent [preauth]
+debug1: Sending SSH2_MSG_EXT_INFO [preauth]
+debug1: expecting SSH2_MSG_NEWKEYS [preauth]
+debug1: ssh_packet_read_poll2: resetting read seqnr 3 [preauth]
+debug1: SSH2_MSG_NEWKEYS received [preauth]
+debug1: rekey in after 4294967296 blocks [preauth]
+debug1: KEX done [preauth]
+debug1: userauth-request for user vox service ssh-connection method publickey [preauth]
+debug1: attempt 0 failures 0 [preauth]
+debug1: temporarily_use_uid: 1000/1000 (e=0/0)
+debug1: trying public key file /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys
+debug1: fd 4 clearing O_NONBLOCK
+debug1: /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1: matching key found: RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc
+debug1: /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+Accepted key RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc found at /home/vox/Documents/GitHub/python-1000-snippets/python-1000-snippets/.ssh_test/authorized_keys:1
+debug1: restore_uid: 0/0
+debug1: auth_activate_options: setting new authentication options
+Accepted publickey for vox from 127.0.0.1 port 50828 ssh2: RSA SHA256:pRzjvSwy0qDAgLfbFsmfUs0IRdbrS8ajjYcBKUS4cAc
+debug1: monitor_child_preauth: user vox authenticated by privileged process
+debug1: auth_activate_options: setting new authentication options [preauth]
+debug1: monitor_read_log: child log fd closed
+User child is on pid 57939
+debug1: SELinux support disabled
+debug1: permanently_set_uid: 1000/1000
+debug1: rekey in after 4294967296 blocks
+debug1: rekey out after 4294967296 blocks
+debug1: ssh_packet_set_postauth: called
+debug1: active: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+debug1: Entering interactive session for SSH2.
+debug1: server_init_dispatch
+debug1: server_input_channel_open: ctype session rchan 0 win 2097152 max 32768
+debug1: input_session_request
+debug1: channel 0: new session [server-session] (inactive timeout: 0)
+debug1: session_new: session 0
+debug1: session_open: channel 0
+debug1: session_open: session 0: link with channel 0
+debug1: server_input_channel_open: confirm session
+debug1: server_input_channel_req: channel 0 request exec reply 1
+debug1: session_by_channel: session 0 channel 0
+debug1: session_input_channel_req: session 0 req exec
+Starting session: command for vox from 127.0.0.1 port 50828 id 0
+debug1: Received SIGCHLD.
+debug1: session_by_pid: pid 57940
+debug1: session_exit_message: session 0 channel 0 pid 57940 exit 0
+debug1: session_exit_message: release channel 0
+debug1: session_by_channel: session 0 channel 0
+debug1: session_close_by_channel: channel 0 child 0
+Close session: user vox from 127.0.0.1 port 50828 id 0
+debug1: channel 0: free: server-session, nchannels 1
+Connection closed by 127.0.0.1 port 50828
+debug1: do_cleanup
+debug1: temporarily_use_uid: 1000/1000 (e=1000/1000)
+debug1: restore_uid: (unprivileged)
+Transferred: sent 3192, received 2408 bytes
+Closing connection to 127.0.0.1 port 50828

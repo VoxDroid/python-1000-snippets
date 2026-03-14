@@ -1,35 +1,23 @@
 # SNMP Query
 
 ## Description
-This snippet demonstrates querying an SNMP device using `pysnmp`.
+This snippet demonstrates querying an SNMP agent using `pysnmp`.
+
+## Setup
+A local SNMP agent (`snmpd`) is typically available on `localhost:161` on many systems.
+This example uses the default community string `public` and queries standard MIB values like `sysDescr`.
 
 ## Code
 ```python
-# Note: Requires `pysnmp`. Install with `pip install pysnmp`
-try:
-    from pysnmp.hlapi import getCmd, SnmpEngine, CommunityData, UdpTransportTarget, ContextData, ObjectType, ObjectIdentity
-    iterator = getCmd(
-        SnmpEngine(),
-        CommunityData("public"),
-        UdpTransportTarget(("localhost", 161)),
-        ContextData(),
-        ObjectType(ObjectIdentity("SNMPv2-MIB", "sysDescr", 0))
-    )
-    error, _, _, varBinds = next(iterator)
-    print("System Description:", str(varBinds[0]))
-except ImportError:
-    print("Mock Output: System Description: Hardware: x86")
+# Run the sample scripts in python-1000-snippets/0227-SNMP-Query/SAMPLES/
 ```
 
 ## Output
-```
-Mock Output: System Description: Hardware: x86
-```
-*(Real output with SNMP: `System Description: <device description>`)*
+Samples print values retrieved from the SNMP agent (system description, uptime, etc.).
 
 ## Explanation
-- **SNMP Query**: Queries a device’s system description using `pysnmp`.
-- **Logic**: Sends a GET request for the `sysDescr` OID.
-- **Complexity**: O(1) for query (network latency varies).
-- **Use Case**: Used for network monitoring or device management.
-- **Best Practice**: Secure SNMP with v3; handle errors; ensure device is SNMP-enabled.
+- **SNMP Query**: Uses `pysnmp` to send SNMP GET or WALK requests.
+- **Logic**: Sends a request to the local SNMP agent and displays the returned OID values.
+- **Complexity**: O(1) for GET; O(n) for walking a subtree.
+- **Use Case**: Network monitoring, device discovery, or inventory collection.
+- **Best Practice**: Use SNMPv3 with authentication and privacy for production systems.

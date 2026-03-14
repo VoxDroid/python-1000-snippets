@@ -1,35 +1,23 @@
 # SMTP Email
 
 ## Description
-This snippet demonstrates sending an email using `smtplib`.
+This snippet demonstrates sending email via a local SMTP server using Python's built-in `smtplib`.
+
+## Setup
+A local SMTP server is started in-process for testing using `aiosmtpd`. It runs on `localhost:1025` and accepts messages without authentication.
 
 ## Code
 ```python
-import smtplib
-from email.mime.text import MIMEText
-try:
-    msg = MIMEText("Hello, SMTP!")
-    msg["Subject"] = "Test Email"
-    msg["From"] = "sender@example.com"
-    msg["To"] = "receiver@example.com"
-    with smtplib.SMTP("smtp.example.com", 587) as server:
-        server.starttls()
-        server.login("user", "password")
-        server.send_message(msg)
-    print("Email sent")
-except:
-    print("Mock Output: Email sent")
+# Run the sample scripts in python-1000-snippets/0223-SMTP-Email/SAMPLES/
+# They start an in-process SMTP server and send messages to it.
 ```
 
 ## Output
-```
-Mock Output: Email sent
-```
-*(Real output with SMTP: `Email sent`)*
+The sample scripts print the number of messages received by the local server and some metadata about the first message.
 
 ## Explanation
-- **SMTP Email**: Sends an email using `smtplib` and `MIMEText`.
-- **Logic**: Configures an email and sends it via an SMTP server.
-- **Complexity**: O(1) for sending (network latency varies).
-- **Use Case**: Used for automated notifications or alerts.
-- **Best Practice**: Use TLS; secure credentials; handle server errors.
+- **smtplib**: Provides a client interface for SMTP.
+- **aiosmtpd**: A lightweight SMTP server used here to receive test messages.
+- **Logic**: Start a local SMTP server, send a message, and inspect the received envelope.
+- **Use Case**: Useful for testing email sending logic without relying on an external SMTP provider.
+- **Best Practice**: Use TLS and proper authentication in production; keep credentials secure.
