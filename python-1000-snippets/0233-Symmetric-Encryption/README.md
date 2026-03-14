@@ -4,29 +4,24 @@
 This snippet demonstrates symmetric encryption using `cryptography` with AES.
 
 ## Code
-```python
-# Note: Requires `cryptography`. Install with `pip install cryptography`
-try:
-    from cryptography.fernet import Fernet
-    key = Fernet.generate_key()
-    cipher = Fernet(key)
-    encrypted = cipher.encrypt(b"Hello, World!")
-    decrypted = cipher.decrypt(encrypted)
-    print("Encrypted:", encrypted)
-    print("Decrypted:", decrypted.decode())
-except ImportError:
-    print("Mock Output: Encrypted: b'gAAAAAB...', Decrypted: Hello, World!")
+In the `SAMPLES/` folder you will find three examples:
+
+- `sample1.py` — symmetric encryption with `Fernet` (AES-128-GCM).
+- `sample2.py` — AES-GCM encryption/decryption using low-level primitives.
+- `sample3.py` — AES-CBC encryption/decryption with PKCS7 padding.
+
+Run any of them with:
+
+```bash
+python python-1000-snippets/0233-Symmetric-Encryption/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Encrypted: b'gAAAAAB...', Decrypted: Hello, World!
-```
-*(Real output with `cryptography`: `Encrypted: b'gAAAAAB...`, Decrypted: Hello, World!`)*
+Each script prints the cipher text and the decrypted plaintext.
 
 ## Explanation
-- **Symmetric Encryption**: Uses `Fernet` (AES-based) for encryption and decryption.
-- **Logic**: Generates a key, encrypts a message, and decrypts it.
+- **Symmetric Encryption**: Encrypts and decrypts data using a shared secret key.
+- **Logic**: Derive or generate a symmetric key, encrypt plaintext, then decrypt ciphertext.
 - **Complexity**: O(n) for n bytes of data.
-- **Use Case**: Used for secure data transmission or storage.
-- **Best Practice**: Secure keys; use authenticated encryption; avoid reusing keys.
+- **Use Case**: Encrypt sensitive data at rest or in transit when both parties share a key.
+- **Best Practice**: Use authenticated encryption (AES-GCM/Fernet), protect keys, and never reuse nonces/IVs.

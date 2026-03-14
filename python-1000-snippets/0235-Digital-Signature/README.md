@@ -4,30 +4,24 @@
 This snippet demonstrates creating and verifying a digital signature using `cryptography`.
 
 ## Code
-```python
-# Note: Requires `cryptography`. Install with `pip install cryptography`
-try:
-    from cryptography.hazmat.primitives.asymmetric import rsa, padding
-    from cryptography.hazmat.primitives import hashes
-    private_key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
-    public_key = private_key.public_key()
-    message = b"Hello, World!"
-    signature = private_key.sign(message, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH), hashes.SHA256())
-    public_key.verify(signature, message, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH), hashes.SHA256())
-    print("Signature verified")
-except ImportError:
-    print("Mock Output: Signature verified")
+In the `SAMPLES/` folder you will find three examples:
+
+- `sample1.py` — RSA-PSS signing/verification.
+- `sample2.py` — ECDSA signing/verification (secp256r1).
+- `sample3.py` — Ed25519 signing/verification.
+
+Run any of them with:
+
+```bash
+python python-1000-snippets/0235-Digital-Signature/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Signature verified
-```
-*(Real output with `cryptography`: `Signature verified`)*
+Each script prints whether signature verification succeeded.
 
 ## Explanation
 - **Digital Signature**: Signs a message with a private key and verifies with a public key.
-- **Logic**: Uses RSA-PSS to create and verify a signature.
-- **Complexity**: O(k^3) for RSA operations (k is key size).
-- **Use Case**: Used for data integrity and authenticity in secure communications.
-- **Best Practice**: Use secure padding; protect private keys; validate signatures.
+- **Logic**: Sign data with a private key and verify using the corresponding public key.
+- **Complexity**: Varies by algorithm; RSA is heavier (O(k^3)), while ECDSA/Ed25519 is faster.
+- **Use Case**: Ensure data integrity and authenticity in secure communications.
+- **Best Practice**: Protect private keys, validate signatures, and use algorithm-appropriate padding (e.g., PSS for RSA).

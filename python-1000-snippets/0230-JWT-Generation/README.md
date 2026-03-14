@@ -4,26 +4,24 @@
 This snippet demonstrates generating a JSON Web Token (JWT) using `pyjwt`.
 
 ## Code
-```python
-# Note: Requires `pyjwt`. Install with `pip install pyjwt`
-try:
-    import jwt
-    payload = {"user_id": 123, "role": "admin"}
-    token = jwt.encode(payload, "secret_key", algorithm="HS256")
-    print("JWT:", token)
-except ImportError:
-    print("Mock Output: JWT: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...")
+In the `SAMPLES/` folder you will find three examples:
+
+- `sample1.py` — HS256 symmetric signing and verification.
+- `sample2.py` — RS256 asymmetric signing (RSA key pair).
+- `sample3.py` — ES256 asymmetric signing (ECDSA key pair) with custom headers.
+
+Run any of them with:
+
+```bash
+python python-1000-snippets/0230-JWT-Generation/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: JWT: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
-```
-*(Real output with `pyjwt`: `JWT: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...`)*
+Each script prints a generated JWT and the decoded claims.
 
 ## Explanation
-- **JWT Generation**: Creates a JWT with a payload using `pyjwt`.
-- **Logic**: Encodes a dictionary with a secret key using the HS256 algorithm.
-- **Complexity**: O(1) for encoding.
+- **JWT Generation**: Signs a JSON payload to create a compact token.
+- **Logic**: Uses `pyjwt` to encode with a secret (HS256) or private key (RS256/ES256), then decodes/validates it.
+- **Complexity**: O(1) for encoding and decoding.
 - **Use Case**: Used for secure authentication or data exchange in APIs.
-- **Best Practice**: Use strong secrets; set expiration; validate tokens on receipt.
+- **Best Practice**: Set `exp` (expiration) claims, validate algorithms, and protect signing keys.

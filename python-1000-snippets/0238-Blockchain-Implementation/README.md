@@ -4,29 +4,20 @@
 This snippet demonstrates a simple blockchain with basic block hashing.
 
 ## Code
-```python
-import hashlib
-import time
+In the `SAMPLES/` folder you will find three examples:
 
-class Block:
-    def __init__(self, index, data, previous_hash):
-        self.index = index
-        self.data = data
-        self.timestamp = time.time()
-        self.previous_hash = previous_hash
-        self.hash = self.calculate_hash()
-    def calculate_hash(self):
-        return hashlib.sha256(f"{self.index}{self.data}{self.timestamp}{self.previous_hash}".encode()).hexdigest()
+- `sample1.py` — basic blockchain with block hashing and chain display.
+- `sample2.py` — validate the chain integrity after tampering.
+- `sample3.py` — simple proof-of-work mining loop.
 
-blockchain = [Block(0, "Genesis", "0")]
-blockchain.append(Block(1, "Transaction1", blockchain[0].hash))
-print("Block Hash:", blockchain[1].hash)
+Run any of them with:
+
+```bash
+python python-1000-snippets/0238-Blockchain-Implementation/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Block Hash: <64-character SHA256 hash>
-```
+Each script prints blockchain state and validation results.
 
 ## Explanation
 - **Blockchain Implementation**: Creates a simple chain of blocks with SHA256 hashing.

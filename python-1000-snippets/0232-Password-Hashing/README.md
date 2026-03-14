@@ -4,27 +4,24 @@
 This snippet demonstrates hashing and verifying passwords using `bcrypt`.
 
 ## Code
-```python
-# Note: Requires `bcrypt`. Install with `pip install bcrypt`
-try:
-    import bcrypt
-    password = "mypassword".encode()
-    hashed = bcrypt.hashpw(password, bcrypt.gensalt())
-    print("Hashed:", hashed)
-    print("Verified:", bcrypt.checkpw(password, hashed))
-except ImportError:
-    print("Mock Output: Hashed: b'$2b$12$...', Verified: True")
+In the `SAMPLES/` folder you will find three examples:
+
+- `sample1.py` — hash and verify a password with `bcrypt`.
+- `sample2.py` — hash and verify using PBKDF2-HMAC (standard library).
+- `sample3.py` — hash and verify using `scrypt` (standard library).
+
+Run any of them with:
+
+```bash
+python python-1000-snippets/0232-Password-Hashing/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Hashed: b'$2b$12$...', Verified: True
-```
-*(Real output with `bcrypt`: `Hashed: b'$2b$12$...`, Verified: True`)*
+Each script prints a password hash and whether verification succeeded.
 
 ## Explanation
-- **Password Hashing**: Uses `bcrypt.hashpw` to hash a password and `checkpw` to verify it.
-- **Logic**: Generates a salted hash and checks if the password matches.
-- **Complexity**: O(1) for hashing/verification (cost factor affects runtime).
-- **Use Case**: Used for secure password storage in authentication systems.
-- **Best Practice**: Use strong salts; adjust work factor; store hashes securely.
+- **Password Hashing**: Uses slow hashing functions (bcrypt/pbkdf2/scrypt) to store passwords securely.
+- **Logic**: Hash a password with a salt and compare hashes for verification.
+- **Complexity**: Intentionally slow to defend against brute-force attacks; tune work factors.
+- **Use Case**: Securely store passwords in authentication systems.
+- **Best Practice**: Use a unique salt per password; use a strong work factor; never store plaintext passwords.

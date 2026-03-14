@@ -4,34 +4,24 @@
 This snippet demonstrates a Merkle Tree for efficient data verification.
 
 ## Code
-```python
-import hashlib
+In the `SAMPLES/` folder you will find three examples:
 
-class MerkleTree:
-    def __init__(self, data):
-        self.leaves = [hashlib.sha256(d.encode()).hexdigest() for d in data]
-        self.root = self.build_tree(self.leaves)
-    def build_tree(self, leaves):
-        if len(leaves) == 1:
-            return leaves[0]
-        parents = []
-        for i in range(0, len(leaves), 2):
-            combined = leaves[i] + (leaves[i+1] if i+1 < len(leaves) else leaves[i])
-            parents.append(hashlib.sha256(combined.encode()).hexdigest())
-        return self.build_tree(parents)
+- `sample1.py` — build a Merkle tree and print the root hash.
+- `sample2.py` — create a Merkle proof for a leaf and print it.
+- `sample3.py` — verify a Merkle proof against a root hash.
 
-tree = MerkleTree(["tx1", "tx2", "tx3", "tx4"])
-print("Merkle Root:", tree.root)
+Run any of them with:
+
+```bash
+python python-1000-snippets/0239-Merkle-Tree/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Merkle Root: <64-character SHA256 hash>
-```
+Each script prints the computed Merkle root and/or proof verification results.
 
 ## Explanation
-- **Merkle Tree**: Builds a binary tree of hashed transactions for efficient verification.
-- **Logic**: Hashes leaves and recursively combines pairs to form the root.
-- **Complexity**: O(n log n) for n transactions.
+- **Merkle Tree**: Builds a binary tree of hashed data for efficient integrity checks.
+- **Logic**: Hash leaves, combine pairs to build upper layers, and compute a root; proofs show inclusion with minimal data.
+- **Complexity**: O(n) to build the tree, O(log n) to verify a proof.
 - **Use Case**: Used in blockchains for compact transaction verification.
-- **Best Practice**: Handle odd leaf counts; use secure hashing; verify proofs.
+- **Best Practice**: Handle odd leaf counts (duplicate last leaf), use secure hashing, and verify Merkle proofs before trusting data.
