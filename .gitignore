@@ -1,5 +1,8 @@
 /.venv
 /venv
+/*cassandra
+/*elasticsearch
+*kafka*
 __pycache__
 .pytest_cache
 test*.py
@@ -10,3 +13,13 @@ CHECKLIST.md
 CHECKLIST_TEMP.md
 *.venv
 *.coverage
+*mongodb-linux
+*apache-cassandra*
+*cassandra.*
+*elasticsearch-*
+es.log
+model1.db
+sftp_temp.txt
+temp.txt
+zk.log
+nohup.out
