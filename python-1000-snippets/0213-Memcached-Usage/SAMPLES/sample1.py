@@ -1,5 +1,9 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Basic Memcached set/get using pylibmc
+import pylibmc
 
 if __name__ == '__main__':
-    print('sample 1')
+    client = pylibmc.Client(['127.0.0.1:11211'])
+    client.set('python-key', 'memcached')
+    print('Value:', client.get('python-key'))
+

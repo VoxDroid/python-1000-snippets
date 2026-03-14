@@ -1,5 +1,12 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Demonstrate deleting an index and handling missing index
+from elasticsearch import Elasticsearch, NotFoundError, ConnectionError
 
 if __name__ == '__main__':
-    print('sample 3')
+    es = Elasticsearch(['http://localhost:9200'])
+    try:
+        es.indices.delete(index='python_snippets', ignore=[400, 404])
+        print('Deleted index if existed')
+    except ConnectionError as e:
+        print('Elasticsearch not available:', e)
+
