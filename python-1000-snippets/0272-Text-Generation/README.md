@@ -1,37 +1,23 @@
 # Text Generation
 
 ## Description
-This snippet demonstrates simple text generation using `tensorflow`’s LSTM model.
+This snippet shows simple text generation techniques using Markov chains (bigram, trigram, character-level) without requiring heavy machine learning libraries.
 
-## Code
-```python
-# Note: Requires `tensorflow`. Install with `pip install tensorflow`
-try:
-    from tensorflow.keras.models import Sequential
-    from tensorflow.keras.layers import LSTM, Dense
-    import numpy as np
-    data = "hello"
-    chars = list(set(data))
-    char_to_idx = {c: i for i, c in enumerate(chars)}
-    X = np.array([[char_to_idx[data[i]] for i in range(len(data)-1)]])
-    y = np.array([char_to_idx[data[1]]])
-    model = Sequential([LSTM(8, input_shape=(None, 1)), Dense(len(chars), activation="softmax")])
-    model.compile(optimizer="adam", loss="sparse_categorical_crossentropy")
-    model.fit(X.reshape(1, -1, 1), y, epochs=1, verbose=0)
-    print("Model trained")
-except ImportError:
-    print("Mock Output: Model trained")
+## Dependencies
+No external dependencies required (uses standard library).
+
+## Samples
+- `SAMPLES/sample1.py`: Bigram (word-level) Markov chain generator.
+- `SAMPLES/sample2.py`: Trigram (word-level) Markov chain generator.
+- `SAMPLES/sample3.py`: Character-level Markov chain generator.
+
+## Running
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Model trained
-```
-*(Real output with `tensorflow`: `Model trained`)*
-
-## Explanation
-- **Text Generation**: Trains a minimal LSTM to predict the next character in a sequence.
-- **Logic**: Uses a small string to train a character-level model.
-- **Complexity**: O(n*t*h) for n samples, t timesteps, h hidden units.
-- **Use Case**: Used for generating text like chatbots or stories.
-- **Best Practice**: Use larger datasets; add temperature sampling; tune model size.
+## Notes
+- These models are stochastic; results vary per run.
+- For larger corpora, consider using a real language model (e.g., GPT, LSTM).

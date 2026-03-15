@@ -1,31 +1,20 @@
 # Computer Vision
 
 ## Description
-This snippet demonstrates basic computer vision using `opencv-python` to convert an image to grayscale.
+This snippet demonstrates basic computer vision techniques using OpenCV.
 
-## Code
-```python
-# Note: Requires `opencv-python`. Install with `pip install opencv-python`
-try:
-    import cv2
-    import numpy as np
-    img = np.zeros((100, 100, 3), dtype=np.uint8)
-    img[40:60, 40:60] = [255, 255, 255]  # White square
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    print("Gray Image Mean:", np.mean(gray))
-except ImportError:
-    print("Mock Output: Gray Image Mean: 10.2")
+## Samples
+- `SAMPLES/sample1.py`: Edge detection (Canny) on a synthetic image.
+- `SAMPLES/sample2.py`: Circle detection using Hough Circle Transform.
+- `SAMPLES/sample3.py`: Thresholding and contour detection on synthetic blobs.
+
+## Running
+```bash
+python python-1000-snippets/0291-Computer-Vision/SAMPLES/sample1.py
+python python-1000-snippets/0291-Computer-Vision/SAMPLES/sample2.py
+python python-1000-snippets/0291-Computer-Vision/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Gray Image Mean: 10.2
-```
-*(Real output with `opencv-python`: `Gray Image Mean: <value around 10.2>`)*
-
-## Explanation
-- **Computer Vision**: Converts a synthetic BGR image to grayscale.
-- **Logic**: Creates an image with a white square and applies color conversion.
-- **Complexity**: O(w*h) for w width, h height.
-- **Use Case**: Used for image preprocessing in vision tasks.
-- **Best Practice**: Handle image formats; validate input; optimize for large images.
+## Notes
+- These examples create synthetic images and do not require external files.
+- For interactive visualization, uncomment the `cv2.imshow()` lines, if your environment supports GUI windows.

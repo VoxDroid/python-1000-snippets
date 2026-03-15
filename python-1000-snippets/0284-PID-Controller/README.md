@@ -1,32 +1,30 @@
 # PID Controller
 
 ## Description
-This snippet demonstrates a PID controller simulation using `numpy`.
+This snippet demonstrates PID control in simulation using a simple discrete-time model.
+The examples cover a basic PID controller, integral windup mitigation, and response to changing setpoints.
 
-## Code
-```python
-import numpy as np
-setpoint = 1.0
-Kp, Ki, Kd = 1.0, 0.1, 0.01
-error, integral, prev_error = 0.0, 0.0, 0.0
-y = 0.0
-dt = 0.1
-error = setpoint - y
-integral += error * dt
-derivative = (error - prev_error) / dt
-u = Kp * error + Ki * integral + Kd * derivative
-y += u * dt
-print("Control Output:", u)
+## Dependencies
+- `numpy`
+
+Install with:
+```bash
+pip install numpy
 ```
 
-## Output
-```
-Control Output: 1.11
+## Samples
+- `SAMPLES/sample1.py`: Basic PID controller controlling a first-order plant.
+- `SAMPLES/sample2.py`: Shows integral windup and an anti-windup mechanism.
+- `SAMPLES/sample3.py`: Demonstrates PID response to a changing setpoint.
+
+## Running
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Explanation
-- **PID Controller**: Computes control output for a single step.
-- **Logic**: Uses proportional, integral, and derivative terms to adjust output.
-- **Complexity**: O(1) per step.
-- **Use Case**: Used for stabilizing systems like drones or heaters.
-- **Best Practice**: Tune PID gains; handle integral windup; test in simulation.
+## Notes
+- PID control output: `u = Kp*e + Ki*∫e dt + Kd*de/dt`.
+- Integral windup occurs when the integral term grows too large; anti-windup limits the integral.
+- Use small time steps for stability in discrete simulation.

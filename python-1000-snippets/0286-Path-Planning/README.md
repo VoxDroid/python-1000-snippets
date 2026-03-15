@@ -1,36 +1,25 @@
 # Path Planning
 
 ## Description
-This snippet demonstrates simple path planning using a grid-based approach.
+This snippet demonstrates grid-based path planning algorithms.
+It includes examples using A* search, breadth-first search (BFS), and Dijkstra's algorithm for weighted grids.
 
-## Code
-```python
-import numpy as np
-grid = np.zeros((5, 5))
-grid[2, 2] = 1  # Obstacle
-start, goal = (0, 0), (4, 4)
-path = [start]
-current = start
-while current != goal:
-    x, y = current
-    if x < 4 and grid[x+1, y] == 0:
-        current = (x+1, y)
-    elif y < 4 and grid[x, y+1] == 0:
-        current = (x, y+1)
-    else:
-        break
-    path.append(current)
-print("Path:", path)
+## Dependencies
+No external dependencies are required.
+
+## Samples
+- `SAMPLES/sample1.py`: A* path planning on a grid with obstacles.
+- `SAMPLES/sample2.py`: BFS path planning to find the shortest path.
+- `SAMPLES/sample3.py`: Dijkstra’s algorithm on a weighted grid.
+
+## Running
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
-```
-Path: [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)]
-```
-
-## Explanation
-- **Path Planning**: Finds a path from start to goal avoiding obstacles.
-- **Logic**: Uses a greedy approach to move right or down.
-- **Complexity**: O(r*c) for r rows, c columns.
-- **Use Case**: Used for robot navigation or game AI.
-- **Best Practice**: Use A* for optimality; handle complex grids; validate paths.
+## Notes
+- A* uses a heuristic (Manhattan distance) for efficient search.
+- BFS finds the shortest path in an unweighted grid.
+- Dijkstra handles varying movement costs.

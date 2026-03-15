@@ -1,31 +1,30 @@
 # ARIMA Model
 
 ## Description
-This snippet demonstrates fitting an ARIMA model using `statsmodels`.
+This snippet demonstrates fitting an ARIMA model to synthetic time series data using `statsmodels`.
+It shows how to train the model, generate forecasts, and inspect residuals.
 
-## Code
-```python
-# Note: Requires `statsmodels`. Install with `pip install statsmodels`
-try:
-    from statsmodels.tsa.arima.model import ARIMA
-    import numpy as np
-    data = np.random.random(100)
-    model = ARIMA(data, order=(1, 0, 0))
-    fit = model.fit()
-    print("AIC:", fit.aic)
-except ImportError:
-    print("Mock Output: AIC: 34.95585413426184")
+## Dependencies
+- `statsmodels`
+- `numpy`
+
+Install with:
+```bash
+pip install statsmodels numpy
 ```
 
-## Output
-```
-Mock Output: AIC: 34.95585413426184
-```
-*(Real output with `statsmodels`: `AIC: <value around 30.0 ~ 200.0>`)*
+## Samples
+- `SAMPLES/sample1.py`: Fit an ARIMA(1,0,0) model to AR(1) data and print AIC.
+- `SAMPLES/sample2.py`: Fit an ARIMA model and forecast future values with confidence intervals.
+- `SAMPLES/sample3.py`: Inspect residuals from the fitted ARIMA model.
 
-## Explanation
-- **ARIMA Model**: Fits an ARIMA(1,0,0) model to a random time series.
-- **Logic**: Trains the model and outputs the Akaike Information Criterion.
-- **Complexity**: O(n*p) for n data points, p parameters.
-- **Use Case**: Used for forecasting time series data.
-- **Best Practice**: Test stationarity; tune order; validate forecasts.
+## Running
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
+```
+
+## Notes
+- ARIMA models are used for forecasting time series by combining autoregression (AR), integration (I), and moving average (MA).
+- For real data, check stationarity and difference series as needed.

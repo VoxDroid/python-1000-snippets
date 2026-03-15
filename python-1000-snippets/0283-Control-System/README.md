@@ -1,30 +1,30 @@
 # Control System
 
 ## Description
-This snippet demonstrates a simple control system simulation using `control`.
+This snippet demonstrates basic control system concepts using simple numerical simulation.
+It includes step response of a second-order system, PID control of a first-order plant, and PD control of a second-order plant.
 
-## Code
-```python
-# Note: Requires `control`. Install with `pip install control`
-try:
-    from control import tf, step_response
-    import numpy as np
-    sys = tf([1], [1, 2, 1])  # Transfer function: 1/(s^2 + 2s + 1)
-    t, y = step_response(sys, T=np.linspace(0, 5, 100))
-    print("Final Output:", y[-1])
-except ImportError:
-    print("Mock Output: Final Output: 1.0")
+## Dependencies
+- `numpy`
+
+Install with:
+```bash
+pip install numpy
 ```
 
-## Output
-```
-Mock Output: Final Output: 1.0
-```
-*(Real output with `control`: `Final Output: <value around 1.0>`)*
+## Samples
+- `SAMPLES/sample1.py`: Compute a step response of a critically damped second-order system analytically.
+- `SAMPLES/sample2.py`: Simulate a PID controller acting on a first-order plant.
+- `SAMPLES/sample3.py`: Simulate a PD controller acting on a second-order plant.
 
-## Explanation
-- **Control System**: Simulates a second-order system’s step response.
-- **Logic**: Defines a transfer function and computes the response.
-- **Complexity**: O(n) for n time points.
-- **Use Case**: Used for analyzing system dynamics.
-- **Best Practice**: Validate model; tune parameters; check stability.
+## Running
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
+```
+
+## Notes
+- Control systems often use differential equations; these examples use simple discrete-time integration.
+- PID controllers adjust control output based on error, integral, and derivative terms.
+- Tuning gains (Kp, Ki, Kd) affects response speed and stability.

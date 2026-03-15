@@ -1,30 +1,30 @@
 # Time Series Analysis
 
 ## Description
-This snippet demonstrates time series analysis using `pandas` to compute a moving average.
+This snippet demonstrates basic time series analysis techniques using `numpy`.
+It covers moving averages, autocorrelation, and trend estimation.
 
-## Code
-```python
-# Note: Requires `pandas`. Install with `pip install pandas`
-try:
-    import pandas as pd
-    import numpy as np
-    ts = pd.Series(np.random.random(100))
-    ma = ts.rolling(window=5).mean()
-    print("Moving Average (first 5):", ma[:5].values)
-except ImportError:
-    print("Mock Output: Moving Average (first 5): [nan, nan, nan, nan, 0.5]")
+## Dependencies
+- `numpy`
+
+Install with:
+```bash
+pip install numpy
 ```
 
-## Output
-```
-Mock Output: Moving Average (first 5): [nan, nan, nan, nan, 0.5]
-```
-*(Real output with `pandas`: `Moving Average (first 5): [nan, nan, nan, nan, <value>]`)*
+## Samples
+- `SAMPLES/sample1.py`: Compute a moving average on a random walk.
+- `SAMPLES/sample2.py`: Compute autocorrelation and find the strongest lag.
+- `SAMPLES/sample3.py`: Estimate a linear trend using least squares.
 
-## Explanation
-- **Time Series Analysis**: Computes a moving average on a random time series.
-- **Logic**: Uses `pandas` to apply a 5-period rolling mean.
-- **Complexity**: O(n) for n data points.
-- **Use Case**: Used for trend analysis or smoothing time series.
-- **Best Practice**: Handle missing data; tune window size; validate trends.
+## Running
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
+```
+
+## Notes
+- Moving averages can smooth volatility and reveal trends.
+- Autocorrelation identifies repeated patterns at fixed lags.
+- Linear regression can estimate local or global trends in the data.

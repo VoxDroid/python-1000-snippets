@@ -1,30 +1,30 @@
 # Text to Speech
 
 ## Description
-This snippet demonstrates text-to-speech conversion using `pyttsx3`.
+This snippet demonstrates generating speech audio from text using TTS libraries.
 
-## Code
-```python
-# Note: Requires `pyttsx3`. Install with `pip install pyttsx3`
-try:
-    import pyttsx3
-    engine = pyttsx3.init()
-    engine.say("Hello, world")
-    engine.runAndWait()
-    print("Speech generated")
-except ImportError:
-    print("Mock Output: Speech generated")
+## Dependencies
+- `gtts` (Google Text-to-Speech API)
+- `pyttsx3` (offline TTS engine)
+
+Install with:
+```bash
+pip install gtts pyttsx3
 ```
 
-## Output
-```
-Mock Output: Speech generated
-```
-*(Real output with `pyttsx3`: `Speech generated`, plays audio)*
+## Samples
+- `SAMPLES/sample1.py`: Generates an MP3 file using gTTS.
+- `SAMPLES/sample2.py`: Uses pyttsx3 to generate a WAV file (offline).
+- `SAMPLES/sample3.py`: Generates multiple MP3 files from different phrases using gTTS.
 
-## Explanation
-- **Text to Speech**: Converts text to spoken audio using `pyttsx3`.
-- **Logic**: Initializes engine and speaks a phrase.
-- **Complexity**: O(n) for n characters in text.
-- **Use Case**: Used for accessibility or voice interfaces.
-- **Best Practice**: Adjust voice settings; handle engine errors; test audio output.
+## Running
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
+```
+
+## Notes
+- `gtts` requires network access to call Google’s TTS service.
+- `pyttsx3` works offline but depends on system voice engines (e.g., espeak on Linux).
+- Output files are saved in the snippet directory.

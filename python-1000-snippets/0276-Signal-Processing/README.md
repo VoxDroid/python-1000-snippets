@@ -1,32 +1,30 @@
 # Signal Processing
 
 ## Description
-This snippet demonstrates signal processing using `scipy` to filter a signal.
+This snippet demonstrates basic digital signal processing techniques using `numpy`.
+It shows how to smooth noisy signals, apply a simple high-pass filter, and filter in the frequency domain using FFT.
 
-## Code
-```python
-# Note: Requires `scipy`. Install with `pip install scipy`
-try:
-    from scipy import signal
-    import numpy as np
-    t = np.linspace(0, 1, 100)
-    x = np.sin(2 * np.pi * 5 * t) + np.random.normal(0, 0.1, 100)
-    b, a = signal.butter(4, 0.2)
-    filtered = signal.filtfilt(b, a, x)
-    print("Filtered Signal Mean:", np.mean(filtered))
-except ImportError:
-    print("Mock Output: Filtered Signal Mean: -0.0100536522935217471")
+## Dependencies
+- `numpy`
+
+Install with:
+```bash
+pip install numpy
 ```
 
-## Output
-```
-Mock Output: Filtered Signal Mean: -0.010053652293521747
-```
-*(Real output with `scipy`: `Filtered Signal Mean: <value around -0.010>`)*
+## Samples
+- `SAMPLES/sample1.py`: Smooth a noisy signal using a moving-average filter.
+- `SAMPLES/sample2.py`: Apply a high-pass filter by subtracting a moving-average trend.
+- `SAMPLES/sample3.py`: Apply a simple FFT-based low-pass filter.
 
-## Explanation
-- **Signal Processing**: Applies a Butterworth filter to a noisy sine wave.
-- **Logic**: Generates a signal, filters it, and computes the mean.
-- **Complexity**: O(n) for n samples.
-- **Use Case**: Used for noise reduction or signal smoothing.
-- **Best Practice**: Choose filter type; tune parameters; validate output.
+## Running
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
+```
+
+## Notes
+- Use `np.convolve` for FIR filters (e.g., moving average).
+- FFT filtering works by zeroing out frequency bins.
+- These examples are for demonstration; production systems should use robust libraries like SciPy.

@@ -1,32 +1,30 @@
 # Speech Recognition
 
 ## Description
-This snippet demonstrates speech recognition using `speechrecognition`.
+This snippet demonstrates offline speech recognition using `speechrecognition` with the `pocketsphinx` engine.
 
-## Code
-```python
-# Note: Requires `speechrecognition` and `pyaudio`. Install with `pip install speechrecognition pyaudio`
-try:
-    import speech_recognition as sr
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Say something...")
-        audio = recognizer.listen(source, timeout=1)
-    text = recognizer.recognize_google(audio)
-    print("Recognized:", text)
-except:
-    print("Mock Output: Recognized: hello world")
+## Dependencies
+- `speechrecognition`
+- `pocketsphinx`
+- `numpy`
+
+Install with:
+```bash
+pip install speechrecognition pocketsphinx numpy
 ```
 
-## Output
-```
-Mock Output: Recognized: hello world
-```
-*(Real output with `speechrecognition`: `Recognized: <spoken text>`)*
+## Samples
+- `SAMPLES/sample1.py`: Generates a short tone WAV file and runs offline transcription.
+- `SAMPLES/sample2.py`: Attempts to transcribe `speech_test.wav` if present, otherwise generates a tone file.
+- `SAMPLES/sample3.py`: Creates a multi-tone WAV file and runs offline transcription.
 
-## Explanation
-- **Speech Recognition**: Converts audio input to text using Google’s API.
-- **Logic**: Listens via microphone and processes audio to text.
-- **Complexity**: O(1) for API call (network latency varies).
-- **Use Case**: Used for voice assistants or transcription.
-- **Best Practice**: Handle noise; use offline models; secure API keys.
+## Running
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
+```
+
+## Notes
+- The `pocketsphinx` engine works offline but requires audio that resembles speech. Tone-based audio will usually not transcribe into meaningful text.
+- For real speech input, provide a WAV file (`speech_test.wav`) recorded from a microphone or other source.

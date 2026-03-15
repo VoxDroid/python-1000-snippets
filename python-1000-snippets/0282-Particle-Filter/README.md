@@ -1,32 +1,30 @@
 # Particle Filter
 
 ## Description
-This snippet demonstrates a simple Particle Filter using `numpy`.
+This snippet demonstrates particle filter techniques for state estimation using a set of weighted particles.
+It includes examples of resampling, effective sample size, and tracking in 1D and 2D.
 
-## Code
-```python
-import numpy as np
-np.random.seed(42)
-N = 100
-particles = np.random.normal(0, 1, N)
-weights = np.ones(N) / N
-z = 1.0  # Measurement
-particles += np.random.normal(0, 0.1, N)  # Predict
-weights *= np.exp(-0.5 * (particles - z)**2 / 0.1)
-weights /= np.sum(weights)
-indices = np.random.choice(N, N, p=weights)
-particles = particles[indices]
-print("Mean Estimate:", np.mean(particles))
+## Dependencies
+- `numpy`
+
+Install with:
+```bash
+pip install numpy
 ```
 
-## Output
-```
-Mean Estimate: 0.9735387616485346
+## Samples
+- `SAMPLES/sample1.py`: 1D particle filter estimating a constant state from noisy measurements.
+- `SAMPLES/sample2.py`: Demonstrates resampling degeneracy and the effect on effective sample size.
+- `SAMPLES/sample3.py`: 2D particle filter estimating position from noisy distance measurements.
+
+## Running
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Explanation
-- **Particle Filter**: Estimates state using a set of weighted particles.
-- **Logic**: Predicts particle positions, updates weights, and resamples.
-- **Complexity**: O(N) for N particles.
-- **Use Case**: Used for non-linear or non-Gaussian tracking.
-- **Best Practice**: Tune particle count; handle degeneracy; validate measurements.
+## Notes
+- Particle filters are useful for non-linear, non-Gaussian state estimation.
+- Common steps: prediction (propagate particles), weight update (likelihood), and resampling (avoid degeneracy).
+- Monitor effective sample size (ESS) to decide when to resample.

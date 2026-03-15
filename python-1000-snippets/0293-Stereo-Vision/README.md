@@ -1,34 +1,20 @@
 # Stereo Vision
 
 ## Description
-This snippet demonstrates stereo vision disparity mapping using `opencv-python`.
+This snippet demonstrates basic stereo vision techniques using OpenCV.
 
-## Code
-```python
-# Note: Requires `opencv-python`. Install with `pip install opencv-python`
-try:
-    import cv2
-    import numpy as np
-    left = np.zeros((100, 100), dtype=np.uint8)
-    right = np.zeros((100, 100), dtype=np.uint8)
-    left[40:60, 40:60] = 255
-    right[40:60, 35:55] = 255  # Shifted
-    stereo = cv2.StereoBM_create(numDisparities=16, blockSize=15)
-    disparity = stereo.compute(left, right)
-    print("Disparity Mean:", np.mean(disparity))
-except ImportError:
-    print("Mock Output: Disparity Mean: -4.9408")
+## Samples
+- `SAMPLES/sample1.py`: Compute a disparity map from a synthetic stereo pair using StereoBM.
+- `SAMPLES/sample2.py`: Convert disparity to depth using a simple pinhole camera model.
+- `SAMPLES/sample3.py`: Compare StereoBM and StereoSGBM disparity estimators.
+
+## Running
+```bash
+python python-1000-snippets/0293-Stereo-Vision/SAMPLES/sample1.py
+python python-1000-snippets/0293-Stereo-Vision/SAMPLES/sample2.py
+python python-1000-snippets/0293-Stereo-Vision/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Disparity Mean: -4.9408
-```
-*(Real output with `opencv-python`: `Disparity Mean: <value around -4.9>`)*
-
-## Explanation
-- **Stereo Vision**: Computes a disparity map from two synthetic images.
-- **Logic**: Creates left and right images with a shifted square and computes disparity.
-- **Complexity**: O(w*h*d) for w width, h height, d disparities.
-- **Use Case**: Used for depth estimation in robotics or 3D modeling.
-- **Best Practice**: Calibrate cameras; tune stereo parameters; handle occlusions.
+## Notes
+- These examples use synthetic images for deterministic results.
+- In real applications, supply rectified stereo images and calibrate cameras.

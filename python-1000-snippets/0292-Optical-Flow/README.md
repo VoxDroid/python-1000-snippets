@@ -1,32 +1,20 @@
 # Optical Flow
 
 ## Description
-This snippet demonstrates optical flow estimation using `opencv-python`’s Farneback method.
+This snippet demonstrates optical flow techniques using OpenCV.
 
-## Code
-```python
-# Note: Requires `opencv-python`. Install with `pip install opencv-python`
-try:
-    import cv2
-    import numpy as np
-    frame1 = np.zeros((100, 100), dtype=np.uint8)
-    frame2 = np.zeros((100, 100), dtype=np.uint8)
-    frame2[45:65, 45:65] = 255  # Shifted white square
-    flow = cv2.calcOpticalFlowFarneback(frame1, frame2, None, 0.5, 3, 15, 3, 5, 1.2, 0)
-    print("Flow Magnitude Mean:", np.mean(np.sqrt(flow[..., 0]**2 + flow[..., 1]**2)))
-except ImportError:
-    print("Mock Output: Flow Magnitude Mean: 0.6475478")
+## Samples
+- `SAMPLES/sample1.py`: Dense optical flow (Farneback) on synthetic moving shapes.
+- `SAMPLES/sample2.py`: Sparse optical flow (Lucas-Kanade) tracking corner features.
+- `SAMPLES/sample3.py`: Compute average motion vector from dense optical flow.
+
+## Running
+```bash
+python python-1000-snippets/0292-Optical-Flow/SAMPLES/sample1.py
+python python-1000-snippets/0292-Optical-Flow/SAMPLES/sample2.py
+python python-1000-snippets/0292-Optical-Flow/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Flow Magnitude Mean: 0.6475478
-```
-*(Real output with `opencv-python`: `Flow Magnitude Mean: <small value> ~ (or 0.6475478)`)*
-
-## Explanation
-- **Optical Flow**: Estimates motion between two frames using dense optical flow.
-- **Logic**: Creates two frames with a shifted square and computes flow.
-- **Complexity**: O(w*h) for w width, h height.
-- **Use Case**: Used for motion tracking or video analysis.
-- **Best Practice**: Tune parameters; preprocess frames; handle noise.
+## Notes
+- These examples use synthetic frames; replace with real video frames for real use.
+- Use `cv2.calcOpticalFlowFarneback()` for dense flow and `cv2.calcOpticalFlowPyrLK()` for sparse tracking.

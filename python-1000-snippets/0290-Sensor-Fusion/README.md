@@ -1,26 +1,20 @@
 # Sensor Fusion
 
 ## Description
-This snippet demonstrates sensor fusion using a weighted average of two sensors.
+This snippet demonstrates several sensor fusion techniques using `numpy`.
 
-## Code
-```python
-import numpy as np
-sensor1 = np.random.normal(10, 1, 10)  # Sensor 1: mean 10, std 1
-sensor2 = np.random.normal(10, 2, 10)  # Sensor 2: mean 10, std 2
-w1, w2 = 0.67, 0.33  # Weights based on inverse variance
-fused = w1 * sensor1 + w2 * sensor2
-print("Fused Mean:", np.mean(fused))
+## Samples
+- `SAMPLES/sample1.py`: Kalman filter fusing accelerometer and GPS for 1D position.
+- `SAMPLES/sample2.py`: Complementary filter fusing gyro and accelerometer for roll estimation.
+- `SAMPLES/sample3.py`: Covariance-weighted fusion of two noisy sensor estimates.
+
+## Running
+```bash
+python python-1000-snippets/0290-Sensor-Fusion/SAMPLES/sample1.py
+python python-1000-snippets/0290-Sensor-Fusion/SAMPLES/sample2.py
+python python-1000-snippets/0290-Sensor-Fusion/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Fused Mean: 10.02
-```
-
-## Explanation
-- **Sensor Fusion**: Combines two sensor readings to improve accuracy.
-- **Logic**: Weights sensors by inverse variance and computes a weighted average.
-- **Complexity**: O(n) for n measurements.
-- **Use Case**: Used for combining GPS, IMU, or other sensor data.
-- **Best Practice**: Use Kalman filter for dynamics; validate weights; handle outliers.
+## Notes
+- All scripts are seeded for deterministic output.
+- In real systems, replace simulated sensor readings with live data streams.

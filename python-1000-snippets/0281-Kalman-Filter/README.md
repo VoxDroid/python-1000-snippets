@@ -1,34 +1,30 @@
 # Kalman Filter
 
 ## Description
-This snippet demonstrates a simple Kalman Filter using `numpy`.
+This snippet demonstrates simple Kalman filters for estimating a system state from noisy measurements.
+The examples include a scalar constant-state filter, a 2D constant velocity tracker, and handling missing measurements.
 
-## Code
-```python
-import numpy as np
-x = np.array([0.0])  # Initial state
-P = np.array([1.0])  # Initial uncertainty
-Q = 0.01  # Process noise
-R = 0.1   # Measurement noise
-z = 1.0   # Measurement
-F = 1.0   # State transition
-H = 1.0   # Measurement function
-x = F * x
-P = F * P * F + Q
-K = P * H / (H * P * H + R)
-x = x + K * (z - H * x)
-P = (1 - K * H) * P
-print("Estimated State:", x)
+## Dependencies
+- `numpy`
+
+Install with:
+```bash
+pip install numpy
 ```
 
-## Output
-```
-Estimated State: 0.90990991
+## Samples
+- `SAMPLES/sample1.py`: Scalar Kalman filter estimating a constant value from noisy measurements.
+- `SAMPLES/sample2.py`: 2D Kalman filter tracking position and velocity from noisy position observations.
+- `SAMPLES/sample3.py`: Kalman filter with missing measurements (prediction-only steps).
+
+## Running
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Explanation
-- **Kalman Filter**: Estimates state from noisy measurements.
-- **Logic**: Applies predict and update steps for a 1D system.
-- **Complexity**: O(1) for scalar state.
-- **Use Case**: Used for sensor fusion or tracking.
-- **Best Practice**: Tune noise parameters; validate model; extend to multi-dimensional states.
+## Notes
+- Kalman filters alternate predict and update steps.
+- Tune process noise and measurement noise to match your system behavior.
+- Extend to higher-dimensional states by using matrices for state, covariance, and transition models.

@@ -24,3 +24,6 @@ temp.txt
 zk.log
 nohup.out
 /temp
+*.mp3
+*.wav
+*.model

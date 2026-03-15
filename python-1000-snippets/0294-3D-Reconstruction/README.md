@@ -1,34 +1,20 @@
 # 3D Reconstruction
 
 ## Description
-This snippet demonstrates simplified 3D reconstruction using `opencv-python` triangulation.
+This snippet demonstrates basic 3D reconstruction techniques using OpenCV and NumPy.
 
-## Code
-```python
-# Note: Requires `opencv-python` and `numpy`. Install with `pip install opencv-python numpy`
-try:
-    import cv2
-    import numpy as np
-    points1 = np.float32([[50, 50]])
-    points2 = np.float32([[45, 50]])
-    P1 = np.eye(3, 4)
-    P2 = np.array([[1, 0, 0, -5], [0, 1, 0, 0], [0, 0, 1, 0]], dtype=np.float32)
-    points4D = cv2.triangulatePoints(P1, P2, points1.T, points2.T)
-    points3D = (points4D[:3] / points4D[3]).T
-    print("3D Point:", points3D[0])
-except ImportError:
-    print("Mock Output: 3D Point: [50. 50.  1.]")
+## Samples
+- `SAMPLES/sample1.py`: Triangulate a single 3D point from two camera views.
+- `SAMPLES/sample2.py`: Triangulate multiple 3D points and compute reconstruction error.
+- `SAMPLES/sample3.py`: Fit a plane to a point cloud using least-squares (SVD).
+
+## Running
+```bash
+python python-1000-snippets/0294-3D-Reconstruction/SAMPLES/sample1.py
+python python-1000-snippets/0294-3D-Reconstruction/SAMPLES/sample2.py
+python python-1000-snippets/0294-3D-Reconstruction/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: 3D Point: [50. 50.  1.]
-```
-*(Real output with `opencv-python`: `3D Point: [<values>]`)*
-
-## Explanation
-- **3D Reconstruction**: Triangulates a 3D point from 2D correspondences.
-- **Logic**: Uses synthetic camera matrices and points to compute 3D coordinates.
-- **Complexity**: O(1) for single-point triangulation.
-- **Use Case**: Used for 3D modeling or structure-from-motion.
-- **Best Practice**: Calibrate cameras; handle noise; validate projections.
+## Notes
+- These examples use synthetic data with known geometry.
+- Real-world reconstruction requires camera calibration and feature matching.
