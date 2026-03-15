@@ -1,41 +1,25 @@
 # Random Forest
 
 ## Description
-This snippet demonstrates a random forest classifier using `scikit-learn`.
+This snippet demonstrates training and evaluating a random forest classifier using `scikit-learn`.
 
 ## Code
-```python
-# Note: Requires `scikit-learn`. Install with `pip install scikit-learn`
-try:
-    from sklearn.ensemble import RandomForestClassifier
-    from sklearn.datasets import make_classification
+In the `SAMPLES/` folder you will find three examples:
 
-    # Explicitly define valid values for feature breakdown
-    X, y = make_classification(
-        n_samples=100,
-        n_features=2,
-        n_informative=2,
-        n_redundant=0,
-        n_repeated=0,
-        random_state=42
-    )
+- `sample1.py` — train a random forest and print accuracy.
+- `sample2.py` — examine feature importances and make sample predictions.
+- `sample3.py` — train with out-of-bag (OOB) evaluation and print OOB score.
 
-    model = RandomForestClassifier(n_estimators=10, random_state=42)
-    model.fit(X, y)
-    print("Accuracy:", model.score(X, y))
-except ImportError:
-    print("Mock Output: Accuracy: 0.99")
+Run any of them with:
+
+```bash
+python python-1000-snippets/0250-Random-Forest/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Accuracy: 0.99
-```
-*(Real output with `scikit-learn`: `Accuracy: <value around 0.99>`)*
+Each sample prints accuracy, feature importance, or OOB score based on the trained model.
 
 ## Explanation
-- **Random Forest**: Trains a random forest on synthetic classification data.
-- **Logic**: Generates data, trains with 10 trees, and evaluates accuracy.
-- **Complexity**: O(n*d*log(n)*T) for T trees (n samples, d features).
-- **Use Case**: Used for robust classification or regression tasks.
-- **Best Practice**: Tune `n_estimators`; use feature importance; avoid overfitting.
+- **Random Forest**: Ensembles many decision trees for robustness.
+- **Logic**: Trains on synthetic classification data and evaluates performance.
+- **Best Practice**: Tune `n_estimators`, use `oob_score=True` for validation without a separate split.

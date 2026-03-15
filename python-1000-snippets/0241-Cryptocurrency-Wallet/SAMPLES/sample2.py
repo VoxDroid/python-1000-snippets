@@ -1,5 +1,17 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Sign and verify a message using a Bitcoin testnet private key.
+
+from bit import PrivateKeyTestnet
+
+FIXED_WIF = 'cUwXNUYgnzph6sRYwuDDr11fNDb84j2DKsTWjjwzWvTRDzuF4TAb'
 
 if __name__ == '__main__':
-    print('sample 2')
+    key = PrivateKeyTestnet(FIXED_WIF)
+    message = b"Hello from python-1000-snippets"
+
+    signature = key.sign(message)
+    print('Message:', message.decode())
+    print('Signature (hex):', signature.hex())
+
+    verified = key.verify(signature, message)
+    print('Signature valid:', verified)

@@ -1,31 +1,26 @@
 # Cryptocurrency Wallet
 
 ## Description
-This snippet demonstrates generating a cryptocurrency wallet address using `ecdsa`.
+This snippet demonstrates generating a Bitcoin testnet wallet, signing messages, and building a raw transaction using the `bit` library.
 
 ## Code
-```python
-# Note: Requires `ecdsa`. Install with `pip install ecdsa`
-try:
-    from ecdsa import SigningKey, SECP256k1
-    import hashlib
-    private_key = SigningKey.generate(curve=SECP256k1)
-    public_key = private_key.get_verifying_key().to_string()
-    address = hashlib.sha256(public_key).hexdigest()
-    print("Address:", address)
-except ImportError:
-    print("Mock Output: Address: <64-character SHA256 hash>")
+In the `SAMPLES/` folder you will find three examples:
+
+- `sample1.py` — generate a deterministic wallet and display address/public key details.
+- `sample2.py` — sign and verify a message using a testnet private key.
+- `sample3.py` — build and sign a raw Bitcoin transaction (offline; not broadcast).
+
+Run any of them with:
+
+```bash
+python python-1000-snippets/0241-Cryptocurrency-Wallet/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Address: <64-character SHA256 hash>
-```
-*(Real output with `ecdsa`: `Address: <64-character SHA256 hash>`)*
+Each sample prints key details and demonstrates real cryptographic signing or transaction encoding.
 
 ## Explanation
-- **Cryptocurrency Wallet**: Generates a private-public key pair and derives an address.
-- **Logic**: Uses ECDSA with SECP256k1 curve and hashes the public key.
-- **Complexity**: O(1) for key generation and hashing.
-- **Use Case**: Used for creating wallet addresses in cryptocurrencies like Bitcoin.
-- **Best Practice**: Secure private keys; use standard curves; validate addresses.
+- **Cryptocurrency Wallet**: Uses `bit` to derive keys, addresses, and sign transactions.
+- **Logic**: Creates a deterministic testnet private key, derives the public address, signs messages, and constructs a signed raw transaction.
+- **Use Case**: Useful for Bitcoin wallet tooling, offline transaction creation, and signing.
+- **Best Practice**: Keep private keys secure; avoid reusing keys; only broadcast transactions on a real network after validating inputs.

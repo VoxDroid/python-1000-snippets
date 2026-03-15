@@ -1,37 +1,25 @@
 # Machine Learning Model
 
 ## Description
-This snippet demonstrates a basic machine learning model setup using `scikit-learn`.
+This snippet demonstrates a simple machine learning workflow using `scikit-learn`.
 
 ## Code
-```python
-# Note: Requires `scikit-learn`. Install with `pip install scikit-learn`
-# Note: Requires `scikit-learn`. Install with `pip install scikit-learn`
-try:
-    from sklearn.datasets import make_classification
-    from sklearn.model_selection import train_test_split
-    from sklearn.linear_model import LogisticRegression
+In the `SAMPLES/` folder you will find three examples:
 
-    # Set n_informative=2, n_redundant=0 so it fits into 2 total features
-    X, y = make_classification(n_samples=100, n_features=2, n_informative=2, n_redundant=0, random_state=42)
+- `sample1.py` — train a logistic regression model and evaluate test accuracy.
+- `sample2.py` — persist a trained model using `joblib`, then reload it and compare results.
+- `sample3.py` — build a pipeline with scaling + logistic regression and evaluate it.
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    model = LogisticRegression()
-    model.fit(X_train, y_train)
-    print("Accuracy:", model.score(X_test, y_test))
-except ImportError:
-    print("Mock Output: Accuracy: 0.95")
+Run any of them with:
+
+```bash
+python python-1000-snippets/0246-Machine-Learning-Model/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Accuracy: 0.95
-```
-*(Real output with `scikit-learn`: `Accuracy: <value around 0.95>`)*
+Each sample prints model accuracy or related metrics when run.
 
 ## Explanation
-- **Machine Learning Model**: Trains a logistic regression model on synthetic data.
-- **Logic**: Generates data, splits it, trains the model, and evaluates accuracy.
-- **Complexity**: O(n*d) for training (n samples, d features).
-- **Use Case**: Used for classification tasks in data science.
-- **Best Practice**: Tune hyperparameters; validate data; use cross-validation.
+- **Machine Learning Workflow**: Uses synthetic data and `scikit-learn` to train/evaluate models.
+- **Logic**: Demonstrates training, saving/loading, preprocessing, and evaluation.
+- **Best Practice**: Use train/test splits, persist models, and normalize data before training.

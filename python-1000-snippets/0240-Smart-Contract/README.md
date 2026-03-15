@@ -1,39 +1,26 @@
 # Smart Contract
 
 ## Description
-This snippet demonstrates a simple smart contract simulation in Python.
+This snippet demonstrates deploying and interacting with a smart contract on a local Ethereum test chain using `web3`, `eth-tester`, and `py-solc-x`.
 
 ## Code
-```python
-class SmartContract:
-    def __init__(self):
-        self.balances = {}
-    def deposit(self, user, amount):
-        if amount > 0:
-            self.balances[user] = self.balances.get(user, 0) + amount
-            return True
-        return False
-    def transfer(self, from_user, to_user, amount):
-        if self.balances.get(from_user, 0) >= amount:
-            self.balances[from_user] -= amount
-            self.balances[to_user] = self.balances.get(to_user, 0) + amount
-            return True
-        return False
+In the `SAMPLES/` folder you will find three examples:
 
-contract = SmartContract()
-contract.deposit("Alice", 100)
-contract.transfer("Alice", "Bob", 50)
-print("Balances:", contract.balances)
+- `sample1.py` — deploy a simple storage contract, set and get a value.
+- `sample2.py` — emit and read events from a contract.
+- `sample3.py` — call a contract method that reverts and handle the exception.
+
+Run any of them with:
+
+```bash
+python python-1000-snippets/0240-Smart-Contract/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Balances: {'Alice': 50, 'Bob': 50}
-```
+Each sample prints contract interaction results and demonstrates real execution on an in-memory Ethereum chain.
 
 ## Explanation
-- **Smart Contract**: Simulates a contract managing user balances with deposit and transfer functions.
-- **Logic**: Enforces rules like positive deposits and sufficient balance for transfers.
-- **Complexity**: O(1) for operations.
-- **Use Case**: Used as a simplified model for Ethereum smart contracts.
-- **Best Practice**: Add validation; simulate gas costs; ensure atomicity.
+- **Smart Contract**: Uses Solidity compiled by `py-solc-x`, deployed on an in-memory blockchain using `eth-tester`.
+- **Logic**: Deploy contract, call functions, query state, handle events, and handle transaction reverts.
+- **Use Case**: Useful for local smart contract development and testing without requiring an external node.
+- **Best Practice**: Validate transaction receipts, handle revert reasons, and use proper gas estimation.

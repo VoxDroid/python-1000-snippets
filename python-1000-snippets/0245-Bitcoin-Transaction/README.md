@@ -1,30 +1,26 @@
 # Bitcoin Transaction
 
 ## Description
-This snippet demonstrates creating a Bitcoin transaction using `bitcoinlib`.
+This snippet demonstrates creating and signing Bitcoin transactions locally using the `bit` library.
 
 ## Code
-```python
-# Note: Requires `bitcoinlib`. Install with `pip install bitcoinlib`
-try:
-    from bitcoinlib.wallets import Wallet
-    wallet = Wallet.create("my_wallet")
-    key = wallet.get_key()
-    tx = wallet.send_to("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa", 10000)
-    print("Transaction ID:", tx.txid)
-except ImportError:
-    print("Mock Output: Transaction ID: <64-character hash>")
+In the `SAMPLES/` folder you will find three examples:
+
+- `sample1.py` — generate a deterministic testnet keypair and display address information.
+- `sample2.py` — sign a message using a Bitcoin key and verify it.
+- `sample3.py` — build and sign a raw Bitcoin transaction using a constructed UTXO.
+
+Run any of them with:
+
+```bash
+python python-1000-snippets/0245-Bitcoin-Transaction/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Transaction ID: <64-character hash>
-```
-*(Real output with `bitcoinlib`: `Transaction ID: <64-character hash>`)*
+Each sample prints outputs related to addresses, signatures, and a raw signed transaction.
 
 ## Explanation
-- **Bitcoin Transaction**: Creates a wallet and prepares a transaction using `bitcoinlib`.
-- **Logic**: Generates a wallet and sends a small amount to an address.
-- **Complexity**: O(1) for transaction creation (network for broadcasting).
-- **Use Case**: Used for Bitcoin payments or wallet management.
-- **Best Practice**: Use testnet for testing; secure keys; validate addresses.
+- **Bitcoin Transaction**: Builds and signs transactions offline without broadcasting.
+- **Logic**: Uses `bit` to generate keys, sign messages, and construct raw transactions from UTXOs.
+- **Use Case**: Useful for offline signing workflows, hardware wallets, and testing transaction encoding.
+- **Best Practice**: Keep private keys secure; verify UTXO data before signing; never reuse addresses.

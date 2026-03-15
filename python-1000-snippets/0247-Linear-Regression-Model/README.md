@@ -1,32 +1,25 @@
 # Linear Regression Model
 
 ## Description
-This snippet demonstrates a linear regression model using `scikit-learn`.
+This snippet demonstrates training and using a linear regression model with `scikit-learn`.
 
 ## Code
-```python
-# Note: Requires `scikit-learn`. Install with `pip install scikit-learn`
-# Note: Requires `scikit-learn`. Install with `pip install scikit-learn`
-try:
-    from sklearn.linear_model import LinearRegression
-    from sklearn.datasets import make_regression
-    X, y = make_regression(n_samples=100, n_features=1, noise=10, random_state=42)
-    model = LinearRegression()
-    model.fit(X, y)
-    print("Coefficient:", model.coef_[0])
-except ImportError:
-    print("Mock Output: Coefficient: 44.0")
+In the `SAMPLES/` folder you will find three examples:
+
+- `sample1.py` — train a linear regression model and print coefficients.
+- `sample2.py` — use the trained model to make predictions on new data.
+- `sample3.py` — compute the R² score on a test set.
+
+Run any of them with:
+
+```bash
+python python-1000-snippets/0247-Linear-Regression-Model/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Coefficient: 44.0
-```
-*(Real output with `scikit-learn`: `Coefficient: <value around 44.0>`)*
+Each sample prints model coefficients, predictions, or evaluation metrics.
 
 ## Explanation
-- **Linear Regression Model**: Fits a linear model to synthetic regression data.
-- **Logic**: Generates data, trains the model, and prints the slope.
-- **Complexity**: O(n*d^2) for training (n samples, d features).
-- **Use Case**: Used for predicting continuous outcomes.
-- **Best Practice**: Check assumptions (linearity); scale features; evaluate R².
+- **Linear Regression**: Fits a straight line to numerical data.
+- **Logic**: Uses synthetic regression data, training, and evaluation.
+- **Best Practice**: Examine coefficients and use R² for performance measurement.

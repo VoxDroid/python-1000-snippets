@@ -1,31 +1,25 @@
 # Decision Tree
 
 ## Description
-This snippet demonstrates a decision tree classifier using `scikit-learn`.
+This snippet demonstrates training and inspecting a decision tree classifier using `scikit-learn`.
 
 ## Code
-```python
-# Note: Requires `scikit-learn`. Install with `pip install scikit-learn`
-try:
-    from sklearn.tree import DecisionTreeClassifier
-    from sklearn.datasets import make_classification
-    X, y = make_classification(n_samples=100, n_features=2, n_informative=2, n_redundant=0, random_state=42)
-    model = DecisionTreeClassifier(random_state=42)
-    model.fit(X, y)
-    print("Accuracy:", model.score(X, y))
-except ImportError:
-    print("Mock Output: Accuracy: 1.0")
+In the `SAMPLES/` folder you will find three examples:
+
+- `sample1.py` — train a decision tree, print test accuracy, and report tree depth.
+- `sample2.py` — show feature importances and make a sample prediction.
+- `sample3.py` — export the learned tree structure as readable text.
+
+Run any of them with:
+
+```bash
+python python-1000-snippets/0249-Decision-Tree/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Accuracy: 1.0
-```
-*(Real output with `scikit-learn`: `Accuracy: <value around 1.0>`)*
+Each sample prints metrics and/or the decision logic extracted from the trained tree.
 
 ## Explanation
-- **Decision Tree**: Trains a decision tree on synthetic classification data.
-- **Logic**: Generates data, trains the model, and evaluates accuracy.
-- **Complexity**: O(n*d*log(n)) for training (n samples, d features).
-- **Use Case**: Used for interpretable classification or regression.
-- **Best Practice**: Prune trees; limit depth; use cross-validation.
+- **Decision Tree**: Splits data recursively using feature thresholds.
+- **Logic**: Trains on synthetic classification data and inspects the resulting tree.
+- **Best Practice**: Limit depth to avoid overfitting; interpret feature importance.

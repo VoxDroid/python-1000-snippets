@@ -1,28 +1,26 @@
 # Web3 Integration
 
 ## Description
-This snippet demonstrates connecting to Ethereum using `web3.py`.
+This snippet demonstrates connecting to Ethereum using `web3.py` and the in-memory `eth-tester` provider for local testing.
 
 ## Code
-```python
-# Note: Requires `web3`. Install with `pip install web3`
-try:
-    from web3 import Web3
-    w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
-    print("Connected:", w3.is_connected())
-except ImportError:
-    print("Mock Output: Connected: True")
+In the `SAMPLES/` folder you will find three examples:
+
+- `sample1.py` — connect to an in-memory Ethereum chain and print the latest block number.
+- `sample2.py` — check account balances and send a transaction between pre-funded accounts.
+- `sample3.py` — deploy a simple contract and call a function.
+
+Run any of them with:
+
+```bash
+python python-1000-snippets/0243-Web3-Integration/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Connected: True
-```
-*(Real output with `web3`: `Connected: True` if node is running)*
+Each sample prints connection status and demonstrates basic Web3 interactions against a local in-memory Ethereum chain.
 
 ## Explanation
-- **Web3 Integration**: Connects to an Ethereum node using `web3.py`.
-- **Logic**: Initializes a Web3 instance and checks connection status.
-- **Complexity**: O(1) for connection check (network latency varies).
-- **Use Case**: Used for interacting with Ethereum blockchain or smart contracts.
-- **Best Practice**: Use secure providers; handle node failures; ensure node is running.
+- **Web3 Integration**: Uses `web3.py` to interact with an Ethereum provider.
+- **Logic**: Uses `eth-tester` for a local blockchain without needing an external node.
+- **Use Case**: Useful for quick smart contract testing and local development.
+- **Best Practice**: Use a real provider (Infura, Alchemy, local node) for production and handle RPC errors.

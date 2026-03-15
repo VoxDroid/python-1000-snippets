@@ -1,3 +1,6 @@
-# 0249-Decision-Tree Cheatsheet
+# 0249 - Decision Tree Cheatsheet
 
-*(Provide quick usage tips, shortcuts and examples.)*
+- `DecisionTreeClassifier()` learns a tree of decisions.
+- `model.feature_importances_` shows which features were most useful.
+- `export_text(model, feature_names=...)` prints a human-readable tree.
+- Use `max_depth` or `min_samples_leaf` to control overfitting.
