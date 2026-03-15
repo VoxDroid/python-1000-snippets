@@ -1,31 +1,24 @@
 # Named Entity Recognition
 
 ## Description
-This snippet demonstrates Named Entity Recognition (NER) using `spacy`.
+This snippet demonstrates simple named entity recognition (NER) techniques without external NLP libraries.
 
 ## Code
-```python
-# Note: Requires `spacy`. Install with `pip install spacy` and `python -m spacy download en_core_web_sm`
-try:
-    import spacy
-    nlp = spacy.load("en_core_web_sm")
-    text = "Apple is based in California."
-    doc = nlp(text)
-    entities = [(ent.text, ent.label_) for ent in doc.ents]
-    print("Entities:", entities)
-except ImportError:
-    print("Mock Output: Entities: [('Apple', 'ORG'), ('California', 'GPE')]")
+The `SAMPLES/` folder includes:
+
+- `sample1.py` — extracts dates, currency, and proper nouns using regex.
+- `sample2.py` — finds email addresses and URLs using regex patterns.
+- `sample3.py` — matches a small set of known entities from a dictionary.
+
+Run a sample with:
+
+```bash
+python python-1000-snippets/0269-Named-Entity-Recognition/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Entities: [('Apple', 'ORG'), ('California', 'GPE')]
-```
-*(Real output with `spacy`: `Entities: [('Apple', 'ORG'), ('California', 'GPE')]`)*
+Each sample prints extracted entities detected in the input text.
 
-## Explanation
-- **Named Entity Recognition**: Identifies entities like organizations and locations.
-- **Logic**: Processes text with `spacy` and extracts entities.
-- **Complexity**: O(n) for n words.
-- **Use Case**: Used for information extraction or knowledge graphs.
-- **Best Practice**: Use pre-trained models; fine-tune for domains; handle ambiguities.
+## Notes
+- This snippet is intended as a lightweight demonstration; real NER uses libraries like spaCy or Hugging Face transformers.
+- Regex-based methods are fast but brittle; they miss context and complex entity boundaries.

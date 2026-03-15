@@ -1,35 +1,24 @@
 # Policy Gradient
 
 ## Description
-This snippet demonstrates a simple policy gradient method using `tensorflow`.
+This snippet demonstrates a simple policy gradient (REINFORCE) algorithm using NumPy.
 
 ## Code
-```python
-# Note: Requires `tensorflow`. Install with `pip install tensorflow`
-try:
-    from tensorflow.keras.models import Sequential
-    from tensorflow.keras.layers import Dense
-    import numpy as np
-    model = Sequential([Dense(2, input_dim=2, activation="softmax")])
-    model.compile(optimizer="adam", loss="sparse_categorical_crossentropy")
-    states = np.random.random((100, 2))
-    actions = np.random.randint(0, 2, 100)
-    rewards = np.random.random(100)
-    model.fit(states, actions, sample_weight=rewards, epochs=1, verbose=0)
-    print("Policy trained")
-except ImportError:
-    print("Mock Output: Policy trained")
+The `SAMPLES/` folder includes:
+
+- `sample1.py` — shows how a softmax policy produces action probabilities for a given state.
+- `sample2.py` — trains a policy using REINFORCE on a small 1D grid environment.
+- `sample3.py` — trains a policy and then evaluates the learned deterministic policy.
+
+Run a sample with:
+
+```bash
+python python-1000-snippets/0261-Policy-Gradient/SAMPLES/sample2.py
 ```
 
 ## Output
-```
-Mock Output: Policy trained
-```
-*(Real output with `tensorflow`: `Policy trained`)*
+Each sample prints policy behavior (probabilities), training progress, and final evaluation metrics.
 
-## Explanation
-- **Policy Gradient**: Trains a policy network to select actions based on states.
-- **Logic**: Uses a softmax policy and updates based on rewards.
-- **Complexity**: O(n*d*i) for n samples, d dimensions, i epochs.
-- **Use Case**: Used for continuous or complex action spaces in RL.
-- **Best Practice**: Use advantage normalization; stabilize gradients; tune learning rate.
+## Notes
+- This is a toy example: the environment is a 1D grid and the policy is linear over one-hot states.
+- The core idea is to update the policy parameters in the direction of higher reward using sampled returns.

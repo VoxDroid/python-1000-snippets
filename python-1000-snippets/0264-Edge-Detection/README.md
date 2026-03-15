@@ -1,31 +1,25 @@
 # Edge Detection
 
 ## Description
-This snippet demonstrates edge detection using `opencv-python`.
+This snippet demonstrates edge detection techniques using OpenCV.
 
 ## Code
-```python
-# Note: Requires `opencv-python`. Install with `pip install opencv-python`
-try:
-    import cv2
-    import numpy as np
-    img = np.zeros((100, 100), dtype=np.uint8)
-    img[40:60, 40:60] = 255  # White square
-    edges = cv2.Canny(img, 100, 200)
-    print("Edges detected:", np.sum(edges) > 0)
-except ImportError:
-    print("Mock Output: Edges detected: True")
+The `SAMPLES/` folder includes:
+
+- `sample1.py` — Canny edge detection on a synthetic image.
+- `sample2.py` — Sobel gradient magnitude for edge detection.
+- `sample3.py` — overlays Canny edges on a color image.
+
+Run a sample with:
+
+```bash
+python python-1000-snippets/0264-Edge-Detection/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Edges detected: True
-```
-*(Real output with `opencv-python`: `Edges detected: True`)*
+Each sample writes an output image file (`edges_*.png`) and prints a summary line.
 
-## Explanation
-- **Edge Detection**: Uses Canny edge detection on a synthetic image.
-- **Logic**: Creates a black image with a white square and detects edges.
-- **Complexity**: O(w*h) for w width, h height.
-- **Use Case**: Used for feature extraction in computer vision.
-- **Best Practice**: Tune thresholds; preprocess images; handle noise.
+## Notes
+- Edge detectors (Canny, Sobel) are common preprocessing steps in computer vision.
+- Tuning thresholds (e.g., Canny low/high) controls sensitivity to edges.
+- Overlaying edges on the original image can help visualize results.

@@ -1,31 +1,25 @@
 # Face Detection
 
 ## Description
-This snippet demonstrates face detection using `opencv-python` with a Haar cascade.
+This snippet demonstrates face detection using OpenCV's Haar cascade classifiers.
 
 ## Code
-```python
-# Note: Requires `opencv-python`. Install with `pip install opencv-python`
-try:
-    import cv2
-    import numpy as np
-    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
-    img = np.zeros((100, 100, 3), dtype=np.uint8)  # Placeholder
-    faces = face_cascade.detectMultiScale(img, scaleFactor=1.1, minNeighbors=5)
-    print("Faces detected:", len(faces))
-except ImportError:
-    print("Mock Output: Faces detected: 0")
+The `SAMPLES/` folder includes:
+
+- `sample1.py` — generates a synthetic "face" pattern and runs Haar cascade detection.
+- `sample2.py` — attempts to load `test_face.jpg` (optional) and falls back to a generated test image.
+- `sample3.py` — compares detection results using different `minNeighbors` settings.
+
+Run a sample with:
+
+```bash
+python python-1000-snippets/0265-Face-Detection/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Faces detected: 0
-```
-*(Real output with `opencv-python`: `Faces detected: <number of faces>`)*
+Each sample prints detected face counts and writes an output image (or prints results) to disk.
 
-## Explanation
-- **Face Detection**: Uses Haar cascade to detect faces in an image.
-- **Logic**: Applies face detection on a placeholder image (no faces).
-- **Complexity**: O(w*h) for w width, h height.
-- **Use Case**: Used for facial recognition or surveillance.
-- **Best Practice**: Tune cascade parameters; use real images; handle lighting.
+## Notes
+- Detection performance depends on image content and cascade parameters.
+- Haar cascades work best on frontal faces; they are not robust to severe rotation.
+- Use real photos to get meaningful detections; the generated image is for demonstration.

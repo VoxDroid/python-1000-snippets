@@ -1,32 +1,25 @@
 # Topic Modeling
 
 ## Description
-This snippet demonstrates topic modeling using `gensim` with LDA.
+This snippet demonstrates topic modeling using scikit-learn's Latent Dirichlet Allocation (LDA).
 
 ## Code
-```python
-# Note: Requires `gensim`. Install with `pip install gensim`
-try:
-    from gensim import corpora
-    from gensim.models import LdaModel
-    documents = [["cat", "dog", "pet"], ["car", "bike", "vehicle"], ["cat", "pet", "animal"]]
-    dictionary = corpora.Dictionary(documents)
-    corpus = [dictionary.doc2bow(doc) for doc in documents]
-    lda = LdaModel(corpus, num_topics=2, id2word=dictionary, passes=1)
-    print("Topics:", lda.print_topics())
-except ImportError:
-    print("Mock Output: Topics: [(0, '0.5*cat + 0.3*pet'), (1, '0.4*car + 0.3*vehicle')]")
+The `SAMPLES/` folder includes:
+
+- `sample1.py` — trains LDA and prints top words for each topic.
+- `sample2.py` — assigns topic distributions to new documents after training.
+- `sample3.py` — interprets topic-word distributions by showing the top words per topic.
+
+Run a sample with:
+
+```bash
+python python-1000-snippets/0270-Topic-Modeling/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Topics: [(0, '0.5*cat + 0.3*pet'), (1, '0.4*car + 0.3*vehicle')]
-```
-*(Real output with `gensim`: `Topics: [<similar topic distributions>]`)*
+Each sample prints topic word lists or topic distributions for example text.
 
-## Explanation
-- **Topic Modeling**: Identifies topics in a small text corpus using LDA.
-- **Logic**: Creates a dictionary, converts documents to bag-of-words, and trains LDA.
-- **Complexity**: O(n*k*p) for n documents, k topics, p passes.
-- **Use Case**: Used for document clustering or theme extraction.
-- **Best Practice**: Preprocess text; tune number of topics; interpret results carefully.
+## Notes
+- LDA is an unsupervised technique that models documents as mixtures of topics.
+- Preprocessing text (removing stopwords, lemmatization) improves results.
+- In real applications, use more data and tune the number of topics.
