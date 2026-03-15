@@ -1,37 +1,24 @@
 # LSTM Model
 
 ## Description
-This snippet demonstrates a Long Short-Term Memory (LSTM) model using `tensorflow` for sequence classification.
+This snippet demonstrates a simple Long Short-Term Memory (LSTM) network implemented using plain NumPy.
 
 ## Code
-```python
-# Note: Requires `tensorflow`. Install with `pip install tensorflow`
-try:
-    from tensorflow.keras.models import Sequential
-    from tensorflow.keras.layers import LSTM, Dense
-    import numpy as np
-    X = np.random.random((100, 10, 1))  # 100 sequences, 10 timesteps
-    y = (X.mean(axis=1) > 0.5).astype(int).flatten()
-    model = Sequential([
-        LSTM(8, input_shape=(10, 1)),
-        Dense(1, activation="sigmoid")
-    ])
-    model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
-    model.fit(X, y, epochs=1, verbose=0)
-    print("Accuracy:", model.evaluate(X, y, verbose=0)[1])
-except ImportError:
-    print("Mock Output: Accuracy: 0.55")
+The `SAMPLES/` folder contains:
+
+- `sample1.py` — a single-pass LSTM forward computation showing hidden and cell state updates.
+- `sample2.py` — trains a simple classifier using an LSTM feature extractor and a linear output layer.
+- `sample3.py` — prints gate activations (input/forget/output) and cell state across timesteps.
+
+Run any sample with:
+
+```bash
+python python-1000-snippets/0256-LSTM-Model/SAMPLES/sample2.py
 ```
 
 ## Output
-```
-Mock Output: Accuracy: 0.55
-```
-*(Real output with `tensorflow`: `Accuracy: <value around 0.55 ~ 0.99>`)*
+Each sample prints the internal LSTM state and/or training progress to help illustrate how LSTM gates work.
 
-## Explanation
-- **LSTM Model**: Trains an LSTM on synthetic sequence data for binary classification.
-- **Logic**: Uses an LSTM layer to handle long-term dependencies and a dense layer for output.
-- **Complexity**: O(n*t*h) for n samples, t timesteps, h hidden units.
-- **Use Case**: Used for time-series, NLP, or speech recognition.
-- **Best Practice**: Use dropout; tune LSTM units; handle sequence padding.
+## Notes
+- This is a teaching implementation; production LSTMs use optimized libraries like TensorFlow or PyTorch.
+- The training example only updates the final output layer for simplicity.

@@ -1,41 +1,26 @@
 # Neural Network
 
 ## Description
-This snippet demonstrates a simple neural network using `scikit-learn`’s MLPClassifier.
+This snippet demonstrates a simple neural network (multi-layer perceptron) using `scikit-learn`.
 
 ## Code
-```python
-# Note: Requires `scikit-learn`. Install with `pip install scikit-learn`
-try:
-    from sklearn.neural_network import MLPClassifier
-    from sklearn.datasets import make_classification
+In the `SAMPLES/` folder you will find three examples:
 
-    # Set valid values for feature generation
-    X, y = make_classification(
-        n_samples=100,
-        n_features=2,
-        n_informative=2,
-        n_redundant=0,
-        n_repeated=0,
-        random_state=42
-    )
+- `sample1.py` — train an MLP classifier and print accuracy.
+- `sample2.py` — print predicted class probabilities for sample inputs.
+- `sample3.py` — persist a trained model with joblib and reload it.
 
-    model = MLPClassifier(hidden_layer_sizes=(10,), max_iter=1000, random_state=42)
-    model.fit(X, y)
-    print("Accuracy:", model.score(X, y))
-except ImportError:
-    print("Mock Output: Accuracy: 0.97")
+Run any of them with:
+
+```bash
+python python-1000-snippets/0253-Neural-Network/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Accuracy: 0.97
-```
-*(Real output with `scikit-learn`: `Accuracy: <value around 0.97>`)*
+Each sample prints classification accuracy, probabilities, or persistence validation.
 
 ## Explanation
-- **Neural Network**: Trains a multi-layer perceptron for classification.
-- **Logic**: Uses synthetic data, trains a single-layer network, and evaluates accuracy.
-- **Complexity**: O(n*d*h*i) for n samples, d features, h hidden units, i iterations.
-- **Use Case**: Used for non-linear classification or regression.
-- **Best Practice**: Tune layers; normalize data; use early stopping.
+- **Neural Network**: Uses a feedforward MLP to learn a classification boundary.
+- **Logic**: Trains on synthetic data, then evaluates or serializes the model.
+- **Use Case**: Useful for non-linear classification problems.
+- **Best Practice**: Scale inputs; tune hidden layer sizes; handle convergence warnings by increasing iterations.

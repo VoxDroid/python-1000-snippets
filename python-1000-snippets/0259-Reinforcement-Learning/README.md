@@ -1,35 +1,24 @@
 # Reinforcement Learning
 
 ## Description
-This snippet demonstrates a simple reinforcement learning setup using `gym`.
+This snippet demonstrates simple reinforcement learning concepts using a minimal custom environment implemented in plain Python.
 
 ## Code
-```python
-# Note: Requires `gym`. Install with `pip install gym`
-try:
-    import gym
-    env = gym.make("CartPole-v1")
-    for _ in range(1):
-        state = env.reset()
-        done = False
-        while not done:
-            action = env.action_space.sample()
-            state, reward, done, _ = env.step(action)
-        print("Episode finished")
-    env.close()
-except ImportError:
-    print("Mock Output: Episode finished")
+The `SAMPLES/` folder includes:
+
+- `sample1.py` — runs a random policy in a simple 1D grid environment.
+- `sample2.py` — trains a Q-learning agent to reach a goal in the grid.
+- `sample3.py` — trains Q-learning and then runs the learned greedy policy.
+
+Run a sample with:
+
+```bash
+python python-1000-snippets/0259-Reinforcement-Learning/SAMPLES/sample2.py
 ```
 
 ## Output
-```
-Mock Output: Episode finished
-```
-*(Real output with `gym`: `Episode finished`)*
+Each sample prints progress or learned Q-values to show how an agent improves over time.
 
-## Explanation
-- **Reinforcement Learning**: Runs a random agent in the CartPole environment.
-- **Logic**: Samples actions and steps through the environment until done.
-- **Complexity**: O(T) for T timesteps per episode.
-- **Use Case**: Used for training agents in games or robotics.
-- **Best Practice**: Implement a policy; use Q-learning or DQN; tune exploration.
+## Notes
+- This is a toy environment to illustrate core RL concepts without external dependencies.
+- For real RL, use environments like OpenAI Gym and deep Q-networks or policy gradients.

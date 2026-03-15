@@ -1,39 +1,26 @@
 # CNN Model
 
 ## Description
-This snippet demonstrates a simple Convolutional Neural Network (CNN) using `tensorflow` for digit classification.
+This snippet demonstrates a small convolutional neural network (CNN) pipeline implemented using pure NumPy.
 
 ## Code
-```python
-# Note: Requires `tensorflow`. Install with `pip install tensorflow`
-try:
-    from tensorflow.keras.models import Sequential
-    from tensorflow.keras.layers import Conv2D, Dense, Flatten
-    from tensorflow.keras.datasets import mnist
-    (X, y), _ = mnist.load_data()
-    X = X[:100, :, :, None] / 255.0  # Subset for demo
-    y = y[:100]
-    model = Sequential([
-        Conv2D(8, (3, 3), activation="relu", input_shape=(28, 28, 1)),
-        Flatten(),
-        Dense(10, activation="softmax")
-    ])
-    model.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"])
-    model.fit(X, y, epochs=1, verbose=0)
-    print("Accuracy:", model.evaluate(X, y, verbose=0)[1])
-except ImportError:
-    print("Mock Output: Accuracy: 0.45")
+In the `SAMPLES/` folder you will find three examples:
+
+- `sample1.py` — perform a forward pass through a tiny CNN (conv + dense + softmax).
+- `sample2.py` — train a simple conv+linear model with gradient descent on random data.
+- `sample3.py` — apply multiple convolution filters and inspect feature map statistics.
+
+Run any of them with:
+
+```bash
+python python-1000-snippets/0254-CNN-Model/SAMPLES/sample1.py
 ```
 
 ## Output
-```
-Mock Output: Accuracy: 0.45
-```
-*(Real output with `tensorflow`: `Accuracy: <value around 0.45 ~ 0.99>`)*
+Each sample prints output tensors or loss values to demonstrate the CNN pipeline.
 
 ## Explanation
-- **CNN Model**: Trains a CNN on a subset of MNIST digits.
-- **Logic**: Uses a single convolutional layer and dense layer for classification.
-- **Complexity**: O(n*k*f) for n samples, k kernels, f feature map size.
-- **Use Case**: Used for image classification or object detection.
-- **Best Practice**: Use data augmentation; add pooling layers; tune hyperparameters.
+- **CNN model**: Uses convolution, ReLU activation, and a dense layer.
+- **Logic**: Implements convolution operations manually and shows how filters produce feature maps.
+- **Use Case**: Useful for learning CNN mechanics without requiring TensorFlow or PyTorch.
+- **Best Practice**: Normalize inputs; choose appropriate learning rates; use vectorized operations for performance.

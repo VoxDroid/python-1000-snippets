@@ -1,37 +1,24 @@
 # GAN Implementation
 
 ## Description
-This snippet demonstrates a simple Generative Adversarial Network (GAN) using `tensorflow`.
+This snippet demonstrates a toy Generative Adversarial Network (GAN) implemented using NumPy.
 
 ## Code
-```python
-# Note: Requires `tensorflow`. Install with `pip install tensorflow`
-try:
-    from tensorflow.keras.models import Sequential
-    from tensorflow.keras.layers import Dense
-    import numpy as np
-    generator = Sequential([Dense(10, input_dim=2, activation="relu"), Dense(1)])
-    discriminator = Sequential([Dense(10, input_dim=1, activation="relu"), Dense(1, activation="sigmoid")])
-    discriminator.compile(optimizer="adam", loss="binary_crossentropy")
-    gan = Sequential([generator, discriminator])
-    gan.compile(optimizer="adam", loss="binary_crossentropy")
-    real_data = np.ones((100, 1))
-    noise = np.random.random((100, 2))
-    gan.fit(noise, np.ones(100), epochs=1, verbose=0)
-    print("GAN trained")
-except ImportError:
-    print("Mock Output: GAN trained")
+The `SAMPLES/` folder includes:
+
+- `sample1.py` — basic generator/discriminator forward pass.
+- `sample2.py` — trains a simple GAN on a 1D real distribution.
+- `sample3.py` — trains a GAN and then compares the generated distribution to the target distribution.
+
+Run a sample with:
+
+```bash
+python python-1000-snippets/0258-GAN-Implementation/SAMPLES/sample2.py
 ```
 
 ## Output
-```
-Mock Output: GAN trained
-```
-*(Real output with `tensorflow`: `GAN trained`)*
+Each sample prints loss values and statistics to demonstrate how generator and discriminator behave over training.
 
-## Explanation
-- **GAN Implementation**: Trains a simplified GAN with a generator and discriminator.
-- **Logic**: Generator creates fake data; discriminator distinguishes real vs. fake.
-- **Complexity**: O(n*d*i) for n samples, d dimensions, i epochs.
-- **Use Case**: Used for generating images, audio, or synthetic data.
-- **Best Practice**: Balance generator/discriminator; use batch normalization; monitor loss.
+## Notes
+- This is an educational implementation; modern GANs use deep architectures and frameworks like PyTorch or TensorFlow.
+- Here the generator and discriminator are simple linear models for clarity.
