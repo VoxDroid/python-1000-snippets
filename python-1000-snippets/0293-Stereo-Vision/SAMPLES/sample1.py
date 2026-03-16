@@ -6,10 +6,14 @@ import numpy as np
 
 
 def create_stereo_pair(disparity):
-    # Create a textured image using random noise
-    rng = np.random.default_rng(0)
-    base = rng.integers(0, 256, size=(240, 320), dtype=np.uint8)
-    base = cv2.GaussianBlur(base, (7, 7), sigmaX=1.5)
+    # Create a textured base image (gradient + random noise + shapes)
+    base = np.tile(np.linspace(0, 255, 320, dtype=np.uint8), (240, 1))
+    noise = (np.random.rand(240, 320) * 50).astype(np.uint8)
+    base = cv2.add(base, noise)
+    cv2.circle(base, (160, 120), 40, 255, 2)
+    cv2.line(base, (0, 0), (319, 239), 128, 1)
+
+    # Left image is base, right image is shifted to the right by `disparity` pixels
     left = base.copy()
     right = np.roll(base, -disparity, axis=1)
     # Fill the hole on the right image (leftmost region) with zeros

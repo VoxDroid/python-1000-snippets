@@ -1,43 +1,20 @@
 # Game Engine
 
 ## Description
-This snippet demonstrates a basic game loop using `pygame`.
+This snippet demonstrates basic game engine concepts such as the game loop, entity updates, and map logic using plain Python.
 
-## Code
-```python
-# Note: Requires `pygame`. Install with `pip install pygame`
-try:
-    import pygame
-    pygame.init()
-    screen = pygame.display.set_mode((100, 100))
-    running = True
-    while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-        screen.fill((0, 0, 0))
-        pygame.draw.circle(screen, (255, 0, 0), (50, 50), 10)
-        pygame.display.flip()
-    pygame.quit()
-    print("Game Loop Executed")
-except ImportError:
-    print("Mock Output: Game Loop Executed")
+## Samples
+- `SAMPLES/sample1.py`: Core game loop structure with update and render steps.
+- `SAMPLES/sample2.py`: Entity-component style simulation with velocity and collision with world boundaries.
+- `SAMPLES/sample3.py`: Tile map representation and player movement with collision checks.
+
+## Running
+```bash
+python python-1000-snippets/0297-Game-Engine/SAMPLES/sample1.py
+python python-1000-snippets/0297-Game-Engine/SAMPLES/sample2.py
+python python-1000-snippets/0297-Game-Engine/SAMPLES/sample3.py
 ```
 
-## Output
-<div style="text-align: center;">
-  <img src="Output.png" alt="Output image">
-  <p></p>
-</div>
-
-```
-Mock Output: Game Loop Executed
-```
-*(Real output with `pygame`: `Game Loop Executed`, shows red circle)*
-
-## Explanation
-- **Game Engine**: Implements a game loop with a moving circle.
-- **Logic**: Handles events, renders a circle, and updates the display.
-- **Complexity**: O(1) per frame (rendering varies).
-- **Use Case**: Used for game development or simulations.
-- **Best Practice**: Optimize loop; handle input; scale for complexity.
+## Notes
+- These examples are non-interactive and print their state to the console.
+- For real games, integrate a rendering framework (e.g., Pygame, PySDL2, OpenGL).

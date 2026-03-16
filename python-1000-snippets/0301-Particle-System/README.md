@@ -1,26 +1,22 @@
 # Particle System
 
 ## Description
-This snippet demonstrates a simple particle system using `numpy`.
+This snippet demonstrates simple particle system behaviors using `numpy`.
+It includes particle spawning, lifetimes, gravity, and boundary collisions.
 
-## Code
-```python
-import numpy as np
-np.random.seed(42)
-particles = np.random.random((10, 2))  # Positions
-velocities = np.random.normal(0, 0.1, (10, 2))  # Velocities
-particles += velocities  # Update positions
-print("Updated Particle (first):", particles[0])
+## Samples
+- `SAMPLES/sample1.py`: Particle system with lifetimes, automatic respawn.
+- `SAMPLES/sample2.py`: Fountain-style particle emitter with gravity.
+- `SAMPLES/sample3.py`: Bouncing particles with boundary collisions and damping.
+
+## Running
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
-```
-Updated Particle (first): [0.27325701 0.98213904]
-```
-
-## Explanation
-- **Particle System**: Simulates particles with position and velocity updates.
-- **Logic**: Updates particle positions based on random velocities.
-- **Complexity**: O(n) for n particles.
-- **Use Case**: Used for visual effects like smoke or fire.
-- **Best Practice**: Add forces; handle lifetimes; optimize rendering.
+## Notes
+- Particle systems update positions based on velocity and apply simple forces.
+- Use structured arrays for efficient particle attribute storage.
+- Add rendering using a graphics library (Pygame, matplotlib, etc.) for visualization.

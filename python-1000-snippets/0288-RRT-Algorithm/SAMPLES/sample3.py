@@ -2,6 +2,7 @@
 # Simple RRT* variant: rewires nearby nodes to improve path cost.
 
 import numpy as np
+import heapq
 
 
 def distance(a, b):
@@ -74,7 +75,8 @@ if __name__ == '__main__':
             path.append(node)
             node = parents[node]
         path.reverse()
+        rounded = [(float(round(x, 3)), float(round(y, 3))) for x, y in path]
         print('Found path length:', len(path))
-        print('Path (first 5):', path[:5])
+        print('Path (first 5):', rounded[:5])
     else:
         print('No path found')

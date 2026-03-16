@@ -19,10 +19,7 @@ if __name__ == '__main__':
     model = ARIMA(data, order=(1, 0, 0))
     fit = model.fit(method_kwargs={"warn_convergence": False})
     print("ARIMA(1,0,0) AIC:", fit.aic)
-    param_names = list(fit.model.param_names)
-    params = fit.params
-    if "ar.L1" in param_names:
-        phi = params[param_names.index("ar.L1")]
-    else:
-        phi = float('nan')
-    print(f"Estimated phi: {phi:.3f}")
+
+    # `fit.params` is a numpy array. The first parameter is typically the AR coefficient.
+    ar_param = float(fit.params[0]) if len(fit.params) > 0 else float('nan')
+    print(f"Estimated phi (AR coefficient): {ar_param:.3f}")

@@ -25,6 +25,7 @@ if __name__ == '__main__':
     conf_int = forecast.conf_int(alpha=0.05)
 
     print(f"Forecasting next {steps} values:")
+    # `conf_int` may be returned as a numpy array
     for i in range(steps):
         lo, hi = conf_int[i]
         print(f"  step {i+1}: {pred[i]:.3f} (95% CI: [{lo:.3f}, {hi:.3f}])")

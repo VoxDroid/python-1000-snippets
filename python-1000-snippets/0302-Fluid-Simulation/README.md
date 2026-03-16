@@ -1,43 +1,21 @@
 # Fluid Simulation
 
 ## Description
-This snippet demonstrates a simplified fluid simulation using a grid-based approach.
+This snippet demonstrates basic fluid-like simulation behaviors using grid-based diffusion and advection.
 
-## Code
-```python
-import numpy as np
+## Samples
+- `SAMPLES/sample1.py`: Diffuse a scalar field on a grid using a simple stencil.
+- `SAMPLES/sample2.py`: Advect a scalar field using a semi-Lagrangian scheme with a rotational velocity field.
+- `SAMPLES/sample3.py`: Combine advection and diffusion for a simple fluid-like scalar simulation.
 
-grid = np.zeros((5, 5))
-grid[2, 2] = 1.0  # Initial density in center
-new_grid = grid.copy()
-
-for i in range(1, 4):
-    for j in range(1, 4):
-        # Skip center, and spread its value to neighbors
-        if grid[i, j] > 0:
-            spread = grid[i, j] * 0.25  # equally spread to 4 neighbors
-            new_grid[i-1, j] += spread
-            new_grid[i+1, j] += spread
-            new_grid[i, j-1] += spread
-            new_grid[i, j+1] += spread
-            new_grid[i, j] -= spread * 4  # loss from current cell
-
-print("Updated Grid:\n", new_grid)
+## Running
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
-```
-Updated Grid:
- [[0.   0.   0.   0.   0.  ]
- [0.   0.   0.25 0.   0.  ]
- [0.   0.25 0.   0.25 0.  ]
- [0.   0.   0.25 0.   0.  ]
- [0.   0.   0.   0.   0.  ]]
-```
-
-## Explanation
-- **Fluid Simulation**: Simulates diffusion of a scalar field (density).
-- **Logic**: Applies a simple averaging filter to diffuse density.
-- **Complexity**: O(r*c) for r rows, c columns.
-- **Use Case**: Used for fluid effects in games or animations.
-- **Best Practice**: Add velocity fields; use Navier-Stokes; optimize grid size.
+## Notes
+- These examples are simplified and work without external physics engines.
+- Diffusion blends values with neighbors; advection transports values along a velocity field.
+- For more advanced fluid simulation, consider Navier-Stokes solvers and pressure projection.

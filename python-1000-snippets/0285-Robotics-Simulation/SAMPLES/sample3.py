@@ -10,22 +10,37 @@ def greedy_path(start, goal, obstacles=None, max_steps=100):
 
     current = start
     path = [current]
-    while current != goal and len(path) < max_steps:
-        dx = np.sign(goal[0] - current[0])
-        dy = np.sign(goal[1] - current[1])
+    def manhattan(a, b):
+        return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
-        # Prefer horizontal move first
-        candidates = [(current[0] + dx, current[1]), (current[0], current[1] + dy)]
-        moved = False
+    while current != goal and len(path) < max_steps:
+        dx = int(np.sign(goal[0] - current[0]))
+        dy = int(np.sign(goal[1] - current[1]))
+
+        # Candidate moves (prioritize reducing distance to goal)
+        candidates = [
+            (current[0] + dx, current[1]),
+            (current[0], current[1] + dy),
+            (current[0] - dx, current[1]),
+            (current[0], current[1] - dy),
+        ]
+
+        best = None
+        best_dist = manhattan(current, goal)
         for nxt in candidates:
-            if nxt not in obstacles:
-                current = nxt
-                path.append(current)
-                moved = True
-                break
-        if not moved:
-            # No valid move; stop
+            if nxt in obstacles or nxt == current:
+                continue
+            d = manhattan(nxt, goal)
+            if d < best_dist:
+                best = nxt
+                best_dist = d
+
+        if best is None:
+            # Stuck, cannot improve distance
             break
+
+        current = best
+        path.append(current)
 
     return path
 

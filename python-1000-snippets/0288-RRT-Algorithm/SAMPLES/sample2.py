@@ -60,6 +60,8 @@ if __name__ == '__main__':
     nodes, parent, last = build_rrt(start, goal, obstacle_center, obstacle_radius)
     if last is not None:
         path = reconstruct_path(parent, last)
-        print('Path to goal found with RRT:', path)
+        rounded = [(float(round(x, 3)), float(round(y, 3))) for x, y in path]
+        print('Path to goal found with RRT (first 5 nodes):', rounded[:5])
+        print('Total path length:', len(path))
     else:
         print('Goal not reached; nodes generated:', len(nodes))

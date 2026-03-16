@@ -1,28 +1,20 @@
 # Collision Detection
 
 ## Description
-This snippet demonstrates 2D collision detection using bounding boxes.
+This snippet demonstrates basic collision detection techniques used in games and simulations.
 
-## Code
-```python
-def check_collision(box1, box2):
-    x1, y1, w1, h1 = box1
-    x2, y2, w2, h2 = box2
-    return x1 < x2 + w2 and x1 + w1 > x2 and y1 < y2 + h2 and y1 + h1 > y2
+## Samples
+- `SAMPLES/sample1.py`: Axis-aligned bounding box (AABB) intersection.
+- `SAMPLES/sample2.py`: Circle-circle collision and simple elastic response.
+- `SAMPLES/sample3.py`: Ray vs AABB intersection using slab method.
 
-box1 = (40, 40, 20, 20)
-box2 = (50, 50, 20, 20)
-print("Collision:", check_collision(box1, box2))
+## Running
+```bash
+python python-1000-snippets/0299-Collision-Detection/SAMPLES/sample1.py
+python python-1000-snippets/0299-Collision-Detection/SAMPLES/sample2.py
+python python-1000-snippets/0299-Collision-Detection/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Collision: True
-```
-
-## Explanation
-- **Collision Detection**: Checks if two rectangular boxes overlap.
-- **Logic**: Uses axis-aligned bounding box (AABB) collision test.
-- **Complexity**: O(1) per check.
-- **Use Case**: Used in games or physics simulations.
-- **Best Practice**: Optimize for multiple objects; use spatial partitioning; validate inputs.
+## Notes
+- These routines form the basis of many physics and game engine systems.
+- Use spatial partitioning (quadtrees, grids) to scale to many objects.
