@@ -1,24 +1,30 @@
 # Complex String Processing
 
 ## Description
-This snippet demonstrates complex string processing to extract words and count letters.
+This snippet demonstrates real-world string processing tasks such as tokenization, normalization, pattern extraction, and frequency analysis.
 
-## Code
-```python
-text = "Hello, World!"
-words = text.lower().replace(",", "").split()
-letter_counts = {word: len(word) for word in words}
-print("Letter Counts:", letter_counts)
+## Files
+- `SAMPLES/sample1.py`: Normalize text and compute word frequency.
+- `SAMPLES/sample2.py`: Extract emails and URLs from a block of text using regex.
+- `SAMPLES/sample3.py`: Clean text by removing punctuation, normalizing whitespace, and lowercasing.
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Letter Counts: {'hello': 5, 'world': 5}
+Word frequencies: {'hello': 2, 'world': 1}
+Emails: ['user@example.com']
+URLs: ['https://example.com']
+Cleaned: hello world this is a test
 ```
 
 ## Explanation
-- **Complex String Processing**: Processes a string to count letters per word.
-- **Logic**: Normalizes text, splits into words, and creates a dictionary of word lengths.
-- **Complexity**: O(n) for n characters.
-- **Use Case**: Used for text analysis or preprocessing.
-- **Best Practice**: Handle punctuation; use regex for complex patterns; validate input.
+- **Tokenization**: Split text into words while handling punctuation.
+- **Normalization**: Lowercasing, accent removal, collapsing whitespace.
+- **Pattern extraction**: Use regular expressions to find structured data like emails and URLs.
+- **Best practice**: Use `re` with appropriate flags; avoid naive splitting for complex text.

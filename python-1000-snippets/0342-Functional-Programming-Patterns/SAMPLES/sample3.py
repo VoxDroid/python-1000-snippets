@@ -1,5 +1,17 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Use reduce to compute a cumulative result
 
-if __name__ == '__main__':
-    print('sample 3')
+from functools import reduce
+
+
+def factorial(n):
+    return reduce(lambda acc, x: acc * x, range(1, n + 1), 1)
+
+
+def main():
+    for n in (0, 1, 5, 7):
+        print(f"{n}! = {factorial(n)}")
+
+
+if __name__ == "__main__":
+    main()

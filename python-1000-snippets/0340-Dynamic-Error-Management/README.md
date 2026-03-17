@@ -1,30 +1,29 @@
 # Dynamic Error Management
 
 ## Description
-This snippet demonstrates dynamic error management with context-specific handling.
+This snippet demonstrates advanced error-handling patterns where errors are collected, retried, or managed dynamically rather than immediately propagated.
 
-## Code
-```python
-def process_data(data):
-    errors = []
-    try:
-        result = 10 / data
-    except ZeroDivisionError:
-        errors.append("Division by zero")
-        result = 0
-    return result, errors
+## Files
+- `SAMPLES/sample1.py`: Collect errors during batch processing and return both results and a list of issues.
+- `SAMPLES/sample2.py`: Retry an operation with exponential backoff on transient errors.
+- `SAMPLES/sample3.py`: Use a context manager to collect multiple errors and report them together.
 
-print("Result, Errors:", process_data(2))
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Result, Errors: (5.0, [])
+Results: [5.0, 0, 3.3333333333333335], Errors: ['Division by zero']
+Operation succeeded after 2 retries
+Collected errors: ['Error A', 'Error B']
 ```
 
 ## Explanation
-- **Dynamic Error Management**: Handles errors and collects them for reporting.
-- **Logic**: Attempts division, catches errors, and returns result with error list.
-- **Complexity**: O(1) per operation.
-- **Use Case**: Used in data pipelines or user input processing.
-- **Best Practice**: Log errors; handle multiple error types; validate inputs early.
+- **Dynamic error management**: Captures errors for later reporting instead of failing immediately.
+- **Logic**: Use try/except blocks to catch errors and store them; implement retries for transient failures.
+- **Use Case**: Useful in data pipelines, batch processing, network calls.
+- **Best practice**: Do not swallow exceptions silently; log and surface errors appropriately.

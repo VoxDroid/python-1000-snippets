@@ -1,5 +1,15 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Flatten a nested list
 
-if __name__ == '__main__':
-    print('sample 2')
+def flatten(matrix):
+    return [item for row in matrix for item in row]
+
+
+def main():
+    matrix = [[1, 2], [3, 4], [5, 6]]
+    print("matrix:", matrix)
+    print("flattened:", flatten(matrix))
+
+
+if __name__ == "__main__":
+    main()

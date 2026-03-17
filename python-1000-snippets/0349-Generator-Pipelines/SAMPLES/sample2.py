@@ -1,5 +1,16 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Use yield from to delegate to subgenerators
 
-if __name__ == '__main__':
-    print('sample 2')
+def group_by_size(strings):
+    for s in strings:
+        yield len(s), s
+
+
+def main():
+    words = ["apple", "banana", "cherry"]
+    for size, word in group_by_size(words):
+        print(f"{word} has length {size}")
+
+
+if __name__ == "__main__":
+    main()

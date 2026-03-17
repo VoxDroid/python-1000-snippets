@@ -1,5 +1,21 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Instantiating an abstract class raises TypeError
 
-if __name__ == '__main__':
-    print('sample 2')
+from abc import ABC, abstractmethod
+
+
+class Base(ABC):
+    @abstractmethod
+    def foo(self):
+        pass
+
+
+def main():
+    try:
+        Base()
+    except TypeError as e:
+        print("error:", e)
+
+
+if __name__ == "__main__":
+    main()

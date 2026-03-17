@@ -1,3 +1,6 @@
 # 0351-Nested-Context-Managers Cheatsheet
 
-*(Provide quick usage tips, shortcuts and examples.)*
+- Use `with` to enter and exit resources cleanly.
+- Nest `with` blocks for multiple resources.
+- Use `contextlib.ExitStack` for dynamic/variable number of contexts.
+- Implement custom context managers with `contextlib.contextmanager`.

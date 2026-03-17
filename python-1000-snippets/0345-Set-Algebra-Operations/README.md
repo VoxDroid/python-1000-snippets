@@ -1,25 +1,12 @@
 # Set Algebra Operations
 
 ## Description
-This snippet demonstrates set operations like union and intersection.
+Demonstrates basic set algebra operations like union, intersection, difference, and symmetric difference.
 
-## Code
-```python
-set1 = {1, 2, 3}
-set2 = {2, 3, 4}
-union = set1 | set2
-intersection = set1 & set2
-print("Union:", union, "Intersection:", intersection)
-```
+## Concepts
+- `set` and `frozenset`
+- `union()`, `intersection()`, `difference()`, `symmetric_difference()`
+- Subset/superset checks
 
 ## Output
-```
-Union: {1, 2, 3, 4} Intersection: {2, 3}
-```
-
-## Explanation
-- **Set Algebra Operations**: Performs union and intersection on two sets.
-- **Logic**: Uses Python’s set operators to combine or find common elements.
-- **Complexity**: O(n + m) for n, m elements in sets.
-- **Use Case**: Used for data filtering or membership testing.
-- **Best Practice**: Handle empty sets; use frozensets for immutability; validate inputs.
+Each sample prints set operations results.

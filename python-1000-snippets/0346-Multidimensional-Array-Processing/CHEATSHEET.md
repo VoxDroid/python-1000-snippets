@@ -1,3 +1,7 @@
 # 0346-Multidimensional-Array-Processing Cheatsheet
 
-*(Provide quick usage tips, shortcuts and examples.)*
+- Transpose: `list(zip(*matrix))` or list comprehension.
+- Flatten: `[item for row in matrix for item in row]`.
+- Matrix multiply: row/column dot products.
+
+Use clear variable names for readability.

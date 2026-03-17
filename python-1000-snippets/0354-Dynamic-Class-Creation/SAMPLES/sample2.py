@@ -1,5 +1,17 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Create a class dynamically that inherits from a base class
 
-if __name__ == '__main__':
-    print('sample 2')
+class Base:
+    def hello(self):
+        return "base"
+
+
+DynamicChild = type("DynamicChild", (Base,), {"hello": lambda self: "dynamic"})
+
+
+def main():
+    print(DynamicChild().hello())
+
+
+if __name__ == "__main__":
+    main()

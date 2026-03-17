@@ -1,27 +1,30 @@
 # File System Operations
 
 ## Description
-This snippet demonstrates file system operations using `os` to list directory contents.
+This snippet demonstrates common file system operations (listing, searching, and managing files) using `pathlib` and `os`.
 
-## Code
-```python
-import os
-try:
-    files = os.listdir(".")
-    print("Files:", files[:3])  # Show up to 3 for brevity
-except FileNotFoundError:
-    print("Mock Output: Files: ['file1.txt', 'file2.py', 'folder']")
+## Files
+- `SAMPLES/sample1.py`: List directory contents and show file sizes.
+- `SAMPLES/sample2.py`: Walk a directory tree and collect filenames by extension.
+- `SAMPLES/sample3.py`: Create a temporary file under `./temp` and clean it up.
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Mock Output: Files: ['file1.txt', 'file2.py', 'folder']
+Files in current directory (first 5): ['README.md', 'LICENSE', ...]
+Found 3 .py files under .
+Created temporary file: /temp/tmp_abc123.txt
 ```
-*(Real output with `os`: `Files: [<actual files in directory>]`)*
 
 ## Explanation
-- **File System Operations**: Lists files in the current directory.
-- **Logic**: Uses `os.listdir` to retrieve file names.
-- **Complexity**: O(n) for n files.
-- **Use Case**: Used for file management or automation.
-- **Best Practice**: Handle permissions; validate paths; use `pathlib` for modern code.
+- **File system operations**: Use `pathlib.Path` for modern path handling.
+- **Listing**: `Path.iterdir()` and `os.listdir()` show directory contents.
+- **Walking**: Recursively traverse using `Path.rglob()` or `os.walk()`.
+- **Temporary files**: Use `/temp` for transient artifacts to avoid polluting repo.
+- **Best Practice**: Avoid hardcoding paths; check `Path.exists()` and handle permissions.

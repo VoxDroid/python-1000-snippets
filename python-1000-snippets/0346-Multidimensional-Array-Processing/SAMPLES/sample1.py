@@ -1,5 +1,15 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Transpose a 2D list
 
-if __name__ == '__main__':
-    print('sample 1')
+def transpose(matrix):
+    return [list(row) for row in zip(*matrix)]
+
+
+def main():
+    matrix = [[1, 2, 3], [4, 5, 6]]
+    print("matrix:", matrix)
+    print("transposed:", transpose(matrix))
+
+
+if __name__ == "__main__":
+    main()

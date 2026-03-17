@@ -1,24 +1,12 @@
 # Dictionary Merging Techniques
 
 ## Description
-This snippet demonstrates merging dictionaries with conflict resolution.
+Shows different ways to merge dictionaries, including deep merges and ChainMap layering.
 
-## Code
-```python
-dict1 = {"a": 1, "b": 2}
-dict2 = {"b": 3, "c": 4}
-merged = {**dict1, **dict2}  # dict2 overrides dict1
-print("Merged:", merged)
-```
+## Concepts
+- `{**d1, **d2}`
+- `dict.update()`
+- `collections.ChainMap`
 
 ## Output
-```
-Merged: {'a': 1, 'b': 3, 'c': 4}
-```
-
-## Explanation
-- **Dictionary Merging Techniques**: Merges two dictionaries, prioritizing later values.
-- **Logic**: Uses unpacking operator to combine dictionaries.
-- **Complexity**: O(n + m) for n, m keys.
-- **Use Case**: Used for configuration merging or data aggregation.
-- **Best Practice**: Handle conflicts explicitly; use `update` for updates; validate keys.
+Each sample prints merged dictionary results.

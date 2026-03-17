@@ -1,5 +1,22 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Custom sort using lambda as a key function
 
-if __name__ == '__main__':
-    print('sample 2')
+def sort_students(students):
+    # Sort by score descending, then name ascending
+    return sorted(students, key=lambda s: (-s["score"], s["name"]))
+
+
+def main():
+    students = [
+        {"name": "Alice", "score": 88},
+        {"name": "Bob", "score": 95},
+        {"name": "Clara", "score": 95},
+        {"name": "Dave", "score": 70},
+    ]
+
+    print("before:", students)
+    print("after:", sort_students(students))
+
+
+if __name__ == "__main__":
+    main()

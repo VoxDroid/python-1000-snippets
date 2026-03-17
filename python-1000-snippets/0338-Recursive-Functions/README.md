@@ -1,26 +1,29 @@
 # Recursive Functions
 
 ## Description
-This snippet demonstrates a recursive function to compute factorials.
+This snippet demonstrates recursive function patterns for mathematical computations and traversals.
 
-## Code
-```python
-def factorial(n):
-    if n <= 1:
-        return 1
-    return n * factorial(n - 1)
+## Files
+- `SAMPLES/sample1.py`: Recursive factorial with memoization.
+- `SAMPLES/sample2.py`: Recursive traversal of nested dictionaries.
+- `SAMPLES/sample3.py`: Recursive merge sort implementation.
 
-print("Factorial(5):", factorial(5))
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Factorial(5): 120
+Factorial(10): 3628800
+Nested keys: ['a.b.c', 'a.d', 'e']
+Sorted: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
 ## Explanation
-- **Recursive Functions**: Computes n! using recursion.
-- **Logic**: Base case returns 1; recursive case multiplies n by (n-1)!.
-- **Complexity**: O(n) for n calls.
-- **Use Case**: Used for tree traversals or combinatorial problems.
-- **Best Practice**: Optimize with memoization; handle stack overflow; validate inputs.
+- **Recursive functions**: A function calls itself with modified arguments until a base case is reached.
+- **Logic**: Ensure each recursive call progresses toward the base case to avoid infinite recursion.
+- **Use Case**: Useful for divide-and-conquer algorithms, traversals, and combinatorial generation.
+- **Best Practice**: Use memoization for overlapping subproblems; avoid deep recursion where possible.

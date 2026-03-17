@@ -1,5 +1,22 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Basic nested context managers using contextlib
 
-if __name__ == '__main__':
-    print('sample 1')
+from contextlib import contextmanager
+
+@contextmanager
+def resource(name):
+    print(f"Opening {name}")
+    try:
+        yield name
+    finally:
+        print(f"Closing {name}")
+
+
+def main():
+    with resource("A"):
+        with resource("B"):
+            print("Inside nested context")
+
+
+if __name__ == "__main__":
+    main()

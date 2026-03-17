@@ -1,5 +1,24 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Compose functions for a simple pipeline
 
-if __name__ == '__main__':
-    print('sample 2')
+
+def add_one(x):
+    return x + 1
+
+
+def square(x):
+    return x * x
+
+
+def compose(f, g):
+    return lambda x: f(g(x))
+
+
+def main():
+    pipeline = compose(square, add_one)
+    print("pipeline(4):", pipeline(4))
+    print("pipeline(10):", pipeline(10))
+
+
+if __name__ == "__main__":
+    main()

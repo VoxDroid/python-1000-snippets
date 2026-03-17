@@ -1,5 +1,14 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Tuple unpacking with starred expression
 
-if __name__ == '__main__':
-    print('sample 1')
+def main():
+    data = (1, 2, 3, 4, 5)
+    first, *middle, last = data
+    print("data:", data)
+    print("first:", first)
+    print("middle:", middle)
+    print("last:", last)
+
+
+if __name__ == "__main__":
+    main()

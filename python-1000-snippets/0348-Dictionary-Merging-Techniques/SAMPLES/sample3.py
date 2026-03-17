@@ -1,5 +1,19 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Layered configuration using ChainMap
 
-if __name__ == '__main__':
-    print('sample 3')
+from collections import ChainMap
+
+
+def main():
+    defaults = {"timeout": 30, "retries": 3}
+    env = {"timeout": 10}
+    user = {"retries": 5}
+
+    config = ChainMap(user, env, defaults)
+    print("config:", dict(config))
+    print("timeout:", config["timeout"])
+    print("retries:", config["retries"])
+
+
+if __name__ == "__main__":
+    main()

@@ -1,5 +1,15 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Named tuple for structured access
 
-if __name__ == '__main__':
-    print('sample 2')
+from collections import namedtuple
+
+
+def main():
+    Point = namedtuple("Point", ["x", "y"])
+    p = Point(3, 4)
+    print("point:", p)
+    print("x:", p.x, "y:", p.y)
+
+
+if __name__ == "__main__":
+    main()

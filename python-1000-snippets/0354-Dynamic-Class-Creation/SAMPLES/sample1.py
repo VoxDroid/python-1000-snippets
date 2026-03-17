@@ -1,5 +1,17 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Create a class dynamically with type
 
-if __name__ == '__main__':
-    print('sample 1')
+def greet(self):
+    return f"Hello, {self.name}!"
+
+
+DynamicPerson = type("DynamicPerson", (), {"name": "World", "greet": greet})
+
+
+def main():
+    p = DynamicPerson()
+    print(p.greet())
+
+
+if __name__ == "__main__":
+    main()

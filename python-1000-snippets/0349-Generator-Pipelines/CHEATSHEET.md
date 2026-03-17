@@ -1,3 +1,6 @@
 # 0349-Generator-Pipelines Cheatsheet
 
-*(Provide quick usage tips, shortcuts and examples.)*
+- Use `yield` to create a generator.
+- `yield from` delegates to subgenerator.
+- Chain generators: `gen3(gen2(gen1(data)))`.
+- Generators are lazy and memory-efficient.

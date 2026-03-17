@@ -1,30 +1,30 @@
 # Social Network Analysis
 
 ## Description
-This snippet demonstrates social network analysis using `networkx` to compute centrality.
+This snippet demonstrates social network analysis using `networkx` to build graphs and compute centrality and connectivity metrics.
 
-## Code
-```python
-# Note: Requires `networkx`. Install with `pip install networkx`
-try:
-    import networkx as nx
-    G = nx.Graph()
-    G.add_edges_from([(1, 2), (2, 3), (3, 1), (2, 4)])
-    centrality = nx.degree_centrality(G)
-    print("Centrality:", centrality)
-except ImportError:
-    print("Mock Output: Centrality: {1: 0.6666666666666666, 2: 1.0, 3: 0.6666666666666666, 4: 0.3333333333333333}
+## Files
+- `SAMPLES/sample1.py`: Compute degree, betweenness, and closeness centrality on a small graph.
+- `SAMPLES/sample2.py`: Find connected components and shortest paths.
+- `SAMPLES/sample3.py`: Compute community detection (greedy modularity) and clustering coefficient.
+
+## Quick start
+```bash
+pip install networkx
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Mock Output: Centrality: {1: 0.6666666666666666, 2: 1.0, 3: 0.6666666666666666, 4: 0.3333333333333333}
+Degree centrality: {1: 0.666..., 2: 1.0, 3: 0.666..., 4: 0.333...}
+Shortest path 1->4: [1, 2, 4]
+Communities: [{1, 2, 3}, {4}]
 ```
-*(Real output with `networkx`: `Centrality: {1: 0.6666666666666666, 2: 1.0, 3: 0.6666666666666666, 4: 0.3333333333333333}`)*
 
 ## Explanation
-- **Social Network Analysis**: Computes degree centrality for nodes in a graph.
-- **Logic**: Builds a small graph and calculates normalized degree centrality.
-- **Complexity**: O(n + m) for n nodes, m edges.
-- **Use Case**: Used to identify influential nodes in networks.
-- **Best Practice**: Choose appropriate centrality; handle large graphs; validate edges.
+- **Social Network Analysis**: Uses graph structures (nodes+edges) to model relationships.
+- **Centrality**: Identifies influential nodes (degree, betweenness, closeness).
+- **Connectivity**: Examines components, shortest paths, clustering.
+- **Use Case**: Applied to social media, communication networks, and recommendation graphs.

@@ -1,5 +1,12 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Swap variables using tuple unpacking
 
-if __name__ == '__main__':
-    print('sample 3')
+def main():
+    a, b = 1, 2
+    print("before:", a, b)
+    a, b = b, a
+    print("after:", a, b)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,5 +1,21 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Basic polymorphism using a shared method name
 
-if __name__ == '__main__':
-    print('sample 1')
+class Dog:
+    def speak(self):
+        return "Woof"
+
+
+class Cat:
+    def speak(self):
+        return "Meow"
+
+
+def main():
+    animals = [Dog(), Cat()]
+    for animal in animals:
+        print(animal.speak())
+
+
+if __name__ == "__main__":
+    main()
