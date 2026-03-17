@@ -1,5 +1,24 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Prototype pattern with deep cloning
 
-if __name__ == '__main__':
-    print('sample 1')
+import copy
+
+
+class Prototype:
+    def __init__(self, value):
+        self.value = value
+
+    def clone(self):
+        return copy.deepcopy(self)
+
+
+def main():
+    original = Prototype({"a": 1})
+    cloned = original.clone()
+    cloned.value["a"] = 2
+    print("original:", original.value)
+    print("cloned:", cloned.value)
+
+
+if __name__ == "__main__":
+    main()

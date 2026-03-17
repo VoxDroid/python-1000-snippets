@@ -1,32 +1,17 @@
+
 # Dynamic Configuration Loading
 
 ## Description
-This snippet demonstrates dynamic loading of a JSON configuration file.
+Demonstrates dynamic loading of a JSON configuration file with fallbacks.
 
-## Code
-```python
-import json
+## Files
+- `SAMPLES/sample1.py` — Load a JSON config from disk, with defaults.
+- `SAMPLES/sample2.py` — Overrides config path via an environment variable.
+- `SAMPLES/sample3.py` — Accepts a config path via command-line argument.
 
-def load_config(file_path="config.json"):
-    try:
-        with open(file_path, 'r') as file:
-            return json.load(file)
-    except FileNotFoundError:
-        return {"default": "value"}
-
-config = load_config()
-print("Config:", config)
+## Usage
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py --config path/to/config.json
 ```
-
-## Output
-```
-Config: {'default': 'value'}
-```
-*(Real output with `config.json`: Content of the JSON file)*
-
-## Explanation
-- **Dynamic Configuration Loading**: Loads settings from a JSON file.
-- **Logic**: Reads and parses a JSON file, returns a default if not found.
-- **Complexity**: O(n) for n bytes in file.
-- **Use Case**: Used for application settings or environment configurations.
-- **Best Practice**: Validate config structure; handle file errors; use environment variables.

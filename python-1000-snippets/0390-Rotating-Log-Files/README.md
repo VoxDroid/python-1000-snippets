@@ -1,31 +1,21 @@
+
 # Rotating Log Files
 
 ## Description
-This snippet demonstrates rotating log files using `logging`.
+Demonstrates how to use Python's `logging` library to rotate log files when they grow too large.
 
-## Code
-```python
-# Note: Requires `logging`
-import logging
-from logging.handlers import RotatingFileHandler
+## Files
+- `SAMPLES/sample1.py` — Writes logs in a temp directory and shows rotated files.
+- `SAMPLES/sample2.py` — Configures a formatter and uses `RotatingFileHandler`.
+- `SAMPLES/sample3.py` — Demonstrates `TimedRotatingFileHandler` and manual rollover.
 
-logger = logging.getLogger("example")
-logger.setLevel(logging.INFO)
-handler = RotatingFileHandler("example.log", maxBytes=100, backupCount=2)
-logger.addHandler(handler)
-logger.info("Log message")
-print("Log written")
+## Usage
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
-```
-Log written
-```
-*(Real output: Writes to `example.log`, rotates if size exceeds 100 bytes)*
-
-## Explanation
-- **Rotating Log Files**: Logs messages with automatic file rotation.
-- **Logic**: Configures a `RotatingFileHandler` to manage log file size.
-- **Complexity**: O(1) per log.
-- **Use Case**: Used for long-running applications to manage log storage.
-- **Best Practice**: Set appropriate size limits; handle permissions; test rotation.
+## Notes
+- Rotation occurs when the file exceeds `maxBytes` or based on time intervals.
+- The examples use temporary directories to avoid polluting the repository.

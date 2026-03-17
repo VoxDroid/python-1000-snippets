@@ -1,5 +1,13 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Import and use utility functions from a separate module
 
-if __name__ == '__main__':
-    print('sample 1')
+from utils import double, triple
+
+
+def main():
+    print("double(3):", double(3))
+    print("triple(3):", triple(3))
+
+
+if __name__ == "__main__":
+    main()

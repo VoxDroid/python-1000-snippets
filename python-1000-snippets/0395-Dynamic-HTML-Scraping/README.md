@@ -1,30 +1,17 @@
+
 # Dynamic HTML Scraping
 
 ## Description
-This snippet demonstrates HTML scraping using `beautifulsoup4`.
+Demonstrates scraping HTML content using BeautifulSoup.
 
-## Code
-```python
-# Note: Requires `beautifulsoup4`. Install with `pip install beautifulsoup4`
-try:
-    from bs4 import BeautifulSoup
-    html = "<div class='item'>Data</div>"
-    soup = BeautifulSoup(html, 'html.parser')
-    data = soup.find('div', class_='item').text
-    print("Scraped:", data)
-except ImportError:
-    print("Mock Output: Scraped: Data")
-```
+## Files
+- `SAMPLES/sample1.py` — Parse a small HTML string.
+- `SAMPLES/sample2.py` — Parse HTML from a temporary file.
+- `SAMPLES/sample3.py` — Use CSS selectors to query the DOM.
 
-## Output
+## Usage
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
-Mock Output: Scraped: Data
-```
-*(Real output with `beautifulsoup4`: `Scraped: Data`)*
-
-## Explanation
-- **Dynamic HTML Scraping**: Extracts data from HTML using CSS selectors.
-- **Logic**: Parses HTML with `BeautifulSoup` and extracts text from a div.
-- **Complexity**: O(n) for n nodes in HTML.
-- **Use Case**: Used for web scraping or data extraction.
-- **Best Practice**: Handle missing elements; respect robots.txt; use robust selectors.

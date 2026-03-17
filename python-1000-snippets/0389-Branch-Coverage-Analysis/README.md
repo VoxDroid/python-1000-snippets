@@ -1,33 +1,43 @@
 # Branch Coverage Analysis
 
 ## Description
-This snippet demonstrates a function for branch coverage analysis.
+This snippet demonstrates how to write code that can be measured for **branch coverage** and how to use the `coverage` package to collect branch coverage data.
 
-## Code
-```python
-# Note: Requires `coverage`. Install with `pip install coverage`
-def check_value(x):
-    if x > 0:
-        return "Positive"
-    else:
-        return "Non-positive"
+## Files
+- `SAMPLES/sample1.py` — Minimal branchy logic.
+- `SAMPLES/sample2.py` — Programmatic branch coverage run with console report.
+- `SAMPLES/sample3.py` — Programmatic branch coverage run with HTML report output.
 
-try:
-    import coverage
-    print("Function ready for coverage analysis")
-except ImportError:
-    print("Mock Output: Function ready for coverage analysis")
+## Usage
+### 1) Run the core logic
+```bash
+python SAMPLES/sample1.py
+```
+
+### 2) Run a branch coverage report (requires `coverage`)
+```bash
+python SAMPLES/sample2.py
+```
+
+### 3) Generate an HTML branch coverage report
+```bash
+python SAMPLES/sample3.py
 ```
 
 ## Output
-```
-Mock Output: Function ready for coverage analysis
-```
-*(Real output with `coverage`: No console output, used with coverage tool)*
+- If `coverage` is not installed, the scripts will print a helpful installation message.
+- When `coverage` is installed, `sample2.py` prints a summary report with branch coverage information.
+- When `coverage` is installed, `sample3.py` prints a filesystem path to an HTML report.
 
-## Explanation
-- **Branch Coverage Analysis**: Provides a function testable for branch coverage.
-- **Logic**: `check_value` has two branches for positive/non-positive inputs.
-- **Complexity**: O(1) per call.
-- **Use Case**: Used to ensure all code paths are tested.
-- **Best Practice**: Use coverage tools; test all branches; combine with unit tests.
+## Notes
+- Install coverage with:
+  ```bash
+  pip install coverage
+  ```
+- Alternative direct CLI usage:
+  ```bash
+  coverage run --branch -m pytest
+  coverage report -m
+  coverage html
+  ```
+- Branch coverage is useful to ensure all decision points (if/else, loops, exception handlers) are exercised by tests.

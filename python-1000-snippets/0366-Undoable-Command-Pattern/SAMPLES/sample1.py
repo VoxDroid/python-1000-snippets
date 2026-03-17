@@ -1,5 +1,35 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Simple undoable add command
 
-if __name__ == '__main__':
-    print('sample 1')
+class Command:
+    def execute(self, state):
+        raise NotImplementedError
+
+    def undo(self, state):
+        raise NotImplementedError
+
+
+class AddCommand(Command):
+    def __init__(self, value):
+        self.value = value
+
+    def execute(self, state):
+        return state + self.value
+
+    def undo(self, state):
+        return state - self.value
+
+
+def main():
+    state = 10
+    cmd = AddCommand(5)
+
+    state = cmd.execute(state)
+    print("After execute:", state)
+
+    state = cmd.undo(state)
+    print("After undo:", state)
+
+
+if __name__ == "__main__":
+    main()

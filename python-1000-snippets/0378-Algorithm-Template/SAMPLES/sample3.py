@@ -1,5 +1,31 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Template method with customized steps and shared logic
 
-if __name__ == '__main__':
-    print('sample 3')
+class ReportGenerator:
+    def generate(self):
+        self.header()
+        self.body()
+        self.footer()
+
+    def header(self):
+        print("=== Report ===")
+
+    def body(self):
+        raise NotImplementedError
+
+    def footer(self):
+        print("=== End ===")
+
+
+class SalesReport(ReportGenerator):
+    def body(self):
+        print("Sales data goes here")
+
+
+def main():
+    report = SalesReport()
+    report.generate()
+
+
+if __name__ == "__main__":
+    main()

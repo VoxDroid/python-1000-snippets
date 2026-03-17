@@ -1,5 +1,8 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Check for optional dependency and handle missing package
 
-if __name__ == '__main__':
-    print('sample 1')
+try:
+    import numpy as np  # type: ignore
+    print("numpy is available", np.__version__)
+except ImportError:
+    print("numpy is not installed; install it with `pip install numpy`")

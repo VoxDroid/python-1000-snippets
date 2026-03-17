@@ -1,5 +1,27 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Mocking a context manager using patch
 
-if __name__ == '__main__':
-    print('sample 3')
+from unittest.mock import patch, MagicMock
+
+
+class Resource:
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc, tb):
+        pass
+
+    def read(self):
+        return "data"
+
+
+def main():
+    with patch("__main__.Resource") as MockResource:
+        instance = MockResource.return_value
+        instance.read.return_value = "mocked"
+        with Resource() as r:
+            print(r.read())
+
+
+if __name__ == "__main__":
+    main()

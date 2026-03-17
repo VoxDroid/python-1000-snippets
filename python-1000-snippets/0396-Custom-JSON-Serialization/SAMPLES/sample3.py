@@ -1,5 +1,18 @@
-# sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
 
-if __name__ == '__main__':
-    print('sample 3')
+# sample3.py
+# Serialize a dataclass to JSON.
+
+import dataclasses
+import json
+
+@dataclasses.dataclass
+class Point:
+    x: float
+    y: float
+
+def main() -> None:
+    p = Point(1.2, 3.4)
+    print(json.dumps(dataclasses.asdict(p)))
+
+if __name__ == "__main__":
+    main()

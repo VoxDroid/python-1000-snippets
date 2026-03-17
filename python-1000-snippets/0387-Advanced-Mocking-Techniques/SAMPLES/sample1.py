@@ -1,5 +1,17 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Mocking a function using unittest.mock.patch
 
-if __name__ == '__main__':
-    print('sample 1')
+from unittest.mock import patch
+
+
+def get_data():
+    return "Real data"
+
+
+def main():
+    with patch("__main__.get_data", return_value="Mocked data"):
+        print(get_data())
+
+
+if __name__ == "__main__":
+    main()

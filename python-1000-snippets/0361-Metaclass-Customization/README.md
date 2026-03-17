@@ -1,7 +1,7 @@
 # Metaclass Customization
 
 ## Description
-This snippet demonstrates a metaclass to enforce attribute naming.
+Shows how a metaclass can modify class creation behavior to enforce conventions, validate class attributes, or automatically register subclasses.
 
 ## Code
 ```python

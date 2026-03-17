@@ -1,5 +1,24 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Basic decorator pattern implementation
 
-if __name__ == '__main__':
-    print('sample 1')
+class Component:
+    def operation(self):
+        return "Base"
+
+
+class Decorator(Component):
+    def __init__(self, component):
+        self.component = component
+
+    def operation(self):
+        return f"Decorated({self.component.operation()})"
+
+
+def main():
+    base = Component()
+    decorated = Decorator(base)
+    print(decorated.operation())
+
+
+if __name__ == "__main__":
+    main()

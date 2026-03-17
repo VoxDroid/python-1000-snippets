@@ -1,3 +1,6 @@
 # 0385-Package-Dependency-Management Cheatsheet
 
-*(Provide quick usage tips, shortcuts and examples.)*
+- Use `requirements.txt` to pin dependencies.
+- Check for imports and handle `ImportError` gracefully.
+- Use `pip` or `poetry` to install required packages.
+- Avoid installing packages at runtime unless absolutely necessary.

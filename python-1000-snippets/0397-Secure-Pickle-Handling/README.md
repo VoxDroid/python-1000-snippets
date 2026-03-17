@@ -1,26 +1,17 @@
+
 # Secure Pickle Handling
 
 ## Description
-This snippet demonstrates secure handling of Python object serialization with `pickle`.
+Demonstrates safe usage patterns around Python's `pickle` serialization.
 
-## Code
-```python
-import pickle
+## Files
+- `SAMPLES/sample1.py` — Basic pickle serialization/deserialization.
+- `SAMPLES/sample2.py` — Restricts unpickling by overriding `Unpickler.find_class`.
+- `SAMPLES/sample3.py` — Shows a safer JSON alternative.
 
-data = {"key": "value"}
-serialized = pickle.dumps(data)
-deserialized = pickle.loads(serialized)
-print("Deserialized:", deserialized)
+## Usage
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
-
-## Output
-```
-Deserialized: {'key': 'value'}
-```
-
-## Explanation
-- **Secure Pickle Handling**: Serializes and deserializes Python objects.
-- **Logic**: Uses `pickle` to safely handle trusted data.
-- **Complexity**: O(n) for n bytes in object.
-- **Use Case**: Used for caching or inter-process communication.
-- **Best Practice**: Avoid untrusted data; validate inputs; consider alternatives like JSON.

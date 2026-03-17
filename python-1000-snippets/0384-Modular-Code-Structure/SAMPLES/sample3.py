@@ -1,5 +1,13 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Demonstrate relative imports when organized into a package
 
-if __name__ == '__main__':
-    print('sample 3')
+# This requires running from the package root.
+from utils import double
+
+
+def main():
+    print("double(5):", double(5))
+
+
+if __name__ == "__main__":
+    main()

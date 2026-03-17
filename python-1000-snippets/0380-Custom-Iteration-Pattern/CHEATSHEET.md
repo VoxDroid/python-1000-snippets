@@ -1,3 +1,6 @@
 # 0380-Custom-Iteration-Pattern Cheatsheet
 
-*(Provide quick usage tips, shortcuts and examples.)*
+- Implement `__iter__` and `__next__` for custom iterators.
+- Return `self` from `__iter__` and raise `StopIteration` when done.
+- Iterators maintain internal state across iterations.
+- Use generators (`yield`) for simpler iteration patterns.

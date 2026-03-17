@@ -1,3 +1,7 @@
+
 # 0399-Automated-Database-Migration Cheatsheet
 
-*(Provide quick usage tips, shortcuts and examples.)*
+- Install SQLAlchemy: `pip install sqlalchemy`.
+- Use `MetaData().create_all(engine)` to create missing tables.
+- For simple migrations, use `ALTER TABLE` with SQLite.
+- Use reflection (`MetaData().reflect`) to inspect existing schema.

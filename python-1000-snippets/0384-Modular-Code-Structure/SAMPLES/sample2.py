@@ -1,5 +1,13 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Import the entire module namespace
 
-if __name__ == '__main__':
-    print('sample 2')
+import utils
+
+
+def main():
+    print("double(4):", utils.double(4))
+    print("triple(4):", utils.triple(4))
+
+
+if __name__ == "__main__":
+    main()
