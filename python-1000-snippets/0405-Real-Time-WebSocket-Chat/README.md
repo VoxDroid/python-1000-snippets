@@ -1,40 +1,20 @@
 # Real-Time WebSocket Chat
 
 ## Description
-This snippet demonstrates a WebSocket chat server using `websockets`.
+Demonstrates WebSocket interactions using the `websockets` library. Examples run server and client in the same process to avoid manual testing.
 
-## Code
-```python
-# Note: Requires `websockets`. Install with `pip install websockets`
+## Files
+- `SAMPLES/sample1.py` — Echo server: client sends a message and receives it back.
+- `SAMPLES/sample2.py` — Broadcasts a message to multiple connected clients.
+- `SAMPLES/sample3.py` — Shows server-initiated disconnect and client response.
 
-import asyncio
-import websockets
-
-async def chat(websocket, path):
-    async for message in websocket:
-        await websocket.send(f"Echo: {message}")
-
-async def main():
-    async with websockets.serve(chat, "localhost", 8765):
-        print("WebSocket server started on ws://localhost:8765")
-        await asyncio.Future()  # run forever
-
-if __name__ == "__main__":
-    try:
-        asyncio.run(main())
-    except ImportError:
-        print("Mock Output: WebSocket server started")
+## Usage
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: WebSocket server started
-```
-*(Real output with `websockets`: Runs server at `ws://localhost:8765`)*
-
-## Explanation
-- **Real-Time WebSocket Chat**: Implements a simple WebSocket echo server.
-- **Logic**: Echoes received messages back to the client.
-- **Complexity**: O(1) per message.
-- **Use Case**: Used for real-time applications like chat or gaming.
-- **Best Practice**: Handle disconnections; secure WebSockets; scale with async.
+## Notes
+- Script installs `websockets` if missing.
+- These examples run entirely in-process and do not expose a permanent server port.

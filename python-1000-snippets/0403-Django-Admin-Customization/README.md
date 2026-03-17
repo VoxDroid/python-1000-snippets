@@ -1,36 +1,20 @@
 # Django Admin Customization
 
 ## Description
-This snippet demonstrates customizing the Django admin interface.
+Demonstrates customizing the Django admin interface programmatically without running a full Django server.
 
-## Code
-```python
-# Note: Requires `django`. Install with `pip install django`
-try:
-    from django.contrib import admin
-    from django.db import models
-    
-    class Example(models.Model):
-        name = models.CharField(max_length=100)
-    
-    @admin.register(Example)
-    class ExampleAdmin(admin.ModelAdmin):
-        list_display = ["name"]
-    
-    print("Admin customized")
-except ImportError:
-    print("Mock Output: Admin customized")
+## Files
+- `SAMPLES/sample1.py` — Configure minimal Django settings and create a model table.
+- `SAMPLES/sample2.py` — Register a model with a custom `ModelAdmin` class.
+- `SAMPLES/sample3.py` — Show `list_display` and `search_fields` configuration.
+
+## Usage
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Admin customized
-```
-*(Real output with `django`: Configures admin interface)*
-
-## Explanation
-- **Django Admin Customization**: Customizes admin display for a model.
-- **Logic**: Registers a model with a custom admin class to show `name`.
-- **Complexity**: O(1) for registration.
-- **Use Case**: Used for managing application data in Django.
-- **Best Practice**: Secure admin access; optimize list queries; document customizations.
+## Notes
+- Scripts install `django` automatically if it's missing.
+- Uses an in-memory SQLite database, so no external process is required.

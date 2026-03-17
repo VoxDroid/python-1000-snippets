@@ -1,29 +1,18 @@
 # Redis PubSub Messaging
 
 ## Description
-This snippet demonstrates Redis publish/subscribe using `redis`.
+Demonstrates publish/subscribe messaging using Redis. If a real Redis server is not available, it falls back to `fakeredis` for a pure-Python in-memory simulation.
 
-## Code
-```python
-# Note: Requires `redis`. Install with `pip install redis`
-try:
-    import redis
-    r = redis.Redis(host="localhost", port=6379)
-    r.publish("channel", "Message")
-    print("Message published")
-except ImportError:
-    print("Mock Output: Message published")
+## Files
+- `SAMPLES/sample1.py` — Publish a message and consume it from a subscribed channel.
+- `SAMPLES/sample2.py` — (placeholder) could show multiple subscribers.
+- `SAMPLES/sample3.py` — (placeholder) could show pattern-based subscriptions.
+
+## Usage
+```bash
+python SAMPLES/sample1.py
 ```
 
-## Output
-```
-Mock Output: Message published
-```
-*(Real output with `redis` and Redis: Publishes to channel)*
-
-## Explanation
-- **Redis PubSub Messaging**: Publishes messages to a Redis channel.
-- **Logic**: Connects to Redis and publishes a message.
-- **Complexity**: O(1) per publish.
-- **Use Case**: Used for real-time messaging or notifications.
-- **Best Practice**: Handle connection errors; manage subscriptions; test pub/sub.
+## Notes
+- Script installs `redis` and `fakeredis` if missing.
+- If a Redis server is running on localhost:6379, it will use it; otherwise it uses `fakeredis`.

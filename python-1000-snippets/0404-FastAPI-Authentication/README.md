@@ -1,37 +1,20 @@
 # FastAPI Authentication
 
 ## Description
-This snippet demonstrates basic authentication with `fastapi`.
+Demonstrates basic authentication using FastAPI and how to test endpoints without running a persistent server.
 
-## Code
-```python
-# Note: Requires `fastapi`. Install with `pip install fastapi`
-try:
-    from fastapi import FastAPI, Depends, HTTPException
-    from fastapi.security import HTTPBasic, HTTPBasicCredentials
-    app = FastAPI()
-    security = HTTPBasic()
-    
-    @app.get("/protected")
-    def protected(credentials: HTTPBasicCredentials = Depends(security)):
-        if credentials.username == "user" and credentials.password == "pass":
-            return {"message": "Authenticated"}
-        raise HTTPException(status_code=401, detail="Unauthorized")
-    
-    print("FastAPI server configured")
-except ImportError:
-    print("Mock Output: FastAPI server configured")
+## Files
+- `SAMPLES/sample1.py` — Secure endpoint with HTTP Basic auth tested via FastAPI test client.
+- `SAMPLES/sample2.py` — POST endpoint returning JSON payloads.
+- `SAMPLES/sample3.py` — Custom response status codes and headers.
+
+## Usage
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: FastAPI server configured
-```
-*(Real output with `fastapi`: Runs server, accessible at `/protected` with credentials)*
-
-## Explanation
-- **FastAPI Authentication**: Implements basic HTTP authentication.
-- **Logic**: Protects a route with username/password validation.
-- **Complexity**: O(1) per request.
-- **Use Case**: Used for securing API endpoints.
-- **Best Practice**: Use OAuth2/JWT for production; secure credentials; handle errors.
+## Notes
+- Install FastAPI with `python -m pip install fastapi`.
+- These scripts use the FastAPI test client so no server needs to be started.
