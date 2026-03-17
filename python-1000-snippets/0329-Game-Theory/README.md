@@ -1,25 +1,29 @@
 # Game Theory
 
 ## Description
-This snippet demonstrates a simple game theory payoff matrix analysis.
+This snippet demonstrates basic game theory concepts using payoff matrices and strategy analysis.
 
-## Code
-```python
-import numpy as np
-payoff = np.array([[[3, 3], [0, 5]], [[5, 0], [1, 1]]])  # Prisoner's Dilemma
-strategy1 = np.argmax(payoff[0, :, 0])  # Player 1's best response
-strategy2 = np.argmax(payoff[:, 0, 1])  # Player 2's best response
-print("Strategies:", strategy1, strategy2)
+## Files
+- `SAMPLES/sample1.py`: Find pure-strategy Nash equilibria in a 2-player normal-form game.
+- `SAMPLES/sample2.py`: Simulate repeated Prisoner's Dilemma.
+- `SAMPLES/sample3.py`: Compute the minimax value of a zero-sum payoff matrix.
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Expected output (example)
 ```
-Strategies: 0 0
+Pure-strategy Nash equilibria: [(0, 0)]
+Round 1: (Cooperate, Cooperate) payoffs=(3, 3)
+...
+Minimax value (row player): 2.0
 ```
 
 ## Explanation
-- **Game Theory**: Analyzes a payoff matrix to find each player's best response to the opponent’s fixed strategy.
-- **Logic**: Computes each player’s best response assuming the opponent’s strategy is fixed (not computing Nash equilibrium here).
-- **Complexity**: O(n) for n strategies (simplified analysis).
-- **Use Case**: Modeling competitive scenarios like economics, auctions, or decision-making.
-- **Best Practice**: Handle mixed strategies (where players may randomize choices); validate payoffs; check for equilibrium or stable outcomes.
+- **Game theory**: Study of strategic interactions between rational players.
+- **Nash equilibrium**: No player can benefit by unilaterally changing strategy.
+- **Zero-sum game**: One player's gain equals the other's loss.

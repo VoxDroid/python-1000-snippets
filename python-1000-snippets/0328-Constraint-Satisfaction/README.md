@@ -1,32 +1,30 @@
 # Constraint Satisfaction
 
 ## Description
-This snippet demonstrates constraint satisfaction using `python-constraint`.
+This snippet demonstrates constraint satisfaction problems (CSPs), where solutions must satisfy a set of constraints.
 
-## Code
-```python
-# Note: Requires `python-constraint`. Install with `pip install python-constraint`
-try:
-    from constraint import Problem
-    problem = Problem()
-    problem.addVariable("x", [1, 2])
-    problem.addVariable("y", [1, 2])
-    problem.addConstraint(lambda x, y: x + y == 3)
-    solutions = problem.getSolutions()
-    print("Solutions:", solutions)
-except ImportError:
-    print("Mock Output: Solutions: [{'x': 2, 'y': 1}, {'x': 1, 'y': 2}]")
+## Files
+- `SAMPLES/sample1.py`: Map coloring (Australia) with 3 colors.
+- `SAMPLES/sample2.py`: Solve a 4x4 Sudoku via backtracking and constraints.
+- `SAMPLES/sample3.py`: Solve the SEND + MORE = MONEY alphametic puzzle.
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Expected output (example)
 ```
-Mock Output: Solutions: [{'x': 2, 'y': 1}, {'x': 1, 'y': 2}]
+Map coloring:
+{'WA': 'Red', 'NT': 'Green', ...}
+Sudoku solved:
+[[1, 2, 3, 4], ...]
+SEND + MORE = MONEY solution: 9567 + 1085 = 10652
 ```
-*(Real output with `python-constraint`: `Solutions: [{'x': 2, 'y': 1}, {'x': 1, 'y': 2}]`)*
 
 ## Explanation
-- **Constraint Satisfaction**: Solves x + y = 3 with discrete variables.
-- **Logic**: Defines variables and constraints, then finds solutions.
-- **Complexity**: O(d^n) for d domain size, n variables (solver-dependent).
-- **Use Case**: Used for scheduling or puzzles.
-- **Best Practice**: Reduce domains; use efficient constraints; validate solutions.
+- **CSP**: Variables have domains and must satisfy constraints.
+- **Solving**: Use backtracking and constraint checking (e.g., all-different, adjacency).
+- **Use Case**: Scheduling, puzzle solving, and combinatorial design.

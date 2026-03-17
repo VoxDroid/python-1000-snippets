@@ -1,28 +1,29 @@
 # Computational Fluid Dynamics
 
 ## Description
-This snippet demonstrates a simplified CFD simulation using a 2D grid.
+This snippet provides simple 2D CFD examples using finite differences and NumPy. The examples are educational and demonstrate diffusion and viscous flow updates.
 
-## Code
-```python
-import numpy as np
-u = np.zeros((5, 5))  # Velocity field
-u[2, 2] = 1.0  # Initial velocity
-new_u = u.copy()
-for i in range(1, 4):
-    for j in range(1, 4):
-        new_u[i, j] = 0.25 * (u[i-1, j] + u[i+1, j] + u[i, j-1] + u[i, j+1])
-print("Velocity (center):", new_u[2, 2])
+## Files
+- `SAMPLES/sample1.py`: 2D diffusion (heat equation) on a grid.
+- `SAMPLES/sample2.py`: 2D viscous Burgers' equation (velocity field evolution).
+- `SAMPLES/sample3.py`: Simple incompressible flow step with pressure Poisson solve.
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Velocity (center): 0.0
+Center temp: 0.43
+Center u: 0.37, v: 0.02
+Max velocity magnitude: 0.28
 ```
 
 ## Explanation
-- **Computational Fluid Dynamics**: Simulates velocity diffusion in a 2D fluid.
-- **Logic**: Uses a simple averaging method to diffuse velocity.
-- **Complexity**: O(r*c) for r rows, c columns.
-- **Use Case**: Used for fluid flow simulations in engineering.
-- **Best Practice**: Implement Navier-Stokes; use proper solvers; validate results.
+- **Finite differences**: Use explicit updates for diffusion and advection.
+- **Burgers' equation**: Models viscous momentum transport and nonlinear advection.
+- **Pressure Poisson**: Enforces incompressibility by solving a Poisson equation for pressure.
+- **Use Case**: Basis for CFD solvers and fluid flow visualization.

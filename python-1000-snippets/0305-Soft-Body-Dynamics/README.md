@@ -1,27 +1,30 @@
 # Soft Body Dynamics
 
 ## Description
-This snippet demonstrates soft body dynamics using a simple spring-mass system.
+This snippet implements a soft body using a network of mass points connected by springs. The system behaves like a deformable object (jelly) under gravity and external forces.
 
-## Code
-```python
-import numpy as np
-points = np.array([[0.0, 0.0], [1.0, 0.0]])
-velocities = np.zeros((2, 2))
-force = -10.0 * (np.linalg.norm(points[1] - points[0]) - 0.5) * (points[1] - points[0])
-velocities[1] += force * 0.1
-points += velocities * 0.1
-print("Soft Body Point:", points[1])
+## Files
+- `SAMPLES/sample1.py`: Two-point spring system (simple soft body) with gravity.
+- `SAMPLES/sample2.py`: 2D soft body grid demonstrates deformation under gravity.
+- `SAMPLES/sample3.py`: Applies an impulse and reports deformation metrics.
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Soft Body Point: [0.95 0. ]
+Point 1 pos: [0. 0.]
+Point 2 pos: [0. 1.9]
+Center displacement: 0.08
+Max spring stretch: 0.02
 ```
 
 ## Explanation
-- **Soft Body Dynamics**: Simulates a deformable object with springs.
-- **Logic**: Updates a point’s position based on spring forces.
-- **Complexity**: O(n) for n points.
-- **Use Case**: Used for soft objects like jelly or rubber in simulations.
-- **Best Practice**: Add damping; use tetrahedral meshes; handle collisions.
+- **Mass-spring system**: Each edge between points acts as a spring; rest lengths are preserved via constraint relaxation.
+- **Damping**: Stabilizes the simulation by reducing velocity over time.
+- **Deformation**: Measured via spring stretch/length changes.
+- **Use Case**: Soft bodies, jelly, and other deformable objects.

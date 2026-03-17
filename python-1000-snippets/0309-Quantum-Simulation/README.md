@@ -1,33 +1,29 @@
 # Quantum Simulation
 
 ## Description
-This snippet demonstrates a simple quantum circuit simulation using `qiskit`.
+This snippet implements basic quantum state simulation using NumPy for state vectors and gate operations. It does not require external quantum SDKs.
 
-## Code
-```python
-# Note: Requires `qiskit`. Install with `pip install qiskit`
-try:
-    from qiskit import QuantumCircuit, Aer, execute
-    qc = QuantumCircuit(1, 1)
-    qc.h(0)  # Hadamard gate
-    qc.measure(0, 0)
-    simulator = Aer.get_backend("qasm_simulator")
-    result = execute(qc, simulator, shots=100).result()
-    counts = result.get_counts()
-    print("Measurement Counts:", counts)
-except ImportError:
-    print("Mock Output: Measurement Counts: {'0': 50, '1': 50}")
+## Files
+- `SAMPLES/sample1.py`: Simulates a single-qubit Hadamard gate and computes outcome probabilities.
+- `SAMPLES/sample2.py`: Simulates a two-qubit circuit with Hadamard and CNOT to create a Bell state.
+- `SAMPLES/sample3.py`: Simulates time evolution of a two-level system under a Hamiltonian.
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Mock Output: Measurement Counts: {'0': 50, '1': 50}
+Probabilities: {'0': 0.50, '1': 0.50}
+Bell state probabilities: {'00': 0.50, '11': 0.50}
+Final state amplitudes: [0.71+0.00j 0.71+0.00j]
 ```
-*(Real output with `qiskit`: `Measurement Counts: {'0': ~50, '1': ~50}`)*
 
 ## Explanation
-- **Quantum Simulation**: Simulates a single qubit with a Hadamard gate.
-- **Logic**: Applies a gate, measures, and counts outcomes.
-- **Complexity**: O(s) for s shots (simulator varies).
-- **Use Case**: Used for quantum algorithm development.
-- **Best Practice**: Use real quantum hardware; handle noise; validate circuits.
+- **State vector**: Represents the amplitude of each computational basis state.
+- **Quantum gates**: Modeled as unitary matrices applied to state vectors.
+- **Measurement**: Computes probabilities from amplitudes.
+- **Use Case**: Experiment with quantum algorithms and small-scale simulations.

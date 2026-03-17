@@ -1,43 +1,28 @@
 # Divide and Conquer
 
 ## Description
-This snippet demonstrates divide and conquer with merge sort.
+This snippet demonstrates divide-and-conquer algorithms: solve smaller subproblems and combine results.
 
-## Code
-```python
-def merge_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    mid = len(arr) // 2
-    left = merge_sort(arr[:mid])
-    right = merge_sort(arr[mid:])
-    return merge(left, right)
+## Files
+- `SAMPLES/sample1.py`: Merge sort implementation.
+- `SAMPLES/sample2.py`: Binary search over a sorted list.
+- `SAMPLES/sample3.py`: Quickselect for the k-th smallest element.
 
-def merge(left, right):
-    result = []
-    i = j = 0
-    while i < len(left) and j < len(right):
-        if left[i] <= right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
-    result.extend(left[i:])
-    result.extend(right[j:])
-    return result
-
-print("Sorted:", merge_sort([3, 1, 4, 1, 5]))
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Expected output (example)
 ```
-Sorted: [1, 1, 3, 4, 5]
+Sorted: [1, 2, 3, 4, 5, 6, 7]
+Found 5 at index 4
+3rd smallest element: 3
 ```
 
 ## Explanation
-- **Divide and Conquer**: Sorts an array by dividing and merging.
-- **Logic**: Recursively splits array, merges sorted halves.
-- **Complexity**: O(n log n) for n elements.
-- **Use Case**: Used for sorting, FFT, or matrix multiplication.
-- **Best Practice**: Optimize merge; handle large arrays; validate inputs.
+- **Divide and conquer**: Break problems into smaller instances, solve recursively, and merge results.
+- **Use Case**: Sorting, searching, computational geometry.
+- **Best Practice**: Ensure base cases are correct and that the merge step handles all results.

@@ -1,33 +1,28 @@
 # Backtracking
 
 ## Description
-This snippet demonstrates backtracking to solve a simple permutation problem.
+This snippet demonstrates backtracking algorithms: recursively build candidates and abandon partial solutions that cannot lead to a valid solution.
 
-## Code
-```python
-def permute(nums):
-    result = []
-    def backtrack(path, options):
-        if not options:
-            result.append(path[:])
-        for i in range(len(options)):
-            path.append(options[i])
-            backtrack(path, options[:i] + options[i+1:])
-            path.pop()
-    backtrack([], nums)
-    return result
+## Files
+- `SAMPLES/sample1.py`: Generate all permutations of a list.
+- `SAMPLES/sample2.py`: Solve the N-Queens problem.
+- `SAMPLES/sample3.py`: Solve subset sum with backtracking.
 
-print("Permutations:", permute([1, 2]))
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Expected output (example)
 ```
-Permutations: [[1, 2], [2, 1]]
+Permutations: [[1, 2, 3], [1, 3, 2], ...]
+Solutions for 4-Queens: 2
+Subset sum for target 9: True
 ```
 
 ## Explanation
-- **Backtracking**: Generates all permutations of a list.
-- **Logic**: Builds permutations by exploring choices and undoing them.
-- **Complexity**: O(n!) for n elements.
-- **Use Case**: Used for puzzles like Sudoku or N-Queens.
-- **Best Practice**: Prune branches; optimize recursion; validate inputs.
+- **Backtracking**: Build solutions incrementally and backtrack when a partial solution can't be extended.
+- **Use Case**: Useful for constraint satisfaction, puzzles, and combinatorial search.
+- **Best Practice**: Prune early and avoid redundant work when possible.

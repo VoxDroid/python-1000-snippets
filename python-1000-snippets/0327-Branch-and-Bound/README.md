@@ -1,41 +1,28 @@
 # Branch and Bound
 
 ## Description
-This snippet demonstrates branch and bound for a knapsack problem.
+This snippet demonstrates branch-and-bound search: systematically explore branches while pruning those that cannot yield better solutions.
 
-## Code
-```python
-def knapsack(values, weights, capacity):
-    n = len(values)
-    best_value = 0
-    def bound(items, weight, value):
-        if weight > capacity:
-            return 0
-        return value + sum(values[i] for i in range(items, n) if weight + sum(weights[items:i]) <= capacity)
-    
-    def branch(items, weight, value):
-        nonlocal best_value
-        if weight <= capacity and value > best_value:
-            best_value = value
-        if items == n or bound(items, weight, value) <= best_value:
-            return
-        branch(items + 1, weight + weights[items], value + values[items])
-        branch(items + 1, weight, value)
-    
-    branch(0, 0, 0)
-    return best_value
+## Files
+- `SAMPLES/sample1.py`: 0/1 knapsack solved via branch-and-bound.
+- `SAMPLES/sample2.py`: Subset sum with bounding.
+- `SAMPLES/sample3.py`: Simple TSP using branch-and-bound pruning.
 
-print("Max Value:", knapsack([60, 100], [10, 20], 20))
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Expected output (example)
 ```
-Max Value: 100
+Best knapsack value: 22
+Subset sum target 9: True
+Best TSP tour length: 9
 ```
 
 ## Explanation
-- **Branch and Bound**: Solves knapsack by exploring branches with bounds.
-- **Logic**: Prunes branches based on estimated maximum value.
-- **Complexity**: O(2^n) worst case, improved by pruning.
-- **Use Case**: Used for combinatorial optimization like TSP.
-- **Best Practice**: Tighten bounds; optimize branching; validate inputs.
+- **Branch and bound**: Enumerate possible partial solutions (branches) and use bounds to prune unpromising branches.
+- **Bounding function**: Provides optimistic estimate of best possible value under a branch.
+- **Use Case**: Solving combinatorial optimization problems with pruning.

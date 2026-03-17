@@ -1,34 +1,28 @@
 # Linear Programming
 
 ## Description
-This snippet demonstrates linear programming using `pulp`.
+This snippet provides pure-Python examples of solving linear programming (LP) problems using the simplex method without external dependencies.
 
-## Code
-```python
-# Note: Requires `pulp`. Install with `pip install pulp`
-try:
-    from pulp import LpProblem, LpMaximize, LpVariable
-    prob = LpProblem("Maximize", LpMaximize)
-    x = LpVariable("x", lowBound=0)
-    y = LpVariable("y", lowBound=0)
-    prob += x + y
-    prob += x + 2*y <= 4
-    prob += 2*x + y <= 4
-    prob.solve()
-    print("Solution:", x.varValue, y.varValue)
-except ImportError:
-    print("Mock Output: Solution: 1.3333333 1.3333333")
+## Files
+- `SAMPLES/sample1.py`: Maximize a linear objective with two variables and constraints.
+- `SAMPLES/sample2.py`: Solve a small diet problem (minimize cost subject to nutritional constraints).
+- `SAMPLES/sample3.py`: Solve an LP with both equality and inequality constraints.
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Mock Output: Solution: 1.3333333 1.3333333
+Solution: x=1.33, y=1.33, objective=2.67
+Solution: x=0.00, y=2.00, objective=3.00
+Solution: x=2.00, y=0.00, objective=6.00
 ```
-*(Real output with `pulp`: `Solution: 1.3333333 1.3333333`)*
 
 ## Explanation
-- **Linear Programming**: Maximizes x + y subject to linear constraints.
-- **Logic**: Defines variables, objective, and constraints, then solves.
-- **Complexity**: O(n) for n variables (solver-dependent).
-- **Use Case**: Used for resource allocation or scheduling.
-- **Best Practice**: Validate constraints; handle unbounded cases; check feasibility.
+- **Simplex**: Iteratively improves a basic feasible solution to optimize the objective.
+- **Feasible region**: Defined by linear constraints; optimal solution is at a vertex.
+- **Use Case**: Resource allocation, diet planning, production planning.

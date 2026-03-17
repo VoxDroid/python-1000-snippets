@@ -1,30 +1,29 @@
 # Particle Swarm Optimization
 
 ## Description
-This snippet demonstrates particle swarm optimization (PSO) to maximize a simple function.
+This snippet implements a basic Particle Swarm Optimization (PSO) algorithm in pure Python. PSO searches for the minimum of a function by moving a swarm of particles based on personal and global best positions.
 
-## Code
-```python
-import numpy as np
-np.random.seed(42)
-particles = np.random.random((10, 2))  # 10 particles, 2D
-velocities = np.random.normal(0, 0.1, (10, 2))
-pbest = particles.copy()
-pbest_fitness = np.sum(particles, axis=1)
-gbest = particles[np.argmax(pbest_fitness)]
-velocities = 0.5 * velocities + 0.5 * (pbest - particles) + 0.5 * (gbest - particles)
-particles += velocities
-print("Global Best:", gbest)
+## Files
+- `SAMPLES/sample1.py`: Minimize a 2D sphere function (sum of squares) with PSO.
+- `SAMPLES/sample2.py`: Minimize a quadratic bowl with a known optimum.
+- `SAMPLES/sample3.py`: Optimize a multimodal function (Rastrigin-like).
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Global Best: [0.68659274 0.5280433 ]
+Best position: [0.02 0.01], fitness: 0.0005
+Best position: [1.00 -2.00], fitness: 0.0000
+Best position: [0.01], fitness: 0.01
 ```
 
 ## Explanation
-- **Particle Swarm Optimization**: Optimizes by moving particles toward personal and global bests.
-- **Logic**: Updates velocities based on best positions and moves particles.
-- **Complexity**: O(n*d) for n particles, d dimensions.
-- **Use Case**: Used for function optimization in engineering or ML.
-- **Best Practice**: Tune inertia/cognitive/social weights; bound particles; validate convergence.
+- **Particles**: Each has a position and velocity in parameter space.
+- **Personal best (pbest)**: Best position each particle has visited.
+- **Global best (gbest)**: Best position found by the swarm.
+- **Update rules**: Velocity is updated based on inertia, cognitive (pbest), and social (gbest) components.

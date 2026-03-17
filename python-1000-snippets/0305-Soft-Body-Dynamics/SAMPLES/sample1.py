@@ -1,5 +1,53 @@
-# sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+#!/usr/bin/env python3
+"""Minimal soft body: two-point spring under gravity."""
+
+import numpy as np
+
+
+class SoftBody:
+    def __init__(self, points, springs, fixed=None):
+        self.points = np.array(points, dtype=float)
+        self.prev = self.points.copy()
+        self.springs = springs  # list of (i, j, rest_length)
+        self.fixed = np.zeros(len(points), dtype=bool)
+        if fixed is not None:
+            self.fixed[fixed] = True
+
+    def step(self, dt=0.02, gravity=(0.0, -9.8), damping=0.98, constraint_iters=5):
+        # Verlet integration
+        velocity = (self.points - self.prev) * damping
+        self.prev = self.points.copy()
+        self.points += velocity
+        self.points += np.array(gravity) * (dt * dt)
+
+        for _ in range(constraint_iters):
+            for i, j, rest in self.springs:
+                p1 = self.points[i]
+                p2 = self.points[j]
+                delta = p2 - p1
+                dist = np.linalg.norm(delta)
+                if dist == 0:
+                    continue
+                diff = (dist - rest) / dist
+                correction = delta * 0.5 * diff
+                if not self.fixed[i]:
+                    self.points[i] += correction
+                if not self.fixed[j]:
+                    self.points[j] -= correction
+            self.points[self.fixed] = self.prev[self.fixed]
+
+
+def main():
+    points = [[0.0, 0.0], [0.0, 2.0]]
+    springs = [(0, 1, 2.0)]
+    body = SoftBody(points, springs, fixed=[0])
+
+    for _ in range(120):
+        body.step(dt=0.02)
+
+    print(f"Point 1 pos: {body.points[0]}")
+    print(f"Point 2 pos: {body.points[1]}")
+
 
 if __name__ == '__main__':
-    print('sample 1')
+    main()

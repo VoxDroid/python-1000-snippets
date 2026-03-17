@@ -1,27 +1,32 @@
 # Cloth Simulation
 
 ## Description
-This snippet demonstrates a simple cloth simulation using mass-spring model.
+This snippet demonstrates a basic 2D cloth simulation using a mass-spring model with Verlet integration and constraint relaxation.
 
-## Code
-```python
-import numpy as np
-points = np.array([[0.0, 0.0], [1.0, 0.0]])  # Two points
-velocities = np.zeros((2, 2))
-spring_force = -10.0 * (np.linalg.norm(points[1] - points[0]) - 1.0) * (points[1] - points[0])
-velocities[1] += spring_force * 0.1
-points += velocities * 0.1
-print("Updated Point:", points[1])
+## Files
+- `SAMPLES/sample1.py`: Runs a small cloth simulation and prints key corner coordinates.
+- `SAMPLES/sample2.py`: Runs the simulation and saves a visualization image to `/tmp/cloth.png`.
+- `SAMPLES/sample3.py`: Adds a wind force and prints kinetic energy to demonstrate external forcing.
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Updated Point: [1. 0.]
+Top-left: [0. 0.]
+Top-right: [4. 0.]
+Bottom-left: [0. 4.]
+Bottom-right: [4. 3.7]
+Saved /tmp/cloth.png
+Kinetic energy: 0.52
 ```
 
 ## Explanation
-- **Cloth Simulation**: Simulates a spring between two points.
-- **Logic**: Applies Hooke’s law to update positions via velocities.
-- **Complexity**: O(n) for n points.
-- **Use Case**: Used for cloth or soft body effects in games.
-- **Best Practice**: Add damping; use grid of springs; handle collisions.
+- **Verlet integration**: computes next positions based on current and previous positions.
+- **Constraints**: keeps springs at rest length by correcting point positions.
+- **Fixed points**: top row is fixed to simulate hanging cloth.
+- **Visualization**: `sample2.py` draws the grid as lines into an image.

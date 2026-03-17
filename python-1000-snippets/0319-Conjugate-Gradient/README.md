@@ -1,34 +1,28 @@
 # Conjugate Gradient
 
 ## Description
-This snippet demonstrates the conjugate gradient method for a linear system.
+This snippet implements the Conjugate Gradient (CG) method for solving symmetric positive-definite linear systems, and for minimizing quadratic functions.
 
-## Code
-```python
-import numpy as np
-A = np.array([[4, 1], [1, 3]])  # Symmetric positive-definite
-b = np.array([1, 2])
-x = np.zeros(2)
-r = b - A @ x
-p = r.copy()
-for _ in range(2):
-    alpha = np.dot(r, r) / np.dot(p, A @ p)
-    x += alpha * p
-    r_new = r - alpha * A @ p
-    beta = np.dot(r_new, r_new) / np.dot(r, r)
-    p = r_new + beta * p
-    r = r_new
-print("Solution:", x)
+## Files
+- `SAMPLES/sample1.py`: Solve Ax = b for a small SPD matrix.
+- `SAMPLES/sample2.py`: Solve a larger random SPD system.
+- `SAMPLES/sample3.py`: Minimize a quadratic function via CG (equivalent to solving Ax=b).
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
 Solution: [0.09090909 0.63636364]
+Solution: [0.23 0.67 0.11 0.42]
+Minimum x: [0.50 0.50], f(x)=0.25
 ```
 
 ## Explanation
-- **Conjugate Gradient**: Solves Ax = b for a symmetric positive-definite matrix.
-- **Logic**: Iteratively updates solution using conjugate directions.
-- **Complexity**: O(n*k) for n dimensions, k iterations.
-- **Use Case**: Used for large sparse linear systems.
-- **Best Practice**: Precondition matrix; handle ill-conditioning; validate convergence.
+- **Conjugate Gradient**: Finds the exact solution in at most n iterations for an n×n SPD matrix.
+- **Logic**: Uses conjugate search directions to accelerate convergence.
+- **Use Case**: Large sparse linear systems and quadratic minimization.

@@ -1,33 +1,29 @@
 # Ant Colony Optimization
 
 ## Description
-This snippet demonstrates ant colony optimization (ACO) for a simple path-finding problem.
+This snippet implements a simple Ant Colony Optimization (ACO) algorithm for the Traveling Salesman Problem (TSP). Ants build tours probabilistically based on pheromone levels and edge distances.
 
-## Code
-```python
-import numpy as np
-np.random.seed(42)
-pheromones = np.ones((5, 5))  # 5 nodes
-distances = np.random.random((5, 5))
-np.fill_diagonal(distances, np.inf)
-path = [0]
-current = 0
-for _ in range(3):
-    probs = pheromones[current] / distances[current]
-    probs /= probs.sum()
-    current = np.random.choice(5, p=probs)
-    path.append(current)
-print("Path:", path)
+## Files
+- `SAMPLES/sample1.py`: ACO on a small fixed 4-node graph.
+- `SAMPLES/sample2.py`: ACO on a random 5-node distance matrix.
+- `SAMPLES/sample3.py`: ACO with pheromone evaporation and reinforcement.
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Path: [0, 4, 1, 0]
+Best tour: [0, 2, 1, 3, 0], length: 3.45
+Best tour: [0, 3, 2, 1, 4, 0], length: 4.92
+Best tour: [0, 2, 4, 1, 3, 0], length: 4.12
 ```
 
 ## Explanation
-- **Ant Colony Optimization**: Finds paths by simulating pheromone-based ant behavior.
-- **Logic**: Selects next node based on pheromone and distance, builds a path.
-- **Complexity**: O(n^2) for n nodes per ant.
-- **Use Case**: Used for routing problems like TSP.
-- **Best Practice**: Update pheromones; tune evaporation; handle large graphs.
+- **Pheromones**: Guide ants toward promising edges; updated based on tour quality.
+- **Heuristic**: Often inverse of distance (shorter edges preferred).
+- **Evaporation**: Prevents premature convergence by reducing pheromone on all edges.
+- **Use Case**: Common for routing and scheduling problems.

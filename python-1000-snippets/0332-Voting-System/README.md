@@ -1,25 +1,28 @@
 # Voting System
 
 ## Description
-This snippet demonstrates a plurality voting system.
+This snippet demonstrates simple voting systems for aggregating preferences.
 
-## Code
-```python
-from collections import Counter
-votes = ["A", "B", "A", "C", "A"]  # Votes for candidates
-count = Counter(votes)
-winner = max(count, key=count.get)
-print("Winner:", winner)
+## Files
+- `SAMPLES/sample1.py`: Plurality (first-past-the-post) voting.
+- `SAMPLES/sample2.py`: Instant-runoff voting (IRV) / ranked-choice voting.
+- `SAMPLES/sample3.py`: Borda count voting.
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Expected output (example)
 ```
-Winner: A
+Plurality winner: A
+IRV winner: B
+Borda winner: C
 ```
 
 ## Explanation
-- **Voting System**: Implements plurality voting where the candidate with the most votes wins.
-- **Logic**: Counts votes and selects the candidate with the highest count.
-- **Complexity**: O(n) for n votes.
-- **Use Case**: Used in elections or decision-making systems.
-- **Best Practice**: Handle ties; validate votes; consider alternative voting methods.
+- **Plurality**: Candidate with most first-place votes wins.
+- **IRV**: Iteratively eliminate the lowest candidate and redistribute preferences.
+- **Borda count**: Points assigned based on ranking positions.

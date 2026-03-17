@@ -1,28 +1,32 @@
 # Molecular Dynamics
 
 ## Description
-This snippet demonstrates a simple molecular dynamics simulation using `numpy`.
+This snippet implements a simple 2D molecular dynamics (MD) simulation using Lennard-Jones interactions and velocity Verlet integration.
 
-## Code
-```python
-import numpy as np
-np.random.seed(42)
-positions = np.random.random((2, 2))  # Two particles
-velocities = np.random.normal(0, 0.1, (2, 2))
-force = -10.0 * (positions[1] - positions[0])  # Lennard-Jones-like
-velocities += force * 0.01
-positions += velocities * 0.01
-print("Updated Position:", positions[1])
+## Files
+- `SAMPLES/sample1.py`: Three particles interacting with a Lennard-Jones potential.
+- `SAMPLES/sample2.py`: Computes pairwise potential energy and radial distribution after simulation.
+- `SAMPLES/sample3.py`: Uses a simple thermostat to maintain temperature while simulating dynamics.
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Updated Position: [0.7332157  0.59977797]
+Particle positions:
+[[0.30 0.27]
+ [1.06 0.79]
+ [0.47 1.78]]
+Total energy: -2.31
+Average kinetic energy: 0.05
 ```
 
 ## Explanation
-- **Molecular Dynamics**: Simulates particle motion with forces.
-- **Logic**: Updates positions and velocities based on a simple force model.
-- **Complexity**: O(n) for n particles.
-- **Use Case**: Used for simulating molecular interactions.
-- **Best Practice**: Use realistic potentials; implement thermostats; validate energies.
+- **Lennard-Jones potential** models attraction and repulsion between particles.
+- **Velocity Verlet** integration updates positions and velocities in a time-reversible manner.
+- **Thermostat** can be used to control temperature (kinetic energy).
+- **Use Case**: Molecular simulation, materials science, statistical mechanics.

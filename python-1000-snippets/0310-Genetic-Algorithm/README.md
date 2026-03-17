@@ -1,35 +1,29 @@
 # Genetic Algorithm
 
 ## Description
-This snippet demonstrates a genetic algorithm using `deap` to optimize a simple function.
+This snippet implements a simple genetic algorithm (GA) in pure Python without external dependencies. The GA evolves a population of candidate solutions using selection, crossover, and mutation.
 
-## Code
-```python
-# Note: Requires `deap`. Install with `pip install deap`
-try:
-    from deap import base, creator, tools
-    import random
-    creator.create("FitnessMax", base.Fitness, weights=(1.0,))
-    creator.create("Individual", list, fitness=creator.FitnessMax)
-    toolbox = base.Toolbox()
-    toolbox.register("attr_float", random.random)
-    toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, 2)
-    toolbox.register("evaluate", lambda ind: (sum(ind),))
-    ind = toolbox.individual()
-    print("Individual Fitness:", toolbox.evaluate(ind)[0])
-except ImportError:
-    print("Mock Output: Individual Fitness: 1.0")
+## Files
+- `SAMPLES/sample1.py`: Binary-string optimization (maximize number of 1s).
+- `SAMPLES/sample2.py`: Real-valued optimization of a quadratic function (minimize (x-3)^2).
+- `SAMPLES/sample3.py`: Knapsack problem solver using a GA.
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Mock Output: Individual Fitness: 1.0
+Best individual: [1, 1, 1, 1, 1], fitness: 5.00
+Best x: 2.97, fitness: 0.0009
+Best value: 7, weight: 8
 ```
-*(Real output with `deap`: `Individual Fitness: <value around 1.0>`)*
 
 ## Explanation
-- **Genetic Algorithm**: Evaluates a random individual’s fitness.
-- **Logic**: Creates a 2D individual and computes its sum as fitness.
-- **Complexity**: O(n) for n genes in evaluation.
-- **Use Case**: Used for optimization problems like scheduling.
-- **Best Practice**: Tune population size; use crossover/mutation; validate fitness.
+- **Population**: A list of candidate solutions (chromosomes).
+- **Selection**: Picks fitter individuals for reproduction.
+- **Crossover**: Combines parents to create children.
+- **Mutation**: Introduces random changes to maintain diversity.

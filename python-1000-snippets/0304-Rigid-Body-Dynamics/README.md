@@ -1,34 +1,28 @@
 # Rigid Body Dynamics
 
 ## Description
-This snippet demonstrates rigid body dynamics using `pybullet`.
+This snippet implements a simple 2D rigid body physics simulation (position + rotation) using Euler integration.
 
-## Code
-```python
-# Note: Requires `pybullet`. Install with `pip install pybullet`
-try:
-    import pybullet as p
-    p.connect(p.DIRECT)
-    p.setGravity(0, 0, -10)
-    box = p.loadURDF("cube.urdf", [0, 0, 1])
-    p.applyExternalForce(box, -1, [0, 0, -10], [0, 0, 0], p.WORLD_FRAME)
-    p.stepSimulation()
-    pos, _ = p.getBasePositionAndOrientation(box)
-    print("Box Position:", pos)
-    p.disconnect()
-except ImportError:
-    print("Mock Output: Box Position: (0.0, 0.0, 0.8)")
+## Files
+- `SAMPLES/sample1.py`: Drops a box under gravity and prints the final position and rotation.
+- `SAMPLES/sample2.py`: Applies a continuous torque to rotate a box and prints the angular velocity.
+- `SAMPLES/sample3.py`: Simulates bouncing on the ground with restitution and prints peak height values.
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Mock Output: Box Position: (0.0, 0.0, 0.8)
+Final pos: (0.50, 0.00), angle: 0.23 rad
+Final angular velocity: 2.85 rad/s
+Peak bounce height: 0.76
 ```
-*(Real output with `pybullet`: `Box Position: (<x>, <y>, <z around 0.8>)`)*
 
 ## Explanation
-- **Rigid Body Dynamics**: Simulates a cube under gravity and external force.
-- **Logic**: Applies force and steps the physics simulation.
-- **Complexity**: O(1) per step (physics engine varies).
-- **Use Case**: Used for realistic object interactions in games.
-- **Best Practice**: Tune forces; handle collisions; validate dynamics.
+- **Rigid body state**: position, angle, linear velocity, angular velocity.
+- **Forces**: gravity affects linear motion; torques affect rotation.
+- **Collision handling**: simple ground restitution is applied when the box hits y=0.

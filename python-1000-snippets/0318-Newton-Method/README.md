@@ -1,27 +1,28 @@
 # Newton Method
 
 ## Description
-This snippet demonstrates Newton’s method to find the root of a function.
+This snippet demonstrates Newton’s method (Newton-Raphson) for root-finding and optimization using first and second derivatives.
 
-## Code
-```python
-import numpy as np
-x = 2.0
-for _ in range(5):
-    f = x**2 - 2  # f(x) = x^2 - 2
-    df = 2 * x    # f'(x) = 2x
-    x -= f / df
-print("Root:", x)
+## Files
+- `SAMPLES/sample1.py`: Find sqrt(2) by solving x^2 - 2 = 0.
+- `SAMPLES/sample2.py`: Find a root of a cubic polynomial.
+- `SAMPLES/sample3.py`: Use Newton's method to find a critical point (optimize) of a function.
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Root: 1.4142135623730951
+Root (sqrt2): 1.41421356237
+Root (cubic): 1.0000
+Optimum x: 0.00, f(x)=0.00
 ```
 
 ## Explanation
-- **Newton Method**: Finds roots by iteratively using the tangent line.
-- **Logic**: Solves x^2 - 2 = 0 to approximate sqrt(2).
-- **Complexity**: O(i) for i iterations (converges quadratically).
-- **Use Case**: Used for root-finding in numerical analysis.
-- **Best Practice**: Handle division by zero; check convergence; validate initial guess.
+- **Newton’s method**: x_{n+1} = x_n - f(x)/f'(x).
+- **Optimizer version**: Use gradient and Hessian to find stationary points.
+- **Use Case**: Root-finding, optimization, numerical analysis.

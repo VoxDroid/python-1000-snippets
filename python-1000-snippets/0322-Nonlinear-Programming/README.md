@@ -1,31 +1,29 @@
 # Nonlinear Programming
 
 ## Description
-This snippet demonstrates nonlinear programming using `scipy`.
+This snippet uses SciPy to solve small nonlinear optimization problems with constraints.
 
-## Code
-```python
-# Note: Requires `scipy`. Install with `pip install scipy`
-try:
-    from scipy.optimize import minimize
-    def objective(x):
-        return x[0]**2 + x[1]**2
-    constraints = {"type": "ineq", "fun": lambda x: 1 - x[0] - x[1]}
-    result = minimize(objective, [0, 0], constraints=[constraints])
-    print("Solution:", result.x)
-except ImportError:
-    print("Mock Output: Solution: [0. 0.]")
+## Files
+- `SAMPLES/sample1.py`: Minimize a quadratic subject to a linear constraint.
+- `SAMPLES/sample2.py`: Constrained optimization using equality constraint.
+- `SAMPLES/sample3.py`: Optimize a nonlinear objective with bounds.
+
+## Quick start
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Output (example)
 ```
-Mock Output: Solution: [0. 0.]
+Solution: [0. 0.]
+Solution: [1. 1.]
+Solution: [0.5 0.5]
 ```
-*(Real output with `scipy`: `Solution: [0. 0.]`)*
 
 ## Explanation
-- **Nonlinear Programming**: Minimizes x^2 + y^2 with a nonlinear constraint.
-- **Logic**: Defines objective and constraint, then optimizes.
-- **Complexity**: O(i*d) for i iterations, d dimensions (solver-dependent).
-- **Use Case**: Used for complex optimization in engineering.
-- **Best Practice**: Define gradients; handle non-convexity; validate results.
+- **Nonlinear programming**: Deals with nonlinear objective functions and constraints.
+- **SciPy's `minimize`**: Supports different methods like SLSQP, trust-constr, etc.
+- **Constraints**: Can include equality, inequality, and bounds.
+- **Use Case**: Engineering design, parameter fitting, resource allocation.
