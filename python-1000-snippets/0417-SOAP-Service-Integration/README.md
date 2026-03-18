@@ -1,29 +1,35 @@
 # SOAP Service Integration
 
 ## Description
-This snippet demonstrates calling a SOAP service using `zeep`.
+Demonstrates setting up a local SOAP service using `spyne` and calling it with the `zeep` SOAP client.
 
-## Code
+## Requirements
+- Python 3.8+
+- `spyne` (`pip install spyne`)
+- `zeep` (`pip install zeep`)
+- `lxml` (installed as a dependency of `spyne`)
+
+## Code (excerpt)
 ```python
-# Note: Requires `zeep`. Install with `pip install zeep`
-try:
-    from zeep import Client
-    client = Client("http://www.example.com/service?wsdl")
-    result = client.service.TestOperation()
-    print("Mock Output: SOAP response")
-except ImportError:
-    print("Mock Output: SOAP response")
+from spyne import Application, rpc, ServiceBase, Integer
+from spyne.protocol.soap import Soap11
+from spyne.server.wsgi import WsgiApplication
+
+class CalculatorService(ServiceBase):
+    @rpc(Integer, Integer, _returns=Integer)
+    def add(ctx, a: int, b: int) -> int:
+        return a + b
+
+app = WsgiApplication(
+    Application([CalculatorService], tns="http://example.com/soap", in_protocol=Soap11(), out_protocol=Soap11())
+)
 ```
 
-## Output
+## Output (sample)
 ```
-Mock Output: SOAP response
+7 + 5 = 12
 ```
-*(Real output with `zeep` and WSDL: Actual SOAP response)*
 
-## Explanation
-- **SOAP Service Integration**: Calls a SOAP service operation.
-- **Logic**: Uses `zeep` to connect to a WSDL and invoke a method.
-- **Complexity**: O(1) per call (network-dependent).
-- **Use Case**: Used for integrating with legacy systems or enterprise APIs.
-- **Best Practice**: Handle WSDL errors; secure connections; cache WSDL.
+## Notes
+- The samples start a local HTTP server that exposes the WSDL at `/?wsdl`.
+- `zeep` auto-generates a client from the WSDL and allows calling operations like normal methods.

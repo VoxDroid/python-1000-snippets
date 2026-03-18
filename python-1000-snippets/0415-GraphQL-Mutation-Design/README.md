@@ -1,33 +1,60 @@
 # GraphQL Mutation Design
 
 ## Description
-This snippet demonstrates a GraphQL mutation using `strawberry`.
+Demonstrates how to define and execute GraphQL mutations using `strawberry`.
+
+## Requirements
+- Python 3.8+
+- `strawberry-graphql` Python package (`pip install strawberry-graphql`)
 
 ## Code
 ```python
-# Note: Requires `strawberry-graphql`. Install with `pip install strawberry-graphql`
-try:
-    import strawberry
-    @strawberry.type
-    class Mutation:
-        @strawberry.mutation
-        def create_item(self, name: str) -> str:
-            return f"Created {name}"
-    
-    print("Mutation defined")
-except ImportError:
-    print("Mock Output: Mutation defined")
+import strawberry
+
+
+@strawberry.type
+class Item:
+    id: int
+    name: str
+
+
+@strawberry.type
+class Mutation:
+    @strawberry.mutation
+    def create_item(self, name: str) -> Item:
+        # In a real application, persist the item to a database.
+        return Item(id=1, name=name)
+
+
+@strawberry.type
+class Query:
+    ping: str = "pong"
+
+
+schema = strawberry.Schema(query=Query, mutation=Mutation)
+
+
+query = """
+mutation {
+  createItem(name: \"Widget\") {
+    id
+    name
+  }
+}
+"""
+
+result = schema.execute_sync(query)
+print(result.data)
 ```
 
 ## Output
 ```
-Mock Output: Mutation defined
+{'createItem': {'id': 1, 'name': 'Widget'}}
 ```
-*(Real output with `strawberry`: Configures GraphQL mutation)*
 
 ## Explanation
-- **GraphQL Mutation Design**: Defines a mutation to create an item.
-- **Logic**: Uses `strawberry` to define a mutation returning a string.
-- **Complexity**: O(1) for definition.
-- **Use Case**: Used for updating data in GraphQL APIs.
-- **Best Practice**: Validate inputs; handle errors; document schema.
+- **GraphQL Mutation**: Used to modify server-side data.
+- **Strawberry**: A Python GraphQL library that uses type annotations.
+- **Logic**: Define a mutation and execute it via the schema.
+- **Use Case**: APIs that create or update resources (e.g., create a user or post a comment).
+- **Best Practice**: Validate inputs, handle errors, and avoid exposing sensitive data.

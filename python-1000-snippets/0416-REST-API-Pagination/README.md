@@ -1,37 +1,43 @@
 # REST API Pagination
 
 ## Description
-This snippet demonstrates pagination in a Flask REST API.
+Demonstrates a paginated REST API and how a client can request pages of data.
 
-## Code
+## Requirements
+- Python 3.8+
+- `Flask` (`pip install flask`)
+- `requests` (`pip install requests`)
+
+## Code (excerpt)
 ```python
-# Note: Requires `flask`. Install with `pip install flask`
-try:
-    from flask import Flask, request
-    app = Flask(__name__)
-    
-    @app.route("/items")
-    def get_items():
-        page = int(request.args.get("page", 1))
-        per_page = 2
-        items = ["item1", "item2", "item3", "item4"]
-        start = (page - 1) * per_page
-        return {"items": items[start:start + per_page]}
-    
-    print("API with pagination configured")
-except ImportError:
-    print("Mock Output: API with pagination configured")
+# Start a small Flask service that returns a paginated list.
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+
+@app.route("/items")
+def list_items():
+    page = int(request.args.get("page", "1"))
+    size = int(request.args.get("size", "5"))
+    start = (page - 1) * size
+    end = start + size
+    return jsonify({
+        "page": page,
+        "size": size,
+        "items": items[start:end],
+    })
 ```
 
-## Output
+## Output (sample)
 ```
-Mock Output: API with pagination configured
+Page: 1 size: 5 total: 20
+{'id': 1, 'name': 'item-1'}
+{'id': 2, 'name': 'item-2'}
+{'id': 3, 'name': 'item-3'}
+{'id': 4, 'name': 'item-4'}
+{'id': 5, 'name': 'item-5'}
 ```
-*(Real output with `flask`: Returns paginated items at `/items?page=1`)*
 
-## Explanation
-- **REST API Pagination**: Implements pagination for a list of items.
-- **Logic**: Returns a subset of items based on page and per-page parameters.
-- **Complexity**: O(n) for n items.
-- **Use Case**: Used for large datasets in APIs.
-- **Best Practice**: Validate page inputs; include metadata; optimize queries.
+## Notes
+- The samples start a local Flask server on a random free port and shut it down when done.
+- Pagination patterns include offset-style pages and cursor-style pagers.
