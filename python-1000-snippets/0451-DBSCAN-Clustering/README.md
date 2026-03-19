@@ -1,31 +1,20 @@
 # DBSCAN Clustering
 
 ## Description
-This snippet demonstrates DBSCAN clustering using `scikit-learn`.
+This snippet demonstrates DBSCAN density-based clustering and how parameters affect clustering and noise detection.
 
-## Code
-```python
-# Note: Requires `scikit-learn`. Install with `pip install scikit-learn`
-try:
-    from sklearn.cluster import DBSCAN
-    from sklearn.datasets import make_blobs
-    X, _ = make_blobs(n_samples=100, centers=3)
-    dbscan = DBSCAN(eps=0.5, min_samples=5)
-    labels = dbscan.fit_predict(X)
-    print("Cluster labels:", labels[:5])
-except ImportError:
-    print("Mock Output: Cluster labels: [0 1 2 0 1]")
-```
+## Requirements
+- Python 3.8+
+- `scikit-learn` (`pip install scikit-learn`)
 
-## Output
-```
-Mock Output: Cluster labels: [0 1 2 0 1]
-```
-*(Real output with `scikit-learn`: `Cluster labels: <array of labels>`)*
+## Samples
+- `SAMPLES/sample1.py`: Run DBSCAN and report clusters found.
+- `SAMPLES/sample2.py`: Identify noise points (label -1).
+- `SAMPLES/sample3.py`: Show how `eps` and `min_samples` affect results.
 
-## Explanation
-- **DBSCAN Clustering**: Groups data points based on density.
-- **Logic**: Applies DBSCAN to synthetic blob data with specified `eps` and `min_samples`.
-- **Complexity**: O(n log n) for n samples with efficient indexing.
-- **Use Case**: Used for non-spherical clusters or noise detection.
-- **Best Practice**: Tune `eps` and `min_samples`; scale features; visualize results.
+## Running
+```bash
+python python-1000-snippets/0451-DBSCAN-Clustering/SAMPLES/sample1.py
+python python-1000-snippets/0451-DBSCAN-Clustering/SAMPLES/sample2.py
+python python-1000-snippets/0451-DBSCAN-Clustering/SAMPLES/sample3.py
+```

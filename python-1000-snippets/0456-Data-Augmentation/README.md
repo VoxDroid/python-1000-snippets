@@ -1,28 +1,20 @@
 # Data Augmentation
 
 ## Description
-This snippet demonstrates image data augmentation using `tensorflow`.
+This snippet demonstrates basic data augmentation techniques for numeric datasets (noise injection, flipping, and expansion).
 
-## Code
-```python
-# Note: Requires `tensorflow`. Install with `pip install tensorflow`
-try:
-    import tensorflow as tf
-    datagen = tf.keras.preprocessing.image.ImageDataGenerator(rotation_range=20, width_shift_range=0.2)
-    print("Data augmentation configured")
-except ImportError:
-    print("Mock Output: Data augmentation configured")
-```
+## Requirements
+- Python 3.8+
+- `scikit-learn` (`pip install scikit-learn`)
 
-## Output
-```
-Mock Output: Data augmentation configured
-```
-*(Real output with `tensorflow`: `Data augmentation configured`)*
+## Samples
+- `SAMPLES/sample1.py`: Augment numeric features by adding noise.
+- `SAMPLES/sample2.py`: Apply simple flips and jitter to data.
+- `SAMPLES/sample3.py`: Expand a dataset by repeating with noise.
 
-## Explanation
-- **Data Augmentation**: Applies transformations to image data.
-- **Logic**: Configures an `ImageDataGenerator` for rotation and shifting.
-- **Complexity**: O(1) for setup (augmentation-dependent).
-- **Use Case**: Used to increase dataset size for image tasks.
-- **Best Practice**: Balance augmentation; avoid unrealistic transforms; test impact.
+## Running
+```bash
+python python-1000-snippets/0456-Data-Augmentation/SAMPLES/sample1.py
+python python-1000-snippets/0456-Data-Augmentation/SAMPLES/sample2.py
+python python-1000-snippets/0456-Data-Augmentation/SAMPLES/sample3.py
+```

@@ -1,29 +1,20 @@
 # Batch Normalization
 
 ## Description
-This snippet demonstrates batch normalization in a neural network using `tensorflow`.
+This snippet demonstrates batch normalization concepts using NumPy computations.
 
-## Code
-```python
-# Note: Requires `tensorflow`. Install with `pip install tensorflow`
-try:
-    import tensorflow as tf
-    model = tf.keras.Sequential([tf.keras.layers.Dense(10), tf.keras.layers.BatchNormalization(), tf.keras.layers.Dense(1)])
-    model.compile(optimizer='adam', loss='mse')
-    print("Model with batch normalization configured")
-except ImportError:
-    print("Mock Output: Model with batch normalization configured")
-```
+## Requirements
+- Python 3.8+
+- `numpy` (`pip install numpy`)
 
-## Output
-```
-Mock Output: Model with batch normalization configured
-```
-*(Real output with `tensorflow`: `Model with batch normalization configured`)*
+## Samples
+- `SAMPLES/sample1.py`: Normalize a batch to zero mean and unit variance.
+- `SAMPLES/sample2.py`: Apply gamma and beta scaling after normalization.
+- `SAMPLES/sample3.py`: Update running mean/variance across batches.
 
-## Explanation
-- **Batch Normalization**: Normalizes layer inputs to stabilize training.
-- **Logic**: Adds a `BatchNormalization` layer to a neural network.
-- **Complexity**: O(1) per layer (training-dependent).
-- **Use Case**: Used to improve deep network training speed.
-- **Best Practice**: Place after dense layers; monitor training stability; tune momentum.
+## Running
+```bash
+python python-1000-snippets/0457-Batch-Normalization/SAMPLES/sample1.py
+python python-1000-snippets/0457-Batch-Normalization/SAMPLES/sample2.py
+python python-1000-snippets/0457-Batch-Normalization/SAMPLES/sample3.py
+```

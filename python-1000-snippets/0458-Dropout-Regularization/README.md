@@ -1,29 +1,20 @@
 # Dropout Regularization
 
 ## Description
-This snippet demonstrates dropout regularization using `tensorflow`.
+This snippet demonstrates the dropout regularization technique and how it affects training vs inference.
 
-## Code
-```python
-# Note: Requires `tensorflow`. Install with `pip install tensorflow`
-try:
-    import tensorflow as tf
-    model = tf.keras.Sequential([tf.keras.layers.Dense(10), tf.keras.layers.Dropout(0.5), tf.keras.layers.Dense(1)])
-    model.compile(optimizer='adam', loss='mse')
-    print("Model with dropout configured")
-except ImportError:
-    print("Mock Output: Model with dropout configured")
-```
+## Requirements
+- Python 3.8+
+- `numpy` (`pip install numpy`)
 
-## Output
-```
-Mock Output: Model with dropout configured
-```
-*(Real output with `tensorflow`: `Model with dropout configured`)*
+## Samples
+- `SAMPLES/sample1.py`: Apply dropout mask and scale output.
+- `SAMPLES/sample2.py`: Show expected value preservation with scaling.
+- `SAMPLES/sample3.py`: Show difference between training and inference behavior.
 
-## Explanation
-- **Dropout Regularization**: Randomly drops neurons to prevent overfitting.
-- **Logic**: Adds a `Dropout` layer with 50% dropout rate.
-- **Complexity**: O(1) per layer (training-dependent).
-- **Use Case**: Used in deep networks to reduce overfitting.
-- **Best Practice**: Tune dropout rate; use during training only; monitor performance.
+## Running
+```bash
+python python-1000-snippets/0458-Dropout-Regularization/SAMPLES/sample1.py
+python python-1000-snippets/0458-Dropout-Regularization/SAMPLES/sample2.py
+python python-1000-snippets/0458-Dropout-Regularization/SAMPLES/sample3.py
+```

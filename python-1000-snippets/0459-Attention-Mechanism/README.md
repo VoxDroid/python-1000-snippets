@@ -1,30 +1,21 @@
 # Attention Mechanism
 
 ## Description
-This snippet demonstrates a simple attention layer using `tensorflow`.
+This snippet demonstrates basic attention mechanisms (scaled dot-product attention) using NumPy.
 
-## Code
-```python
-# Note: Requires `tensorflow`. Install with `pip install tensorflow`
-try:
-    import tensorflow as tf
-    inputs = tf.keras.Input(shape=(10, 32))
-    attention = tf.keras.layers.Attention()([inputs, inputs])
-    model = tf.keras.Model(inputs, attention)
-    print("Attention model configured")
-except ImportError:
-    print("Mock Output: Attention model configured")
-```
+## Requirements
+- Python 3.8+
+- `numpy` (`pip install numpy`)
+- `scikit-learn` (`pip install scikit-learn`) (for a small embedding example)
 
-## Output
-```
-Mock Output: Attention model configured
-```
-*(Real output with `tensorflow`: `Attention model configured`)*
+## Samples
+- `SAMPLES/sample1.py`: Compute scaled dot-product attention for a simple query/key/value.
+- `SAMPLES/sample2.py`: Implement a simple multi-head attention operation.
+- `SAMPLES/sample3.py`: Verify attention weights sum to 1.
 
-## Explanation
-- **Attention Mechanism**: Focuses on relevant input parts in a sequence.
-- **Logic**: Adds an `Attention` layer to a simple model.
-- **Complexity**: O(n^2) for n sequence length.
-- **Use Case**: Used in NLP or time-series tasks for context awareness.
-- **Best Practice**: Use with transformers; tune attention heads; monitor computation.
+## Running
+```bash
+python python-1000-snippets/0459-Attention-Mechanism/SAMPLES/sample1.py
+python python-1000-snippets/0459-Attention-Mechanism/SAMPLES/sample2.py
+python python-1000-snippets/0459-Attention-Mechanism/SAMPLES/sample3.py
+```

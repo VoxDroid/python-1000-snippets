@@ -1,31 +1,20 @@
-# K-Nearest Neighbors
+# K-Nearest Neighbors (KNN)
 
 ## Description
-This snippet demonstrates a KNN classifier using `scikit-learn`.
+This snippet demonstrates KNN for classification and regression using scikit-learn.
 
-## Code
-```python
-# Note: Requires `scikit-learn`. Install with `pip install scikit-learn`
-try:
-    from sklearn.datasets import make_classification
-    from sklearn.neighbors import KNeighborsClassifier
-    X, y = make_classification(n_samples=100)
-    model = KNeighborsClassifier(n_neighbors=3)
-    model.fit(X, y)
-    print("Model trained")
-except ImportError:
-    print("Mock Output: Model trained")
-```
+## Requirements
+- Python 3.8+
+- `scikit-learn` (`pip install scikit-learn`)
 
-## Output
-```
-Mock Output: Model trained
-```
-*(Real output with `scikit-learn`: `Model trained`)*
+## Samples
+- `SAMPLES/sample1.py`: KNN classification on the iris dataset.
+- `SAMPLES/sample2.py`: KNN regression on synthetic data.
+- `SAMPLES/sample3.py`: Explore how different k values affect accuracy.
 
-## Explanation
-- **K-Nearest Neighbors**: Trains a KNN classifier with k=3.
-- **Logic**: Fits a model based on nearest neighbor distances.
-- **Complexity**: O(n * d) for n samples, d features at prediction.
-- **Use Case**: Used for small datasets or non-linear problems.
-- **Best Practice**: Scale features; tune k; evaluate distance metrics.
+## Running
+```bash
+python python-1000-snippets/0450-K-Nearest-Neighbors/SAMPLES/sample1.py
+python python-1000-snippets/0450-K-Nearest-Neighbors/SAMPLES/sample2.py
+python python-1000-snippets/0450-K-Nearest-Neighbors/SAMPLES/sample3.py
+```

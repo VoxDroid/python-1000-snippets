@@ -1,31 +1,21 @@
 # Hierarchical Clustering
 
 ## Description
-This snippet demonstrates hierarchical clustering using `scikit-learn`.
+This snippet demonstrates hierarchical (agglomerative) clustering using scikit-learn and SciPy.
 
-## Code
-```python
-# Note: Requires `scikit-learn`. Install with `pip install scikit-learn`
-try:
-    from sklearn.cluster import AgglomerativeClustering
-    from sklearn.datasets import make_blobs
-    X, _ = make_blobs(n_samples=100, centers=3)
-    clustering = AgglomerativeClustering(n_clusters=3)
-    labels = clustering.fit_predict(X)
-    print("Cluster labels:", labels[:5])
-except ImportError:
-    print("Mock Output: Cluster labels: [0 1 2 0 1]")
-```
+## Requirements
+- Python 3.8+
+- `scikit-learn` (`pip install scikit-learn`)
+- `scipy` (`pip install scipy`)
 
-## Output
-```
-Mock Output: Cluster labels: [0 1 2 0 1]
-```
-*(Real output with `scikit-learn`: `Cluster labels: <array of labels>`)*
+## Samples
+- `SAMPLES/sample1.py`: Perform AgglomerativeClustering and show cluster sizes.
+- `SAMPLES/sample2.py`: Compute linkage matrix and inspect merge distances.
+- `SAMPLES/sample3.py`: Compare clustering behavior with different linkage methods.
 
-## Explanation
-- **Hierarchical Clustering**: Builds a tree of clusters using a bottom-up approach.
-- **Logic**: Applies agglomerative clustering to synthetic data.
-- **Complexity**: O(n^2) for n samples.
-- **Use Case**: Used for hierarchical data structures or dendrogram visualization.
-- **Best Practice**: Choose linkage method; visualize dendrogram; validate clusters.
+## Running
+```bash
+python python-1000-snippets/0452-Hierarchical-Clustering/SAMPLES/sample1.py
+python python-1000-snippets/0452-Hierarchical-Clustering/SAMPLES/sample2.py
+python python-1000-snippets/0452-Hierarchical-Clustering/SAMPLES/sample3.py
+```
