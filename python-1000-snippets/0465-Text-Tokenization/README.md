@@ -1,29 +1,27 @@
 # Text Tokenization
 
 ## Description
-This snippet demonstrates text tokenization using `transformers`.
+This snippet demonstrates basic text tokenization techniques using standard Python libraries.
 
-## Code
-```python
-# Note: Requires `transformers`. Install with `pip install transformers`
-try:
-    from transformers import AutoTokenizer
-    tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
-    tokens = tokenizer("Hello world", return_tensors="pt")
-    print("Tokens:", tokens["input_ids"].shape)
-except ImportError:
-    print("Mock Output: Tokens: torch.Size([1, 5])")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample1.py`)
 ```
-Mock Output: Tokens: torch.Size([1, 5])
+Input: Hello, world! This is a test: tokenization.
+Tokens: ['Hello', ',', 'world', '!', 'This', 'is', 'a', 'test', ':', 'tokenization', '.']
+Token count: 11
 ```
-*(Real output with `transformers`: `Tokens: torch.Size([1, 5])`)*
 
 ## Explanation
-- **Text Tokenization**: Converts text to tokens for NLP models.
-- **Logic**: Uses BERT tokenizer to process a simple sentence.
-- **Complexity**: O(n) for n characters.
-- **Use Case**: Used in NLP tasks like sentiment analysis.
-- **Best Practice**: Choose appropriate tokenizer; handle special tokens; validate output.
+- **Text Tokenization**: Splitting text into meaningful pieces (tokens) for NLP.
+- **sample1.py**: Splits on whitespace and punctuation.
+- **sample2.py**: Demonstrates a simplified subword tokenization strategy.
+- **sample3.py**: Counts token frequencies using a basic tokenizer.
+- **Best Practice**: Use a consistent tokenizer for training and inference, and normalize case/punctuation as needed.

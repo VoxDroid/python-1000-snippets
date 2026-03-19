@@ -1,30 +1,30 @@
 # Image Segmentation
 
 ## Description
-This snippet demonstrates image segmentation using `scikit-image`.
+This snippet demonstrates basic image segmentation techniques using NumPy and scikit-learn.
 
-## Code
-```python
-# Note: Requires `scikit-image`. Install with `pip install scikit-image`
-try:
-    from skimage.segmentation import slic
-    from skimage import data
-    image = data.coins()
-    segments = slic(image, n_segments=100, compactness=10, channel_axis=None)
-    print("Segments shape:", segments.shape)
-except ImportError:
-    print("Mock Output: Segments shape: (303, 384)")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample2.py`)
 ```
-Mock Output: Segments shape: (303, 384)
+Image shape: (100, 150)
+Cluster centers: [209.83, 35.0, 115.35]
+Segment label counts:
+  label=0: 5318 pixels
+  label=1: 6441 pixels
+  label=2: 3241 pixels
 ```
-*(Real output with `scikit-image`: `Segments shape: (303, 384)`)*
 
 ## Explanation
-- **Image Segmentation**: Divides an image into regions using SLIC.
-- **Logic**: Applies SLIC segmentation to a sample coin image.
-- **Complexity**: O(n) for n pixels.
-- **Use Case**: Used for object detection or medical imaging.
-- **Best Practice**: Tune segments; preprocess images; visualize results.
+- **Image Segmentation**: Partition an image into regions or clusters.
+- **sample1.py**: Simple threshold-based segmentation on a synthetic image.
+- **sample2.py**: KMeans clustering on pixel intensity values to segment regions.
+- **sample3.py**: Connected component labeling on a binary mask.
+- **Best Practice**: Choose segmentation method based on data, and visualize results to validate.

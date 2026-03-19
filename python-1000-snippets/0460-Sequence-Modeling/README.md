@@ -1,29 +1,28 @@
 # Sequence Modeling
 
 ## Description
-This snippet demonstrates sequence modeling with LSTM using `tensorflow`.
+This snippet demonstrates basic sequence modeling techniques using NumPy and scikit-learn.
 
-## Code
-```python
-# Note: Requires `tensorflow`. Install with `pip install tensorflow`
-try:
-    import tensorflow as tf
-    model = tf.keras.Sequential([tf.keras.layers.LSTM(10, input_shape=(5, 1)), tf.keras.layers.Dense(1)])
-    model.compile(optimizer='adam', loss='mse')
-    print("LSTM model configured")
-except ImportError:
-    print("Mock Output: LSTM model configured")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample1.py`)
 ```
-Mock Output: LSTM model configured
+Input sequence: [0.         0.14285714 0.28571429 0.42857143 0.57142857 0.71428571
+ 0.85714286 1.        ]
+LSTM output (last time step): [ ... ]
+LSTM output shape: (8, 10)
 ```
-*(Real output with `tensorflow`: `LSTM model configured`)*
 
 ## Explanation
-- **Sequence Modeling**: Models sequential data with an LSTM network.
-- **Logic**: Configures an LSTM layer for time-series data.
-- **Complexity**: O(n * t) for n samples, t timesteps.
-- **Use Case**: Used for time-series or NLP tasks.
-- **Best Practice**: Preprocess sequences; tune LSTM units; avoid vanishing gradients.
+- **Sequence Modeling**: Processes ordered data (time series, tokens) where order matters.
+- **sample1.py**: Implements a tiny LSTM forward pass using NumPy.
+- **sample2.py**: Uses lag features + linear regression to forecast the next timestep.
+- **sample3.py**: Uses k-NN to classify synthetic sequences (sine vs square waves).
+- **Best Practice**: Use proper train/test splits, scale/normalize data, and use cross-validation for model selection.

@@ -1,30 +1,26 @@
 # Audio Feature Extraction
 
 ## Description
-This snippet demonstrates MFCC feature extraction using `librosa`.
+This snippet demonstrates extracting basic audio features (RMS, zero crossing, spectral centroid, and spectrogram energy) using NumPy and SciPy.
 
-## Code
-```python
-# Note: Requires `librosa`. Install with `pip install librosa`
-try:
-    import librosa
-    import numpy as np
-    signal = np.sin(np.linspace(0, 10, 1000))
-    mfcc = librosa.feature.mfcc(y=signal, sr=22050)
-    print("MFCC shape:", mfcc.shape)
-except ImportError:
-    print("Mock Output: MFCC shape: (20, 2)")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample1.py`)
 ```
-Mock Output: MFCC shape: (20, 2)
+RMS: 0.3536
+Zero-crossing rate: 0.0798
 ```
-*(Real output with `librosa`: `MFCC shape: <variable shape>`)*
 
 ## Explanation
-- **Audio Feature Extraction**: Extracts MFCC features from a signal.
-- **Logic**: Uses `librosa` to compute MFCCs from a synthetic signal.
-- **Complexity**: O(n log n) for n samples.
-- **Use Case**: Used for speech or music analysis.
-- **Best Practice**: Normalize audio; tune MFCC parameters; validate features.
+- **Audio Feature Extraction**: Derives numerical features from audio for analysis or ML.
+- **sample1.py**: Computes RMS (energy) and zero-crossing rate from a synthetic tone.
+- **sample2.py**: Computes spectral centroid and bandwidth via FFT.
+- **sample3.py**: Computes a simple spectrogram and summarizes per-frame energy.
+- **Best Practice**: Normalize audio, use windowing, and validate features on real recordings.

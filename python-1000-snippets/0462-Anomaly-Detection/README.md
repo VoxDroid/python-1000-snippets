@@ -1,31 +1,26 @@
 # Anomaly Detection
 
 ## Description
-This snippet demonstrates anomaly detection using `scikit-learn`.
+This snippet demonstrates anomaly detection using scikit-learn's unsupervised outlier detectors.
 
-## Code
-```python
-# Note: Requires `scikit-learn`. Install with `pip install scikit-learn`
-try:
-    from sklearn.ensemble import IsolationForest
-    import numpy as np
-    data = np.array([[1], [2], [100]])
-    model = IsolationForest(contamination=0.1)
-    predictions = model.fit_predict(data)
-    print("Anomalies:", predictions)
-except ImportError:
-    print("Mock Output: Anomalies: [1 1 -1]")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample1.py`)
 ```
-Mock Output: Anomalies: [1 1 -1]
+Data: [1, 2, 2, 3, 3, 4, 100]
+Anomaly labels: [1, 1, 1, 1, 1, 1, -1]
 ```
-*(Real output with `scikit-learn`: `Anomalies: <array of labels>`)*
 
 ## Explanation
-- **Anomaly Detection**: Identifies outliers using Isolation Forest.
-- **Logic**: Fits a model to detect anomalies in a small dataset.
-- **Complexity**: O(n log n) for n samples.
-- **Use Case**: Used for fraud detection or network monitoring.
-- **Best Practice**: Tune contamination; preprocess data; validate anomalies.
+- **Anomaly Detection**: Finds observations that deviate from the majority of the data.
+- **sample1.py**: Uses `IsolationForest` to detect a clear outlier.
+- **sample2.py**: Uses `LocalOutlierFactor` (unsupervised clustering-based detector).
+- **sample3.py**: Uses `OneClassSVM` as a novelty detector.
+- **Best Practice**: Tune contamination/thresholds, validate on known anomalies, and scale features consistently.

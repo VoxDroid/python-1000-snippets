@@ -1,32 +1,29 @@
 # Time Series Forecasting
 
 ## Description
-This snippet demonstrates time series forecasting using `tensorflow`.
+This snippet shows basic time series forecasting patterns using lag features and scikit-learn models.
 
-## Code
-```python
-# Note: Requires `tensorflow`. Install with `pip install tensorflow`
-try:
-    import tensorflow as tf
-    import numpy as np
-    data = np.array([1, 2, 3, 4, 5]).reshape(-1, 1, 1)
-    model = tf.keras.Sequential([tf.keras.layers.LSTM(10), tf.keras.layers.Dense(1)])
-    model.compile(optimizer='adam', loss='mse')
-    model.fit(data, data, epochs=1, verbose=0)
-    print("Forecast model trained")
-except ImportError:
-    print("Mock Output: Forecast model trained")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample1.py`)
 ```
-Mock Output: Forecast model trained
+Linear forecast MSE: 0.0755
+Example true vs predicted:
+  4.572 -> 4.920
+  4.880 -> 4.382
+  4.303 -> 4.787
 ```
-*(Real output with `tensorflow`: `Forecast model trained`)*
 
 ## Explanation
-- **Time Series Forecasting**: Predicts future values using LSTM.
-- **Logic**: Trains an LSTM on a simple sequence.
-- **Complexity**: O(n * t) for n samples, t timesteps.
-- **Use Case**: Used for stock prices or weather prediction.
-- **Best Practice**: Use windowing; preprocess data; evaluate forecasts.
+- **Forecasting**: Predicts future values given past observations.
+- **sample1.py**: Uses linear regression with lag features.
+- **sample2.py**: A non-linear model using a random forest regressor.
+- **sample3.py**: A simple persistence baseline (predict last value).
+- **Best Practice**: Use proper train/test splits, cross-validation, and feature scaling.

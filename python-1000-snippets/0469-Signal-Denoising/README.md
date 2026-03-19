@@ -1,30 +1,26 @@
 # Signal Denoising
 
 ## Description
-This snippet demonstrates signal denoising using `scipy`.
+This snippet demonstrates basic signal denoising techniques using SciPy and NumPy.
 
-## Code
-```python
-# Note: Requires `scipy`. Install with `pip install scipy`
-try:
-    from scipy.signal import savgol_filter
-    import numpy as np
-    signal = np.sin(np.linspace(0, 10, 100)) + np.random.normal(0, 0.1, 100)
-    denoised = savgol_filter(signal, window_length=11, polyorder=2)
-    print("Signal denoised")
-except ImportError:
-    print("Mock Output: Signal denoised")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample1.py`)
 ```
-Mock Output: Signal denoised
+Noisy signal sample: [0.441, 0.132, 0.308, 0.655, 0.593]
+Denoised signal sample: [0.397, 0.365, 0.34, 0.322, 0.311]
 ```
-*(Real output with `scipy`: `Signal denoised`)*
 
 ## Explanation
-- **Signal Denoising**: Smooths a noisy signal using Savitzky-Golay filter.
-- **Logic**: Applies a polynomial filter to a noisy sine wave.
-- **Complexity**: O(n) for n samples.
-- **Use Case**: Used in audio or sensor data processing.
-- **Best Practice**: Tune filter parameters; validate signal integrity; visualize results.
+- **Signal Denoising**: Reduces noise while preserving important signal characteristics.
+- **sample1.py**: Uses a Savitzky-Golay filter for smoothing.
+- **sample2.py**: Uses a Wiener filter for adaptive noise reduction.
+- **sample3.py**: Uses a simple moving-average low-pass filter.
+- **Best Practice**: Choose filter parameters based on noise characteristics and validate against clean signals.

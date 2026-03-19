@@ -1,29 +1,25 @@
 # Speech Synthesis
 
 ## Description
-This snippet demonstrates text-to-speech synthesis using `gTTS`.
+This snippet demonstrates simple offline speech synthesis using `pyttsx3`, with a fallback to generate a synthetic sine wave audio file.
 
-## Code
-```python
-# Note: Requires `gTTS`. Install with `pip install gTTS`
-try:
-    from gtts import gTTS
-    tts = gTTS(text="Hello world", lang="en")
-    tts.save("output.mp3")
-    print("Audio file generated")
-except ImportError:
-    print("Mock Output: Audio file generated")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample1.py`)
 ```
-Mock Output: Audio file generated
+Saved speech to /.../temp/tts_sample.wav
 ```
-*(Real output with `gTTS`: `Audio file generated`)*
 
 ## Explanation
-- **Speech Synthesis**: Converts text to speech and saves as MP3.
-- **Logic**: Uses `gTTS` to generate audio from text.
-- **Complexity**: O(n) for n characters (network-dependent).
-- **Use Case**: Used for voice assistants or accessibility tools.
-- **Best Practice**: Validate text; handle language support; test audio quality.
+- **Speech Synthesis**: Converts text into audio.
+- **sample1.py**: Uses `pyttsx3` to save a spoken sentence as a WAV file.
+- **sample2.py**: Lists available voices from the TTS engine.
+- **sample3.py**: Generates a fallback sine wave WAV file if TTS is unavailable.
+- **Best Practice**: Use offline TTS engines for reproducibility in offline/CI environments, and validate audio output path and format.

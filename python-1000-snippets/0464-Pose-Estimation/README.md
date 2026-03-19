@@ -1,29 +1,28 @@
 # Pose Estimation
 
 ## Description
-This snippet demonstrates a simplified pose estimation setup using `tensorflow`.
+This snippet demonstrates basic pose estimation concepts using synthetic keypoints and geometric operations (no deep learning dependencies).
 
-## Code
-```python
-# Note: Requires `tensorflow`. Install with `pip install tensorflow`
-try:
-    import tensorflow as tf
-    model = tf.keras.Sequential([tf.keras.layers.Conv2D(16, 3, input_shape=(224, 224, 3)), tf.keras.layers.Dense(17 * 2)])
-    model.compile(optimizer='adam', loss='mse')
-    print("Pose estimation model configured")
-except ImportError:
-    print("Mock Output: Pose estimation model configured")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample1.py`)
 ```
-Mock Output: Pose estimation model configured
+Shoulder: [0.2, 0.5]
+Elbow: [0.4, 0.4]
+Wrist: [0.6, 0.6]
+Computed elbow angle (degrees): 108.43
 ```
-*(Real output with `tensorflow`: `Pose estimation model configured`)*
 
 ## Explanation
-- **Pose Estimation**: Configures a model for keypoint detection.
-- **Logic**: Sets up a CNN to predict 17 keypoints (x, y).
-- **Complexity**: O(1) for setup (training-dependent).
-- **Use Case**: Used for human pose tracking or robotics.
-- **Best Practice**: Use pre-trained models; preprocess images; validate keypoints.
+- **Pose Estimation**: Predicting body keypoints and computing joint angles or body posture.
+- **sample1.py**: Computes the elbow angle from three keypoints.
+- **sample2.py**: Classifies a simple pose as standing vs crouching based on hip/knee/ankle positions.
+- **sample3.py**: Normalizes keypoints by centering and scaling around the mid-hip.
+- **Best Practice**: Use camera calibration to normalize keypoints and validate against annotated datasets.
