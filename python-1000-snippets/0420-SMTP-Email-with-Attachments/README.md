@@ -1,34 +1,26 @@
 # SMTP Email with Attachments
 
 ## Description
-This snippet demonstrates sending an email with an attachment using `smtplib`.
+This snippet demonstrates sending emails (plain text, HTML, and attachments) using Python's built-in `smtplib` and a local SMTP receiver.
 
-## Code
-```python
-# Note: Requires `email`
-try:
-    import smtplib
-    from email.mime.multipart import MIMEMultipart
-    from email.mime.text import MIMEText
-    msg = MIMEMultipart()
-    msg["To"] = "recipient@example.com"
-    msg["From"] = "sender@example.com"
-    msg["Subject"] = "Test"
-    msg.attach(MIMEText("Body"))
-    print("Email prepared")
-except ImportError:
-    print("Mock Output: Email prepared")
+Each sample starts a local SMTP server (via `aiosmtpd`) to receive the message so the examples run end-to-end without requiring an external mail server.
+
+## Requirements
+- Python 3.8+
+- `aiosmtpd` (`pip install aiosmtpd`)
+
+## Samples
+- `SAMPLES/sample1.py`: Send a plain-text email and inspect the received raw message.
+- `SAMPLES/sample2.py`: Send an email with a file attachment.
+- `SAMPLES/sample3.py`: Send an HTML email with multiple attachments.
+
+## Running
+```bash
+python python-1000-snippets/0420-SMTP-Email-with-Attachments/SAMPLES/sample1.py
+python python-1000-snippets/0420-SMTP-Email-with-Attachments/SAMPLES/sample2.py
+python python-1000-snippets/0420-SMTP-Email-with-Attachments/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Email prepared
-```
-*(Real output with `smtplib` and SMTP server: Sends email)*
-
-## Explanation
-- **SMTP Email with Attachments**: Prepares an email with a text body.
-- **Logic**: Creates a MIME message with a body (attachment logic omitted for brevity).
-- **Complexity**: O(n) for n bytes in email.
-- **Use Case**: Used for notifications or automated emails.
-- **Best Practice**: Secure with TLS; handle SMTP errors; validate recipients.
+## Notes
+- Emails are stored in a `temp/` folder under the repository root.
+- These examples do not deliver mail to an external inbox; they demonstrate how to construct and send MIME messages.

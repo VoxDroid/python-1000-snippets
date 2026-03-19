@@ -1,29 +1,24 @@
 # JWT Role-Based Authorization
 
 ## Description
-This snippet demonstrates JWT role-based authorization using `pyjwt`.
+This snippet demonstrates creating and verifying JWTs that include role claims using `pyjwt`.
 
-## Code
-```python
-# Note: Requires `pyjwt`. Install with `pip install pyjwt`
-try:
-    import jwt
-    token = jwt.encode({"role": "admin"}, "secret", algorithm="HS256")
-    decoded = jwt.decode(token, "secret", algorithms=["HS256"])
-    print("Role:", decoded["role"])
-except ImportError:
-    print("Mock Output: Role: admin")
+## Requirements
+- Python 3.8+
+- `pyjwt` (`pip install pyjwt`)
+
+## Samples
+- `SAMPLES/sample1.py`: Create a JWT with roles, decode it, and check for required roles.
+- `SAMPLES/sample2.py`: Enforce a role requirement and deny access if the role is missing.
+- `SAMPLES/sample3.py`: Show handling of expired tokens and role-based access.
+
+## Running
+```bash
+python python-1000-snippets/0427-JWT-Role-Based-Authorization/SAMPLES/sample1.py
+python python-1000-snippets/0427-JWT-Role-Based-Authorization/SAMPLES/sample2.py
+python python-1000-snippets/0427-JWT-Role-Based-Authorization/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Role: admin
-```
-*(Real output with `pyjwt`: `Role: admin`)*
-
-## Explanation
-- **JWT Role-Based Authorization**: Encodes and decodes a JWT with role info.
-- **Logic**: Creates a JWT with a role and verifies it.
-- **Complexity**: O(1) per encode/decode.
-- **Use Case**: Used for secure API authorization.
-- **Best Practice**: Use strong secrets; validate claims; handle expiration.
+## Notes
+- JWTs are signed using HMAC-SHA256 (HS256) with a shared secret.
+- Always validate `exp` and other claims in production.

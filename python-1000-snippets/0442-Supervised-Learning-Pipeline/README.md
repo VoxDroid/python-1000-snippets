@@ -1,33 +1,21 @@
 # Supervised Learning Pipeline
 
 ## Description
-This snippet demonstrates a supervised learning pipeline using `scikit-learn`.
+This snippet demonstrates building sklearn pipelines for supervised learning workflows, including preprocessing, feature engineering, and model training.
 
-## Code
-```python
-# Note: Requires `scikit-learn`. Install with `pip install scikit-learn`
-try:
-    from sklearn.datasets import make_classification
-    from sklearn.model_selection import train_test_split
-    from sklearn.linear_model import LogisticRegression
-    X, y = make_classification(n_samples=100)
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-    model = LogisticRegression()
-    model.fit(X_train, y_train)
-    print("Model trained")
-except ImportError:
-    print("Mock Output: Model trained")
-```
+## Requirements
+- Python 3.8+
+- `scikit-learn` (`pip install scikit-learn`)
+- `pandas` (`pip install pandas`)
 
-## Output
-```
-Mock Output: Model trained
-```
-*(Real output with `scikit-learn`: `Model trained`)*
+## Samples
+- `SAMPLES/sample1.py`: Build a simple pipeline with scaling and logistic regression.
+- `SAMPLES/sample2.py`: Add polynomial feature expansion to the pipeline and evaluate with cross-validation.
+- `SAMPLES/sample3.py`: Use `ColumnTransformer` to preprocess numeric and categorical features before training.
 
-## Explanation
-- **Supervised Learning Pipeline**: Trains a logistic regression model.
-- **Logic**: Generates data, splits it, and trains a model.
-- **Complexity**: O(n) for n samples (model-dependent).
-- **Use Case**: Used for classification or regression tasks.
-- **Best Practice**: Preprocess data; tune models; evaluate performance.
+## Running
+```bash
+python python-1000-snippets/0442-Supervised-Learning-Pipeline/SAMPLES/sample1.py
+python python-1000-snippets/0442-Supervised-Learning-Pipeline/SAMPLES/sample2.py
+python python-1000-snippets/0442-Supervised-Learning-Pipeline/SAMPLES/sample3.py
+```

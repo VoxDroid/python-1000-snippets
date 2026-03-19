@@ -1,31 +1,20 @@
 # Gradient Boosting Model
 
 ## Description
-This snippet demonstrates a gradient boosting model using `xgboost`.
+This snippet demonstrates training gradient boosting models using scikit-learn's ensemble methods.
 
-## Code
-```python
-# Note: Requires `xgboost`. Install with `pip install xgboost`
-try:
-    from xgboost import XGBClassifier
-    from sklearn.datasets import make_classification
-    X, y = make_classification(n_samples=100)
-    model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
-    model.fit(X, y)
-    print("Model trained")
-except ImportError:
-    print("Mock Output: Model trained")
-```
+## Requirements
+- Python 3.8+
+- `scikit-learn` (`pip install scikit-learn`)
 
-## Output
-```
-Mock Output: Model trained
-```
-*(Real output with `xgboost`: `Model trained`)*
+## Samples
+- `SAMPLES/sample1.py`: Train a `GradientBoostingClassifier` and report accuracy.
+- `SAMPLES/sample2.py`: Train a `HistGradientBoostingClassifier` (faster on large datasets).
+- `SAMPLES/sample3.py`: Inspect feature importances from a gradient boosting model.
 
-## Explanation
-- **Gradient Boosting Model**: Trains an XGBoost classifier.
-- **Logic**: Fits a boosting model on synthetic classification data.
-- **Complexity**: O(n log n) for n samples (tree-dependent).
-- **Use Case**: Used for high-performance classification tasks.
-- **Best Practice**: Tune hyperparameters; handle imbalanced data; evaluate performance.
+## Running
+```bash
+python python-1000-snippets/0447-Gradient-Boosting-Model/SAMPLES/sample1.py
+python python-1000-snippets/0447-Gradient-Boosting-Model/SAMPLES/sample2.py
+python python-1000-snippets/0447-Gradient-Boosting-Model/SAMPLES/sample3.py
+```

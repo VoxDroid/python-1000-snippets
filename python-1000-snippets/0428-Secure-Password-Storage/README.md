@@ -1,29 +1,25 @@
 # Secure Password Storage
 
 ## Description
-This snippet demonstrates secure password hashing using `bcrypt`.
+This snippet demonstrates secure password hashing and verification using modern algorithms (bcrypt, Argon2, and scrypt).
 
-## Code
-```python
-# Note: Requires `bcrypt`. Install with `pip install bcrypt`
-try:
-    import bcrypt
-    password = "mypassword".encode()
-    hashed = bcrypt.hashpw(password, bcrypt.gensalt())
-    print("Password hashed:", bcrypt.checkpw(password, hashed))
-except ImportError:
-    print("Mock Output: Password hashed: True")
+## Requirements
+- Python 3.8+
+- `bcrypt` (`pip install bcrypt`)
+- `argon2-cffi` (`pip install argon2-cffi`)
+
+## Samples
+- `SAMPLES/sample1.py`: Hash and verify passwords using bcrypt.
+- `SAMPLES/sample2.py`: Hash and verify passwords using Argon2.
+- `SAMPLES/sample3.py`: Derive a key from a password using scrypt.
+
+## Running
+```bash
+python python-1000-snippets/0428-Secure-Password-Storage/SAMPLES/sample1.py
+python python-1000-snippets/0428-Secure-Password-Storage/SAMPLES/sample2.py
+python python-1000-snippets/0428-Secure-Password-Storage/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Password hashed: True
-```
-*(Real output with `bcrypt`: `Password hashed: True`)*
-
-## Explanation
-- **Secure Password Storage**: Hashes and verifies passwords securely.
-- **Logic**: Uses `bcrypt` to hash a password and check it.
-- **Complexity**: O(1) per hash/check (computationally intensive).
-- **Use Case**: Used for user authentication systems.
-- **Best Practice**: Use strong salts; adjust work factor; avoid plain text.
+## Notes
+- Use a well-tested library (bcrypt, Argon2) for password hashing; avoid custom crypto.
+- Store only the hash (and salt if applicable), never plaintext passwords.

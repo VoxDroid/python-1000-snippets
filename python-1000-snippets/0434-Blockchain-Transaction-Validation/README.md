@@ -1,38 +1,24 @@
 # Blockchain Transaction Validation
 
 ## Description
-This snippet demonstrates a simplified blockchain transaction validation.
+This snippet demonstrates signing and validating blockchain transactions using `web3` and `eth_account`.
 
-## Code
-```python
-try:
-    import hashlib
-    class Transaction:
-        def __init__(self, sender, receiver, amount):
-            self.sender = sender
-            self.receiver = receiver
-            self.amount = amount
-        
-        def is_valid(self):
-            return self.amount > 0 and hashlib.sha256(f"{self.sender}{self.receiver}{self.amount}".encode()).hexdigest().startswith("0")
-    
-    tx = Transaction("Alice", "Bob", 10)
-    print("Valid:", tx.is_valid())
-except ImportError:
-    print("Mock Output: Valid: True")
+## Requirements
+- Python 3.8+
+- `web3` (`pip install web3`)
+
+## Samples
+- `SAMPLES/sample1.py`: Sign a transaction and recover the sender address from the signature.
+- `SAMPLES/sample2.py`: Show that modifying a transaction changes the signature hash.
+- `SAMPLES/sample3.py`: Demonstrate that signatures correspond to specific private keys.
+
+## Running
+```bash
+python python-1000-snippets/0434-Blockchain-Transaction-Validation/SAMPLES/sample1.py
+python python-1000-snippets/0434-Blockchain-Transaction-Validation/SAMPLES/sample2.py
+python python-1000-snippets/0434-Blockchain-Transaction-Validation/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Valid: False
-```
-*(Real output: `Valid: False` in most cases unless the hash starts with '0')*
-
-## Explanation
-- **Blockchain Transaction Validation**: Validates a transaction’s integrity.
-    - In real blockchain systems, you'd also validate the sender's signature and other factors like timestamps.
-    - In real systems, the hash condition could represent proof of work or other consensus rules.
-- **Logic**: Checks positive amount and a simplified hash condition.
-- **Complexity**: O(1) for validation.
-- **Use Case**: Used in blockchain systems for transaction verification.
-- **Best Practice**: Use cryptographic signatures; validate inputs; ensure consensus.
+## Notes
+- These examples use local signing only; transactions are not broadcast to an actual network.
+- In practice, transactions also include chain-specific fields like `chainId` and `nonce`.

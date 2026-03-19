@@ -1,32 +1,20 @@
-# Cross-Validation Setup
+# Cross Validation Setup
 
 ## Description
-This snippet demonstrates k-fold cross-validation using `scikit-learn`.
+This snippet demonstrates how to set up different cross-validation strategies for model evaluation using scikit-learn.
 
-## Code
-```python
-# Note: Requires `scikit-learn`. Install with `pip install scikit-learn`
-try:
-    from sklearn.datasets import make_classification
-    from sklearn.model_selection import cross_val_score
-    from sklearn.linear_model import LogisticRegression
-    X, y = make_classification(n_samples=100)
-    model = LogisticRegression()
-    scores = cross_val_score(model, X, y, cv=5)
-    print("Scores:", scores.mean())
-except ImportError:
-    print("Mock Output: Scores: 0.85")
-```
+## Requirements
+- Python 3.8+
+- `scikit-learn` (`pip install scikit-learn`)
 
-## Output
-```
-Mock Output: Scores: 0.85
-```
-*(Real output with `scikit-learn`: `Scores: <mean accuracy>`)*
+## Samples
+- `SAMPLES/sample1.py`: K-fold cross-validation with shuffling.
+- `SAMPLES/sample2.py`: Stratified K-fold cross-validation for classification.
+- `SAMPLES/sample3.py`: Leave-one-out cross-validation (LOOCV).
 
-## Explanation
-- **Cross-Validation Setup**: Evaluates model performance with k-fold CV.
-- **Logic**: Splits data into 5 folds and computes accuracy.
-- **Complexity**: O(n * k) for n samples, k folds.
-- **Use Case**: Used to assess model generalization.
-- **Best Practice**: Choose appropriate k; shuffle data; report variance.
+## Running
+```bash
+python python-1000-snippets/0446-Cross-Validation-Setup/SAMPLES/sample1.py
+python python-1000-snippets/0446-Cross-Validation-Setup/SAMPLES/sample2.py
+python python-1000-snippets/0446-Cross-Validation-Setup/SAMPLES/sample3.py
+```

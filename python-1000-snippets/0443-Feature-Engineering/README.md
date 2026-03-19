@@ -1,30 +1,21 @@
 # Feature Engineering
 
 ## Description
-This snippet demonstrates feature engineering using `pandas`.
+This snippet demonstrates common feature engineering techniques used in machine learning, such as creating new features, polynomial features, and binning.
 
-## Code
-```python
-# Note: Requires `pandas`. Install with `pip install pandas`
-try:
-    import pandas as pd
-    df = pd.DataFrame({"age": [25, 30, None]})
-    df["age_squared"] = df["age"] ** 2
-    df["age"].fillna(df["age"].mean(), inplace=True)
-    print("Features engineered")
-except ImportError:
-    print("Mock Output: Features engineered")
-```
+## Requirements
+- Python 3.8+
+- `scikit-learn` (`pip install scikit-learn`)
+- `pandas` (`pip install pandas`)
 
-## Output
-```
-Mock Output: Features engineered
-```
-*(Real output with `pandas`: `Features engineered`)*
+## Samples
+- `SAMPLES/sample1.py`: Create a derived feature and train a model.
+- `SAMPLES/sample2.py`: Expand features using polynomial basis functions.
+- `SAMPLES/sample3.py`: Discretize a continuous feature and one-hot encode it.
 
-## Explanation
-- **Feature Engineering**: Creates and cleans features in a dataset.
-- **Logic**: Adds a squared feature and imputes missing values.
-- **Complexity**: O(n) for n rows.
-- **Use Case**: Used to improve ML model performance.
-- **Best Practice**: Handle missing data; avoid data leakage; document transformations.
+## Running
+```bash
+python python-1000-snippets/0443-Feature-Engineering/SAMPLES/sample1.py
+python python-1000-snippets/0443-Feature-Engineering/SAMPLES/sample2.py
+python python-1000-snippets/0443-Feature-Engineering/SAMPLES/sample3.py
+```

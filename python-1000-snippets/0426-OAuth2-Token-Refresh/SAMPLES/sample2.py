@@ -1,5 +1,80 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Demonstrates handling an invalid refresh token response from an OAuth2 server.
 
-if __name__ == '__main__':
-    print('sample 2')
+import threading
+import time
+
+import requests
+from flask import Flask, request, jsonify
+
+
+VALID_REFRESH_TOKEN = "refresh123"
+
+
+def create_app():
+    app = Flask(__name__)
+
+    @app.route("/oauth/token", methods=["POST"])
+    def token():
+        grant_type = request.form.get("grant_type")
+        refresh_token = request.form.get("refresh_token")
+
+        if grant_type != "refresh_token" or refresh_token != VALID_REFRESH_TOKEN:
+            return (
+                jsonify(
+                    error="invalid_grant",
+                    error_description="Invalid refresh token",
+                ),
+                400,
+            )
+
+        return jsonify(
+            access_token="new-access-token",
+            token_type="Bearer",
+            expires_in=3600,
+            refresh_token=VALID_REFRESH_TOKEN,
+        )
+
+    return app
+
+
+def run_server(port: int):
+    app = create_app()
+    from werkzeug.serving import make_server
+
+    server = make_server("127.0.0.1", port, app)
+    thread = threading.Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    return server
+
+
+def main() -> None:
+    import socket
+
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind(("127.0.0.1", 0))
+        port = s.getsockname()[1]
+
+    server = run_server(port)
+    time.sleep(0.1)
+
+    try:
+        token_url = f"http://127.0.0.1:{port}/oauth/token"
+        resp = requests.post(
+            token_url,
+            data={
+                "grant_type": "refresh_token",
+                "refresh_token": "invalid-token",
+            },
+        )
+
+        if resp.status_code != 200:
+            print("Refresh failed:", resp.status_code, resp.json())
+        else:
+            print("Unexpected success:", resp.json())
+    finally:
+        server.shutdown()
+
+
+if __name__ == "__main__":
+    main()

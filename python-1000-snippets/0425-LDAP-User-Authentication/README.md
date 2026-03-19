@@ -1,31 +1,26 @@
 # LDAP User Authentication
 
 ## Description
-This snippet demonstrates LDAP authentication using `ldap3`.
+This snippet demonstrates LDAP authentication and directory operations using the `ldap3` library.
 
-## Code
-```python
-# Note: Requires `ldap3`. Install with `pip install ldap3`
-try:
-    from ldap3 import Server, Connection
-    server = Server("ldap://localhost")
-    conn = Connection(server, user="cn=user,dc=example,dc=com", password="pass")
-    conn.bind()
-    print("Authenticated" if conn.bound else "Failed")
-    conn.unbind()
-except ImportError:
-    print("Mock Output: Authenticated")
+The examples use an in-memory mock LDAP server (`MOCK_SYNC`) so they run without requiring an external LDAP service.
+
+## Requirements
+- Python 3.8+
+- `ldap3` (`pip install ldap3`)
+
+## Samples
+- `SAMPLES/sample1.py`: Bind to the LDAP server as an admin user.
+- `SAMPLES/sample2.py`: Search for a user entry by attribute.
+- `SAMPLES/sample3.py`: Modify a user entry (change password) and re-authenticate.
+
+## Running
+```bash
+python python-1000-snippets/0425-LDAP-User-Authentication/SAMPLES/sample1.py
+python python-1000-snippets/0425-LDAP-User-Authentication/SAMPLES/sample2.py
+python python-1000-snippets/0425-LDAP-User-Authentication/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Authenticated
-```
-*(Real output with `ldap3` and LDAP server: `Authenticated` or `Failed`)*
-
-## Explanation
-- **LDAP User Authentication**: Authenticates a user against an LDAP server.
-- **Logic**: Connects and binds to LDAP with credentials.
-- **Complexity**: O(1) per bind (network-dependent).
-- **Use Case**: Used for enterprise user authentication.
-- **Best Practice**: Use TLS; handle bind errors; secure credentials.
+## Notes
+- These examples do not connect to a real LDAP server; they demonstrate LDAP operations in a mocked environment.
+- For production, connect to a real LDAP server and use secure connections (LDAPS) as needed.

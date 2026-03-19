@@ -1,31 +1,20 @@
 # SVM Classification
 
 ## Description
-This snippet demonstrates SVM classification using `scikit-learn`.
+This snippet demonstrates training and tuning support vector machine classifiers using scikit-learn.
 
-## Code
-```python
-# Note: Requires `scikit-learn`. Install with `pip install scikit-learn`
-try:
-    from sklearn.datasets import make_classification
-    from sklearn.svm import SVC
-    X, y = make_classification(n_samples=100)
-    model = SVC(kernel="linear")
-    model.fit(X, y)
-    print("Model trained")
-except ImportError:
-    print("Mock Output: Model trained")
-```
+## Requirements
+- Python 3.8+
+- `scikit-learn` (`pip install scikit-learn`)
 
-## Output
-```
-Mock Output: Model trained
-```
-*(Real output with `scikit-learn`: `Model trained`)*
+## Samples
+- `SAMPLES/sample1.py`: Train a basic SVM classifier with an RBF kernel.
+- `SAMPLES/sample2.py`: Compare different SVM kernels using cross-validation.
+- `SAMPLES/sample3.py`: Tune SVM hyperparameters with `GridSearchCV`.
 
-## Explanation
-- **SVM Classification**: Trains a linear SVM classifier.
-- **Logic**: Fits an SVM model on synthetic data.
-- **Complexity**: O(n^2) for n samples (kernel-dependent).
-- **Use Case**: Used for small to medium datasets with clear margins.
-- **Best Practice**: Scale features; tune kernel/parameters; evaluate accuracy.
+## Running
+```bash
+python python-1000-snippets/0448-SVM-Classification/SAMPLES/sample1.py
+python python-1000-snippets/0448-SVM-Classification/SAMPLES/sample2.py
+python python-1000-snippets/0448-SVM-Classification/SAMPLES/sample3.py
+```

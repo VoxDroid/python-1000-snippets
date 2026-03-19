@@ -1,30 +1,24 @@
 # AES Encryption
 
 ## Description
-This snippet demonstrates AES encryption using `cryptography`.
+This snippet demonstrates AES encryption using the `cryptography` library.
 
-## Code
-```python
-# Note: Requires `cryptography`. Install with `pip install cryptography`
-try:
-    from cryptography.fernet import Fernet
-    key = Fernet.generate_key()
-    cipher = Fernet(key)
-    encrypted = cipher.encrypt(b"Secret")
-    print("Encrypted:", encrypted[:10])
-except ImportError:
-    print("Mock Output: Encrypted: b'gAAAAAB...'")
+## Requirements
+- Python 3.8+
+- `cryptography` (`pip install cryptography`)
+
+## Samples
+- `SAMPLES/sample1.py`: Encrypt and decrypt a message using `Fernet` (AES-128-GCM).
+- `SAMPLES/sample2.py`: Encrypt/decrypt using AES-GCM (`AESGCM`) with associated data.
+- `SAMPLES/sample3.py`: Encrypt/decrypt using AES-CBC with PKCS7 padding.
+
+## Running
+```bash
+python python-1000-snippets/0429-AES-Encryption/SAMPLES/sample1.py
+python python-1000-snippets/0429-AES-Encryption/SAMPLES/sample2.py
+python python-1000-snippets/0429-AES-Encryption/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Encrypted: b'gAAAAAB...'
-```
-*(Real output with `cryptography`: `Encrypted: <binary data>`)*
-
-## Explanation
-- **AES Encryption**: Encrypts data using AES via `Fernet`.
-- **Logic**: Generates a key and encrypts a message.
-- **Complexity**: O(n) for n bytes in data.
-- **Use Case**: Used for secure data storage or transmission.
-- **Best Practice**: Secure key storage; use authenticated encryption; test decryption.
+## Notes
+- Use authenticated encryption modes (like GCM or Fernet) to prevent tampering.
+- Keep encryption keys secret and rotate them as needed.

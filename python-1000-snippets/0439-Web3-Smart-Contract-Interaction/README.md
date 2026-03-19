@@ -1,29 +1,25 @@
 # Web3 Smart Contract Interaction
 
 ## Description
-This snippet demonstrates calling a smart contract function using `web3`.
+Demonstrates interacting with smart contracts using `web3.py` and a local in-memory Ethereum node (`eth-tester`).
 
-## Code
-```python
-# Note: Requires `web3`. Install with `pip install web3`
-try:
-    from web3 import Web3
-    w3 = Web3(Web3.HTTPProvider("http://localhost:8545"))
-    contract = w3.eth.contract(address="0x1234567890abcdef1234567890abcdef12345678", abi=[{"inputs": [], "name": "getValue", "outputs": [{"type": "uint256"}]}])
-    print("Mock Output: Contract call prepared")
-except ImportError:
-    print("Mock Output: Contract call prepared")
+## Requirements
+- Python 3.8+
+- `web3` (`pip install web3`)
+- `py-solc-x` (`pip install py-solc-x`)
+
+## Samples
+- `SAMPLES/sample1.py`: Deploy a contract and call a function.
+- `SAMPLES/sample2.py`: Sign and send a raw transaction.
+- `SAMPLES/sample3.py`: Create an event filter and read logs.
+
+## Running
+```bash
+python python-1000-snippets/0439-Web3-Smart-Contract-Interaction/SAMPLES/sample1.py
+python python-1000-snippets/0439-Web3-Smart-Contract-Interaction/SAMPLES/sample2.py
+python python-1000-snippets/0439-Web3-Smart-Contract-Interaction/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Contract call prepared
-```
-*(Real output with `web3` and Ethereum node: `Contract call prepared`)*
-
-## Explanation
-- **Web3 Smart Contract Interaction**: Prepares to call a contract function.
-- **Logic**: Initializes a contract with an ABI and address.
-- **Complexity**: O(1) for preparation (network-dependent).
-- **Use Case**: Used for interacting with deployed smart contracts.
-- **Best Practice**: Validate ABI/address; handle gas costs; test on testnet.
+## Notes
+- `eth-tester` provides a local EVM for testing; it does not connect to real networks.
+- For production, configure `Web3` with a real provider (Infura, Alchemy, etc.).

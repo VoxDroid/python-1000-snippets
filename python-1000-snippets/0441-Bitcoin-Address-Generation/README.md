@@ -1,33 +1,20 @@
 # Bitcoin Address Generation
 
 ## Description
-This snippet demonstrates generating a Bitcoin address using `ecdsa`.
+This snippet demonstrates generating and validating Bitcoin P2PKH addresses using Python and the `cryptography` library.
 
-## Code
-```python
-# Note: Requires `ecdsa`. Install with `pip install ecdsa`
-try:
-    import ecdsa
-    import hashlib
-    import base58
-    sk = ecdsa.SigningKey.generate(curve=ecdsa.SECP256k1)
-    vk = sk.verifying_key
-    public_key = b"\x04" + vk.to_string()
-    address = base58.b58encode(public_key)[:10]
-    print("Address:", address.decode())
-except ImportError:
-    print("Mock Output: Address: 1A2B3C4D5E")
-```
+## Requirements
+- Python 3.8+
+- `cryptography` (`pip install cryptography`)
 
-## Output
-```
-Mock Output: Address: 1A2B3C4D5E
-```
-*(Real output with `ecdsa`: `Address: <base58 prefix>`)*
+## Samples
+- `SAMPLES/sample1.py`: Generate a new Bitcoin private key and derive a P2PKH address.
+- `SAMPLES/sample2.py`: Decode a WIF private key and derive the corresponding P2PKH address.
+- `SAMPLES/sample3.py`: Show the difference between mainnet and testnet P2PKH addresses for the same key.
 
-## Explanation
-- **Bitcoin Address Generation**: Creates a simplified Bitcoin address.
-- **Logic**: Generates an ECDSA key pair and encodes the public key.
-- **Complexity**: O(1) for generation.
-- **Use Case**: Used in cryptocurrency wallets.
-- **Best Practice**: Follow Bitcoin standards; secure private keys; validate addresses.
+## Running
+```bash
+python python-1000-snippets/0441-Bitcoin-Address-Generation/SAMPLES/sample1.py
+python python-1000-snippets/0441-Bitcoin-Address-Generation/SAMPLES/sample2.py
+python python-1000-snippets/0441-Bitcoin-Address-Generation/SAMPLES/sample3.py
+```

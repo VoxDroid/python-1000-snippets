@@ -1,30 +1,24 @@
 # Cryptocurrency Transaction Signing
 
 ## Description
-This snippet demonstrates signing a transaction using `ecdsa`.
+This snippet demonstrates signing and verifying cryptocurrency transactions and messages using ECDSA (secp256k1).
 
-## Code
-```python
-# Note: Requires `ecdsa`. Install with `pip install ecdsa`
-try:
-    from ecdsa import SigningKey, SECP256k1
-    sk = SigningKey.generate(curve=SECP256k1)
-    message = b"Transaction"
-    signature = sk.sign(message)
-    print("Signature:", signature.hex()[:10])
-except ImportError:
-    print("Mock Output: Signature: bb5f24bf75")
+## Requirements
+- Python 3.8+
+- `web3` (`pip install web3`)
+
+## Samples
+- `SAMPLES/sample1.py`: Sign a message and derive an Ethereum-style address from the public key.
+- `SAMPLES/sample2.py`: Verify an ECDSA signature and detect tampering.
+- `SAMPLES/sample3.py`: Recover an address from an ECDSA signature.
+
+## Running
+```bash
+python python-1000-snippets/0437-Cryptocurrency-Transaction-Signing/SAMPLES/sample1.py
+python python-1000-snippets/0437-Cryptocurrency-Transaction-Signing/SAMPLES/sample2.py
+python python-1000-snippets/0437-Cryptocurrency-Transaction-Signing/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Signature: bb5f24bf75
-```
-*(Real output with `ecdsa`: `Signature: <hex prefix>`)*
-
-## Explanation
-- **Cryptocurrency Transaction Signing**: Signs a transaction with ECDSA.
-- **Logic**: Generates a key and signs a message.
-- **Complexity**: O(1) for signing.
-- **Use Case**: Used in cryptocurrency wallets for transaction authorization.
-- **Best Practice**: Secure private keys; use standard curves; verify signatures.
+## Notes
+- These examples use secp256k1 (the curve used by Bitcoin and Ethereum).
+- In real systems, private keys must be stored securely (e.g., hardware wallets).

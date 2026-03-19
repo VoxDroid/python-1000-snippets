@@ -1,31 +1,20 @@
 # Naive Bayes Classifier
 
 ## Description
-This snippet demonstrates a Naive Bayes classifier using `scikit-learn`.
+This snippet demonstrates different flavors of Naive Bayes classifiers for classification tasks.
 
-## Code
-```python
-# Note: Requires `scikit-learn`. Install with `pip install scikit-learn`
-try:
-    from sklearn.datasets import make_classification
-    from sklearn.naive_bayes import GaussianNB
-    X, y = make_classification(n_samples=100)
-    model = GaussianNB()
-    model.fit(X, y)
-    print("Model trained")
-except ImportError:
-    print("Mock Output: Model trained")
-```
+## Requirements
+- Python 3.8+
+- `scikit-learn` (`pip install scikit-learn`)
 
-## Output
-```
-Mock Output: Model trained
-```
-*(Real output with `scikit-learn`: `Model trained`)*
+## Samples
+- `SAMPLES/sample1.py`: Gaussian Naive Bayes for continuous features.
+- `SAMPLES/sample2.py`: Multinomial Naive Bayes for count data.
+- `SAMPLES/sample3.py`: Bernoulli Naive Bayes for binary feature data.
 
-## Explanation
-- **Naive Bayes Classifier**: Trains a Gaussian Naive Bayes model.
-- **Logic**: Fits a model assuming Gaussian feature distributions.
-- **Complexity**: O(n * d) for n samples, d features.
-- **Use Case**: Used for text classification or simple datasets.
-- **Best Practice**: Handle feature independence; preprocess data; evaluate performance.
+## Running
+```bash
+python python-1000-snippets/0449-Naive-Bayes-Classifier/SAMPLES/sample1.py
+python python-1000-snippets/0449-Naive-Bayes-Classifier/SAMPLES/sample2.py
+python python-1000-snippets/0449-Naive-Bayes-Classifier/SAMPLES/sample3.py
+```

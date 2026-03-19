@@ -1,31 +1,21 @@
 # Data Preprocessing
 
 ## Description
-This snippet demonstrates data preprocessing using `scikit-learn`.
+This snippet demonstrates common data preprocessing steps such as imputing missing values and scaling features using scikit-learn.
 
-## Code
-```python
-# Note: Requires `scikit-learn`. Install with `pip install scikit-learn`
-try:
-    from sklearn.preprocessing import StandardScaler
-    import numpy as np
-    data = np.array([[1], [2], [3]])
-    scaler = StandardScaler()
-    scaled_data = scaler.fit_transform(data)
-    print("Data scaled")
-except ImportError:
-    print("Mock Output: Data scaled")
-```
+## Requirements
+- Python 3.8+
+- `scikit-learn` (`pip install scikit-learn`)
+- `pandas` (`pip install pandas`)
 
-## Output
-```
-Mock Output: Data scaled
-```
-*(Real output with `scikit-learn`: `Data scaled`)*
+## Samples
+- `SAMPLES/sample1.py`: Impute missing values with a mean strategy.
+- `SAMPLES/sample2.py`: Scale features using standard scaling and min-max scaling.
+- `SAMPLES/sample3.py`: Build a preprocessing pipeline for numeric and categorical data.
 
-## Explanation
-- **Data Preprocessing**: Scales data to zero mean and unit variance.
-- **Logic**: Applies `StandardScaler` to normalize data.
-- **Complexity**: O(n) for n samples.
-- **Use Case**: Used to prepare data for ML models.
-- **Best Practice**: Fit scaler on training data; handle outliers; test scaling.
+## Running
+```bash
+python python-1000-snippets/0444-Data-Preprocessing/SAMPLES/sample1.py
+python python-1000-snippets/0444-Data-Preprocessing/SAMPLES/sample2.py
+python python-1000-snippets/0444-Data-Preprocessing/SAMPLES/sample3.py
+```

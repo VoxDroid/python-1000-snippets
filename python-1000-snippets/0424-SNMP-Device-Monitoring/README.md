@@ -1,29 +1,26 @@
 # SNMP Device Monitoring
 
 ## Description
-This snippet demonstrates querying an SNMP device using `pysnmp`.
+This snippet demonstrates querying an SNMP agent using `pysnmp`.
 
-## Code
-```python
-# Note: Requires `pysnmp`. Install with `pip install pysnmp`
-try:
-    from pysnmp.hlapi import getCmd, SnmpEngine, CommunityData, UdpTransportTarget, ContextData, ObjectType, ObjectIdentity
-    iterator = getCmd(SnmpEngine(), CommunityData("public"), UdpTransportTarget(("localhost", 161)), ContextData(), ObjectType(ObjectIdentity("SNMPv2-MIB", "sysDescr", 0)))
-    error, _, _, varBinds = next(iterator)
-    print("Mock Output: Device info retrieved")
-except ImportError:
-    print("Mock Output: Device info retrieved")
+The examples run a local SNMP agent in-process and then query it using SNMPv2c GET and GETNEXT operations.
+
+## Requirements
+- Python 3.8+
+- `pysnmp` (`pip install pysnmp`)
+
+## Samples
+- `SAMPLES/sample1.py`: Query the `sysDescr` scalar via SNMP GET.
+- `SAMPLES/sample2.py`: Perform an SNMP GETNEXT (next OID) operation.
+- `SAMPLES/sample3.py`: Walk a MIB subtree using SNMP GETNEXT.
+
+## Running
+```bash
+python python-1000-snippets/0424-SNMP-Device-Monitoring/SAMPLES/sample1.py
+python python-1000-snippets/0424-SNMP-Device-Monitoring/SAMPLES/sample2.py
+python python-1000-snippets/0424-SNMP-Device-Monitoring/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Device info retrieved
-```
-*(Real output with `pysnmp` and SNMP device: Device description)*
-
-## Explanation
-- **SNMP Device Monitoring**: Queries device information via SNMP.
-- **Logic**: Uses `pysnmp` to retrieve system description.
-- **Complexity**: O(1) per query (network-dependent).
-- **Use Case**: Used for network device monitoring.
-- **Best Practice**: Secure with SNMPv3; handle errors; validate OIDs.
+## Notes
+- The local agent uses community string `public` and listens on a dynamically selected UDP port.
+- The examples do not require any external SNMP device.

@@ -1,32 +1,26 @@
 # SSH Remote Command Execution
 
 ## Description
-This snippet demonstrates executing a remote command via SSH using `paramiko`.
+This snippet demonstrates executing remote commands over SSH using `asyncssh`.
 
-## Code
-```python
-# Note: Requires `paramiko`. Install with `pip install paramiko`
-try:
-    import paramiko
-    client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect("localhost", username="user", password="pass")
-    stdin, stdout, stderr = client.exec_command("echo Hello")
-    print(stdout.read().decode())
-    client.close()
-except ImportError:
-    print("Mock Output: Hello")
+Each example runs an in-process SSH server and connects to it, so no external SSH host is required.
+
+## Requirements
+- Python 3.8+
+- `asyncssh` (`pip install asyncssh`)
+
+## Samples
+- `SAMPLES/sample1.py`: Run a simple command and print stdout.
+- `SAMPLES/sample2.py`: Run a command that fails and print stderr/exit code.
+- `SAMPLES/sample3.py`: Stream command output line-by-line.
+
+## Running
+```bash
+python python-1000-snippets/0423-SSH-Remote-Command-Execution/SAMPLES/sample1.py
+python python-1000-snippets/0423-SSH-Remote-Command-Execution/SAMPLES/sample2.py
+python python-1000-snippets/0423-SSH-Remote-Command-Execution/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Hello
-```
-*(Real output with `paramiko` and SSH server: `Hello`)*
-
-## Explanation
-- **SSH Remote Command Execution**: Runs a command on a remote server.
-- **Logic**: Uses `paramiko` to execute `echo Hello` via SSH.
-- **Complexity**: O(1) per command (network-dependent).
-- **Use Case**: Used for server automation or management.
-- **Best Practice**: Use key-based auth; handle errors; secure connections.
+## Notes
+- These examples use password-based authentication for simplicity (user: `user`, password: `12345`).
+- For production, prefer key-based authentication and proper host key verification.

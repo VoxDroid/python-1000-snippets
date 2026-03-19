@@ -1,33 +1,24 @@
 # Digital Signature Verification
 
 ## Description
-This snippet demonstrates digital signature creation and verification using `cryptography`.
+This snippet demonstrates creating and verifying digital signatures using the `cryptography` library.
 
-## Code
-```python
-# Note: Requires `cryptography`. Install with `pip install cryptography`
-try:
-    from cryptography.hazmat.primitives.asymmetric import rsa, padding
-    from cryptography.hazmat.primitives import hashes
-    private_key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
-    public_key = private_key.public_key()
-    message = b"Message"
-    signature = private_key.sign(message, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH), hashes.SHA256())
-    public_key.verify(signature, message, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH), hashes.SHA256())
-    print("Signature verified")
-except ImportError:
-    print("Mock Output: Signature verified")
+## Requirements
+- Python 3.8+
+- `cryptography` (`pip install cryptography`)
+
+## Samples
+- `SAMPLES/sample1.py`: Sign a message with RSA and verify the signature.
+- `SAMPLES/sample2.py`: Show signature verification failing when the message is altered.
+- `SAMPLES/sample3.py`: Sign and verify a message using ECDSA (secp256r1).
+
+## Running
+```bash
+python python-1000-snippets/0431-Digital-Signature-Verification/SAMPLES/sample1.py
+python python-1000-snippets/0431-Digital-Signature-Verification/SAMPLES/sample2.py
+python python-1000-snippets/0431-Digital-Signature-Verification/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Signature verified
-```
-*(Real output with `cryptography`: `Signature verified`)*
-
-## Explanation
-- **Digital Signature Verification**: Signs and verifies a message using RSA.
-- **Logic**: Generates a key pair, signs a message, and verifies the signature.
-- **Complexity**: O(1) for signing/verification (computationally intensive).
-- **Use Case**: Used for message authenticity in secure communications.
-- **Best Practice**: Use secure padding; protect private key; validate inputs.
+## Notes
+- Always verify signatures using the correct public key.
+- Use well-established algorithms and avoid custom signature schemes.

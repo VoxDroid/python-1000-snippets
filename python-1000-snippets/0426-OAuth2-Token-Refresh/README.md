@@ -1,31 +1,26 @@
 # OAuth2 Token Refresh
 
 ## Description
-This snippet demonstrates OAuth2 token refresh using `requests`.
+This snippet demonstrates using the OAuth2 refresh token flow to obtain a new access token.
 
-## Code
-```python
-# Note: Requires `requests`. Install with `pip install requests`
-try:
-    import requests
-    response = requests.post("http://example.com/oauth/token", data={
-        "grant_type": "refresh_token",
-        "refresh_token": "example_token"
-    })
-    print("Mock Output: Token refreshed")
-except ImportError:
-    print("Mock Output: Token refreshed")
+The examples run a local HTTP server that implements a minimal OAuth2 token endpoint, so no external identity provider is required.
+
+## Requirements
+- Python 3.8+
+- `flask` (`pip install flask`)
+- `requests` (`pip install requests`)
+
+## Samples
+- `SAMPLES/sample1.py`: Refresh an access token using a valid refresh token.
+- `SAMPLES/sample2.py`: Handle an invalid refresh token response.
+- `SAMPLES/sample3.py`: Use the refreshed access token to call a protected endpoint.
+
+## Running
+```bash
+python python-1000-snippets/0426-OAuth2-Token-Refresh/SAMPLES/sample1.py
+python python-1000-snippets/0426-OAuth2-Token-Refresh/SAMPLES/sample2.py
+python python-1000-snippets/0426-OAuth2-Token-Refresh/SAMPLES/sample3.py
 ```
 
-## Output
-```
-Mock Output: Token refreshed
-```
-*(Real output with `requests` and OAuth2 server: Token data)*
-
-## Explanation
-- **OAuth2 Token Refresh**: Refreshes an OAuth2 access token.
-- **Logic**: Sends a POST request to refresh a token.
-- **Complexity**: O(1) per request (network-dependent).
-- **Use Case**: Used for maintaining API access.
-- **Best Practice**: Secure tokens; handle errors; validate responses.
+## Notes
+- These examples are for demonstration; a real OAuth2 implementation should include client authentication, secure storage of refresh tokens, and HTTPS.
