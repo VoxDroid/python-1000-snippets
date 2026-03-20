@@ -1,27 +1,24 @@
 # Weather Simulation
 
 ## Description
-This snippet demonstrates a simple weather simulation using `numpy`.
+This snippet demonstrates weather simulation using pure Python time series computations.
 
 ## Code
-```python
-try:
-    import numpy as np
-    temperature = 20 + np.random.randn(10) * 2
-    print("Temperatures:", temperature[:3])
-except ImportError:
-    print("Mock Output: Temperatures: [20.1 19.8 21.2]")
-```
+The sample scripts show:
+- `sample1.py`: Temperature series with trend and noise.
+- `sample2.py`: Pressure/humidity evolution over steps.
+- `sample3.py`: Wind chill index calculation.
 
 ## Output
-```
-Mock Output: Temperatures: [20.1 19.8 21.2]
-```
-*(Real output with `numpy`: `Temperatures: <random temperatures>`)*
+`sample1.py` prints a simulated temperature time series with min/max.
+
+`sample2.py` prints first/last values from a pressure/humidity trajectory.
+
+`sample3.py` prints wind chill values for sample pairs.
 
 ## Explanation
-- **Weather Simulation**: Simulates temperature fluctuations.
-- **Logic**: Generates temperatures with Gaussian noise.
+- **Weather Simulation**: Simulates weather variables with simple rules.
+- **Logic**: Uses series generation and formulaic calculations.
 - **Complexity**: O(n) for n time points.
-- **Use Case**: Used in climate modeling or game environments.
-- **Best Practice**: Model multiple variables; validate ranges; add trends.
+- **Use Case**: Useful for teaching or prototyping environmental systems.
+- **Best Practice**: Include seasonality, hysteresis, and constraints in realistic models.

@@ -1,33 +1,25 @@
 # Terrain Generation
 
 ## Description
-This snippet demonstrates terrain generation using Perlin noise with `noise`.
+This snippet demonstrates terrain generation techniques using NumPy, including heightmap creation, terrain classification, and contour extraction.
 
-## Code
-```python
-# Note: Requires `noise`. Install with `pip install noise`
-try:
-    import noise
-    import numpy as np
-    shape = (5, 5)
-    terrain = np.zeros(shape)
-    for i in range(shape[0]):
-        for j in range(shape[1]):
-            terrain[i][j] = noise.pnoise2(i * 0.1, j * 0.1)
-    print("Terrain:\n", terrain)
-except ImportError:
-    print("Mock Output: Terrain: [[0.1 0.2 ...] ...]")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample1.py`)
 ```
-Mock Output: Terrain: [[0.1 0.2 ...] ...]
+Heightmap stats: min= 0.586 max= 1.357
+Row sample: [0.798, 0.946, ...]
 ```
-*(Real output with `noise`: `Terrain: <5x5 noise array>`)*
 
 ## Explanation
-- **Terrain Generation**: Creates a 2D terrain using Perlin noise.
-- **Logic**: Generates smooth noise values for a 5x5 grid.
-- **Complexity**: O(n) for n cells.
-- **Use Case**: Used in games or simulations for realistic terrain.
-- **Best Practice**: Tune noise scale; normalize values; visualize terrain.
+- **Heightmap Generation**: Layer smoothed random noise to create a terrain heightmap.
+- **Terrain Classification**: Segment the heightmap into water, land, and mountain regions.
+- **Contour Extraction**: Find points near specified elevation levels (contours).
+- **Best Practice**: Normalize heightmaps, apply smoothing, and use meaningful thresholds for terrain categories.

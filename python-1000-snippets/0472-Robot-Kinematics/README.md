@@ -1,31 +1,27 @@
 # Robot Kinematics
 
 ## Description
-This snippet demonstrates forward kinematics for a 2D robot arm using `numpy`.
+This snippet demonstrates forward/inverse kinematics for a simple 2-link planar robot arm using NumPy.
 
-## Code
-```python
-try:
-    import numpy as np
-    def forward_kinematics(theta1, theta2, l1=1, l2=1):
-        x = l1 * np.cos(theta1) + l2 * np.cos(theta1 + theta2)
-        y = l1 * np.sin(theta1) + l2 * np.sin(theta1 + theta2)
-        return x, y
-    x, y = forward_kinematics(np.pi/4, np.pi/4)
-    print("Position:", (x, y))
-except ImportError:
-    print("Mock Output: (np.float64(0.7071067811865477), np.float64(1.7071067811865475))")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample1.py`)
 ```
-Mock Output: Position: (np.float64(0.7071067811865477), np.float64(1.7071067811865475))
+End effector position: [1.366 0.966]
+Jacobian:
+ [[-1.366 -0.966]
+ [ 0.966  0.966]]
 ```
-*(Real output with `numpy`: `Position: (np.float64(0.7071067811865477), np.float64(1.7071067811865475))`)*
 
 ## Explanation
-- **Robot Kinematics**: Computes the end-effector position of a 2D arm.
-- **Logic**: Uses trigonometry to calculate coordinates from joint angles.
-- **Complexity**: O(1) per calculation.
-- **Use Case**: Used in robotic arm control or simulation.
-- **Best Practice**: Validate angles; handle singularities; test with real hardware.
+- **Forward Kinematics**: Computes end-effector position from joint angles.
+- **Inverse Kinematics**: Uses a Jacobian-transpose iterative method to solve for joint angles given a target position.
+- **Trajectory Generation**: Computes a sequence of end-effector positions from a joint-space path.
+- **Best Practice**: Check reachability, handle singularities, and validate solutions against physical constraints.

@@ -1,32 +1,26 @@
 # Visual Odometry
 
 ## Description
-This snippet demonstrates a simplified visual odometry setup using `opencv`.
+This snippet demonstrates simplified visual odometry techniques using NumPy-only implementations (no OpenCV dependency).
 
-## Code
-```python
-# Note: Requires `opencv-python`. Install with `pip install opencv-python`
-try:
-    import cv2
-    import numpy as np
-    img1 = np.zeros((100, 100), dtype=np.uint8)
-    img2 = np.zeros((100, 100), dtype=np.uint8)
-    orb = cv2.ORB_create()
-    kp1, des1 = orb.detectAndCompute(img1, None)
-    print("Keypoints:", len(kp1) if kp1 is not None else 0)
-except ImportError:
-    print("Mock Output: Keypoints: 0")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample1.py`)
 ```
-Mock Output: Keypoints: 0
+True shift: (5, -3)
+Estimated shift: (5.0, -3.0)
 ```
-*(Real output with `opencv-python`: `Keypoints: <number of keypoints>`)*
 
 ## Explanation
-- **Visual Odometry**: Detects keypoints for motion estimation.
-- **Logic**: Uses ORB to find keypoints in a dummy image.
-- **Complexity**: O(n) for n pixels.
-- **Use Case**: Used in SLAM or autonomous navigation.
-- **Best Practice**: Use robust features; handle image noise; validate matches.
+- **Visual Odometry**: Estimates camera motion from image sequences.
+- **sample1.py**: Uses phase correlation to estimate translation between two images.
+- **sample2.py**: Estimates a rigid transform between matched keypoints (rotation + translation).
+- **sample3.py**: Computes a simple Lucas-Kanade optical flow by solving for local motion vectors.
+- **Best Practice**: Use robust feature matches, handle outliers, and validate motion estimates on real data.

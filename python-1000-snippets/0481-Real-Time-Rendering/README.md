@@ -1,32 +1,30 @@
 # Real-Time Rendering
 
 ## Description
-This snippet demonstrates a simple rendering loop using `pygame`.
+This snippet simulates a real-time rendering loop without requiring a graphics library.
+It uses ASCII frames and basic timing to illustrate how a renderer updates frames over time.
 
 ## Code
-```python
-# Note: Requires `pygame`. Install with `pip install pygame`
-try:
-    import pygame
-    pygame.init()
-    screen = pygame.display.set_mode((100, 100))
-    screen.fill((255, 0, 0))
-    pygame.display.flip()
-    print("Screen rendered")
-    pygame.quit()
-except ImportError:
-    print("Mock Output: Screen rendered")
-```
+The sample scripts show several approaches:
+- `sample1.py`: Renders a single ASCII frame and prints it.
+- `sample2.py`: Runs a short loop and writes multiple frame snapshots into `temp/realtime_rendering_frames.txt`.
+- `sample3.py`: Measures frame timing and prints an approximate FPS.
 
 ## Output
+`sample1.py` prints an ASCII frame (e.g., 20x10).
+
+`sample2.py` writes a file such as:
 ```
-Mock Output: Screen rendered
+temp/realtime_rendering_frames.txt
 ```
-*(Real output with `pygame`: `Screen rendered` (displays red screen))*
+
+`sample3.py` prints an approximate frame rate, for example:
+```
+Rendered 120 frames in 0.40s (~300 FPS)
+```
 
 ## Explanation
-- **Real-Time Rendering**: Renders a red screen using Pygame.
-- **Logic**: Fills the screen with a color and updates the display.
-- **Complexity**: O(1) per frame.
-- **Use Case**: Used in games or interactive graphics.
-- **Best Practice**: Optimize draw calls; handle events; manage frame rate.
+- **Real-Time Rendering Loop**: A renderer typically updates frames repeatedly over time.
+- **Logic**: Each frame is generated based on a frame counter; output is printed or written to disk.
+- **Complexity**: O(width * height * frames) for the full simulation.
+- **Use Case**: Useful for understanding frame loops and timing without a real graphics stack.

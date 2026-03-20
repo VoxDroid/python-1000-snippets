@@ -1,36 +1,30 @@
 # Interactive Plotting
 
 ## Description
-This snippet demonstrates interactive plotting using `plotly`.
+This snippet demonstrates preparing data and configuration for interactive plotting without requiring `plotly`.
+It writes CSV data and a JSON plot configuration that can be loaded into a plotting tool.
 
 ## Code
-```python
-# Note: Requires `plotly`. Install with `pip install plotly`
-try:
-    import plotly.express as px
-    import pandas as pd
-    df = pd.DataFrame({"x": [1, 2, 3], "y": [4, 5, 6]})
-    fig = px.scatter(df, x="x", y="y")
-    fig.show() 
-    print("Interactive plot created")
-except ImportError:
-    print("Mock Output: Interactive plot created")
-```
+The sample scripts demonstrate:
+- `sample1.py`: Generates CSV data suitable for plotting.
+- `sample2.py`: Prints a simple dataset that can be plotted interactively.
+- `sample3.py`: Writes a JSON plot configuration to `temp/interactive_plot_config.json`.
 
 ## Output
-<div style="text-align: center;">
-  <img src="Output.png" alt="Output image">
-  <p></p>
-</div>
+`sample1.py` writes data to:
+```
+temp/interactive_plot_data.csv
+```
 
+`sample2.py` prints point data to the console.
+
+`sample3.py` writes a JSON plot configuration to:
 ```
-Mock Output: Interactive plot created
+temp/interactive_plot_config.json
 ```
-*(Real output with `plotly`: `Interactive plot created` (displays plot))*
 
 ## Explanation
-- **Interactive Plotting**: Creates a scatter plot with zoom/pan features.
-- **Logic**: Uses Plotly Express to plot a small dataset.
+- **Interactive Plotting (Data Prep)**: Generates data and configuration that can be consumed by interactive plotting tools.
+- **Logic**: Create sample datasets and export them in common formats (CSV/JSON).
 - **Complexity**: O(n) for n data points.
-- **Use Case**: Used for data exploration or presentations.
-- **Best Practice**: Customize axes; add tooltips; save plots.
+- **Use Case**: Useful when exporting data for visualization in web or GUI tools.

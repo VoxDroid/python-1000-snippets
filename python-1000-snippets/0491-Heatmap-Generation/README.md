@@ -1,37 +1,33 @@
 # Heatmap Generation
 
 ## Description
-This snippet demonstrates generating a heatmap using `seaborn`.
+This snippet demonstrates generating heatmap data and rendering a simple ASCII heatmap without external plotting libraries.
 
 ## Code
-```python
-# Note: Requires `seaborn`, `numpy`, `matplotlib`. Install with `pip install seaborn numpy matplotlib`
-try:
-    import seaborn as sns
-    import numpy as np
-    import matplotlib.pyplot as plt
-    data = np.random.rand(5, 5)
-    sns.heatmap(data)
-    plt.show()
-    print("Heatmap generated")
-except ImportError:
-    print("Mock Output: Heatmap generated")
-```
+The sample scripts show how to:
+- Generate heatmap matrix data and save as CSV (`sample1.py`).
+- Compute statistics (min/max/mean) for heatmap values (`sample2.py`).
+- Render an ASCII heatmap view in the terminal (`sample3.py`).
 
 ## Output
-<div style="text-align: center;">
-  <img src="Output.png" alt="Output image">
-  <p></p>
-</div>
+`sample1.py` writes a CSV file with heatmap values:
+```
+temp/heatmap.csv
+```
 
+`sample2.py` prints summary statistics, e.g.:
 ```
-Mock Output: Heatmap generated
+Heatmap Summary
+  min: 1
+  max: 64
+  mean: 17.50
 ```
-*(Real output with `seaborn`: `Heatmap generated` (displays heatmap))*
+
+`sample3.py` renders an ASCII heatmap to the console.
 
 ## Explanation
-- **Heatmap Generation**: Visualizes a 2D array as a color-coded grid.
-- **Logic**: Uses `seaborn` to plot a random 5x5 matrix.
+- **Heatmap Generation**: Visualizes a 2D array as a color-coded grid (ASCII in this snippet).
+- **Logic**: Generates a numerical matrix, computes statistics, and maps values to characters for display.
 - **Complexity**: O(n*m) for n x m data points.
-- **Use Case**: Used for correlation analysis or data exploration.
-- **Best Practice**: Normalize data; customize colormap; save plots.
+- **Use Case**: Useful for quick visualization of 2D data in terminal environments.
+- **Best Practice**: Normalize data before creating a heatmap and label axes for clarity.

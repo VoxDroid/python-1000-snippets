@@ -1,27 +1,18 @@
 # Ecosystem Simulation
 
 ## Description
-This snippet demonstrates a simple predator-prey simulation using `numpy`.
+This snippet demonstrates predator-prey dynamics with pure Python implementations.
 
 ## Code
-```python
-try:
-    import numpy as np
-    prey = 100
-    predator = 10
-    for _ in range(5):
-        prey = prey * (1 + 0.1 - 0.01 * predator)
-        predator = predator * (1 - 0.05 + 0.005 * prey)
-    print("Prey, Predator:", prey, predator)
-except ImportError:
-    print("Mock Output: Prey, Predator: 120.0 12.0")
-```
+The sample scripts show:
+- `sample1.py`: Lotka-Volterra simulation for 20 steps.
+- `sample2.py`: Writes time-series data for prey/predator to `temp/ecosystem.csv`.
+- `sample3.py`: Computes growth/decline signs using the differential update model.
 
 ## Output
-```
-Mock Output: Prey, Predator: 120.0 12.0
-```
-*(Real output with `numpy`: `Prey, Predator: <approximate values>`)*
+`sample1.py` prints start/end prey/predator values.
+`sample2.py` writes `temp/ecosystem.csv` with time, prey, predator.
+`sample3.py` prints the sign of dynamical change (grow/decline) for populations.
 
 ## Explanation
 - **Ecosystem Simulation**: Models predator-prey dynamics.

@@ -1,29 +1,24 @@
 # Crowd Simulation
 
 ## Description
-This snippet demonstrates a simple crowd simulation using `numpy`.
+This snippet demonstrates a simple crowd simulation using pure Python.
 
 ## Code
-```python
-try:
-    import numpy as np
-    agents = np.random.rand(10, 2) * 10
-    for _ in range(5):
-        agents += np.random.randn(10, 2) * 0.1
-    print("Agent positions:\n", agents[:2])
-except ImportError:
-    print("Mock Output: Agent positions: [[5.1 5.2] [3.3 3.4]]")
-```
+The sample scripts show:
+- `sample1.py`: Random-walk agent positions and simple update.
+- `sample2.py`: Crowd density in a 2D grid.
+- `sample3.py`: Attraction/repulsion step mechanics.
 
 ## Output
-```
-Mock Output: Agent positions: [[5.1 5.2] [3.3 3.4]]
-```
-*(Real output with `numpy`: `Agent positions: <random 2D positions>`)*
+`sample1.py` prints initial/after-step positions for agents.
+
+`sample2.py` prints density stats (`grid[0][0]` and total agents).
+
+`sample3.py` prints final positions after attraction/repulsion dynamics.
 
 ## Explanation
-- **Crowd Simulation**: Simulates agent movement with random walks.
-- **Logic**: Updates agent positions with small random steps.
-- **Complexity**: O(n * t) for n agents, t steps.
-- **Use Case**: Used in games or urban planning simulations.
-- **Best Practice**: Add collision avoidance; model behaviors; visualize movement.
+- **Crowd Simulation**: Simulates agent movement and density logic.
+- **Logic**: Random walk updates, grid density mapping, attraction/repulsion.
+- **Complexity**: O(n*t) for n agents over t steps.
+- **Use Case**: Used in traffic/crowd modeling and behavior experiments.
+- **Best Practice**: Add collision avoidance, boundary handling, realistic rules.

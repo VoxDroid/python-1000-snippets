@@ -1,32 +1,30 @@
 # 3D Point Cloud Processing
 
 ## Description
-This snippet demonstrates point cloud filtering using `open3d`.
+This snippet demonstrates basic 3D point cloud processing tasks using NumPy: voxel downsampling, normal estimation, and bounding-box operations.
 
-## Code
-```python
-# Note: Requires `open3d`. Install with `pip install open3d`
-try:
-    import open3d as o3d
-    import numpy as np
-    points = np.random.rand(100, 3)
-    pcd = o3d.geometry.PointCloud()
-    pcd.points = o3d.utility.Vector3dVector(points)
-    pcd = pcd.voxel_down_sample(voxel_size=0.05)
-    print("Point cloud size:", len(pcd.points))
-except ImportError:
-    print("Mock Output: Point cloud size: 100")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample1.py`)
 ```
-Mock Output: Point cloud size: 100
+Original point count: 500
+Downsampled point count: 483
+Sample downsampled points (first 3):
+  [5.488, 7.152, 6.028]
+  [5.449, 4.237, 6.459]
+  [4.376, 8.918, 9.637]
 ```
-*(Real output with `open3d`: `Point cloud size: <number of points>`)*
 
 ## Explanation
-- **3D Point Cloud Processing**: Downsamples a random point cloud.
-- **Logic**: Applies voxel grid filtering to reduce point density.
-- **Complexity**: O(n) for n points.
-- **Use Case**: Used in 3D scanning or robotics.
-- **Best Practice**: Tune voxel size; visualize results; handle noise.
+- **Point Cloud Processing**: Manipulates 3D point clouds for 3D scanning and robotics.
+- **sample1.py**: Applies a voxel grid downsampling.
+- **sample2.py**: Estimates normals using PCA on local neighbors.
+- **sample3.py**: Computes axis-aligned bounding boxes and applies a translation.
+- **Best Practice**: Use spatial indexing (KD-tree) for large point clouds, and validate normals orientation.

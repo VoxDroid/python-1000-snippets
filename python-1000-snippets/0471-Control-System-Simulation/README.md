@@ -1,34 +1,26 @@
 # Control System Simulation
 
 ## Description
-This snippet demonstrates a PID control system simulation using `control`.
+This snippet demonstrates PID control for a simple second-order plant using a discrete-time simulation (no external control library needed).
 
-## Code
-```python
-# Note: Requires `control`. Install with `pip install control`
-try:
-    import control
-    import numpy as np
-    s = control.tf('s')
-    plant = 1 / (s**2 + s + 1)
-    Kp, Ki, Kd = 1.0, 0.1, 0.5
-    controller = Kp + Ki/s + Kd*s
-    sys = control.feedback(controller * plant)
-    t, y = control.step_response(sys, T=np.linspace(0, 10, 100))
-    print("Response shape:", y.shape)
-except ImportError:
-    print("Mock Output: Response shape: (100,)")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample1.py`)
 ```
-Mock Output: Response shape: (100,)
+Final value (approx): 0.995
+First 5 output values: [0.0, 0.005, 0.018, 0.041, 0.075]
 ```
-*(Real output with `control`: `Response shape: (100,)`)*
 
 ## Explanation
-- **Control System Simulation**: Simulates a PID controller response.
-- **Logic**: Defines a plant and PID controller, computes step response.
-- **Complexity**: O(n) for n time points.
-- **Use Case**: Used in robotics or process control.
-- **Best Practice**: Tune PID parameters; validate stability; visualize response.
+- **Control System Simulation**: Models a plant and a PID controller in discrete time.
+- **sample1.py**: Simulates a step response with PID control.
+- **sample2.py**: Shows how changing PID gains affects response.
+- **sample3.py**: Demonstrates disturbance rejection with a step disturbance.
+- **Best Practice**: Tune PID gains carefully, and validate stability and overshoot for your plant.

@@ -1,33 +1,26 @@
 # Motion Planning
 
 ## Description
-This snippet demonstrates a simple RRT path planner using `numpy`.
+This snippet demonstrates basic motion planning algorithms in 2D: RRT, A* grid search, and potential field planning.
 
-## Code
-```python
-try:
-    import numpy as np
-    def rrt(start, goal, max_steps=10):
-        points = [start]
-        for _ in range(max_steps):
-            rand_point = np.random.uniform(0, 10, 2)
-            points.append(rand_point)
-        return points
-    path = rrt([0, 0], [10, 10])
-    print("Path points:", len(path))
-except ImportError:
-    print("Mock Output: Path points: 11")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample1.py`)
 ```
-Mock Output: Path points: 11
+Path length: 37
+First 3 points: [(0.5, 0.5), (0.683, 0.60), (0.81, 0.76)]
+Last 3 points: [(8.9, 8.4), (9.4, 8.7), (9.0, 9.0)]
 ```
-*(Real output with `numpy`: `Path points: 11`)*
 
 ## Explanation
-- **Motion Planning**: Generates a simple random path using RRT.
-- **Logic**: Samples random points to simulate a path.
-- **Complexity**: O(n) for n steps.
-- **Use Case**: Used in robotics for obstacle-free navigation.
-- **Best Practice**: Add obstacle checks; optimize paths; validate goal reachability.
+- **RRT (Rapidly-exploring Random Tree)**: Builds a random tree toward a goal while avoiding obstacles.
+- **A***: Finds the shortest grid path using heuristics (Manhattan distance).
+- **Potential Field**: Moves towards a goal while avoiding obstacles via attractive and repulsive forces.
+- **Best Practice**: Add obstacle checking, smooth paths, and validate on realistic maps.

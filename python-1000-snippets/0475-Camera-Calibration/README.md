@@ -1,31 +1,26 @@
 # Camera Calibration
 
 ## Description
-This snippet demonstrates camera calibration setup using `opencv`.
+This snippet demonstrates camera calibration concepts using pure NumPy: estimating projection matrices, modeling radial distortion, and projecting 3D points into image space.
 
-## Code
-```python
-# Note: Requires `opencv-python`. Install with `pip install opencv-python`
-try:
-    import cv2
-    import numpy as np
-    criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
-    objp = np.zeros((6*7, 3), np.float32)
-    objp[:, :2] = np.mgrid[0:7, 0:6].T.reshape(-1, 2)
-    print("Calibration points prepared")
-except ImportError:
-    print("Mock Output: Calibration points prepared")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample1.py`)
 ```
-Mock Output: Calibration points prepared
+Estimated projection matrix (first 3 cols are K*R):
+[[...]]
 ```
-*(Real output with `opencv-python`: `Calibration points prepared`)*
 
 ## Explanation
-- **Camera Calibration**: Prepares a chessboard pattern for calibration.
-- **Logic**: Defines 3D object points for a 6x7 chessboard.
-- **Complexity**: O(1) for setup.
-- **Use Case**: Used in computer vision for lens distortion correction.
-- **Best Practice**: Use multiple images; validate points; save calibration data.
+- **Camera Calibration**: Estimates how 3D points map to 2D image points.
+- **sample1.py**: Uses DLT to estimate a projection matrix from 3D-2D correspondences.
+- **sample2.py**: Demonstrates simple radial distortion/undistortion of image points.
+- **sample3.py**: Projects 3D points to 2D image coordinates using a known intrinsics matrix.
+- **Best Practice**: Collect multiple views, normalize data, and validate with held-out points.

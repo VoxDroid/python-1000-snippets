@@ -1,32 +1,22 @@
 # Particle Swarm Simulation
 
 ## Description
-This snippet demonstrates particle swarm optimization using `pyswarm`.
+This snippet demonstrates particle swarm optimization with a pure Python implementation.
 
 ## Code
-```python
-# Note: Requires `pyswarm`. Install with `pip install pyswarm`
-try:
-    from pyswarm import pso
-    def objective(x):
-        return x[0]**2 + x[1]**2
-    lb = [-10, -10]
-    ub = [10, 10]
-    xopt, fopt = pso(objective, lb, ub, swarmsize=10, maxiter=10)
-    print("Optimal value:", fopt)
-except ImportError:
-    print("Mock Output: Optimal value: 0.0")
-```
+The sample scripts show:
+- `sample1.py`: Minimize x^2 + y^2 and print the best point.
+- `sample2.py`: Track convergence history of a shifted quadratic objective.
+- `sample3.py`: Optimize the Rosenbrock function and print the best solution.
 
 ## Output
-```
-Mock Output: Optimal value: 0.0
-```
-*(Real output with `pyswarm`: `Optimal value: <near 0.0>`)*
+`sample1.py` prints a best point and value near zero for f(x,y)=x^2+y^2.
+`sample2.py` prints convergence history for a shifted quadratic objective.
+`sample3.py` prints Rosenbrock optimization results.
 
 ## Explanation
-- **Particle Swarm Simulation**: Optimizes a function using PSO.
-- **Logic**: Minimizes a quadratic function with particle swarm.
+- **Particle Swarm Simulation**: Optimizes functions using a swarm of candidate solutions.
+- **Logic**: Each particle updates velocity and position from personal and global best values.
 - **Complexity**: O(n * i) for n particles, i iterations.
-- **Use Case**: Used in optimization problems like ML tuning.
-- **Best Practice**: Tune swarm size; set bounds; validate convergence.
+- **Use Case**: Useful for global optimization problems and parameter search.
+- **Best Practice**: Tune swarm size, inertia, and acceleration constants for stability.

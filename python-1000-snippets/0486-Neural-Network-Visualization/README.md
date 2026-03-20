@@ -1,38 +1,30 @@
 # Neural Network Visualization
 
 ## Description
-This snippet demonstrates neural network architecture visualization using `matplotlib`.
+This snippet demonstrates constructing and displaying neural network architecture data without external plotting libraries.
 
 ## Code
-```python
-# Note: Requires `matplotlib`. Install with `pip install matplotlib`
-try:
-    import matplotlib.pyplot as plt
-    layers = [3, 4, 2]
-    fig, ax = plt.subplots()
-    for i, nodes in enumerate(layers):
-        for j in range(nodes):
-            ax.add_patch(plt.Circle((i, j), 0.1))
-    plt.axis('equal')
-    print("Network visualized")
-except ImportError:
-    print("Mock Output: Network visualized")
-```
+The sample scripts show:
+- `sample1.py`: Build a simple feedforward network and print node/connection counts.
+- `sample2.py`: Compute a forward pass with a hardcoded network.
+- `sample3.py`: Render a textual layer visualization of a network.
 
 ## Output
-<div style="text-align: center;">
-  <img src="Output.png" alt="Output image">
-  <p></p>
-</div>
+`sample1.py` prints node and connection counts and sample connections.
 
+`sample2.py` prints network input/output values after a forward pass.
+
+`sample3.py` prints a textual layer representation, e.g.:
 ```
-Mock Output: Network visualized
+  O O O O
+O O O O O O O O
+  O O O O O O
+    O O
 ```
-*(Real output with `matplotlib`: `Network visualized` (displays plot))*
 
 ## Explanation
-- **Neural Network Visualization**: Plots a simple network structure.
-- **Logic**: Draws circles for neurons in each layer.
-- **Complexity**: O(n) for n neurons.
-- **Use Case**: Used for educational or debugging purposes.
-- **Best Practice**: Add connections; label layers; save visualizations.
+- **Neural Network Visualization**: Represents network structure and data in a text-friendly way.
+- **Logic**: Builds layers and connection lists, computes outputs, and renders textual diagrams.
+- **Complexity**: O(n + e) for n neurons and e connections.
+- **Use Case**: Useful for educational demos and understanding network topology without graphics libraries.
+- **Best Practice**: Use consistent layer sizing, annotate node roles, and compare outputs across layers.

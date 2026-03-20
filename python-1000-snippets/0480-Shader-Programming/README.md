@@ -1,43 +1,38 @@
 # Shader Programming
 
 ## Description
-This snippet demonstrates a simple shader setup using `moderngl`.
+This snippet demonstrates the core idea behind shader-based image generation using pure Python.
+Instead of using a GPU library, it computes pixel colors in software and writes a simple PPM image.
 
 ## Code
-```python
-# Note: Requires `moderngl`. Install with `pip install moderngl`
-try:
-    import moderngl
-    ctx = moderngl.create_standalone_context()
-    vertex_shader = """
-    #version 330
-    in vec2 in_vert;
-    void main() {
-        gl_Position = vec4(in_vert, 0.0, 1.0);
-    }
-    """
-    fragment_shader = """
-    #version 330
-    out vec4 fragColor;
-    void main() {
-        fragColor = vec4(1.0);
-    }
-    """
-    program = ctx.program(vertex_shader=vertex_shader, fragment_shader=fragment_shader)
-    print("Shader program created")
-except ImportError:
-    print("Mock Output: Shader program created")
+The sample scripts show how to:
+- Compute a procedural "shader" function over a grid of pixels
+- Save an image as a PPM file (plain text image format)
+- Print sampled shader output values
+
+Run a sample:
+```bash
+python python-1000-snippets/0480-Shader-Programming/SAMPLES/sample1.py
 ```
 
 ## Output
+Running `sample1.py` produces a file such as:
 ```
-Mock Output: Shader program created
+temp/shader_output.ppm
 ```
-*(Real output with `moderngl`: `Shader program created`)*
+The file is a plain PPM image and can be opened by many image viewers.
+
+Running `sample2.py` prints samples of the shader function, e.g.:
+```
+shader(0.10,0.20) -> (75, 143, 199)
+shader(0.50,0.50) -> (254, 254, 35)
+shader(0.90,0.10) -> (108, 75, 35)
+```
+(Values may vary if the shader math is changed.)
 
 ## Explanation
-- **Shader Programming**: Sets up a basic vertex shader.
-- **Logic**: Creates a ModernGL context and compiles a shader.
-- **Complexity**: O(1) for setup.
-- **Use Case**: Used in real-time graphics rendering.
-- **Best Practice**: Validate shaders; handle errors; test rendering pipeline.
+- **Shader Programming (CPU)**: We implement the logic of a fragment shader in Python using math on normalized pixel coordinates.
+- **Logic**: Convert pixel positions into normalized UV coordinates, evaluate a function, and map the result to RGB.
+- **Complexity**: O(width*height) for image generation.
+- **Use Case**: Useful for procedural texture generation and testing shader logic without GPU dependencies.
+- **Tip**: PPM is an easy text-based format, making it ideal for exploring image generation without external libraries.

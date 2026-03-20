@@ -1,33 +1,29 @@
 # Game AI Implementation
 
 ## Description
-This snippet demonstrates a simple game AI using `pygame`.
+This snippet demonstrates simple game AI behaviors using pure Python (no external libraries required).
 
-## Code
-```python
-# Note: Requires `pygame`. Install with `pip install pygame`
-try:
-    import pygame
-    pygame.init()
-    screen = pygame.display.set_mode((100, 100))
-    player = pygame.Rect(50, 50, 10, 10)
-    if player.x < 75:
-        player.x += 5
-    print("AI moved player")
-    pygame.quit()
-except ImportError:
-    print("Mock Output: AI moved player")
+## Running
+Run the included examples:
+
+```bash
+python SAMPLES/sample1.py
+python SAMPLES/sample2.py
+python SAMPLES/sample3.py
 ```
 
-## Output
+## Sample output (from `sample2.py`)
 ```
-Mock Output: AI moved player
+X moves to 0
+['X', '', '']
+['', '', '']
+['', '', '']
+...
+Result: draw
 ```
-*(Real output with `pygame`: `AI moved player`)*
 
 ## Explanation
-- **Game AI Implementation**: Moves a player based on a simple rule.
-- **Logic**: Updates player position if condition is met.
-- **Complexity**: O(1) per update.
-- **Use Case**: Used in game development for NPC behavior.
-- **Best Practice**: Implement state machines; handle collisions; test AI logic.
+- **sample1.py**: Moves an agent toward a goal on a grid while avoiding obstacles.
+- **sample2.py**: Uses minimax to play perfect Tic-Tac-Toe.
+- **sample3.py**: Demonstrates a chasing enemy moving toward a player on a grid.
+- **Best Practice**: Add randomness for non-deterministic behavior, and limit search depth for complex games.

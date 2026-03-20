@@ -1,30 +1,37 @@
 # Data Dashboard
 
 ## Description
-This snippet demonstrates a simple dashboard using `dash`.
+This snippet demonstrates a simple data dashboard using console output and file-based reports.
 
 ## Code
-```python
-# Note: Requires `dash`. Install with `pip install dash`
-try:
-    from dash import Dash, html
-    app = Dash(__name__)
-    app.layout = html.Div([html.H1("Dashboard"), html.P("Data here")])
-    app.run(debug=True)
-    print("Dashboard configured")
-except ImportError:
-    print("Mock Output: Dashboard configured")
-```
+The sample scripts showcase different dashboard outputs:
+- `sample1.py`: Prints a table of data to the console.
+- `sample2.py`: Computes summary statistics and prints a report.
+- `sample3.py`: Writes a short dashboard report to `temp/dashboard.txt` in a loop.
 
 ## Output
+`sample1.py` prints a table to the console, e.g.:
 ```
-Mock Output: Dashboard configured
+Simple Data Dashboard
+item | value | score
+-----+-------+------
+A    | 10.0  | 0.75
+B    | 22.5  | 0.52
+C    | 15.1  | 0.95
+D    | 7.3   | 0.33
 ```
-*(Real output with `dash`: `Dashboard configured` (runs server))*
+
+`sample2.py` prints summary statistics:
+```
+Dashboard Summary
+value: min=7.30, max=22.50, mean=13.72
+score: min=0.33, max=0.95, mean=0.64
+```
+
+`sample3.py` writes a dashboard report to `temp/dashboard.txt` in a loop.
 
 ## Explanation
-- **Data Dashboard**: Sets up a basic web-based dashboard.
-- **Logic**: Defines a simple layout with a title and text.
-- **Complexity**: O(1) for setup.
-- **Use Case**: Used for data exploration or reporting.
-- **Best Practice**: Add interactive components; secure server; test layouts.
+- **Data Dashboard**: This snippet outputs data to the console and to a text file, simulating a dashboard.
+- **Logic**: Build a dataset, compute summary metrics, and format output in tables or reports.
+- **Complexity**: O(n) proportional to the number of data points.
+- **Use Case**: Useful for lightweight reporting and monitoring in CLI environments.
