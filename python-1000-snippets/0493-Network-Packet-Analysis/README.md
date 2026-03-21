@@ -15,14 +15,13 @@ except ImportError:
 ```
 
 ## Output
-```
-Mock Output: Packet captured: 1
-```
-*(Real output with `scapy`: `Packet captured: <number of packets>`)*
+`sample1.py` prints TCP packet count from a text packet list.
+`sample2.py` prints byte sizes and header preview from such packet hex strings.
+`sample3.py` prints whether SYN flood behavior is suspected.
 
 ## Explanation
-- **Network Packet Analysis**: Captures TCP packets.
-- **Logic**: Uses `scapy` to sniff one packet.
-- **Complexity**: O(n) for n packets (network-dependent).
-- **Use Case**: Used for network diagnostics or security analysis.
-- **Best Practice**: Filter packets; handle permissions; log results.
+- **Network Packet Analysis**: Processes packet-like text data without live sniffing.
+- **Logic**: Parses key fields, evaluates protocol counts, and inspects flags.
+- **Complexity**: O(n) in number of packets.
+- **Use Case**: Useful when `scapy` is unavailable or to test parsing logic.
+- **Best Practice**: Validate packet parsing and handle malformed lines.

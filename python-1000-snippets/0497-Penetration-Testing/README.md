@@ -17,14 +17,13 @@ except ImportError:
 ```
 
 ## Output
-```
-Mock Output: Port 80 closed
-```
-*(Real output: `Port 80 open` or `Port 80 closed`)*
+`sample1.py` prints localhost scan results for ports 22, 80, 443.
+`sample2.py` prints open ports in range 20-30.
+`sample3.py` writes scan output to `temp/port_scan_results.txt`.
 
 ## Explanation
-- **Penetration Testing**: Checks if port 80 is open on localhost.
-- **Logic**: Attempts a TCP connection to port 80.
-- **Complexity**: O(1) per port scan.
-- **Use Case**: Used in security audits or network testing.
-- **Best Practice**: Scan ethically; handle timeouts; log results.
+- **Penetration Testing**: Simulates port scanning on localhost.
+- **Logic**: Attempts socket connection attempts with timeout.
+- **Complexity**: O(n) for n scanned ports.
+- **Use Case**: Useful in local network security checks.
+- **Best Practice**: Perform authorized scans, avoid intrusive behavior, log results.

@@ -1,30 +1,21 @@
 # Thread Pool Management
 
 ## Description
-This snippet demonstrates thread pool usage with `concurrent.futures`.
+This snippet demonstrates thread pool usage with `concurrent.futures.ThreadPoolExecutor`.
 
 ## Code
-```python
-try:
-    from concurrent.futures import ThreadPoolExecutor
-    def task(x):
-        return x**2
-    with ThreadPoolExecutor(max_workers=2) as executor:
-        results = list(executor.map(task, [1, 2, 3]))
-    print("Results:", results)
-except ImportError:
-    print("Mock Output: Results: [1, 4, 9]")
-```
+- `SAMPLES/sample1.py`: compute squares in parallel and print sorted results.
+- `SAMPLES/sample2.py`: simulate I/O-bound tasks via `sleep` and map.
+- `SAMPLES/sample3.py`: write summary metrics to `temp/0503_thread_pool.txt`.
 
 ## Output
-```
-Mock Output: Results: [1, 4, 9]
-```
-*(Real output: `Results: [1, 4, 9]`)*
+- sample1: `Squared values: [...]`
+- sample2: `I/O bound results: [...]`
+- sample3: file location message with summary file content in `temp/`.
 
 ## Explanation
-- **Thread Pool Management**: Executes tasks concurrently using threads.
-- **Logic**: Squares numbers in a thread pool.
-- **Complexity**: O(n) for n tasks (threading overhead).
-- **Use Case**: Used for I/O-bound parallel tasks.
-- **Best Practice**: Limit workers; handle exceptions; avoid shared state.
+- **Thread Pool Management**: manages concurrent execution for tasks.
+- **Logic**: uses `ThreadPoolExecutor` with up to 5 workers.
+- **Complexity**: O(n) tasks with worker scheduling overhead.
+- **Use Case**: best for I/O-bound tasks; can be used with network/DB calls.
+- **Best Practice**: choose pool size based on system cores; use thread-safe data structures.

@@ -1,31 +1,21 @@
 # Distributed Task Scheduling
 
 ## Description
-This snippet demonstrates a task setup for `celery`.
+This snippet demonstrates distributed-task-like scheduling using Python standard libraries.
 
 ## Code
-```python
-# Note: Requires `celery`. Install with `pip install celery`
-try:
-    from celery import Celery
-    app = Celery('tasks', broker='redis://localhost:6379/0')
-    @app.task
-    def add(x, y):
-        return x + y
-    print("Celery task configured")
-except ImportError:
-    print("Mock Output: Celery task configured")
-```
+- `SAMPLES/sample1.py`: uses `sched` to schedule sequential tasks.
+- `SAMPLES/sample2.py`: uses `multiprocessing.Pool` to simulate distributed map.
+- `SAMPLES/sample3.py`: logs scheduled jobs to `temp/0506_distributed_schedule.txt`.
 
 ## Output
-```
-Mock Output: Celery task configured
-```
-*(Real output with `celery`: `Celery task configured`)*
+- sample1: scheduled tasks execute with printed status.
+- sample2: lists partial results from workers.
+- sample3: writes all results to temp file.
 
 ## Explanation
-- **Distributed Task Scheduling**: Sets up a Celery task for distributed execution.
-- **Logic**: Defines an addition task with Redis backend.
-- **Complexity**: O(1) for setup (execution-dependent).
-- **Use Case**: Used for distributed job processing.
-- **Best Practice**: Secure broker; monitor tasks; handle failures.
+- **Distributed Task Scheduling**: orchestrate jobs over time or parallel workers.
+- **Logic**: `sched` schedules local tasks; `multiprocessing` parallelizes tasks.
+- **Complexity**: O(n) tasks, plus scheduling overhead.
+- **Use Case**: local proof of concept for task queueing and worker pool patterns.
+- **Best Practice**: observe the `__name__ == '__main__'` guard for processes; manage task retries and error handling.

@@ -1,5 +1,17 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Cron-like repeating using while loop and sleep.
+
+import datetime
+import time
+
+
+def job(name):
+    print(f'{datetime.datetime.now()}: {name} executed')
+
 
 if __name__ == '__main__':
-    print('sample 2')
+    start = time.time()
+    while time.time() - start < 1.0:
+        job('maintenance')
+        time.sleep(0.3)
+    print('Cron loop completed')

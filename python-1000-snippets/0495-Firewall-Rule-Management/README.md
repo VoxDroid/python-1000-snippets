@@ -13,14 +13,13 @@ except Exception:
 ```
 
 ## Output
-```
-Mock Output: Firewall rule: iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-```
-*(Real output: `Firewall rule: iptables -A INPUT -p tcp --dport 80 -j ACCEPT`)*
+`sample1.py` prints parsed firewall command fields.
+`sample2.py` prints active rules after add/remove operations.
+`sample3.py` prints whether test packets are allowed by rules.
 
 ## Explanation
-- **Firewall Rule Management**: Defines a rule to allow TCP port 80 traffic.
-- **Logic**: Generates an `iptables` command string.
-- **Complexity**: O(1) for rule generation.
-- **Use Case**: Used in network security or server management.
-- **Best Practice**: Validate rules; test in sandbox; log changes.
+- **Firewall Rule Management**: Parses and manages rules in-memory.
+- **Logic**: Simulates addition/removal and packet matching.
+- **Complexity**: O(n) for rule list processing.
+- **Use Case**: Useful for firewall configuration parsers and policy checks.
+- **Best Practice**: Normalize rule specification and audit modifications.

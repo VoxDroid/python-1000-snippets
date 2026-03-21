@@ -26,14 +26,13 @@ except ImportError:
 ```
 
 ## Output
-```
-Mock Output: Detection result: None
-```
-*(Real output with `scapy`: `Detection result: <SSH attempt or None>`)*
+`sample1.py` prints detected SSH attempts from event text.
+`sample2.py` prints detected suspicious payload signatures.
+`sample3.py` prints brute-force alerts after threshold failed logins.
 
 ## Explanation
-- **Intrusion Detection**: Monitors for SSH connection attempts.
-- **Logic**: Sniffs packets and checks for TCP port 22.
-- **Complexity**: O(n) for n packets.
-- **Use Case**: Used in network security monitoring.
-- **Best Practice**: Define robust rules; log alerts; minimize false positives.
+- **Intrusion Detection**: Detects patterns in network event logs.
+- **Logic**: Text inspection / signature checks / stateful counting.
+- **Complexity**: O(n) for n events.
+- **Use Case**: Useful for security monitoring rules and alert generation.
+- **Best Practice**: Tune thresholds; reduce false positives; log incidents.

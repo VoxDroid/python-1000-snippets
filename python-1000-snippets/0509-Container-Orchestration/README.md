@@ -1,31 +1,21 @@
 # Container Orchestration
 
 ## Description
-This snippet demonstrates a simulated Kubernetes pod definition.
+This snippet demonstrates container orchestration artifacts and checks with builtin Python.
 
 ## Code
-```python
-try:
-    pod = {
-        "apiVersion": "v1",
-        "kind": "Pod",
-        "metadata": {"name": "example-pod"},
-        "spec": {"containers": [{"name": "example", "image": "nginx"}]}
-    }
-    print("Pod definition:", pod["metadata"]["name"])
-except ImportError:
-    print("Mock Output: Pod definition: example-pod")
-```
+- `SAMPLES/sample1.py`: generates and prints a Kubernetes pod definition JSON.
+- `SAMPLES/sample2.py`: writes a pod manifest to `temp/0509_pod_manifest.yaml`.
+- `SAMPLES/sample3.py`: runs `docker ps` if Docker CLI is installed.
 
 ## Output
-```
-Mock Output: Pod definition: example-pod
-```
-*(Real output: `Pod definition: example-pod`)*
+- sample1: JSON pod manifest on stdout.
+- sample2: file path and manifest validation.
+- sample3: Docker container names or CLI missing message.
 
 ## Explanation
-- **Container Orchestration**: Defines a Kubernetes pod spec.
-- **Logic**: Creates a dictionary for an NGINX pod.
-- **Complexity**: O(1) for definition.
-- **Use Case**: Used in Kubernetes for container management.
-- **Best Practice**: Validate YAML; use kubectl; test deployments.
+- **Container Orchestration**: Compose container deployment specs.
+- **Logic**: build functions for pod definitions; file persistence; runtime check.
+- **Complexity**: O(1) plus small I/O.
+- **Use Case**: edge-of-stack orchestration script helper.
+- **Best Practice**: Use `kubectl apply` for management; keep definitions in git.

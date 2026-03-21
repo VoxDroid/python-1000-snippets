@@ -16,14 +16,13 @@ except ImportError:
 ```
 
 ## Output
-```
-Mock Output: Parsed headers: {'Content-Type': 'text/html', 'Host': 'example.com'}
-```
-*(Real output: `Parsed headers: {'Content-Type': 'text/html', 'Host': 'example.com'}`)*
+`sample1.py` prints parsed HTTP headers.
+`sample2.py` prints parsed query parameters.
+`sample3.py` validates JSON payload protocol object.
 
 ## Explanation
-- **Protocol Parsing**: Extracts HTTP header fields.
-- **Logic**: Parses a byte string into a dictionary.
-- **Complexity**: O(n) for n header lines.
-- **Use Case**: Used in network programming or web scraping.
-- **Best Practice**: Validate headers; handle malformed input; log errors.
+- **Protocol Parsing**: Handles HTTP header text, URL query strings, and JSON message bodies.
+- **Logic**: String splitting and JSON parsing with validation.
+- **Complexity**: O(n) for n fields.
+- **Use Case**: Useful for implementing lightweight protocol parsing without external libs.
+- **Best Practice**: Sanitize input and handle malformed values robustly.

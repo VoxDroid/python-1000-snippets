@@ -15,14 +15,13 @@ except ImportError:
 ```
 
 ## Output
-```
-Mock Output: Log events: login
-```
-*(Real output with `pandas`: `Log events: login`)*
+`sample1.py` prints parsed events from log lines.
+`sample2.py` prints event counts.
+`sample3.py` writes a filtered log (login events) to `temp/log_filter.txt`.
 
 ## Explanation
-- **Log Analysis**: Extracts events from a log dataset.
-- **Logic**: Loads a dummy log into a DataFrame and reads an event.
-- **Complexity**: O(n) for n log entries.
-- **Use Case**: Used for system diagnostics or security monitoring.
-- **Best Practice**: Parse timestamps; filter events; handle large logs.
+- **Log Analysis**: Parses plain-text log entries.
+- **Logic**: Extract event types, aggregate counts, and filter entries.
+- **Complexity**: O(n) for n logs.
+- **Use Case**: Used for security and operational log review.
+- **Best Practice**: Normalize timestamps, handle missing fields, and store results in files.

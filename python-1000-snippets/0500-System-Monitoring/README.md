@@ -1,28 +1,24 @@
 # System Monitoring
 
 ## Description
-This snippet demonstrates CPU usage monitoring using `psutil`.
+This snippet demonstrates basic system monitoring using the Python standard library.
 
 ## Code
-```python
-# Note: Requires `psutil`. Install with `pip install psutil`
-try:
-    import psutil
-    cpu = psutil.cpu_percent(interval=1)
-    print("CPU usage:", cpu)
-except ImportError:
-    print("Mock Output: CPU usage: 10.0")
-```
+- `SAMPLES/sample1.py`: collects CPU count and load averages via `os`.
+- `SAMPLES/sample2.py`: collects disk usage via `shutil.disk_usage`.
+- `SAMPLES/sample3.py`: writes a status snapshot to `temp/system_status.txt`.
 
 ## Output
-```
-Mock Output: CPU usage: 10.0
-```
-*(Real output with `psutil`: `CPU usage: <percentage>`)*
+- `sample1.py` prints CPUs and load averages.
+- `sample2.py` prints disk usage in GB.
+- `sample3.py` writes status to `temp/system_status.txt` and prints the output path.
 
 ## Explanation
-- **System Monitoring**: Tracks CPU usage in real-time.
-- **Logic**: Uses `psutil` to measure CPU percentage.
-- **Complexity**: O(1) per measurement.
-- **Use Case**: Used for performance monitoring or alerting.
-- **Best Practice**: Monitor multiple metrics; set thresholds; log data.
+- **System Monitoring**: Captures system-level metrics (CPU, load, disk) without external dependencies.
+- **Logic**:
+  - `os.cpu_count`, `os.getloadavg` for processor metrics.
+  - `shutil.disk_usage` for filesystem metrics.
+  - `platform` and file writes for persistent snapshots.
+- **Complexity**: O(1) for each metric collection.
+- **Use Case**: Basic local monitoring script as a building block for alerts/triggers.
+- **Best Practice**: Run periodically (cron/scheduler) and collect historical series for trend analysis.

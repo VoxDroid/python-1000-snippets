@@ -1,29 +1,21 @@
 # Performance Profiling
 
 ## Description
-This snippet demonstrates profiling code using `cProfile`.
+This snippet demonstrates performance profiling and timing using Python standard libraries.
 
 ## Code
-```python
-try:
-    import cProfile
-    def slow_function():
-        sum(i**2 for i in range(1000))
-    cProfile.run("slow_function()")
-    print("Profile completed")
-except ImportError:
-    print("Mock Output: Profile completed")
-```
+- `SAMPLES/sample1.py`: `cProfile` run on compute-bound work and prints aggregate data.
+- `SAMPLES/sample2.py`: runtime measurement using `time.perf_counter`.
+- `SAMPLES/sample3.py`: writes cProfile stats file to `temp/0501_profile.stats`.
 
 ## Output
-```
-Mock Output: Profile completed
-```
-*(Real output with `cProfile`: `Profile completed` (prints profiling stats))*
+- `sample1.py`: profiling report printed as text.
+- `sample2.py`: timing output like `Result ... computed in 0.x seconds`.
+- `sample3.py`: message showing saved file path.
 
 ## Explanation
-- **Performance Profiling**: Measures execution time of a function.
-- **Logic**: Profiles a function that computes a sum of squares.
-- **Complexity**: O(n) for n iterations in profiled code.
-- **Use Case**: Used for optimizing code performance.
-- **Best Practice**: Focus on bottlenecks; repeat profiling; save results.
+- **Performance Profiling**: Measure function-level costs and identify hotspots.
+- **Logic**: Use `cProfile` for profiling and `time.perf_counter` for wall-clock timing.
+- **Complexity**: O(n) relative to loop iteration count.
+- **Use Case**: build a lightweight profiler workflow for a codebase.
+- **Best Practice**: keep profiling data in `temp/`, aggregate results with `pstats` or `snakeviz`.

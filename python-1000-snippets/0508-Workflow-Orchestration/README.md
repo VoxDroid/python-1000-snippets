@@ -1,31 +1,21 @@
 # Workflow Orchestration
 
 ## Description
-This snippet demonstrates a simple workflow using `airflow`.
+This snippet demonstrates workflow orchestration patterns using standard Python mechanics.
 
 ## Code
-```python
-# Note: Requires `apache-airflow`. Install with `pip install apache-airflow`
-try:
-    from airflow import DAG
-    from airflow.operators.python import PythonOperator
-    from datetime import datetime
-    dag = DAG('example_dag', start_date=datetime(2023, 1, 1))
-    task = PythonOperator(task_id='task', python_callable=lambda: print("Task"), dag=dag)
-    print("Workflow configured")
-except ImportError:
-    print("Mock Output: Workflow configured")
-```
+- `SAMPLES/sample1.py`: sequential workflow steps.
+- `SAMPLES/sample2.py`: simple dependency-based task graph.
+- `SAMPLES/sample3.py`: writes execution trace to `temp/0508_workflow_trace.txt`.
 
 ## Output
-```
-Mock Output: Workflow configured
-```
-*(Real output with `airflow`: `Workflow configured`)*
+- sample1: combined workflow result string.
+- sample2: computed dictionary values.
+- sample3: trace log file path and contents.
 
 ## Explanation
-- **Workflow Orchestration**: Defines a simple Airflow DAG.
-- **Logic**: Sets up a task to print a message.
-- **Complexity**: O(1) for setup.
-- **Use Case**: Used for ETL pipelines or job orchestration.
-- **Best Practice**: Define dependencies; monitor DAGs; test tasks.
+- **Workflow Orchestration**: define and execute tasks with dependencies in a controlled order.
+- **Logic**: orchestrate tasks maximally with explicit successions.
+- **Complexity**: O(n) for steps and tasks.
+- **Use Case**: simple local orchestrator or unit test scaffolding for pipelines.
+- **Best Practice**: use dedicated orchestrators (Airflow, Prefect) for production; include retries and backoff.

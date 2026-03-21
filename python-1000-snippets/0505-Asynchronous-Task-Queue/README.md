@@ -1,32 +1,21 @@
 # Asynchronous Task Queue
 
 ## Description
-This snippet demonstrates an async task queue using `asyncio`.
+This snippet demonstrates asynchronous task queue patterns with `asyncio`.
 
 ## Code
-```python
-try:
-    import asyncio
-    async def task(x):
-        await asyncio.sleep(1)
-        return x**2
-    async def main():
-        results = await asyncio.gather(*(task(i) for i in [1, 2, 3]))
-        print("Results:", results)
-    asyncio.run(main())
-except ImportError:
-    print("Mock Output: Results: [1, 4, 9]")
-```
+- `SAMPLES/sample1.py`: uses `asyncio.Queue` and worker tasks to compute Fibonacci numbers.
+- `SAMPLES/sample2.py`: uses `asyncio.Semaphore` to limit concurrency for tasks.
+- `SAMPLES/sample3.py`: consumes an async queue and writes a summary to `temp/0505_async_queue.txt`.
 
 ## Output
-```
-Mock Output: Results: [1, 4, 9]
-```
-*(Real output: `Results: [1, 4, 9]`)*
+- sample1: prints worker outputs for `fib` tasks.
+- sample2: prints each task result and final aggregation.
+- sample3: prints file path and stores count/sum results.
 
 ## Explanation
-- **Asynchronous Task Queue**: Runs tasks concurrently using `asyncio`.
-- **Logic**: Squares numbers with simulated delays.
-- **Complexity**: O(n) for n tasks (I/O-bound).
-- **Use Case**: Used for async I/O operations like API calls.
-- **Best Practice**: Handle exceptions; limit concurrency; use event loops.
+- **Asynchronous Task Queue**: manage queue-based workload asynchronously.
+- **Logic**: produce tasks, process tasks concurrently with workers.
+- **Complexity**: O(n) operations, concurrency overhead.
+- **Use Case**: reactive IO workflows, event processing, message consumption.
+- **Best Practice**: keep queue size bounded, handle exceptions in workers, and cancel cleanly.
