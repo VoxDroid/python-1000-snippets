@@ -1,31 +1,13 @@
 # Portfolio Optimization
 
 ## Description
-This snippet demonstrates portfolio optimization using mean-variance analysis.
+Optimizes investment allocation by minimizing portfolio variance.
 
-## Code
-```python
-# Note: Requires `numpy`. Install with `pip install numpy`
-try:
-    import numpy as np
-    returns = np.array([[0.1, 0.2], [0.15, 0.25]])
-    cov_matrix = np.cov(returns.T)
-    weights = np.array([0.5, 0.5])
-    portfolio_var = np.sqrt(np.dot(weights.T, np.dot(cov_matrix, weights)))
-    print("Portfolio variance:", round(portfolio_var, 4))
-except ImportError:
-    print("Mock Output: Portfolio variance: 0.0354")
-```
+## Samples
+- `SAMPLES/sample1.py`: compute portfolio variance.
+- `SAMPLES/sample2.py`: search best weight allocation.
+- `SAMPLES/sample3.py`: write optimization result to `temp/0561_portfolio.txt`.
 
 ## Output
-```
-Mock Output: Portfolio variance: 0.0354
-```
-*(Real output with `numpy`: `Portfolio variance: 0.0354`)*
-
-## Explanation
-- **Portfolio Optimization**: Minimizes risk for a given return.
-- **Logic**: Computes portfolio variance using covariance matrix.
-- **Complexity**: O(n^2) for n assets.
-- **Use Case**: Used in investment management.
-- **Best Practice**: Optimize weights; use historical data; account for constraints.
+- variance metrics and optimum.
+- temp result file.

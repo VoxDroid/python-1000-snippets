@@ -1,30 +1,12 @@
 # Algorithmic Trading
 
 ## Description
-This snippet demonstrates a simple moving average trading strategy.
+Generates trading signals using moving average logic than handles list data.
 
-## Code
-```python
-# Note: Requires `pandas`. Install with `pip install pandas`
-try:
-    import pandas as pd
-    prices = pd.Series([100, 101, 102, 103, 104])
-    ma = prices.rolling(window=2).mean()
-    signal = prices.iloc[-1] > ma.iloc[-1]
-    print("Buy signal:", signal)
-except ImportError:
-    print("Mock Output: Buy signal: True")
-```
+## Samples
+- `SAMPLES/sample1.py`: compute simple moving average crossover signal.
+- `SAMPLES/sample2.py`: simulate operations with sample prices.
+- `SAMPLES/sample3.py`: log signal to `temp/0562_algo_trading.txt`.
 
 ## Output
-```
-Mock Output: Buy signal: True
-```
-*(Real output with `pandas`: `Buy signal: True`)*
-
-## Explanation
-- **Algorithmic Trading**: Generates trading signals using moving averages.
-- **Logic**: Compares current price to moving average.
-- **Complexity**: O(n) for n prices.
-- **Use Case**: Used in automated trading systems.
-- **Best Practice**: Backtest strategy; manage risk; monitor signals.
+- buy/sell indication and log file.

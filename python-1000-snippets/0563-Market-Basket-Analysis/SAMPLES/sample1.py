@@ -1,5 +1,15 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Count item support in transactions.
+
+
+def support_count(transactions):
+    counts = {}
+    for t in transactions:
+        for item in t:
+            counts[item] = counts.get(item, 0) + 1
+    return counts
+
 
 if __name__ == '__main__':
-    print('sample 1')
+    txns = [['bread','milk'], ['milk','eggs']]
+    print('Support:', support_count(txns))

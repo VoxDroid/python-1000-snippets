@@ -1,3 +1,5 @@
-# 0565-Demand-Forecasting Cheatsheet
+# 0565 Demand Forecasting Cheatsheet
 
-*(Provide quick usage tips, shortcuts and examples.)*
+- `python SAMPLES/sample1.py`: compute forecast.
+- `python SAMPLES/sample2.py`: compute MAE for history fit.
+- `python SAMPLES/sample3.py`: write forecast to temp.
