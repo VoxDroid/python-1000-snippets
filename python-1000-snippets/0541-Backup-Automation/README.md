@@ -1,28 +1,15 @@
 # Backup Automation
 
 ## Description
-This snippet demonstrates automating a backup using `shutil`.
+Demonstrates automatic backup creation and status snapshots.
 
-## Code
-```python
-# Note: Requires `shutil`. Built-in module.
-try:
-    import shutil
-    shutil.copy("data.txt", "data_backup.txt")
-    print("Backup created")
-except ImportError:
-    print("Mock Output: Backup created")
-```
+## Samples
+- `SAMPLES/sample1.py`: backup a generated file using shutil.
+- `SAMPLES/sample2.py`: incremental backup logic semantics.
+- `SAMPLES/sample3.py`: write snapshot info to `temp/0541_backup_snapshot.txt`.
 
 ## Output
-```
-Mock Output: Backup created
-```
-*(Real output with `shutil`: `Backup created` (if `data.txt` exists))*
+Backup existence and snapshot files.
 
 ## Explanation
-- **Backup Automation**: Copies a file as a backup.
-- **Logic**: Uses `shutil` to copy a file.
-- **Complexity**: O(n) for file size n.
-- **Use Case**: Used for periodic data backups.
-- **Best Practice**: Schedule backups; verify integrity; store offsite.
+Automated backups should include validation, rotation, and offsite destination.

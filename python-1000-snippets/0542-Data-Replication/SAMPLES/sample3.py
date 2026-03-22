@@ -1,5 +1,17 @@
 # sample3.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Log replication status to temp file.
+
+import os
+
+OUTPUT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'temp', '0542_replication.txt'))
+
+
+def log_replication(status):
+    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
+    with open(OUTPUT_PATH, 'w') as f:
+        f.write(status + '\n')
+
 
 if __name__ == '__main__':
-    print('sample 3')
+    log_replication('replica sync complete')
+    print('Logged replication status to', OUTPUT_PATH)

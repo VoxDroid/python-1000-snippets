@@ -1,5 +1,10 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Decide traffic routing based on active environment.
+
+
+def route_traffic(active_env):
+    return f'Routing to {active_env} environment'
+
 
 if __name__ == '__main__':
-    print('sample 2')
+    print(route_traffic('green'))

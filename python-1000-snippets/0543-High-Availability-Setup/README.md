@@ -1,28 +1,15 @@
 # High Availability Setup
 
 ## Description
-This snippet demonstrates a simulated HA setup with multiple nodes.
+Reports multiple available nodes and maintains HA state.
 
-## Code
-```python
-try:
-    nodes = ["node1:8080", "node2:8080"]
-    def is_available(node):
-        return True  # Simulated check
-    print("Available nodes:", [node for node in nodes if is_available(node)])
-except ImportError:
-    print("Mock Output: Available nodes: ['node1:8080', 'node2:8080']")
-```
+## Samples
+- `SAMPLES/sample1.py`: filter available nodes.
+- `SAMPLES/sample2.py`: quorum decision.
+- `SAMPLES/sample3.py`: save status to `temp/0543_ha.txt`.
 
 ## Output
-```
-Mock Output: Available nodes: ['node1:8080', 'node2:8080']
-```
-*(Real output: `Available nodes: ['node1:8080', 'node2:8080']`)*
+HA state and persistent status file.
 
 ## Explanation
-- **High Availability Setup**: Checks node availability.
-- **Logic**: Simulates checking if nodes are online.
-- **Complexity**: O(n) for n nodes.
-- **Use Case**: Used in distributed systems for uptime.
-- **Best Practice**: Automate checks; balance load; failover gracefully.
+High availability needs redundant nodes and health monitoring to maintain service levels.

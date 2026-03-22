@@ -1,34 +1,15 @@
 # Fault Injection
 
 ## Description
-This snippet demonstrates injecting a fault into a function.
+Injects faults into normal flows for robustness validation.
 
-## Code
-```python
-try:
-    def inject_fault(func):
-        def wrapper():
-            if True:  # Simulate fault
-                raise ValueError("Injected fault")
-            return func()
-        return wrapper
-    @inject_fault
-    def normal():
-        return "OK"
-    print("Result:", normal())
-except ImportError:
-    print("Mock Output: Result: raises ValueError")
-```
+## Samples
+- `SAMPLES/sample1.py`: decorator-based fault injection.
+- `SAMPLES/sample2.py`: runtime fault control.
+- `SAMPLES/sample3.py`: record fault test results in temp.
 
 ## Output
-```
-Mock Output: Result: raises ValueError
-```
-*(Real output: Raises `ValueError: Injected fault`)*
+Error handling and fault reports in `temp/0539_fault.txt`.
 
 ## Explanation
-- **Fault Injection**: Introduces errors to test error handling.
-- **Logic**: Wraps a function to raise an error.
-- **Complexity**: O(1) per call.
-- **Use Case**: Used in testing system resilience.
-- **Best Practice**: Control fault triggers; log faults; test recovery.
+Use fault injection in tests to ensure graceful degradation and recovery logic.

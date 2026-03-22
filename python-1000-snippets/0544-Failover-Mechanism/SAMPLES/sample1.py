@@ -1,5 +1,10 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Simple failover logic choosing backup if primary fails.
+
+
+def choose_server(primary_up):
+    return 'primary' if primary_up else 'backup'
+
 
 if __name__ == '__main__':
-    print('sample 1')
+    print('Active server:', choose_server(False))

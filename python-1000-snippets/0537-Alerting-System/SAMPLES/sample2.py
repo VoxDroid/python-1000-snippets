@@ -1,5 +1,12 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Threshold alerting for memory usage.
+
+
+def memory_alert(used_mb, limit_mb=1024):
+    if used_mb > limit_mb:
+        return {'status': 'alert', 'message': 'Memory threshold exceeded'}
+    return {'status': 'ok'}
+
 
 if __name__ == '__main__':
-    print('sample 2')
+    print(memory_alert(1536))

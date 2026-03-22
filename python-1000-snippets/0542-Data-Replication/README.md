@@ -1,27 +1,15 @@
 # Data Replication
 
 ## Description
-This snippet demonstrates replicating data using a dictionary.
+Replicate data structures to multiple replicas and log status.
 
-## Code
-```python
-try:
-    primary = {"key": "value"}
-    replica = primary.copy()
-    print("Replica:", replica)
-except ImportError:
-    print("Mock Output: Replica: {'key': 'value'}")
-```
+## Samples
+- `SAMPLES/sample1.py`: dictionary replication.
+- `SAMPLES/sample2.py`: distribute list among nodes.
+- `SAMPLES/sample3.py`: record replication status to `temp/0542_replication.txt`.
 
 ## Output
-```
-Mock Output: Replica: {'key': 'value'}
-```
-*(Real output: `Replica: {'key': 'value'}`)*
+Replication structure and log file.
 
 ## Explanation
-- **Data Replication**: Creates a copy of data for redundancy.
-- **Logic**: Copies a dictionary to simulate replication.
-- **Complexity**: O(n) for n items.
-- **Use Case**: Used in databases for high availability.
-- **Best Practice**: Ensure consistency; handle conflicts; monitor sync.
+Consistency and monitoring are essential for replication strategies.

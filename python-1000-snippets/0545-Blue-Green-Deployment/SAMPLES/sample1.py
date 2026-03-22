@@ -1,5 +1,10 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Toggle blue-green deployment environment.
+
+
+def switch_env(active):
+    return 'green' if active == 'blue' else 'blue'
+
 
 if __name__ == '__main__':
-    print('sample 1')
+    print('New active:', switch_env('blue'))

@@ -1,29 +1,21 @@
 # Distributed Tracing
 
 ## Description
-This snippet demonstrates setting up a trace using `opentelemetry`.
+This snippet simulates distributed tracing spans and exports to file.
 
 ## Code
-```python
-# Note: Requires `opentelemetry-api`. Install with `pip install opentelemetry-api`
-try:
-    from opentelemetry import trace
-    tracer = trace.get_tracer(__name__)
-    with tracer.start_as_current_span("example"):
-        print("Trace started")
-except ImportError:
-    print("Mock Output: Trace started")
-```
+- `SAMPLES/sample1.py`: start/end span events list.
+- `SAMPLES/sample2.py`: nested span event sequence.
+- `SAMPLES/sample3.py`: writes trace events to `temp/0534_trace_output.txt`.
 
 ## Output
-```
-Mock Output: Trace started
-```
-*(Real output with `opentelemetry`: `Trace started`)*
+- sample1: trace entries printed.
+- sample2: nested events printed.
+- sample3: trace output file written.
 
 ## Explanation
-- **Distributed Tracing**: Tracks requests across services.
-- **Logic**: Starts a trace span for an operation.
-- **Complexity**: O(1) per span.
-- **Use Case**: Used for debugging microservices.
-- **Best Practice**: Export traces; add metadata; integrate with Jaeger.
+- **Distributed Tracing**: track request flow across components.
+- **Logic**: produce start/end span event logs.
+- **Complexity**: O(1) per span event.
+- **Use Case**: distributed service observability.
+- **Best Practice**: use standard tracing libraries and exporters in production.

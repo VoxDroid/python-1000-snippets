@@ -1,28 +1,15 @@
 # Alerting System
 
 ## Description
-This snippet demonstrates a simple alerting mechanism.
+Demonstrates programmatic alert generation and logging.
 
-## Code
-```python
-try:
-    def alert(condition, message):
-        if condition:
-            print("Alert:", message)
-    alert(True, "CPU usage high")
-except ImportError:
-    print("Mock Output: Alert: CPU usage high")
-```
+## Samples
+- `SAMPLES/sample1.py`: immediate alert based on condition.
+- `SAMPLES/sample2.py`: threshold-based memory alert.
+- `SAMPLES/sample3.py`: append alert entries to `temp/0537_alerts.log`.
 
 ## Output
-```
-Mock Output: Alert: CPU usage high
-```
-*(Real output: `Alert: CPU usage high`)*
+Printed alerts and log file updates.
 
 ## Explanation
-- **Alerting System**: Triggers alerts based on conditions.
-- **Logic**: Prints an alert if a condition is met.
-- **Complexity**: O(1) per alert.
-- **Use Case**: Used for notifying system issues.
-- **Best Practice**: Integrate with email/SMS; set thresholds; suppress duplicates.
+Alerting enables timely response to system issues. Add notification channels and deduplication in real deployments.

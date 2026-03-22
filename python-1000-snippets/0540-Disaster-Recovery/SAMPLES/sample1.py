@@ -1,5 +1,11 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Simulated disaster recovery restore operation.
+
+
+def restore_from_backup(backup):
+    return backup.get('data', [])
+
 
 if __name__ == '__main__':
-    print('sample 1')
+    backup_data = {'data': [1, 2, 3]}
+    print('Restored:', restore_from_backup(backup_data))

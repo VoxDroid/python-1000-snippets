@@ -1,31 +1,24 @@
 # Health Check Monitoring
 
 ## Description
-This snippet demonstrates a simple health check endpoint using `flask`.
+This snippet demonstrates local health checks for system components and writing status reports to a file.
 
-## Code
-```python
-# Note: Requires `flask`. Install with `pip install flask`
-try:
-    from flask import Flask
-    app = Flask(__name__)
-    @app.route("/health")
-    def health():
-        return {"status": "healthy"}
-    print("Health check endpoint configured")
-except ImportError:
-    print("Mock Output: Health check endpoint configured")
-```
+## sample1.py
+- `health_check()` returns a simple dictionary health response.
+
+## sample2.py
+- `db_check()` and `cache_check()` simulate dependency checks.
+- `overall_health()` aggregates and returns overall state.
+
+## sample3.py
+- `write_health_status()` writes a health status dictionary to `temp/0535_health_status.txt`.
 
 ## Output
-```
-Mock Output: Health check endpoint configured
-```
-*(Real output with `flask`: `Health check endpoint configured`)*
+1. `sample1.py`: `Health: {'status': 'healthy', 'uptime': '0s'}`
+2. `sample2.py`: `Overall health: {'status': 'healthy', 'checks': [True, True]}`
+3. `sample3.py`: `Wrote health status to ...` and file created.
 
 ## Explanation
-- **Health Check Monitoring**: Provides a health status endpoint.
-- **Logic**: Returns a JSON status response.
-- **Complexity**: O(1) per request.
-- **Use Case**: Used in microservices for monitoring.
-- **Best Practice**: Include metrics; secure endpoints; automate checks.
+- Health checks are key for monitoring service availability.
+- Combine multiple checks to deduce overall health.
+- Persist status to disk for audits or external systems.

@@ -1,32 +1,21 @@
 # Load Balancing
 
 ## Description
-This snippet demonstrates a simple round-robin load balancer.
+This snippet demonstrates round-robin and weighted load balancing for request distribution.
 
 ## Code
-```python
-try:
-    servers = ["server1:8080", "server2:8080"]
-    current = 0
-    def get_server():
-        global current
-        server = servers[current]
-        current = (current + 1) % len(servers)
-        return server
-    print("Selected server:", get_server())
-except ImportError:
-    print("Mock Output: Selected server: server1:8080")
-```
+- `SAMPLES/sample1.py`: basic round-robin across server pool.
+- `SAMPLES/sample2.py`: weighted round-robin behavior.
+- `SAMPLES/sample3.py`: save selected server history in `temp/0533_load_balancing.txt`.
 
 ## Output
-```
-Mock Output: Selected server: server1:8080
-```
-*(Real output: `Selected server: server1:8080`)*
+- sample1: list of selected servers in rotation.
+- sample2: weighted sequence.
+- sample3: file written with selection history.
 
 ## Explanation
-- **Load Balancing**: Distributes requests across servers.
-- **Logic**: Selects servers in a round-robin fashion.
-- **Complexity**: O(1) per selection.
-- **Use Case**: Used to balance traffic in distributed systems.
-- **Best Practice**: Add health checks; support weighted balancing; monitor performance.
+- **Load Balancing**: distributes requests across multiple servers.
+- **Logic**: deterministic selection algorithm.
+- **Complexity**: O(1) per lookup.
+- **Use Case**: distributed service routing.
+- **Best Practice**: include health checks, weighted policies, and failure handling.

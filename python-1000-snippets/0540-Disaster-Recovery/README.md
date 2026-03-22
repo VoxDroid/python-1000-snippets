@@ -1,28 +1,15 @@
 # Disaster Recovery
 
 ## Description
-This snippet demonstrates a simulated data restore process.
+Simulates data restore and consistency validation.
 
-## Code
-```python
-try:
-    backup = {"data": [1, 2, 3]}
-    def restore():
-        return backup["data"]
-    print("Restored data:", restore())
-except ImportError:
-    print("Mock Output: Restored data: [1, 2, 3]")
-```
+## Samples
+- `SAMPLES/sample1.py`: restore from backup data.
+- `SAMPLES/sample2.py`: validate restored data matches primary.
+- `SAMPLES/sample3.py`: append cleanup results to `temp/0540_recovery.log`.
 
 ## Output
-```
-Mock Output: Restored data: [1, 2, 3]
-```
-*(Real output: `Restored data: [1, 2, 3]`)*
+Restore success messages and recovery log file.
 
 ## Explanation
-- **Disaster Recovery**: Restores data from a backup.
-- **Logic**: Returns data from a simulated backup.
-- **Complexity**: O(1) for restore.
-- **Use Case**: Used for recovering from data loss.
-- **Best Practice**: Test restores; secure backups; automate recovery.
+Disaster recovery requires tested restore paths and monitoring to ensure recovery works when needed.

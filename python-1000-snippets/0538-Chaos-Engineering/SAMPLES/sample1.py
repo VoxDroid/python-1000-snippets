@@ -1,5 +1,17 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Simple chaos engineering scenario with random failure injection.
+
+import random
+
+
+def chaos_test():
+    if random.random() < 0.3:
+        raise RuntimeError('Injected chaos failure')
+    return 'Success'
+
 
 if __name__ == '__main__':
-    print('sample 1')
+    try:
+        print('Result:', chaos_test())
+    except RuntimeError as e:
+        print('Caught failure:', e)

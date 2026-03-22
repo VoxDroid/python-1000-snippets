@@ -1,3 +1,5 @@
-# 0544-Failover-Mechanism Cheatsheet
+# 0544 Failover Mechanism Cheatsheet
 
-*(Provide quick usage tips, shortcuts and examples.)*
+- `python SAMPLES/sample1.py`: choose active server.
+- `python SAMPLES/sample2.py`: evaluate failover strategy.
+- `python SAMPLES/sample3.py`: append failover events to `temp/0544_failover.log`.

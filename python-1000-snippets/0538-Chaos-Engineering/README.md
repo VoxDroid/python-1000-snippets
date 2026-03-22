@@ -1,30 +1,15 @@
 # Chaos Engineering
 
 ## Description
-This snippet demonstrates a chaos test by simulating failures.
+Simulated failure injection to test resiliency.
 
-## Code
-```python
-try:
-    import random
-    def chaos_test():
-        if random.random() < 0.5:
-            raise Exception("Chaos induced failure")
-        return "Success"
-    print("Result:", chaos_test())
-except ImportError:
-    print("Mock Output: Result: Success")
-```
+## Samples
+- `SAMPLES/sample1.py`: random failure generation.
+- `SAMPLES/sample2.py`: aggregated chaos test stats.
+- `SAMPLES/sample3.py`: write stats to `temp/0538_chaos.txt`.
 
 ## Output
-```
-Mock Output: Result: Success
-```
-*(Real output: `Result: Success` or raises exception)*
+Console results and a temp stats file.
 
 ## Explanation
-- **Chaos Engineering**: Tests system resilience with random failures.
-- **Logic**: Simulates a failure with 50% probability.
-- **Complexity**: O(1) per test.
-- **Use Case**: Used to validate system robustness.
-- **Best Practice**: Start small; monitor impacts; automate tests.
+Chaos engineering exposes weak points; run in controlled environments and collect failure metrics.

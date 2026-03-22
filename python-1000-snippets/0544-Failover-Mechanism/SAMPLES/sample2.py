@@ -1,5 +1,14 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Simulate primary health probe with failover.
+
+
+def failover_strategy(primary_health, backup_health):
+    if primary_health:
+        return 'primary'
+    if backup_health:
+        return 'backup'
+    return 'unavailable'
+
 
 if __name__ == '__main__':
-    print('sample 2')
+    print('Chosen:', failover_strategy(False, True))

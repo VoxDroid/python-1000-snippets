@@ -1,28 +1,15 @@
 # Failover Mechanism
 
 ## Description
-This snippet demonstrates a simple failover to a backup server.
+Implements primary-to-backup failover behavior.
 
-## Code
-```python
-try:
-    servers = ["primary:8080", "backup:8080"]
-    def failover():
-        return servers[1] if True else servers[0]  # Simulated failure
-    print("Active server:", failover())
-except ImportError:
-    print("Mock Output: Active server: backup:8080")
-```
+## Samples
+- `SAMPLES/sample1.py`: choose active server.
+- `SAMPLES/sample2.py`: failover decision based on health.
+- `SAMPLES/sample3.py`: log selected server to `temp/0544_failover.log`.
 
 ## Output
-```
-Mock Output: Active server: backup:8080
-```
-*(Real output: `Active server: backup:8080`)*
+Selected service endpoint and log file.
 
 ## Explanation
-- **Failover Mechanism**: Switches to a backup server on failure.
-- **Logic**: Selects backup server in a simulated failure.
-- **Complexity**: O(1) per failover.
-- **Use Case**: Used for maintaining service uptime.
-- **Best Practice**: Test failover; minimize downtime; log switches.
+Automated failover minimizes downtime and requires detection, selection, and recovery steps.

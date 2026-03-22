@@ -1,5 +1,10 @@
 # sample2.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Simulate incremental backup by appending changed entries.
+
+
+def incremental_backup(base_data, new_data):
+    return base_data + [item for item in new_data if item not in base_data]
+
 
 if __name__ == '__main__':
-    print('sample 2')
+    print('Incremental result:', incremental_backup([1,2,3], [3,4,5]))

@@ -1,5 +1,10 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Simple health check function.
+
+
+def health_check():
+    return {'status': 'healthy', 'uptime': '0s'}
+
 
 if __name__ == '__main__':
-    print('sample 1')
+    print('Health:', health_check())

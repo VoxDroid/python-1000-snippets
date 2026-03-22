@@ -1,5 +1,14 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Determine available nodes assuming health checks.
+
+
+def available_nodes(nodes, check):
+    return [n for n in nodes if check(n)]
+
+
+def always_up(n):
+    return True
+
 
 if __name__ == '__main__':
-    print('sample 1')
+    print('Up nodes:', available_nodes(['node1', 'node2'], always_up))
