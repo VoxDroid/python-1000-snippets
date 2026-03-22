@@ -1,30 +1,15 @@
 # Personalization Engine
 
 ## Description
-This snippet demonstrates a simple personalization engine using user profiles.
+Personalizes content per user profile and logs recommendations.
 
-## Code
-```python
-# Note: Requires `pandas`. Install with `pip install pandas`
-try:
-    import pandas as pd
-    user_profiles = pd.DataFrame({"user": [1, 2], "pref": ["action", "comedy"]})
-    def personalize(user_id):
-        return user_profiles[user_profiles["user"] == user_id]["pref"].iloc[0]
-    print("Preference for user 1:", personalize(1))
-except ImportError:
-    print("Mock Output: Preference for user 1: action")
-```
+## Samples
+- `SAMPLES/sample1.py`: get user preference.
+- `SAMPLES/sample2.py`: generate recommendations for preference.
+- `SAMPLES/sample3.py`: append personalization facts to `temp/0555_personalization.txt`.
 
 ## Output
-```
-Mock Output: Preference for user 1: action
-```
-*(Real output with `pandas`: `Preference for user 1: action`)*
+- preference string, recommended items, plus file append results.
 
 ## Explanation
-- **Personalization Engine**: Delivers user-specific content.
-- **Logic**: Retrieves user preferences from a DataFrame.
-- **Complexity**: O(n) for n users.
-- **Use Case**: Used in tailored content delivery.
-- **Best Practice**: Update profiles dynamically; handle missing data; ensure privacy.
+Personalization delivers relevant content by using profiles and preference patterns.

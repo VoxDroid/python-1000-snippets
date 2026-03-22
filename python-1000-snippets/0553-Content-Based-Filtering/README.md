@@ -1,30 +1,16 @@
 # Content-Based Filtering
 
 ## Description
-This snippet demonstrates content-based filtering using item features.
+Associates items to users based on feature similarity using user preferences.
 
-## Code
-```python
-# Note: Requires `numpy`. Install with `pip install numpy`
-try:
-    import numpy as np
-    item_features = np.array([[1, 0], [0, 1], [1, 1]])
-    user_pref = np.array([1, 0])
-    scores = np.dot(item_features, user_pref)
-    print("Recommendation scores:", scores)
-except ImportError:
-    print("Mock Output: Recommendation scores: [1 0 1]")
-```
+## Samples
+- `SAMPLES/sample1.py`: compute score for each item.
+- `SAMPLES/sample2.py`: choose highest score item.
+- `SAMPLES/sample3.py`: write results to `temp/0553_content_based.txt`.
 
 ## Output
-```
-Mock Output: Recommendation scores: [1 0 1]
-```
-*(Real output with `numpy`: `Recommendation scores: [1 0 1]`)*
+- score list and best item index.
+- persistent output file.
 
 ## Explanation
-- **Content-Based Filtering**: Recommends items based on feature similarity.
-- **Logic**: Scores items by dot product with user preferences.
-- **Complexity**: O(n*m) for n items, m features.
-- **Use Case**: Used in content recommendation like articles or movies.
-- **Best Practice**: Normalize features; update user profiles; handle cold starts.
+Content-based filtering recommends items by matching item descriptors to a user profile.

@@ -1,5 +1,12 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Canary release routing logic.
+
+import random
+
+
+def route_request(canary_rate=0.1):
+    return 'canary' if random.random() < canary_rate else 'stable'
+
 
 if __name__ == '__main__':
-    print('sample 1')
+    print('Route:', route_request())

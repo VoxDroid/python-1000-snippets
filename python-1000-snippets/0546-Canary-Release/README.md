@@ -1,28 +1,17 @@
 # Canary Release
 
 ## Description
-This snippet demonstrates a canary release with weighted traffic.
+This snippet demonstrates canary release routing and verification of traffic split.
 
-## Code
-```python
-try:
-    import random
-    def route_request():
-        return "canary" if random.random() < 0.1 else "stable"
-    print("Route:", route_request())
-except ImportError:
-    print("Mock Output: Route: stable")
-```
+## Samples
+- `SAMPLES/sample1.py`: route single request using a default canary rate (10%).
+- `SAMPLES/sample2.py`: compute canary/stable counts for 1000 requests.
+- `SAMPLES/sample3.py`: persist canary run stats to `temp/0546_canary.txt`.
 
 ## Output
-```
-Mock Output: Route: stable
-```
-*(Real output: `Route: canary` or `Route: stable`)*
+- Example print: `Route: stable` or `Route: canary`.
+- `SAMPLES/sample2.py`: stats dictionary.
+- File `temp/0546_canary.txt` is written.
 
 ## Explanation
-- **Canary Release**: Routes a small percentage of traffic to a new version.
-- **Logic**: Sends 10% of requests to the canary version.
-- **Complexity**: O(1) per route.
-- **Use Case**: Used for testing new features safely.
-- **Best Practice**: Monitor metrics; adjust weights; rollback if needed.
+Canary release gradually shifts traffic to new code paths. Use this to validate stability before full rollout.

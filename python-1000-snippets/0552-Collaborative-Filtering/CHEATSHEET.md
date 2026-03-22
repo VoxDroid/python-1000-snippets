@@ -1,3 +1,5 @@
-# 0552-Collaborative-Filtering Cheatsheet
+# 0552 Collaborative Filtering Cheatsheet
 
-*(Provide quick usage tips, shortcuts and examples.)*
+- `python SAMPLES/sample1.py`: compute correlation.
+- `python SAMPLES/sample2.py`: select top correlated item.
+- `python SAMPLES/sample3.py`: save result file.

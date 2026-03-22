@@ -1,29 +1,15 @@
 # Multivariate Testing
 
 ## Description
-This snippet demonstrates multivariate testing with multiple variants.
+Runs multivariate experiments across several dimensions and logs variant counts.
 
-## Code
-```python
-try:
-    import random
-    variants = {"color": ["red", "blue"], "size": ["small", "large"]}
-    def assign_variants():
-        return {k: random.choice(v) for k, v in variants.items()}
-    print("Assigned variants:", assign_variants())
-except ImportError:
-    print("Mock Output: Assigned variants: {'color': 'red', 'size': 'small'}")
-```
+## Samples
+- `SAMPLES/sample1.py`: single assignment from multiple feature dimensions.
+- `SAMPLES/sample2.py`: simulate bulk assignments to measure combo frequency.
+- `SAMPLES/sample3.py`: persist results to `temp/0549_multivariate.txt`.
 
 ## Output
-```
-Mock Output: Assigned variants: {'color': 'red', 'size': 'small'}
-```
-*(Real output: `Assigned variants: <random combination>`)*
+- A combo assignment dictionary and saved stats file.
 
 ## Explanation
-- **Multivariate Testing**: Tests multiple feature combinations.
-- **Logic**: Randomly selects variants for each feature.
-- **Complexity**: O(k) for k features.
-- **Use Case**: Used for optimizing complex interfaces.
-- **Best Practice**: Balance variants; track interactions; use statistical analysis.
+Multivariate testing helps compare combinations (e.g., color+size), not just single variable splits.

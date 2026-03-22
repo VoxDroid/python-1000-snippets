@@ -1,28 +1,16 @@
 # A/B Testing Framework
 
 ## Description
-This snippet demonstrates A/B testing with random assignment.
+Demonstrates assignment to A/B test variants at configurable split and logging results.
 
-## Code
-```python
-try:
-    import random
-    def assign_variant():
-        return "A" if random.random() < 0.5 else "B"
-    print("Assigned variant:", assign_variant())
-except ImportError:
-    print("Mock Output: Assigned variant: A")
-```
+## Samples
+- `SAMPLES/sample1.py`: assign a single user to variant A or B.
+- `SAMPLES/sample2.py`: simulate distribution across many users.
+- `SAMPLES/sample3.py`: save distribution to `temp/0548_ab_test.txt`.
 
 ## Output
-```
-Mock Output: Assigned variant: A
-```
-*(Real output: `Assigned variant: A` or `B`)*
+- variant assignment and stats dictionary.
+- `temp/0548_ab_test.txt` file written.
 
 ## Explanation
-- **A/B Testing Framework**: Assigns users to test variants.
-- **Logic**: Randomly assigns variant A or B.
-- **Complexity**: O(1) per assignment.
-- **Use Case**: Used for comparing feature performance.
-- **Best Practice**: Track metrics; ensure fair splits; analyze results.
+A/B testing lets teams compare two experiences. Track assignment ratios and outcomes before scaling.

@@ -1,29 +1,16 @@
 # Collaborative Filtering
 
 ## Description
-This snippet demonstrates user-based collaborative filtering using `pandas`.
+Item-based collaborative filtering using Pearson correlation and simple recommendations.
 
-## Code
-```python
-# Note: Requires `pandas`. Install with `pip install pandas`
-try:
-    import pandas as pd
-    ratings = pd.DataFrame([[5, 3, 0], [4, 0, 0], [0, 2, 3]], columns=["item1", "item2", "item3"])
-    similarity = ratings.corr()
-    print("Item correlation:", similarity["item1"].round(2).to_dict())
-except ImportError:
-    print("Mock Output: Item correlation: {'item1': 1.0, 'item2': 0.76, 'item3': nan}")
-```
+## Samples
+- `SAMPLES/sample1.py`: compute item-item correlation matrix.
+- `SAMPLES/sample2.py`: pick best correlated item for an item.
+- `SAMPLES/sample3.py`: write correlation to `temp/0552_collab_filtering.txt`.
 
 ## Output
-```
-Mock Output: Item correlation: {'item1': 1.0, 'item2': 0.76, 'item3': nan}
-```
-*(Real output with `pandas`: `Item correlation: {'item1': 1.0, 'item2': 0.76, 'item3': nan}`)*
+- correlation matrix and recommended item.
+- persisted correlation file.
 
 ## Explanation
-- **Collaborative Filtering**: Finds item similarities based on user ratings.
-- **Logic**: Computes Pearson correlation between items.
-- **Complexity**: O(n*m) for n users, m items.
-- **Use Case**: Used in recommendation systems for personalized suggestions.
-- **Best Practice**: Handle missing ratings; use matrix factorization; test accuracy.
+Use collaborative signals to recommend items; this snippet can be extended with sparse matrices or real dataset input.

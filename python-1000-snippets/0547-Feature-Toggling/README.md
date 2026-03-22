@@ -1,28 +1,17 @@
 # Feature Toggling
 
 ## Description
-This snippet demonstrates enabling/disabling a feature.
+Demonstrates runtime feature flag checks and state persistence.
 
-## Code
-```python
-try:
-    features = {"new_ui": False}
-    def is_enabled(feature):
-        return features.get(feature, False)
-    print("Feature new_ui:", "enabled" if is_enabled("new_ui") else "disabled")
-except ImportError:
-    print("Mock Output: Feature new_ui: disabled")
-```
+## Samples
+- `SAMPLES/sample1.py`: return enabled/disabled for flags.
+- `SAMPLES/sample2.py`: toggle value at runtime and then query.
+- `SAMPLES/sample3.py`: log toggle updates to `temp/0547_toggle_status.txt`.
 
 ## Output
-```
-Mock Output: Feature new_ui: disabled
-```
-*(Real output: `Feature new_ui: disabled`)*
+- `sample1.py`: flag states for both features.
+- `sample2.py`: updated flag status change.
+- `sample3.py`: file write and content output.
 
 ## Explanation
-- **Feature Toggling**: Controls feature availability.
-- **Logic**: Checks if a feature is enabled in a dictionary.
-- **Complexity**: O(1) per check.
-- **Use Case**: Used for rolling out features gradually.
-- **Best Practice**: Centralize toggles; log usage; test both states.
+Feature toggles enable safe deployments and gradual rollout by turning features on/off in config.

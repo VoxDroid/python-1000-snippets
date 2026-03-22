@@ -1,3 +1,5 @@
-# 0550-User-Behavior-Analytics Cheatsheet
+# 0550 User Behavior Analytics Cheatsheet
 
-*(Provide quick usage tips, shortcuts and examples.)*
+- `python SAMPLES/sample1.py`: click count.
+- `python SAMPLES/sample2.py`: per-user rate.
+- `python SAMPLES/sample3.py`: write summary to file.
