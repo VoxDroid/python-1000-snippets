@@ -1,40 +1,21 @@
 # Retry Mechanism
 
 ## Description
-This snippet demonstrates a retry decorator for failed operations.
+This snippet demonstrates retry behavior for unreliable operations.
 
 ## Code
-```python
-try:
-    def retry(max_attempts=3):
-        def decorator(func):
-            def wrapper(*args, **kwargs):
-                for _ in range(max_attempts):
-                    try:
-                        return func(*args, **kwargs)
-                    except:
-                        pass
-                return "Failed"
-            return wrapper
-        return decorator
-    
-    @retry()
-    def risky():
-        raise ValueError
-    print("Result:", risky())
-except ImportError:
-    print("Mock Output: Result: Failed")
-```
+- `SAMPLES/sample1.py`: decorator-based retry for transient failures.
+- `SAMPLES/sample2.py`: exponential backoff retry loop.
+- `SAMPLES/sample3.py`: logs attempts to `temp/0530_retry_log.txt`.
 
 ## Output
-```
-Mock Output: Result: Failed
-```
-*(Real output: `Result: Failed`)*
+- sample1: `Retry result: success`.
+- sample2: `Call result: done`.
+- sample3: outcome and log path.
 
 ## Explanation
-- **Retry Mechanism**: Retries a function on failure.
-- **Logic**: Attempts a function up to 3 times before failing.
-- **Complexity**: O(n) for n retries.
-- **Use Case**: Used for unreliable network calls or services.
-- **Best Practice**: Add delays; log retries; handle specific exceptions.
+- **Retry Mechanism**: retries on transient failures.
+- **Logic**: attempt function multiple times with optional delays.
+- **Complexity**: O(n) with retries.
+- **Use Case**: unstable network operations, database connections.
+- **Best Practice**: handle specific exceptions, add backoff, record retries.

@@ -1,28 +1,21 @@
 # Attribute-Based Access Control
 
 ## Description
-This snippet demonstrates ABAC using user attributes.
+This snippet demonstrates ABAC with attribute policy evaluation and logging to temp.
 
 ## Code
-```python
-try:
-    user = {"department": "IT", "clearance": "high"}
-    def check_access(user, resource):
-        return user["department"] == "IT" and user["clearance"] == "high"
-    print("Access:", check_access(user, "server"))
-except ImportError:
-    print("Mock Output: Access: True")
-```
+- `SAMPLES/sample1.py`: evaluate user access based on department/clearance attributes.
+- `SAMPLES/sample2.py`: evaluate multiple subjects against resource constraints.
+- `SAMPLES/sample3.py`: write ABAC decision to `temp/0526_abac_log.txt`.
 
 ## Output
-```
-Mock Output: Access: True
-```
-*(Real output: `Access: True`)*
+- sample1: `Access True/False`.
+- sample2: policy result dictionary for subjects.
+- sample3: temp log entry with decision.
 
 ## Explanation
-- **Attribute-Based Access Control**: Grants access based on user attributes.
-- **Logic**: Checks department and clearance for access.
-- **Complexity**: O(1) per check.
-- **Use Case**: Used in fine-grained access control systems.
-- **Best Practice**: Define clear policies; validate attributes; log decisions.
+- **Attribute-Based Access Control**: fine-grained access control by attributes.
+- **Logic**: match user attributes against resource requirements.
+- **Complexity**: O(n) for multiple subjects.
+- **Use Case**: cloud services and dynamic permission checks.
+- **Best Practice**: central policy engine and decision logging.

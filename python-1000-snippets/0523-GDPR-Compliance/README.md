@@ -1,28 +1,21 @@
 # GDPR Compliance
 
 ## Description
-This snippet demonstrates a simulated GDPR data deletion process.
+This snippet demonstrates a GDPR data deletion flow with audit logs.
 
 ## Code
-```python
-try:
-    import pandas as pd
-    df = pd.DataFrame({"user_id": [1, 2], "data": ["info", "info"]})
-    df = df[df["user_id"] != 1]
-    print("User data deleted")
-except ImportError:
-    print("Mock Output: User data deleted")
-```
+- `SAMPLES/sample1.py`: deletes user records from a list.
+- `SAMPLES/sample2.py`: logs deletions to `temp/0523_gdpr_deletions.log`.
+- `SAMPLES/sample3.py`: reads log and outputs deletion count.
 
 ## Output
-```
-Mock Output: User data deleted
-```
-*(Real output: `User data deleted`)*
+- sample1: remaining user records printed.
+- sample2: deletion event file path.
+- sample3: count of deletions from log.
 
 ## Explanation
-- **GDPR Compliance**: Removes user data to comply with deletion requests.
-- **Logic**: Filters out a specific user’s data.
-- **Complexity**: O(n) for n rows.
-- **Use Case**: Used for regulatory compliance in data systems.
-- **Best Practice**: Log deletions; ensure backups; validate compliance.
+- **GDPR Compliance**: handle user erasure requests.
+- **Logic**: filter records for deletion, append audit entries, verify log.
+- **Complexity**: O(n).
+- **Use Case**: data systems requiring right to erasure.
+- **Best Practice**: secure audit trail, remove backups, confirm deletion.

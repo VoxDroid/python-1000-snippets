@@ -1,31 +1,21 @@
 # Bulkhead Isolation
 
 ## Description
-This snippet demonstrates bulkhead isolation using thread pools to limit resource usage.
+This snippet demonstrates bulkhead isolation through separate thread pools for subsystems.
 
 ## Code
-```python
-# Note: Requires `concurrent.futures`. Built-in module.
-try:
-    from concurrent.futures import ThreadPoolExecutor
-    def task(x):
-        return x * x
-    with ThreadPoolExecutor(max_workers=2) as executor:
-        results = list(executor.map(task, [1, 2, 3]))
-    print("Results:", results)
-except ImportError:
-    print("Mock Output: Results: [1, 4, 9]")
-```
+- `SAMPLES/sample1.py`: two thread pools with confined worker counts.
+- `SAMPLES/sample2.py`: show bulkhead status reports.
+- `SAMPLES/sample3.py`: logs bulkhead events to `temp/0531_bulkhead_log.txt`.
 
 ## Output
-```
-Mock Output: Results: [1, 4, 9]
-```
-*(Real output: `Results: [1, 4, 9]`)*
+- sample1: A and B task results.
+- sample2: status dictionary for each bulkhead.
+- sample3: logs a handful of events.
 
 ## Explanation
-- **Bulkhead Isolation**: Limits concurrent tasks to prevent resource exhaustion.
-- **Logic**: Uses a thread pool with 2 workers to process tasks.
-- **Complexity**: O(n) for n tasks, constrained by worker count.
-- **Use Case**: Used in microservices to isolate critical tasks.
-- **Best Practice**: Tune worker count; monitor resource usage; handle failures.
+- **Bulkhead Isolation**: limits resource impact by bounding concurrency per subsystem.
+- **Logic**: separate thread pools and status check.
+- **Complexity**: O(n) across tasks.
+- **Use Case**: microservices for fault isolation and performance stability.
+- **Best Practice**: monitor usage and fine-tune thread limits.

@@ -1,28 +1,21 @@
 # Service Discovery
 
 ## Description
-This snippet demonstrates a simulated service discovery using a dictionary.
+This snippet demonstrates basic service discovery and registry operations.
 
 ## Code
-```python
-try:
-    services = {"api": "localhost:8080", "db": "localhost:5432"}
-    def discover(service_name):
-        return services.get(service_name, "Service not found")
-    print("Service address:", discover("api"))
-except ImportError:
-    print("Mock Output: Service address: localhost:8080")
-```
+- `SAMPLES/sample1.py`: lookup service via a static registry.
+- `SAMPLES/sample2.py`: dynamic register/deregister operations.
+- `SAMPLES/sample3.py`: writes discovery report to `temp/0532_service_discovery.txt`.
 
 ## Output
-```
-Mock Output: Service address: localhost:8080
-```
-*(Real output: `Service address: localhost:8080`)*
+- sample1: resolves service endpoints for known/unknown services.
+- sample2: registry operations output.
+- sample3: writes lookup report.
 
 ## Explanation
-- **Service Discovery**: Retrieves service endpoints dynamically.
-- **Logic**: Looks up a service address in a dictionary.
+- **Service Discovery**: locate service endpoints via registry.
+- **Logic**: dictionary lookup for service names.
 - **Complexity**: O(1) per lookup.
-- **Use Case**: Used in microservices to locate services.
-- **Best Practice**: Use a registry like Consul; handle missing services; cache results.
+- **Use Case**: microservices endpoint discovery.
+- **Best Practice**: use dedicated service registry, handle stale endpoints, caching.

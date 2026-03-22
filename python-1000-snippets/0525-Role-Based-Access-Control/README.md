@@ -1,28 +1,21 @@
 # Role-Based Access Control
 
 ## Description
-This snippet demonstrates RBAC using a simple dictionary.
+This snippet demonstrates RBAC with role permissions and denial logging.
 
 ## Code
-```python
-try:
-    roles = {"admin": ["read", "write"], "user": ["read"]}
-    def check_access(user_role, action):
-        return action in roles.get(user_role, [])
-    print("Access:", check_access("admin", "write"))
-except ImportError:
-    print("Mock Output: Access: True")
-```
+- `SAMPLES/sample1.py`: check role permissions for actions.
+- `SAMPLES/sample2.py`: authorization logic for user roles.
+- `SAMPLES/sample3.py`: log denied access attempts to `temp/0525_rbac_denies.log`.
 
 ## Output
-```
-Mock Output: Access: True
-```
-*(Real output: `Access: True`)*
+- sample1: prints access decisions.
+- sample2: prints authorization checks.
+- sample3: logs denial events.
 
 ## Explanation
-- **Role-Based Access Control**: Checks permissions based on roles.
-- **Logic**: Validates if an action is allowed for a role.
-- **Complexity**: O(1) per check.
-- **Use Case**: Used in secure systems for access management.
-- **Best Practice**: Centralize roles; validate inputs; log access attempts.
+- **Role-Based Access Control**: assign abilities based on role.
+- **Logic**: allow/deny decisions in small policy function.
+- **Complexity**: O(1) checks.
+- **Use Case**: protect resources in applications.
+- **Best Practice**: centralize policies, audit denials, enforce least privilege.

@@ -1,33 +1,21 @@
 # Session Management
 
 ## Description
-This snippet demonstrates session handling using `flask`.
+This snippet demonstrates simple session state management in Python.
 
 ## Code
-```python
-# Note: Requires `flask`. Install with `pip install flask`
-try:
-    from flask import Flask, session
-    app = Flask(__name__)
-    app.secret_key = "secret"
-    @app.route("/")
-    def index():
-        session["user"] = "test"
-        return "Session set"
-    print("Session route configured")
-except ImportError:
-    print("Mock Output: Session route configured")
-```
+- `SAMPLES/sample1.py`: in-memory session dictionary operations.
+- `SAMPLES/sample2.py`: session TTL and validity check.
+- `SAMPLES/sample3.py`: persist session store to `temp/0527_sessions.txt`.
 
 ## Output
-```
-Mock Output: Session route configured
-```
-*(Real output with `flask`: `Session route configured`)*
+- sample1: prints session data for user1.
+- sample2: prints session validity before and after expiry.
+- sample3: writes sessions to file.
 
 ## Explanation
-- **Session Management**: Sets up a user session in Flask.
-- **Logic**: Stores a user ID in a session.
-- **Complexity**: O(1) per session operation.
-- **Use Case**: Used for web app user authentication.
-- **Best Practice**: Secure keys; expire sessions; encrypt data.
+- **Session Management**: track user session metadata.
+- **Logic**: create, validate, and persist session entries.
+- **Complexity**: O(1) per operation.
+- **Use Case**: stateful user authentication systems.
+- **Best Practice**: secure session store, ttl expiry, and rotate keys.

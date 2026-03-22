@@ -1,40 +1,21 @@
 # Circuit Breaker Pattern
 
 ## Description
-This snippet demonstrates a simple circuit breaker implementation.
+This snippet demonstrates circuit breaker behavior with fail tracking and state logging.
 
 ## Code
-```python
-try:
-    class CircuitBreaker:
-        def __init__(self, max_failures=3):
-            self.failures = 0
-            self.max_failures = max_failures
-        
-        def call(self, func):
-            if self.failures >= self.max_failures:
-                return "Circuit open"
-            try:
-                return func()
-            except:
-                self.failures += 1
-                return "Failure"
-    
-    cb = CircuitBreaker()
-    print("Circuit state:", cb.call(lambda: 1/0))
-except ImportError:
-    print("Mock Output: Circuit state: Failure")
-```
+- `SAMPLES/sample1.py`: circuit breaker class with open state after failures.
+- `SAMPLES/sample2.py`: demonstrates reset behavior to close the circuit.
+- `SAMPLES/sample3.py`: logs state transitions to `temp/0529_circuit_log.txt`.
 
 ## Output
-```
-Mock Output: Circuit state: Failure
-```
-*(Real output: `Circuit state: Failure`)*
+- sample1: failure and open states.
+- sample2: reset and success after breaking state.
+- sample3: log file entries for each check.
 
 ## Explanation
-- **Circuit Breaker Pattern**: Prevents repeated failures in a service.
-- **Logic**: Tracks failures and opens circuit after a threshold.
-- **Complexity**: O(1) per call.
-- **Use Case**: Used in distributed systems for fault tolerance.
-- **Best Practice**: Set reset timers; log states; tune thresholds.
+- **Circuit Breaker Pattern**: stops repeated failing calls and permits recovery.
+- **Logic**: failure threshold triggers open state; reset closes circuit.
+- **Complexity**: O(1) per invocation.
+- **Use Case**: distributed service resilience.
+- **Best Practice**: include backoff, health checks, and logs.

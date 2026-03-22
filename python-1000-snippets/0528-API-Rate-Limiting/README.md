@@ -1,30 +1,21 @@
 # API Rate Limiting
 
 ## Description
-This snippet demonstrates rate limiting using `redis`.
+This snippet demonstrates rate limiting with a token bucket algorithm in Python.
 
 ## Code
-```python
-# Note: Requires `redis`. Install with `pip install redis`
-try:
-    import redis
-    r = redis.Redis(host="localhost", port=6379)
-    key = "user:1"
-    r.setex(key, 60, 5)
-    print("Rate limit set")
-except ImportError:
-    print("Mock Output: Rate limit set")
-```
+- `SAMPLES/sample1.py`: token bucket limiter, requests allowed or rejected.
+- `SAMPLES/sample2.py`: simulate requests and count denials.
+- `SAMPLES/sample3.py`: log violations to `temp/0528_rate_limit_violations.log`.
 
 ## Output
-```
-Mock Output: Rate limit set
-```
-*(Real output with `redis`: `Rate limit set`)*
+- sample1: shows request allowed/denied status.
+- sample2: prints number of denied requests.
+- sample3: writes denied events to temp.
 
 ## Explanation
-- **API Rate Limiting**: Sets a request limit for a user.
-- **Logic**: Uses Redis to store a 5-request limit for 60 seconds.
-- **Complexity**: O(1) per operation.
-- **Use Case**: Used to prevent API abuse.
-- **Best Practice**: Tune limits; handle bursts; log violations.
+- **API Rate Limiting**: prevent API abuse by limiting request rate.
+- **Logic**: token bucket with capacity and replenishment rate.
+- **Complexity**: O(1) per request.
+- **Use Case**: APIs / services under high load.
+- **Best Practice**: expose headers (`X-RateLimit-*`); handle bursts; log and alert spikes.
