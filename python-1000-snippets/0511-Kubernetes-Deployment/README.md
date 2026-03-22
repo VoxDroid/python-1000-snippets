@@ -1,42 +1,21 @@
 # Kubernetes Deployment
 
 ## Description
-This snippet demonstrates creating a Kubernetes deployment using `kubernetes`.
+This snippet demonstrates generating Kubernetes deployment manifests and checking kubectl availability.
 
 ## Code
-```python
-# Note: Requires `kubernetes`. Install with `pip install kubernetes`
-try:
-    from kubernetes import client, config
-    config.load_kube_config()
-    v1 = client.AppsV1Api()
-    deployment = {
-        "apiVersion": "apps/v1",
-        "kind": "Deployment",
-        "metadata": {"name": "nginx-deployment"},
-        "spec": {
-            "replicas": 1,
-            "selector": {"matchLabels": {"app": "nginx"}},
-            "template": {
-                "metadata": {"labels": {"app": "nginx"}},
-                "spec": {"containers": [{"name": "nginx", "image": "nginx:latest"}]}
-            }
-        }
-    }
-    print("Deployment defined")
-except ImportError:
-    print("Mock Output: Deployment defined")
-```
+- `SAMPLES/sample1.py`: creates a Kubernetes deployment object and prints JSON representation.
+- `SAMPLES/sample2.py`: writes a deployment YAML manifest to `temp/0511_deployment.yaml`.
+- `SAMPLES/sample3.py`: checks `kubectl version` if installed.
 
 ## Output
-```
-Mock Output: Deployment defined
-```
-*(Real output with `kubernetes`: `Deployment defined`)*
+- sample1: printed JSON manifest.
+- sample2: manifest file created in `temp`.
+- sample3: `kubectl` version or missing message.
 
 ## Explanation
-- **Kubernetes Deployment**: Defines a deployment for an NGINX container.
-- **Logic**: Creates a deployment spec with one replica.
-- **Complexity**: O(1) for definition.
-- **Use Case**: Used for managing containerized applications in Kubernetes.
-- **Best Practice**: Validate YAML; use namespaces; test with `kubectl apply`.
+- **Kubernetes Deployment**: simulates deployment manifest generation by code.
+- **Logic**: no external Kubernetes client required; safe local generation.
+- **Complexity**: O(1).
+- **Use Case**: preparing YAML for `kubectl apply` or CI templates.
+- **Best Practice**: validate with `kubectl apply --dry-run=client`, keep manifests in version control.

@@ -1,30 +1,21 @@
 # Data Validation Framework
 
 ## Description
-This snippet demonstrates data validation using `great_expectations`.
+This snippet demonstrates data validation using built-in Python checks in lieu of external libraries.
 
 ## Code
-```python
-# Note: Requires `great_expectations` and `pandas`. Install with `pip install great_expectations pandas`
-try:
-    import great_expectations as ge
-    import pandas as pd
-    df = ge.from_pandas(pd.DataFrame({"value": [1, 2, 3]}))
-    df.expect_column_values_to_be_between("value", 0, 10)
-    print("Validation completed")
-except ImportError:
-    print("Mock Output: Validation completed")
-```
+- `SAMPLES/sample1.py`: range validation for list values.
+- `SAMPLES/sample2.py`: row-based validation for id/non-null/value constraints.
+- `SAMPLES/sample3.py`: writes validation checks to `temp/0520_validation_report.txt`.
 
 ## Output
-```
-Mock Output: Validation completed
-```
-*(Real output with `great_expectations`: `Validation completed`)*
+- sample1: `Validation completed: True`
+- sample2: `Row validation: [True, False, True]`
+- sample3: status file with decision results.
 
 ## Explanation
-- **Data Validation Framework**: Validates data against expectations.
-- **Logic**: Checks if values are within a range.
-- **Complexity**: O(n) for n rows.
-- **Use Case**: Used for data quality assurance.
-- **Best Practice**: Define clear expectations; log failures; integrate with ETL.
+- **Data Validation Framework**: validate records before processing.
+- **Logic**: apply per-row and summary checks.
+- **Complexity**: O(n).
+- **Use Case**: enforce data quality for ETL and analytics.
+- **Best Practice**: define expectations, log failures, integrate into pipelines.

@@ -1,29 +1,21 @@
 # Batch Processing Pipeline
 
 ## Description
-This snippet demonstrates batch processing using `pandas`.
+This snippet demonstrates batch processing using pure Python batch operations.
 
 ## Code
-```python
-# Note: Requires `pandas`. Install with `pip install pandas`
-try:
-    import pandas as pd
-    data = pd.DataFrame({"value": [1, 2, 3]})
-    result = data.groupby(data.index // 2).sum()
-    print("Batch processed:", result["value"].tolist())
-except ImportError:
-    print("Mock Output: Batch processed: [3, 3]")
-```
+- `SAMPLES/sample1.py`: batch sum of a data list.
+- `SAMPLES/sample2.py`: per-batch transformation pipeline.
+- `SAMPLES/sample3.py`: writes batch stats to `temp/0516_batch_processing.txt`.
 
 ## Output
-```
-Mock Output: Batch processed: [3, 3]
-```
-*(Real output with `pandas`: `Batch processed: [3, 3]`)*
+- sample1: `Batch sum: [3, 7, 5]` for input [1,2,3,4,5].
+- sample2: grouped and transformed list of lists.
+- sample3: metadata file with total and batches.
 
 ## Explanation
-- **Batch Processing Pipeline**: Aggregates data in batches.
-- **Logic**: Groups data into batches and sums values.
-- **Complexity**: O(n) for n rows.
-- **Use Case**: Used for ETL or large dataset processing.
-- **Best Practice**: Optimize batch size; parallelize; log progress.
+- **Batch Processing Pipeline**: process slices of data sets at a time.
+- **Logic**: divide list into fixed-size groups and apply operation.
+- **Complexity**: O(n) for data length.
+- **Use Case**: ETL and batch analytics for large datasets.
+- **Best Practice**: use chunk size based on memory; include progress logs; handle failures.

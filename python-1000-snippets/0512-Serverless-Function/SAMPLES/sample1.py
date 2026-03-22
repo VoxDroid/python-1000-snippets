@@ -1,5 +1,11 @@
 # sample1.py
-# TODO: implement a meaningful example demonstrating the snippet.
+# Simulate an AWS Lambda function handler invocation.
+
+def lambda_handler(event, context):
+    name = event.get('name', 'world')
+    return {'statusCode': 200, 'body': f'Hello {name}!'}
+
 
 if __name__ == '__main__':
-    print('sample 1')
+    response = lambda_handler({'name': 'developer'}, {})
+    print('Response:', response['body'])

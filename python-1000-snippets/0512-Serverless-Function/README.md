@@ -1,28 +1,21 @@
 # Serverless Function
 
 ## Description
-This snippet demonstrates a simulated AWS Lambda function.
+This snippet demonstrates a simulated AWS Lambda function invocation in pure Python.
 
 ## Code
-```python
-try:
-    def lambda_handler(event, context):
-        return {"statusCode": 200, "body": "Hello from Lambda!"}
-    result = lambda_handler({}, {})
-    print("Response:", result["body"])
-except ImportError:
-    print("Mock Output: Response: Hello from Lambda!")
-```
+- `SAMPLES/sample1.py`: main Lambda handler invoked with an event.
+- `SAMPLES/sample2.py`: batch event processing for lambda-like behavior.
+- `SAMPLES/sample3.py`: logs outputs to `temp/0512_lambda_results.txt`.
 
 ## Output
-```
-Mock Output: Response: Hello from Lambda!
-```
-*(Real output: `Response: Hello from Lambda!`)*
+- `sample1.py`: `Response: Hello developer!`
+- `sample2.py`: `Batch results: [0, 2, 4, 6, 8]`
+- `sample3.py`: writes results file and prints file path.
 
 ## Explanation
-- **Serverless Function**: Simulates an AWS Lambda handler.
-- **Logic**: Returns a simple HTTP response.
-- **Complexity**: O(1) per invocation.
-- **Use Case**: Used for event-driven serverless applications.
-- **Best Practice**: Handle events; log errors; optimize cold starts.
+- **Serverless Function**: event-driven function pattern.
+- **Logic**: request event -> handler -> response payload.
+- **Complexity**: O(n) for batch invocation, O(1) per event.
+- **Use Case**: prototyping Lambda handler behavior and test harnesses.
+- **Best Practice**: add input validation, error handlers, and monitor execution times.

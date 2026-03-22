@@ -1,28 +1,21 @@
 # Cloud Storage Integration
 
 ## Description
-This snippet demonstrates uploading a file to AWS S3 using `boto3`.
+This snippet demonstrates cloud storage integration patterns using local file operations and optional boto3 interaction.
 
 ## Code
-```python
-# Note: Requires `boto3`. Install with `pip install boto3`
-try:
-    import boto3
-    s3 = boto3.client("s3")
-    print("S3 client initialized")
-except ImportError:
-    print("Mock Output: S3 client initialized")
-```
+- `SAMPLES/sample1.py`: creates a temp file and attempts S3 upload with graceful failure.
+- `SAMPLES/sample2.py`: lists S3 buckets if boto3 is installed.
+- `SAMPLES/sample3.py`: writes boto3 availability status to `temp/0513_cloud_storage_status.txt`.
 
 ## Output
-```
-Mock Output: S3 client initialized
-```
-*(Real output with `boto3`: `S3 client initialized`)*
+- sample1: local file is created, upload status printed.
+- sample2: bucket names or error message.
+- sample3: status file in `temp`.
 
 ## Explanation
-- **Cloud Storage Integration**: Sets up an S3 client for file operations.
-- **Logic**: Initializes a boto3 S3 client.
-- **Complexity**: O(1) for setup (network-dependent).
-- **Use Case**: Used for storing/retrieving files in cloud storage.
-- **Best Practice**: Secure credentials; handle exceptions; use versioning.
+- **Cloud Storage Integration**: builds workflows for cloud operations and fallbacks.
+- **Logic**: local E2E operations with optional S3 API calls.
+- **Complexity**: O(1) for setup; O(n) for bucket listing.
+- **Use Case**: scripts for upload/check tasks in CI.
+- **Best Practice**: keep AWS creds secure, handle network errors, use retries.

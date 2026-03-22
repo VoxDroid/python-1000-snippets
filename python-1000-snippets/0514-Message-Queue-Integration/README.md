@@ -1,31 +1,21 @@
 # Message Queue Integration
 
 ## Description
-This snippet demonstrates sending a message to RabbitMQ using `pika`.
+This snippet demonstrates message queue integration patterns with local queue simulation and optional RabbitMQ.
 
 ## Code
-```python
-# Note: Requires `pika`. Install with `pip install pika`
-try:
-    import pika
-    connection = pika.BlockingConnection(pika.ConnectionParameters("localhost"))
-    channel = connection.channel()
-    channel.queue_declare(queue="test")
-    print("Queue declared")
-    connection.close()
-except ImportError:
-    print("Mock Output: Queue declared")
-```
+- `SAMPLES/sample1.py`: local `deque` queue plus optional `pika` RabbitMQ connection check.
+- `SAMPLES/sample2.py`: producer/consumer with log file output to `temp/0514_mq_log.txt`.
+- `SAMPLES/sample3.py`: reads queue log and prints count.
 
 ## Output
-```
-Mock Output: Queue declared
-```
-*(Real output with `pika`: `Queue declared`)*
+- sample1: local queue consumed and RabbitMQ status.
+- sample2: processed entries persisted to temp file.
+- sample3: returned log entry count.
 
 ## Explanation
-- **Message Queue Integration**: Sets up a RabbitMQ queue.
-- **Logic**: Declares a queue using `pika`.
-- **Complexity**: O(1) for setup (network-dependent).
-- **Use Case**: Used for asynchronous task processing.
-- **Best Practice**: Handle connection errors; use durable queues; monitor queues.
+- **Message Queue Integration**: demonstrates queue patterns and queue-based persistence.
+- **Logic**: use local queue object + attempt to use `pika` if available.
+- **Complexity**: O(n) for queue processing.
+- **Use Case**: event-driven task orchestration or messaging middleware integration.
+- **Best Practice**: use durable queues, handle reconnects, and use acknowledgements in production.

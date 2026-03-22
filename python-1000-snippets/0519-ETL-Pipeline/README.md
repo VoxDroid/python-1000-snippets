@@ -1,30 +1,21 @@
 # ETL Pipeline
 
 ## Description
-This snippet demonstrates a simple ETL pipeline using `pandas`.
+This snippet demonstrates a simple ETL pipeline using pure Python operations.
 
 ## Code
-```python
-# Note: Requires `pandas`. Install with `pip install pandas`
-try:
-    import pandas as pd
-    raw = pd.DataFrame({"value": [1, None, 3]})
-    cleaned = raw.fillna(0)
-    transformed = cleaned["value"] * 2
-    print("ETL result:", transformed.tolist())
-except ImportError:
-    print("Mock Output: ETL result: [2, 0, 6]")
-```
+- `SAMPLES/sample1.py`: extract/transform/load in memory with missing values handling.
+- `SAMPLES/sample2.py`: writes output to `temp/0519_etl_output.txt`.
+- `SAMPLES/sample3.py`: writes ETL step stats to `temp/0519_etl_stats.txt`.
 
 ## Output
-```
-Mock Output: ETL result: [2, 0, 6]
-```
-*(Real output with `pandas`: `ETL result: [2, 0, 6]`)*
+- sample1: `ETL result: [2, 0, 6]`
+- sample2: output file with transformed values.
+- sample3: stats file with counts and sum.
 
 ## Explanation
-- **ETL Pipeline**: Extracts, transforms, and loads data.
-- **Logic**: Cleans missing values and doubles them.
-- **Complexity**: O(n) for n rows.
-- **Use Case**: Used for data preparation in analytics.
-- **Best Practice**: Log steps; handle errors; automate pipeline.
+- **ETL Pipeline**: data flow from source to target.
+- **Logic**: fill missing with default and apply transformation.
+- **Complexity**: O(n) where n is records.
+- **Use Case**: data engineering tasks.
+- **Best Practice**: use schema validation and log statuses.

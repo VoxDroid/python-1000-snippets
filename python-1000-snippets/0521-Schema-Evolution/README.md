@@ -1,30 +1,21 @@
 # Schema Evolution
 
 ## Description
-This snippet demonstrates handling schema changes using `pandas`.
+This snippet demonstrates schema evolution handling using pure Python structures.
 
 ## Code
-```python
-# Note: Requires `pandas`. Install with `pip install pandas`
-try:
-    import pandas as pd
-    old_df = pd.DataFrame({"col1": [1, 2]})
-    new_df = pd.DataFrame({"col1": [3, 4], "col2": [5, 6]})
-    merged = old_df.assign(col2=None)._append(new_df, ignore_index=True)
-    print("Schema evolved:", merged.columns.tolist())
-except ImportError:
-    print("Mock Output: Schema evolved: ['col1', 'col2']")
-```
+- `SAMPLES/sample1.py`: merges rows with evolving schema and outputs key columns.
+- `SAMPLES/sample2.py`: gives new field defaults to old rows.
+- `SAMPLES/sample3.py`: writes schema fields to `temp/0521_schema_fields.txt`.
 
 ## Output
-```
-Mock Output: Schema evolved: ['col1', 'col2']
-```
-*(Real output with `pandas`: `Schema evolved: ['col1', 'col2']`)*
+- sample1: `Schema evolved: ['col1', 'col2']` and merged rows.
+- sample2: `Evolved rows: ...` with default col2.
+- sample3: writes schema fields file.
 
 ## Explanation
-- **Schema Evolution**: Adapts to new columns in data.
-- **Logic**: Merges DataFrames with different schemas.
-- **Complexity**: O(n) for n rows.
-- **Use Case**: Used in data pipelines with changing schemas.
-- **Best Practice**: Validate merges; handle nulls; document changes.
+- **Schema Evolution**: adapts rows to new schema with backward compatibility.
+- **Logic**: build unified keyset across row variants.
+- **Complexity**: O(n) across row count.
+- **Use Case**: data migration and evolving events during ingestion.
+- **Best Practice**: keep schema versioning, check required fields, and provide defaults.

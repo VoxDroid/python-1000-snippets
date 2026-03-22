@@ -1,29 +1,21 @@
 # Data Warehouse Query
 
 ## Description
-This snippet demonstrates a simulated SQL query using `pandas`.
+This snippet demonstrates data warehouse query patterns using SQLite in pure Python.
 
 ## Code
-```python
-# Note: Requires `pandas`. Install with `pip install pandas`
-try:
-    import pandas as pd
-    df = pd.DataFrame({"sales": [100, 200, 300]})
-    result = df["sales"].sum()
-    print("Total sales:", result)
-except ImportError:
-    print("Mock Output: Total sales: 600")
-```
+- `SAMPLES/sample1.py`: creates an in-memory table and computes total sales.
+- `SAMPLES/sample2.py`: filters rows via SQL query.
+- `SAMPLES/sample3.py`: writes query summary to `temp/0518_warehouse_summary.txt`.
 
 ## Output
-```
-Mock Output: Total sales: 600
-```
-*(Real output with `pandas`: `Total sales: 600`)*
+- sample1: `Total sales: 600`
+- sample2: `Filtered quantities >5: [10, 30]`
+- sample3: summary file content.
 
 ## Explanation
-- **Data Warehouse Query**: Aggregates sales data.
-- **Logic**: Sums a column in a DataFrame.
-- **Complexity**: O(n) for n rows.
-- **Use Case**: Used for analytics in data warehouses.
-- **Best Practice**: Optimize queries; use indexes; validate results.
+- **Data Warehouse Query**: run SQL aggregation on table data.
+- **Logic**: use SQLite to simulate warehouse query execution.
+- **Complexity**: O(n) for row scans.
+- **Use Case**: analytics queries and ETL validation scripts.
+- **Best Practice**: index key columns, and use bulk operations for large data.
